@@ -1,0 +1,210 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{F://LaTeX-Files/shiet/kemie2.tex}
+\input{F://LaTeX-Files/shiet/macros.tex}
+\input{F://LaTeX-Files/shiet/vl.tex}
+
+\usepackage{awesomebox}
+%\setcounter{section}{1} % <--- FALLS KEINE SECTION DEFINIERT WIRD
+
+\tikzset{
+  mynode/.style={
+    draw, execute at begin node=\setlength{\baselineskip}{12pt}
+  }
+}
+
+\begin{document}
+
+\sidebar
+\miushead{Vorlesung 02 - PLMT}{Vorlesung 02}
+\par \vspace*{5mm}
+
+
+\section{Zweite Vorlesung}
+\subsection{Wiederholung letzte VL}
+
+Kontinuitätsgleichung:
+\begin{equation}
+A_1 \cdot v_1 = A_2 \cdot v_2 
+\end{equation}
+Gesetz von Bernoulli:
+\begin{equation}
+p_1 + \frac{\rho \cdot v_1^2}{2} + \rho \cdot g \cdot h_1 = p_2 + \frac{\rho \cdot v_2^2}{2} + \rho \cdot g \cdot h_2 = \text{const} = p_0
+\end{equation}
+Schubspannung:
+\begin{equation}
+\tau = \frac{F_R}{A} = \eta \cdot D
+\end{equation}
+wobei $D = \frac{dv}{dz}$
+
+\ppbig
+\vspace*{5mm}
+Für die Widerstandskraft $F_W$ gilt
+\begin{equation}
+F_W = c_W \cdot A_{quer} \cdot \frac{\rho \cdot v^2}{2}
+\end{equation}
+
+\tipbox{Die Vorderseite des Körpers, auf den die Strömung auftrifft ist für eine gute Strömung nicht so entscheidend wie die Rückseite des Körpers}
+
+\subsection{Laminare und Turbulente Strömungen}
+\begin{itemize}
+\item Gesamtwiderstand eines Körpers gegenüber einer Strömung setzt sich aus Reibungswiderstand $F_R$ und Wirbelwiderstand $F_W$ zusammen. \par 
+\begin{center}
+$F_{tot} = F_R + F_W$ 
+\end{center}
+\item Laminar: $F_{tot} = F_R$
+\item Turbulent: $F_{tot} = F_W$
+
+\end{itemize}
+\pp
+
+Die Reynolds-Zahl stellt das Verhältnis zwischen Trägheitskraft und Reibungskraft dar
+
+\begin{equation}
+Re_{crit} = \frac{\rho \cdot d \cdot v}{\eta} = 2300 
+\end{equation}
+\pagebreak
+\reversemarginpar
+\subsection{Laminare Rohrströmung mit Reibung (Newtonsches inkompressibles Fluid)}
+
+\begin{figure}[h]
+
+\centering
+
+\begin{tikzpicture}
+\node[anchor=west](a)at(0,0){
+\begin{tikzpicture}[every node/.style={align=center,draw=none}]
+\draw[miugray2!25,anchor=south.west,fill=miugray2!25] (0,0) rectangle (5,1.5); 
+\node[mynode,draw=none,scale=0.7,align=left](1) at (0.1,1.1){hoher Druck \\ \large $p_1$};
+\node[mynode,draw=none,scale=0.7,align=right](2) at (3.1,1.1){niedriger Druck \\ \large $p_2$};
+\draw[-] (0,1.5) to (5,1.5);
+\draw[-] (0,0) to (5,0);
+\draw[<->,miugray2] (0,-0.3) to node[below,scale=1.1] {$\frac{dp}{dx}$}(5,-0.3);
+\node(3) at (2.5,0.6) {$V_{max}$};
+\draw[->,line width=1mm,miugray2!50] (-0.5,0.6) to (3) to (5.7,0.6);
+\end{tikzpicture}
+};
+
+\node[anchor=west](b)at(7,0){
+\begin{tikzpicture}[every node/.style={align=center,draw=none}]
+\draw[miugray2!25,anchor=south.west,fill=miugray2!25] (0,0) rectangle (5,1.5); 
+\draw[-] (0,1.5) to (5,1.5);
+\draw[-] (0,0) to (5,0);
+\draw[->,line width=1mm,miugray2!50] (-0.5,0.6) to (2.2,0.6);
+\path[draw,-,fill=miugray2!50] (2.5,0.2) to [bend right=65, looseness=0.8](2.5,1.3) to [bend right=75, looseness=0.8](2.5,0.2);
+\path[draw,-,fill=miugray2!65] (2.5,0.2) to [bend right=65, looseness=0.8](2.5,1.3) to (2.9,1.3) to [bend left=65, looseness=0.8](2.9,0.2) to (2.5,0.2);
+\draw[-] (2.5,0.75) node [above,scale=0.7] {$r$} to (2.7,1);
+\node[scale=0.8](a)at(2.3,0.5){$A$};
+\draw[<->,miugray2] (0,-0.3) to node[below,scale=1.1] {$\frac{dp}{dx}$}(5,-0.3);
+\node(f1)at(0,1){$F_{p_1}$};
+\node(f2)at(4.2,1){$F_{p_2}$};
+\end{tikzpicture}
+};
+\end{tikzpicture}
+\caption{Laminare Rohrströmung}
+\end{figure}
+\ppbig
+
+Berechnung hydrostatischer Druck:
+\begin{align*}
+F_{p_1} &= p \cdot A \\
+&= p \cdot \pi \cdot r^2 \\
+F_{p_2} &= (p + dp) \cdot A \\ 
+&= (p + dp) \cdot \pi \cdot r^2 \\ \\
+F_p &= F_{p_1} - F_{p_2}\\
+\vdots & \qquad \qquad \vdots \\
+F_p &= -\pi \cdot r^2 \cdot dp
+\end{align*}
+Reibungswiderstand:
+\begin{align*}
+F_R &= \tau \cdot A_M  \\
+&= \tau \cdot 2\pi r \cdot dx \\
+&= \eta \cdot \frac{dv}{dr_R} 2\pi r \cdot dx
+\end{align*} 
+\ppbig
+
+
+
+
+
+
+
+
+
+Wir wissen, dass der Reibungswiderstand $F_R$ gleich des hydrostatischen Drucks $F_P$ ist:
+\marginnote[kürzen und umformen]{}[2cm]
+\marginnote[$C = \frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot R^2$]{}[5cm]
+\begin{align*}
+F_R &= F_P \\
+\eta \cdot \frac{dv}{dr_R} 2\pi r \cdot dx &= -\pi \cdot r^2 \cdot dp \\
+\vdots & \qquad \qquad \vdots \\
+\frac{dv}{dr_R}  &= -\frac{1}{2\eta} \cdot \frac{dp}{dx} \cdot r \\
+v_{(r)} &= \int_{}{} - \frac{1}{2\eta} \cdot \frac{dp}{dx} \cdot r \cdot dr_R \\
+v_{(r)} &= -\frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot r^2  +C \\
+v_{(r)} &= -\frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot r^2  +\frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot R^2 
+\end{align*}
+\marginnote[{\color{petunitext}Finale Schritte Herleitung \RA}]{}[0.6cm]
+\marginnote[$l$ = Länge des Rohres \pp $v = 0$ wenn innerer Radius $r$ gleich Mantelradius $R$\pp $v(r=R)=0$]{}[1.5cm]
+\begin{tcolorbox}[colback=petunidin!10,top=0pt,bottom=0pt,
+	boxrule = 1pt, colframe=petunidin!60,coltitle=white, title= Gesetz von Stokes:, fonttitle=\bfseries, boxsep=2pt ]
+\begin{align*}
+v_{(r)} &= \frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot (R^2-r^2) \\
+v_{(r)} &= -\frac{R^2}{4 \eta} \cdot \frac{dp}{dx} \left[1- (\frac{r}{R})^2 \right] \\
+v		 &= \frac{\Delta p}{4 \cdot l \cdot \eta} \cdot (R^2 - r^2) \\
+\end{align*}
+\end{tcolorbox}
+
+\pagebreak
+\reversemarginpar
+\marginnote[$v_{max}$ ist am größten, wenn $r = 0$]{}[1cm]
+Herleitung Hagen-Poiseuille:
+\begin{align*}
+v_{max} &= v (r = 0) \\
+		&= -\frac{R^2}{4 \eta} \cdot \frac{dp}{dx} \left[1- (\frac{0}{R})^2 \right]  \\
+		&= -\frac{R^2}{4 \eta} \cdot \frac{dp}{dx}
+\end{align*}
+Somit $v_{max} = 2 \cdot \overline{v}$ wobei $\overline{v}$ = mittlere Strömungsgeschwindigkeit \par \hfill \RA Geschwindigkeitsgradient verläuft quadratisch
+
+
+
+
+%======================#
+%					   #
+%   COPYPASTA STUFF	   #
+%					   #
+%======================#
+
+
+
+%\section{Erster Teil der Vorlesung}
+%\subsection{Allgemeines} 
+%\par \vspace*{-4mm}
+%\begin{multicols}{2}
+%\begin{itemize}
+%\item 1 Beispieltext
+%\item 2 \mrk{Beispieltext} der sich über mehrere Sätze erstreckt. Teils schwierig zu lesen
+%\item 3 Beispieltext der sich über mehrere Sätze erstreckt. Teils schwierig zu lesen
+%\item 4 Beispieltext der sich über mehrere Sätze erstreckt. Teils schwierig zu lesen
+%\item 5 Beispieltext 
+%\item 6 Beispieltext der sich über mehrere Sätze erstreckt. Teils schwierig zu lesen
+%\end{itemize}
+%\end{multicols}
+%
+%\section{Zweiter Teil der Vorlesung}
+%
+%\zit{Von Wem?}{Das eigentliche Zitat}
+%\klausur{text}
+%\winfo{text}
+%\notiz{text}
+%\qsbig{text}
+%\qssmall text
+%\farbig{text}
+%$\leadsto$ Verständnis
+%
+%
+%
+%\antwort{Look at this Antwoord}
+
+
+	
+\end{document}

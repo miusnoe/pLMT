@@ -1,0 +1,104 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{F://LaTeX-Files/shiet/kemie2.tex}
+
+%\usepackage{relsize}
+\input{F://LaTeX-Files/shiet/macros.tex}
+
+
+\input{F://LaTeX-Files/shiet/vl.tex}
+
+
+
+\setcounter{section}{1} % <--- FALLS KEINE SECTION DEFINIERT WIRD
+
+\begin{document}
+\AddToHookNext{shipout/background}{
+  \begin{tikzpicture}[remember picture,overlay, shift={(current page.south west)}]
+   \path[fill=miugray2!15](0,0) rectangle (4.5cm,\paperheight);
+  \end{tikzpicture} 
+}
+
+\reversemarginpar
+\marginnote{\color{miugray2}\textbf{\today}}[5mm]
+
+\miushead{Leguminosen - Produktbezogene Lebensmitteltechnologie}{Vorlesung}
+
+
+
+
+
+
+\section{Leguminosen}
+\subsection{Allgemeines}
+\marginnote{\color{miugray2}\textbf{Notiz.} Hier eine Notiz. Sie ist etwas länger als eine kurze Notiz.}
+\lipsum[1]
+
+
+\subsection{Stichpunkte}
+\begin{zitat}{Schieber}{} \small >>Wenn Sie nicht wissen, wie man ein Protein extrahiert, dann sind Sie im falschen Job! Das muss ich Ihnen in dieser Deutlichkeit so sagen. Es tut mir leid.<<
+\end{zitat}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item \textsc{{\color{petunitext!55!red}Tofuherstellung}}: Nicht nur Eiweiß fällt aus, sondern auch Fett
+\item Nebenströme der \textsc{Sojaproteinherstellung} wird häufig als Tiernahrung verwendet
+\item ''\textsc{Toasten}'' dient hauptsächlich dem Verdampfen der Extraktionsmittel
+\item \colorbox{miugray2!25}{Folie 33:} Ausfällung über isoelektrischen Punkt, ''Molke'' eigentlich keine Molke
+\item \colorbox{miugray2!25}{Folie 34:} Zuerst Alkalisieren(geht auch über starkes Säuern aber so günstiger) \RA Extraktion \par
+Danach durch \mrk{Säuern} bis zum isoelektrischen Punkt \RA Ausfällung
+\item Sojasauce enthält durch geröstetes Weizen viel Glutamat
+\end{itemize}
+\end{multicols}
+%\hrule
+
+\pagebreak
+\par \vspace*{8mm}
+%\section{Leguminosen}
+\subsection{Entstehung von Lysinoalanin}
+\begin{itemize}[itemsep=0pt]
+\item Nucleophile greifen an CH$_2$ an. Elektronenzug wird nachgegeben (Sauerstoff)
+\item Lysin essentielle AS \RA wichtig
+\item Auch möglich: Dehydroalanin + Cystein (SH = nucleophile Gruppe) \RL Lanthionin (Mehlverarbeitung)
+\par  \vspace*{1mm}
+\begin{center}
+\color{miugray2}
+\schemestart
+\chemname{\chemfig{HO-[:30](=[:90]O)-[:-30](<:[:-90]NH_2)-[:30]-[:-30]S-[:30]-[:-30](<[:-90]NH_2)-[:30](=[:90]O)-[:-30]OH}}{Lanthionin}
+\schemestop
+\color{miudiutex}
+\end{center}
+\vspace*{1mm}
+\item Beim Hydrolysieren von Proteinen gehen manche AS kaputt. Lysinoalanin bleibt aber ganz
+\item In Säuren oder Basen kriegen wir eine Racematisierung der Aminosäuren
+\item Gab eine Studie die belegt hat: Proteasen haben Schwierigkeiten beim Abbau von D-Aminosäuren
+\end{itemize}
+
+
+
+\subsection{Schieber Erklärung Aminosäuren}
+%\qs{\vspace*{-2mm} Ser,Thr sind eigentlich so wie Cystein (?)}
+%\begin{itemize}
+%%\item[{\color{petunidin!75}\Large \textbf{?}}~] Ser,Thr sind eigentlich so wie Cystein?
+%\item Valin 5 Buchstaben
+%\item Leucin 6 Buchstaben
+%\item \qssmall  Ser,Thr sind eigentlich so wie Cystein (?)
+%\end{itemize}
+\marginnote{\color{miugray2}Hier eine Notiz. Sie ist etwas länger als eine kurze Notiz.}
+\par \vspace*{-4mm}
+\tipbox{Valin - 5 Buchstaben/5 C-Atome \par Leucin - 6 Buchstaben/6 C-Atome}
+\qssmall Ser,Thr sind eigentlich so wie Cystein (?)
+
+
+\subsection{Weitere Infos}
+\klausur{
+\begin{itemize}
+\item isoelektrischer Punkt, Ausfällung, etc
+\item Lysinoalanin Entstehung (nicht wie die Elektronen hin und hergeschoben werden, sondern Konsequenzen)
+\item Daten im Detail nicht lernen \colorbox{miugray2!25}{(Folie 51)}
+\item Milchsäurebakterien sterben durch ihre eigenen Produkte ab und dann kommen Hefen (dieses Prinzip kennen)
+\end{itemize}
+}
+
+
+\end{document}

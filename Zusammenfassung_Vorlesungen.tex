@@ -1,0 +1,436 @@
+\documentclass[a4paper,11pt,twoside]{article}
+%\documentclass{book}
+
+\input{F://LaTeX-Files/shiet/kemie2.tex}
+\input{F://LaTeX-Files/shiet/macros.tex}
+\input{F://LaTeX-Files/shiet/vl.tex}
+\usepackage[strict]{changepage}
+\pagestyle{empty}
+
+
+\raggedbottom
+
+
+\usepackage{refcount}
+\usepackage{titletoc}
+\usepackage{tikzpagenodes}
+\usetikzlibrary{calc}
+\usetikzlibrary{patterns.meta}
+\usetikzlibrary{calc,shapes.symbols,decorations.pathreplacing}
+
+
+
+\tikzset{
+  mynode/.style={
+    draw, execute at begin node=\setlength{\baselineskip}{12pt}
+  }
+}
+
+%\newcounter{chapmark}
+%\setcounter{tocdepth}{1}
+
+\colorlet{mycolor}{petunitext}
+\colorlet{myc2}{miugray2!50!miudiutex}
+
+
+\titlecontents{section}%
+  [10mm]
+  {\vspace{1.5\baselineskip} \Large \sffamily \bfseries \color{myc2}}
+  {\hspace*{0em}\llap{\parbox[t]{40pt}{\hfill\color{mycolor}\thecontentspage}\hspace*{10pt}}}
+  {\thecontentspage}
+  {\sffamily \qquad }
+
+\titlecontents{subsection}%
+  [12mm]
+  {\vspace{.3\baselineskip}\large \sffamily \color{myc2}}
+  {\hspace*{0em}\llap{\parbox[t]{40pt}{\hfill\color{mycolor}\thecontentspage}\hspace*{10pt}}}
+  {\thecontentspage}
+  {\sffamily\qquad}
+
+\titlecontents{subsubsection}%
+  [14mm]
+  {\vspace{.3\baselineskip}\normalsize\sffamily \color{myc2}}
+  {\hspace*{0em}\llap{\parbox[t]{40pt}{\hfill\color{mycolor}\thecontentspage}\hspace*{10pt}}}
+  {\thecontentspage}
+  {\sffamily\qquad}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{document}
+
+
+\AddToHookNext{shipout/background}{
+\begin{tikzpicture}[remember picture, overlay]
+   \draw[miugray2!75,fill=miugray2!75, shift={(current page.north west)}] (-3,-2) rectangle (15,-5);
+%   \draw[petunitext,fill=petunitext, shift={(current page.north west)}] (15.2,-2) rectangle (15.4,-5);
+	\node[rotate=0,white!35, align=left,scale=1.8] (a)at(8.5,-4){\bfseries \sffamily  Prozessbezogene \\ \LARGE \bfseries \sffamily Lebensmitteltechnologie};
+\end{tikzpicture}
+}
+
+
+
+
+
+\par \vspace*{4cm}
+\renewcommand{\contentsname}{
+\Huge
+\color{petunitext}\textbf{I} \color{myc2}\textbf{Inhaltsverzeichnis}
+\normalsize
+
+}
+{
+  \hypersetup{linkcolor=myc2}
+\tableofcontents
+}
+
+\vfill
+
+
+
+
+
+
+
+
+
+
+
+\pagebreak
+\AddToHook{shipout/background}{
+\begin{tikzpicture}[remember picture, overlay]
+\checkoddpage
+\ifoddpage
+   \draw[petunitext,fill=petunitext, shift={(current page.south west)},yshift=2cm] (0,0)rectangle (1,1) node[below,xshift=-0.5cm,yshift=-2mm] {\color{white} \LARGE \bfseries \sffamily \thepage} ;
+%   \draw[miugray2,fill=miugray2, shift={(current page.north east)},yshift=-1cm] (0,0)rectangle (-1.7,-0.7) node[above,xshift=0.9cm,yshift=0mm] {\color{white} \large \bfseries \sffamily Excerpt} ;
+   \draw[miugray2!75,line width=4pt, shift={(current page.north west)}] (4.1,0) to (4.1,-1.2);
+\else
+   \draw[petunitext,fill=petunitext, shift={(current page.south east)},yshift=2cm] (0,0)rectangle (-1,-1) node[below,xshift=0.5cm,yshift=8mm] {\color{white} \LARGE \bfseries \sffamily \thepage} ;
+%   \draw[miugray2,fill=miugray2, shift={(current page.north east)},yshift=-1cm] (0,0)rectangle (-1.7,-0.7) node[above,xshift=0.9cm,yshift=0mm] {\color{white} \large \bfseries \sffamily Excerpt} ;
+   \draw[miugray2!25,fill=miugray2!25, shift={(current page.north east)}] (-3,0) rectangle (-2,-4);
+	\node[rotate=90,white!35] (a)at(18.5,-2.75){\LARGE \bfseries \sffamily PLMT};
+\fi
+\end{tikzpicture}
+}
+
+
+
+
+
+
+\section{Strömung}
+
+\subsection{Kontinuitätsgleichung}
+\subsubsection{Herleitung}
+Die Kontinuitätsgleichung ist eine fundamentale Gleichung in der Strömungsmechanik, die die Erhaltung der Masse in einem strömenden Fluid beschreibt.
+\pp
+Wir setzen die Massen gleich und substituieren sie im folgenden Schritt mit Volumen und Dichte.
+\begin{align*}
+m_1 &= m_2  \\
+\rho_1 \cdot V_1 &= \rho_2 \cdot V_2  \\
+\rho_1 \cdot A_1 \cdot v_1 &= \rho_2 \cdot A_2 \cdot v_2 \\
+\end{align*}
+Durch Umformen erhalten wir schließlich
+\frameit{\color{mycolor}
+\begin{align}
+\frac{v_2}{v_1} &=\frac{A_1}{A_2}
+\end{align}
+}
+
+\pp
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\draw[-,rounded corners=4pt] (0,0) to (2,0) to (2.5,-0.5) to (3.5,-0.5) to (3.5,-1)
+to (2.5,-1) to (2,-1.5) to (0,-1.5) to [bend left=25](-0.05,-0.05);
+\draw[-] (0.1,-1.4) to [bend right=25] (0,0);
+\draw[-,dashed](1,-1.5)to [bend right=35] node[left,yshift=-3pt,xshift=-1pt,scale=0.8]{$A_1$}(1,0);
+\draw[-,dashed,gray!50](1,-1.5)to [bend left=35] (1,0);
+\draw[-,dashed](2.75,-1)to [bend right=35] node[left,yshift=-3pt,xshift=-1pt,scale=0.8]{$A_2$}(2.75,-0.5);
+\draw[-,dashed,gray!50](2.75,-1)to [bend left=35](2.75,-0.5);
+\draw[->,miugray2](-0.5,-0.75)node[left]{$\dot{m}_1$} to (4,-0.75)node[right]{$\dot{m}_2$};
+\end{tikzpicture}
+\caption{Strömung durch Flaschenhals}
+\end{figure}
+
+\begin{multicols}{2}
+$\dot{m}$ = Massenstrom  \par 
+$V$ = Volumenstrom  \par
+$A$ = Fläche \par
+$\rho$ = Dichte des Fluids \par
+$p_1$, $p_2$ = spezifische statische Druckenergien \textit{(Gesamtenergie bleibt gleich)} \par
+\end{multicols}
+ \pp
+
+\subsubsection{Interpretation}
+Die Kontinuitätsgleichung besagt, dass die Menge an Fluid, die pro Zeiteinheit durch eine bestimmte Fläche fließt, konstant ist. Wenn die Fläche abnimmt, muss die Geschwindigkeit des Fluids zunehmen, um die gleiche Menge an Fluid pro Zeiteinheit zu transportieren.
+
+\vfill
+
+\pagebreak
+\subsection{Bernoulli}
+\subsubsection{Herleitung}
+Energieerhaltung:
+\begin{equation*}
+p_1 + \frac{\rho \cdot v_1^2}{2} = p_2 + \frac{\rho \cdot v_2^2}{2}
+\end{equation*}
+
+
+\ppbig
+ 
+ 
+Gesetz von Bernoulli (für verlustfreie Strömung eines inkompressiblen Fluids):
+\frameit{\color{mycolor}
+\begin{equation}
+p_1 + \frac{\rho \cdot v_1^2}{2}+ \rho \cdot g \cdot h_1 =
+p_2 + \frac{\rho \cdot v_1^2}{2}+ \rho \cdot g \cdot h_2 = p_0
+\end{equation}
+}
+ \pp Wobei hier $\rho \cdot g \cdot h$ die spezifische geodätische Energie ist. \par  $p_0$ ist der Gesamtdruck des Systems
+
+\begin{figure}[h]
+\centering
+\input{F://LaTeX-Files/realshit/bernoulli.tex}
+\caption{Bernoulli-Gesetz}
+\end{figure}
+
+\subsubsection{Interpretation}
+Die Bernoulli-Gleichung besagt, dass die Summe aus dem statischen Druck, dem dynamischen Druck und dem hydrostatischen Druck entlang einer Stromlinie konstant ist.
+
+\begin{itemize}
+
+\item Wenn die Geschwindigkeit eines Fluids zunimmt, nimmt der statische Druck ab.
+\item Wenn die Höhe eines Fluids zunimmt, nimmt der hydrostatische Druck zu.
+
+\end{itemize}
+
+\vfill
+
+\subsection{Viskosität}
+\begin{tabular}{ll}
+$A$ &= Fläche der Platte (auf die die Kraft $F_R$ wirkt)\\
+%$F$ &= Kraft zur Überwindung der inneren Reibung \\
+$F_R$ &= Kraft die auf Platte wirkt; Reibungswiderstand \\
+ 
+\end{tabular}
+\pp
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\draw[miugray2!25,anchor=south.west,fill=miugray2!25](0,0) rectangle (2.9cm,0.9cm);
+\node[miugray2](1)at(1,0.35){Liquid};
+\draw[](0,0)to(3,0);
+\draw[anchor=south.west,fill=white](1,1) rectangle (3cm,0.75cm);
+\draw[<->](0,0)to node[left]{$z$}(0,1);
+\draw[->](3,0.85)to node[above]{$v$}(5,0.85);
+\draw[->](4,0.7)to node[below]{$F_R$}(5.5,0.7);
+
+
+\end{tikzpicture}
+\caption{Platte auf Flüssigkeit}
+\end{figure}
+\pp
+Geschwindigkeitsgefälle zwischen Platte und Untersog:
+\begin{align*}
+F_R = \eta \cdot A \cdot \frac{dv}{dz}
+\end{align*}
+Schubspannung:
+\begin{align*}
+\tau &= \eta \cdot \frac{dv}{dz} = \eta \cdot D
+\end{align*}
+\frameit{\color{mycolor}
+\begin{align}
+\tau &= \frac{F_R}{A}
+\end{align}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Laminare und Turbulente Strömungen}
+\begin{itemize}
+\item Gesamtwiderstand eines Körpers gegenüber einer Strömung setzt sich aus Reibungswiderstand $F_R$ und Wirbelwiderstand $F_W$ zusammen. \par 
+\begin{center}
+$F_{tot} = F_R + F_W$ 
+\end{center}
+\item Laminar: $F_{tot} = F_R$
+\item Turbulent: $F_{tot} = F_W$
+
+\end{itemize}
+\pp
+
+Die Reynolds-Zahl stellt das Verhältnis zwischen Trägheitskraft und Reibungskraft dar
+
+\frameit{\color{mycolor}
+\begin{align}
+Re_{crit} = \frac{\rho \cdot d \cdot v}{\eta} = 2300 
+\end{align}
+}
+
+\tipbox{Die Vorderseite des Körpers, auf den die Strömung auftrifft ist für eine gute Strömung nicht so entscheidend wie die Rückseite des Körpers}
+
+%\pagebreak
+%\reversemarginpar
+
+
+
+
+\pagebreak
+\subsection{Laminare Rohrströmung mit Reibung}
+
+\begin{figure}[h]
+
+\centering
+
+\begin{tikzpicture}
+\node[anchor=west](a)at(0,0){
+\begin{tikzpicture}[every node/.style={align=center,draw=none}]
+\draw[miugray2!25,anchor=south.west,fill=miugray2!25] (0,0) rectangle (5,1.5); 
+\node[mynode,draw=none,scale=0.7,align=left](1) at (0.1,1.1){hoher Druck \\ \large $p_1$};
+\node[mynode,draw=none,scale=0.7,align=right](2) at (3.1,1.1){niedriger Druck \\ \large $p_2$};
+\draw[-] (0,1.5) to (5,1.5);
+\draw[-] (0,0) to (5,0);
+\draw[<->,miugray2] (0,-0.3) to node[below,scale=1.1] {$\frac{dp}{dx}$}(5,-0.3);
+\node(3) at (2.5,0.6) {$V_{max}$};
+\draw[->,line width=1mm,miugray2!50] (-0.5,0.6) to (3) to (5.7,0.6);
+\end{tikzpicture}
+};
+
+\node[anchor=west](b)at(7,0){
+\begin{tikzpicture}[every node/.style={align=center,draw=none}]
+\draw[miugray2!25,anchor=south.west,fill=miugray2!25] (0,0) rectangle (5,1.5); 
+\draw[-] (0,1.5) to (5,1.5);
+\draw[-] (0,0) to (5,0);
+\draw[->,line width=1mm,miugray2!50] (-0.5,0.6) to (2.2,0.6);
+\path[draw,-,fill=miugray2!50] (2.5,0.2) to [bend right=65, looseness=0.8](2.5,1.3) to [bend right=75, looseness=0.8](2.5,0.2);
+\path[draw,-,fill=miugray2!65] (2.5,0.2) to [bend right=65, looseness=0.8](2.5,1.3) to (2.9,1.3) to [bend left=65, looseness=0.8](2.9,0.2) to (2.5,0.2);
+\draw[-] (2.5,0.75) node [above,scale=0.7] {$r$} to (2.7,1);
+\node[scale=0.8](a)at(2.3,0.5){$A$};
+\draw[<->,miugray2] (0,-0.3) to node[below,scale=1.1] {$\frac{dp}{dx}$}(5,-0.3);
+\node(f1)at(0,1){$F_{p_1}$};
+\node(f2)at(4.2,1){$F_{p_2}$};
+\end{tikzpicture}
+};
+\end{tikzpicture}
+\caption{Laminare Rohrströmung mit Reibung}
+\end{figure}
+\ppbig
+
+Berechnung hydrostatischer Druck:
+\begin{align*}
+F_{p_1} &= p \cdot A \\
+&= p \cdot \pi \cdot r^2 \\
+F_{p_2} &= (p + dp) \cdot A \\ 
+&= (p + dp) \cdot \pi \cdot r^2 \\ \\
+F_p &= F_{p_1} - F_{p_2}\\
+\vdots & \qquad \qquad \vdots \\
+F_p &= -\pi \cdot r^2 \cdot dp
+\end{align*}
+Reibungswiderstand (Newtonsches inkompressibles Fluid):
+\begin{align*}
+F_R &= \tau \cdot A_M  \\
+&= \tau \cdot 2\pi r \cdot dx \\
+&= \eta \cdot \frac{dv}{dr_R} 2\pi r \cdot dx
+\end{align*} 
+\ppbig
+
+
+
+
+
+
+
+
+
+Wir wissen, dass der Reibungswiderstand $F_R$ gleich des hydrostatischen Drucks $F_P$ ist:
+\marginnote[kürzen und umformen]{}[2cm]
+\marginnote[$C = \frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot R^2$]{}[5cm]
+\begin{align*}
+F_R &= F_P \\
+\eta \cdot \frac{dv}{dr_R} 2\pi r \cdot dx &= -\pi \cdot r^2 \cdot dp \\
+\vdots & \qquad \qquad \vdots \\
+\frac{dv}{dr_R}  &= -\frac{1}{2\eta} \cdot \frac{dp}{dx} \cdot r \\
+v_{(r)} &= \int_{}{} - \frac{1}{2\eta} \cdot \frac{dp}{dx} \cdot r \cdot dr_R \\
+v_{(r)} &= -\frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot r^2  +C \\
+v_{(r)} &= -\frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot r^2  +\frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot R^2 
+\end{align*}
+%\marginnote[{\color{petunitext}Finale Schritte Herleitung \RA}]{}[0.6cm]
+%\marginnote[$l$ = Länge des Rohres \pp $v = 0$ wenn innerer Radius $r$ gleich Mantelradius $R$\pp $v(r=R)=0$]{}[1.5cm]
+%\begin{tcolorbox}[colback=petunidin!10,top=0pt,bottom=0pt,
+%	boxrule = 1pt, colframe=petunidin!60,coltitle=white, title= Gesetz von Stokes:, fonttitle=\bfseries, boxsep=2pt ]
+
+
+
+
+\pagebreak
+\subsection{Gesetz von Stokes}
+
+Daraus folgt das Gesetz von Stokes:
+\begin{align*}
+v_{(r)} &= \frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot (R^2-r^2) \\
+v_{(r)} &= -\frac{R^2}{4 \eta} \cdot \frac{dp}{dx} \left[1- (\frac{r}{R})^2 \right] \\
+\end{align*}
+
+\frameit{\color{mycolor}
+\begin{align}
+v		 &= \frac{\Delta p}{4 \cdot l \cdot \eta} \cdot (R^2 - r^2)
+\end{align}
+}
+%\end{tcolorbox}
+
+
+%\marginnote[$v_{max}$ ist am größten, wenn $r = 0$]{}[1cm]
+
+\subsection{Gesetz von Hagen-Poiseuille}
+
+Herleitung Hagen-Poiseuille:
+\begin{align*}
+v_{max} &= v (r = 0) \\
+		&= -\frac{R^2}{4 \eta} \cdot \frac{dp}{dx} \left[1- (\frac{0}{R})^2 \right]  \\
+		&= -\frac{R^2}{4 \eta} \cdot \frac{dp}{dx}
+\end{align*}
+Somit $v_{max} = 2 \cdot \overline{v}$ wobei $\overline{v}$ = mittlere Strömungsgeschwindigkeit \par \hfill \RA Geschwindigkeitsgradient verläuft quadratisch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

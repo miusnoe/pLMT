@@ -1,0 +1,676 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{F://LaTex-Files/shiet/basic.tex}
+\input{F://LaTeX-Files/shiet/colors.tex}
+\input{F://LaTeX-Files/shiet/SI.tex}
+\input{F://LaTeX-Files/shiet/plmtuebungpreamble.tex}
+\usepackage[table]{xcolor}
+\usepackage{pgfplots}
+    \pgfplotsset{
+        every axis post/.style={
+	yticklabel=\empty,
+	xticklabel=\empty,
+	y label style={at={(axis description cs:-0.2,1.1)}},
+	x label style={at={(axis description cs:1.05,0.2)}},
+	ticks=none,
+	width=6cm,
+	axis lines=middle,
+%	xlabel near ticks,
+        },
+    }
+\usetikzlibrary{positioning, arrows.meta, calc}
+
+\usepackage{relsize}
+\usepackage{cancel}
+
+\newif\ifshowme
+\showmetrue
+
+
+\DeclareRobustCommand{\symPumpe}{%
+    \tikz[baseline=-0.5ex, line width=0.8pt, x=1.2ex, y=1.2ex]{
+        \draw[fill=white] (0,0) circle (1);
+        \draw (0,1) -- (1,0);
+        \draw (0,-1) -- (1,0);
+    }% 
+}
+
+\DeclareRobustCommand{\symVentil}{%
+    \tikz[baseline=-0.5ex, line width=0.8pt, x=1.2ex, y=1.2ex]{
+        \draw[fill=white] (-0.5,-0.6) -- (0.5,0.6) -- (-0.5,0.6) -- (0.5,-0.6) -- cycle;
+        \draw (0,0) -- (0.8,0);
+        \draw (0.8,-0.3) -- (0.8,0.3);
+    }%
+}
+
+\DeclareRobustCommand{\symBogen}{%
+    \tikz[baseline=-0.5ex, line width=0.8pt, x=1.2ex, y=1.2ex]{
+        \draw[rounded corners=0.6ex] (0, 1) |- (1, 0);
+    }%
+}
+
+\begin{document}
+\newgeometry{top=1.8cm,bottom=4cm,left=1.5cm,right=7.5cm,marginparsep=-2.00cm,marginparwidth=4.75cm}
+
+
+\bckgrnd
+
+\begin{center}
+\LARGE
+\color{white}
+\textbf{Übung 03} \par \vspace*{2mm}
+\large \color{miugray} \textbf{Prozessbezogene Lebensmitteltechnologie}
+\end{center}
+\par 
+\vspace*{6mm}
+
+
+\color{miudiutex}
+\section*{Strömungslehre II}
+
+\subsection*{Aufgabe 1}
+Öl mit einer Viskosität von 0,031 kg/m$\cdot$s und einer Dichte von 850 kg/m$^3$ soll mit 13 m$^3$/h bei einem zulässigen Druckabfall von 0,1 bar laminar durch ein kreisrundes Rohr der Länge $l$ = 100 m geleitet werden. \par 
+\begin{itemize}
+\item Wie groß ist die Nennweite?
+\item Ist die Annahme einer laminaren Strömungsform berechtigt?
+\end{itemize}
+ 
+
+\ifshowme
+\antwort{
+Umformen:
+\begin{align*}
+P &= \frac{8 \eta \cdot \Delta l}{\pi \cdot r^4} \cdot \dot{V}^2 \\
+\dot{V} \cdot \Delta p &=  \frac{8 \eta \cdot \Delta l}{\pi \cdot r^4} \cdot \dot{V}^2 \\
+ \Delta p &=  \frac{8 \eta \cdot \Delta l}{\pi \cdot r^4} \cdot \dot{V} \\
+r^4 &=  \frac{8 \eta \cdot \Delta l}{\pi \cdot  \Delta p} \cdot \dot{V} \\
+r &= \sqrt[4]{\frac{8 \eta \cdot \Delta l}{\pi \cdot  \Delta p} \cdot \dot{V}}
+\end{align*}
+Werte einsetzen:
+\begin{align*}
+r &= \sqrt[4]{\frac{8 \cdot 0,031 ~\text{kg/ms} \cdot 100~\text{m}}{\pi \cdot  0,1 \text{bar}} \cdot 13~\text{m}^3/\text{h}} \\
+r &= \sqrt[4]{\frac{8 \cdot 0,031 ~\text{kg/ms} \cdot 100~\text{m}}{\pi \cdot  10.000 ~\text{kg/ms}^2} \cdot 0,00361~\text{m}^3/\text{s}}\\
+r &\approx 0,041~\text{m} \\
+d &\approx 0,082~\text{m} \\
+d &\approx 8,2~\text{cm}
+\end{align*}
+Schauen ob Strömung laminar oder turbulent:
+\begin{align*}
+\text{Re}_{\text{krit}} = \frac{\rho d v}{\eta} = 2300
+\end{align*}
+$v$ ausrechnen:
+\begin{align*}
+v = \frac{\dot{V}}{A} \rightarrow v &= \frac{13~\text{m}^3/\text{h}}{\pi \cdot (0,041~\text{m})^2} \\
+&\approx 2461,65~\text{m/h} \\
+&\approx 0,684~\text{m/s} 
+\end{align*}
+Werte einsetzen:
+\begin{align*}
+\frac{850~\text{kg/m}^3 \cdot 0,082~\text{m} \cdot 0,684~\text{m/s}}{0,031~\text{kg/ms}} \approx 1537,9 \rightarrow {laminar}
+\end{align*}
+
+
+}
+\pagebreak
+\else
+\fi
+
+
+\subsection*{Aufgabe 2}
+Wasser von 20 °C ($\eta$ = 10$^{-3}$ Pa s ; $\rho$ = 1.000 kg/m$^3$) fließt mit einem Volumenstrom von 600 m$^3$/h durch ein Stahlrohr ($\xi$ = 0,0113) mit der Nennweite 200 mm. \par 
+\begin{itemize}
+\item Wie groß ist der Druckverlust bei einer Leitungslänge von 1.000 m?
+
+\ifshowme
+\antwort{
+$\xi$ von Stahlrohr $\approx$ 0,0113 \par 
+$\overline{v}$ ausrechnen:
+\begin{align*}
+\overline{v} = \frac{\dot{V}}{A} \rightarrow \overline{v} &= \frac{600~ \m^3/\text{h}}{\pi \cdot (0,1 \mskip3mu \text{m})^2} \\
+ &\approx 19.098,6~\text{m/h} \\
+ &\approx 5,3~\text{m/s}  \\ \\
+\end{align*}
+Wir nutzen die Formel für Druckabfall im Rohr:
+\begin{align*}
+\Delta p &= \xi \cdot \frac{l}{d} \cdot \frac{1}{2} \rho \cdot \overline{v}^2\\
+\end{align*}
+Werte einsetzen:
+\begin{align*}
+\Delta p &= 0,0113 \cdot \frac{1.000~\text{m}}{0,2~\text{m}} \cdot \frac{1}{2} \cdot 1.000 ~\text{kg/m}^3 \cdot (5,3~\text{m/s})^2 \\ &\approx 793.542~\text{Pa}\\
+&\approx 7,94 \text{bar}
+\end{align*}
+
+}
+\else
+\fi
+
+\item Wenn die \splmt{Rohrreibungszahl} nicht angegeben wäre, wie könnten Sie diese herausfinden?
+
+\ifshowme
+\antwort{
+Über zum Teil aufwendige Gleichungen (Colebrook, Nikuradse, etc.) oder aber über das Auslesen eines \textbf{Moody-Diagramms}.
+}
+\else
+\fi
+
+\item Welche Faktoren fließen in die \splmt{Rohrreibungszahl} ein?
+
+
+\ifshowme
+\antwort{
+Die \textbf{Rohrreibungszahl} ist Abhängig von:
+\begin{itemize}
+\item[$\triangleright$] relativer Rauhigkeit $e$ (Quotient aus Wandrauhigkeit und Rohrinnendurchmesser $k/d$) 
+\item[$\triangleright$] Reynoldszahl
+\end{itemize}
+}
+\else
+\fi
+\end{itemize}
+\marginnote[]{ \small 
+Der dimensionslose \fplmt{Widerstandsbeiwert $\zeta$} beschreibt den Druckverlust speziell für einzelne Bauteile, während die dimensionslose \fplmt{\mbox{Rohrreibungszahl $\xi$}} (oder auch $\lambda$ in anderer Literatur) den kontinuierlichen Reibungsverlust entlang eines geraden Rohres beschreibt. \pp 
+}[-4.75cm]
+
+
+
+
+
+\subsection*{Aufgabe 3}
+Der Volumenstrom von Bier, das durch ein Rohr fließt, beträgt 1,8 L/s. Der
+Innendurchmesser des Rohres beträgt 3 cm. Das Bier hat eine Dichte von 1.100 kg/m$^3$.
+
+\begin{itemize}
+\item Berechnen Sie die durchschnittliche Geschwindigkeit von Bier in m/s und seinen Massendurchfluss in kg/s.
+\item Wie hoch ist die Geschwindigkeit bei gleichem Volumenstrom, wenn ein anderes Rohr mit einem Durchmesser von 1,5 cm verwendet wird?
+\end{itemize}
+
+\ifshowme
+\antwort{
+$\dot{V} = 1,8 ~$L$/$s $ = 0,0018~$m$^3/$s \par 
+$r=0,015~$m \pp
+Massendurchfluss:
+\begin{align*}
+0,0018~\m^3/\s \cdot 1100~\kg/\m^3 = 1,98~\kg/\s
+\end{align*}
+Mittlere Geschwindigkeiten für versch. Durchmesser:
+\begin{align*}
+\overline{v} = \frac{\dot{V}}{A} \rightarrow \qquad \overline{v} &= \frac{0,0018~\m^3/s}{\pi \cdot (0,015~\text{m})^2} \qquad = 2,546~\m/\s \\
+\overline{v} &= \frac{0,0018~\m^3/\s}{\pi \cdot (0,0075~\text{m})^2} \qquad = 10,19~\m/\s \\
+\end{align*}
+}
+\pagebreak
+\else
+\fi
+
+
+%\pagebreak
+
+
+%\subsection*{Aufgabe 4}
+%\tcbdocmarginnote[colback=unigelb!50,colframe=uniblau]{
+%Wiederholungsaufgabe
+%}
+%Ein Edelstahltank mit einem Durchmesser von 3 m enthält Wein. Der Tank wird bis zu
+%einer Höhe von 5 m befüllt. Eine Auslassöffnung mit einem Durchmesser von 10 cm wird
+%geöffnet, um den Wein abzulassen. \par Berechnen Sie die Austragsgeschwindigkeit des
+%Weins, unter der Annahme, dass der Fluss gleichmäßig und reibungslos ist. Wie lange
+%dauert es, bis der Tank vollständig entleert ist?
+%
+%
+%\ifshowme
+%\antwort{
+%Toricelli:
+%\begin{align*}
+%t = \sqrt{\frac{2}{g}} \cdot \frac{A_1}{A_2} \cdot (\sqrt{h_{\alpha}}-\sqrt{h_{\omega}})
+%\end{align*}
+%Werte einsetzen:
+%\begin{align*}
+%t = \sqrt{\frac{2}{9,81~\m/\s^2}} \cdot \frac{\pi \cdot (1,5~\m)^2}{\pi \cdot (0,05~\m)^2} \cdot \sqrt{5~\m} \qquad = 908,67~\s
+%\end{align*}
+%}
+%\pagebreak
+%\else
+%\fi
+
+
+
+\subsection*{Aufgabe 4}
+Zeichnen Sie die Fließ- und Viskositätskurve einer newton'schen Flüssigkeit, einer
+strukturviskosen Flüssigkeit und einer dilatanten Flüssigkeit.
+\ppbig
+
+
+\marginnote[]{
+\small Die \fplmt{Schubspannung $\tau$} gibt an, welche (horizontale) Kraft $F_R$ wir auf eine gegebene Fläche $A$ ausüben, um diese parallel zu verschieben. \par Die \fplmt{Scherrate $\dot{\gamma}$} gibt an, wie sich die Fließgeschwindigkeit in $x$-Richtung über die Höhe $z$ aufgrund der ausgeübten Kraft verändert.
+}[-1.65cm]
+\begin{marginfigure}[2.5cm]
+\begin{tikzpicture}[scale=1.6]
+
+\draw[miugray!50,anchor=south.west,fill=miugray!50](0,0) -- (0.5,0.75) -- (2,0.75) -- (1.5,0) -- cycle ;
+\draw[dashed,thick](0,0)--(0.5,0.75);
+\draw (0,0.3) to [bend left=45] node [above,xshift=1pt,scale=0.8] {$\gamma$} (0.2,0.3);
+%rectangle (2.9cm,0.9cm);
+
+\draw[->, miugray!50!black, dashed] (0.125,0.1875) -- (1.625,0.1875);
+\draw[->, miugray!50!black, dashed] (0.25,0.375)-- (1.75,0.375);
+\draw[->, miugray!50!black, dashed] (0.375,0.5625)-- (1.875,0.5625);
+
+\draw[miugray!50,fill=miugray!50] (0.75, 0.23) rectangle (1.25,0.52);
+\node[uniblau!75!black,scale=0.8](1)at(1,0.375){\bfseries \sffamily Fluid};
+\draw[->](0,0)to(2.5,0)node[right]{$x$};
+\draw[anchor=south.west,fill=miugray](0.5,0.9) rectangle node[above,yshift=5pt]{$A$} (2cm,0.75cm);
+\draw[<->](0,0)to node[left]{$z$}(0,0.75);
+\draw[->](2,0.85)to node[above]{$v$}(3,0.85);
+\draw[->](2.5,0.7)to node[below]{$F_R$}(3.5,0.7);
+
+
+\end{tikzpicture}
+\caption{Modellvorstellung zur Bestimmung der dynamischen Viskosität 
+%;eine ebene Platte wird mit einer gewissen Kraft auf einem Flüssigkeitsfilm parallel zur Unterlage verschoben
+}
+\end{marginfigure}
+
+
+\begin{tikzpicture}[scale=3]
+\node(a)at(0,0){
+\begin{tikzpicture}[scale=2]
+\node[align=center,scale=1](1)at(0.5,1.5){Newtonsch};
+\draw (0,1)node[right]{$\tau$} -- (0,0) -- (1,0)node[right,scale=0.8]{$\dot{\gamma}$};
+\draw[yshift=-1.5cm] (0,1)node[right]{$\eta$} -- (0,0) -- (1,0)node[right,scale=0.8]{$\dot{\gamma}$};
+\ifshowme
+{
+\draw[black!80] (0,0) -- (0.9,0.9);
+\draw[black!80,yshift=-1.5cm] (0,0.5) -- (0.9,0.5);
+}
+\else
+\fi
+\end{tikzpicture}
+};
+\node(b)at(1,0){
+\begin{tikzpicture}[scale=2]
+\node[align=center,scale=1](1)at(0.5,1.5){Scherverdünnend};
+\draw (0,1)node[right]{$\tau$} -- (0,0) -- (1,0)node[right,scale=0.8]{$\dot{\gamma}$};
+\draw[yshift=-1.5cm] (0,1)node[right]{$\eta$} -- (0,0) -- (1,0)node[right,scale=0.8]{$\dot{\gamma}$};
+\ifshowme
+{
+\draw[black!80] (0,0) to [bend left=30] (0.9,0.9);
+\draw[black!80,yshift=-1.5cm] (0,0.9) to [bend right=45] (0.9,0.3);
+}
+\else
+\fi
+\end{tikzpicture}
+};
+\node(c)at(2.1,0){
+\begin{tikzpicture}[scale=2]
+\node[align=center,scale=1](1)at(0.5,1.5){Scherverdickend};
+\draw (0,1)node[right]{$\tau$} -- (0,0) -- (1,0)node[right,scale=0.8]{$\dot{\gamma}$};
+\draw[yshift=-1.5cm] (0,1)node[right]{$\eta$} -- (0,0) -- (1,0)node[right,scale=0.8]{$\dot{\gamma}$};
+\ifshowme
+{
+\draw[black!80] (0,0) to [bend right=30] (0.9,0.9);
+\draw[black!80,yshift=-1.5cm] (0,0.3) to [bend right=30] (0.9,0.9);
+}
+\else
+\fi
+\end{tikzpicture}
+};
+\node[scale=0.9,rotate=90](fl)at(-0.75,0.45){Fließkurve};
+\node[scale=0.9,rotate=90,align=left](vi)at(-0.75,-0.65){Viskositäts-\\kurve};
+\end{tikzpicture}
+
+
+
+
+%\subsection*{Aufgabe 6}
+%\tcbdocmarginnote[colback=unigelb!50,colframe=uniblau]{
+%Wiederholungsaufgabe
+%}
+%In \figurename{~\ref{masse}} (auf der nächsten Seite) sehen Sie den fünfstufigen Herstellungsprozess eines Fertigprodukts. 
+%\begin{itemize}
+%\item Bestimmen Sie den Massenstrom von Produkt $P$
+%\item Bestimmen Sie den Massenstrom von Rücklauf $A$
+%\end{itemize}
+%
+%\antwort{
+%Produkt $P$:
+%\begin{align*}
+%F = D + W + K + P
+%\end{align*}
+%Für die Trockensubstanz gilt:
+%\begin{align*}
+%0,1 F &=  0 D + 0 W +0,2 K + 0,8 P \\
+%0,1 F &=  0 + 0 +0,2 \cdot 450 + 0,8 P \\
+%150 &= 90 + 0,8 P \\
+%P &= 75 ~\text{kg/h}
+%\end{align*}
+%Rücklauf $A$:
+%\begin{align*}
+%E &= A + K \\
+%0,1 E &= 0,05 A + 0,2 K \\
+%0,1 (A+K) &= 0,05 A + 90 \\ 
+%0,1 + 45 &= 0,05 A + 90 \\
+%0,05 A &= 45 \\
+%A &= 900 ~\text{kg/h}\\ \\
+%E &= 1.350 ~\text{kg/h}
+%\end{align*}
+%}
+%
+%\begin{figure}
+%%\resizebox{.5\textwidth}{!}{
+%\begin{tikzpicture}[font=\sffamily, >={Latex[length=6pt, width=5pt]}]
+%
+%    % --- Definition der Stile für die Blöcke ---
+%    \tikzset{
+%        block/.style={rectangle, draw=black, minimum width=1.6cm, minimum height=1.4cm, align=center},
+%		blaublock/.style={block, fill=uniblau!50},
+%        grayblock/.style={block, fill=miugray!50},
+%        redblock/.style={block, fill=miugray}
+%    }
+%
+%    % --- Positionierung der Blöcke ---
+%    \node[blaublock] (I)   at (0, 0)      {I};
+%    \node[redblock]  (II)  at (0, -2.5)   {II};
+%    \node[redblock]  (III) at (-1.5, -5.0){III};
+%    \node[redblock]  (IV)  at (1.5, -5.0) {IV};
+%    \node[grayblock] (V)   at (1.5, -7.5) {V};
+%
+%    % --- Systemgrenze (gestrichelte Linie) ---
+%    \draw[dashed, semithick, uniblau] (-3.2, 1) rectangle (3.2, -8.7);
+%    \node[above left, inner sep=2pt] at (3.2, 1.2) {\color{uniblau}Systemgrenze};
+%
+%    % --- Stoffströme (Pfeile & Beschriftungen) ---
+%    
+%    % Feed F
+%    \draw[->] (-4.8, 0) -- (-2.7, 0);
+%    \draw[->] (-2.7, 0) -- (I.west);
+%    \node[left, align=left, inner sep=2pt] at (-5, 0) {Feed F \\ 1000 kg/h\\15\% TS\\85\% Wasser};
+%
+%    % Stream D
+%    \draw[->] (I.east) -- (4.2, 0);
+%    \node[right, align=left, inner sep=2pt] at (4.5, 0) {D \\ 150 kg/h\\0\% TS};
+%
+%    % Stream B
+%    \draw[->] (I.south) -- (II.north) node[midway, right] {B};
+%
+%    % Stream C, E und G (Aufteilung)
+%    \draw[->]  (II.south) -- (0, -3.75) node[midway, right] {C};
+%    \draw[-]  (0, -3.75) -- (-1.5, -3.75) node[midway, below,xshift=5pt] {E 10\% TS};
+%    \draw[->] (-1.5, -3.75) -- (III.north);
+%    \draw[-]  (0, -3.75) -- (1.5, -3.75) node[right] {G};
+%    \draw[->] (1.5, -3.75) -- (IV.north);
+%
+%    % Stream A (Rückführung)
+%    \draw[-]  (III.west) -- (-2.7, -5.0);
+%    \draw[->] (-2.7, -5.0) -- (-2.7, 0);
+%    \node[right, align=left] at (-2.7, -2.5) {A\\5\% TS};
+%
+%    % Stream R (Rückführung)
+%    \draw[-]  (IV.east) -- (2.7, -5.0) -- (2.7, -2.5);
+%    \draw[->] (2.7, -2.5) -- (II.east);
+%    \node[left] at (2.7, -3.75) {R};
+%
+%    % Stream L
+%    \draw[->] (IV.south) -- (V.north) node[midway, right] {L};
+%
+%    % Stream K
+%    \draw[->] (III.south) -- (-1.5, -9.0) node[below, align=left] {K\\450 kg/h\\20\% TS};
+%
+%    % Stream Product P
+%    \draw[->] (V.south) -- (1.5, -9.0) node[below, align=left] {Produkt P\\80\% TS};
+%
+%    % Stream W
+%    \draw[->] (V.east) -- (4.2, -7.5) node[right, align=left] {W\\Wasser};
+%
+%\end{tikzpicture}
+%%}
+%
+%\caption{Schematische Darstellung des Herstellungsprozesses. Abgeändert nach Singh und Heldman.}
+%\label{masse}
+%\end{figure}
+
+
+\pp
+\subsection*{Aufgabe 5}
+
+In \figurename{~\ref{rohr}} können Sie den Aufbau eines Pumpensystems mit Rohrleitungen und diversen Bauteilen sehen.
+ 
+
+
+
+
+\begin{marginfigure}[-1cm]
+\resizebox{1.25\columnwidth}{!}{
+%\begin{figure}[h]
+\begin{tikzpicture}[>=Stealth, font=\sffamily, line width=1pt]
+
+% --- Colors for handwritten notes ---
+\colorlet{pencolor}{black!50}
+
+% --- Macros ---
+% Macro for the water level symbol
+\newcommand{\waterlevel}[2]{
+    \begin{scope}[shift={(#1,#2)}]
+        \draw[line width=1pt] (-0.3, 0) -- (0.3, 0);
+        \draw[line width=1pt] (0, 0) -- (-0.15, 0.25) -- (0.15, 0.25) -- cycle;
+        \draw[line width=1pt] (-0.2, 0.25) -- (0.2, 0.25);
+        \draw[line width=1pt,rotate=90,xshift=-4pt,yshift=-10.2pt] (-0.15, 0.4) .. controls (-0.05, 0.4) and (0.05, 0.3) .. (0.15, 0.4);
+    \end{scope}
+}
+
+% Macro for a vertical valve (Bow-tie with T-handle)
+\newcommand{\valveV}[2]{
+    \begin{scope}[shift={(#1,#2)}]
+        \draw[line width=1pt, fill=white] (-0.2, -0.3) -- (0.2, 0.3) -- (-0.2, 0.3) -- (0.2, -0.3) -- cycle;
+        \draw[line width=1pt] (0, 0) -- (0.4, 0);
+        \draw[line width=1pt] (0.4, -0.15) -- (0.4, 0.15);
+    \end{scope}
+}
+
+% --- Tanks ---
+% Tank 1 (Left, open)
+\draw (0, 3) -- (0, 0) -- (3, 0) -- (3, 3);
+\draw (0, 1.5) -- (3, 1.5); % Water surface
+\waterlevel{1.5}{1.5}
+%\node[pencolor, right] at (1.8, 0.8) {Geschw. 0};
+%\draw[pencolor, thin] (1.6, 0.8) -- (1.5, 1.2); % indicator line
+
+% Tank 2 (Right Top, closed cylinder)
+\begin{scope}[shift={(7, 8)}]
+    \draw (-2.5, -1) -- (1.25, -1);
+    \draw (-2.5, 1) -- (1.25, 1);
+    \draw (-2.5, -1) arc (270:90:0.5 and 1);
+    \draw (1.25, -1) arc (-90:90:0.5 and 1);
+    
+    \draw (-2.9, 0.5) -- (1.65, 0.5); % Water surface inside
+    \waterlevel{1}{0.5}
+    \node[align=left] at (0, -0.2) {$p_B = 2 \text{ bar}$\\ Überdruck};
+\end{scope}
+
+% --- Pipes ---
+% Path from Tank 1 to Pump
+%\draw (1.5, 0) -- (1.5, -1.7) -- (1.5, -1.7) to[bend right=45] (1.8, -2)--(3.7,-2) to[bend left=45] (4,-2.3) -- (4, -2.3)  -- (4, -3.7) to[bend right=45]  (4.3, -4) -- (5, -4);
+\draw (1.5, 0) -- (1.5, -1.7) -- (1.5, -1.7) to[bend right=45] (1.8, -2)--(3.7,-2) to[bend left=45] (4,-2.3) -- (4, -2.3)  -- (4, -3.7) to[bend right=45]  (4.3, -4);
+% Path from Pump to Tank 2
+\draw (4, -4) -- (6.7, -4) to[bend right=45] (7, -3.7)-- (7, 7);
+
+% --- Pump ---
+\draw[fill=white,xshift=-1.4cm] (5.5, -4) circle (0.5);
+% Pump inner triangle symbol (flow direction)
+%\draw (5.2, -4.2) -- (5.8, -4.2) -- (5.5, -3.6) -- cycle;
+\draw[xshift=-1.4cm] (5.5,-3.5) -- (6,-4);
+\draw[xshift=-1.4cm] (5.5,-4.5) -- (6,-4);
+
+% --- Break in vertical pipe ---
+\fill[white] (6.5, 2.3) rectangle (7.5, 2.7);
+\draw (6.8, 2.2) -- (7.2, 2.4);
+\draw (6.8, 2.6) -- (7.2, 2.8);
+
+% --- Valves ---
+\valveV{1.5}{-1}     % Under Tank 1
+\valveV{4}{-3}       % Before Pump
+\valveV{7}{-2.5}     % After Pump
+\valveV{7}{6}        % Before Tank 2
+
+% --- Dimensions and Labels ---
+% 5m height dimension
+\draw[thin] (3, 1.5) -- (5.5, 1.5);
+%\draw[thin] (4.5, 8) -- (5.5, 8);
+\draw[<->] (5, 1.5) -- (5, 8.5) node[midway, fill=white] {5 m};
+
+% Pipe label right side
+%\node[right, align=left] at (7.2, 1.5) {NW 50 \\ (60.3 $\times$ 2.9)};
+
+% --- Handwritten notes (Grey / Pencil) ---
+% "Geschwindigkeit" pointing to horizontal pipe
+%\node[pencolor, align=center] (geschw) at (3.5, -3) {Geschwindigkeit};
+%\draw[pencolor, thin] (geschw) -- (2.5, -2);
+
+% "90° Krümmer" and circle
+\node[pencolor, right] at (5.5, -4.8) {90$^\circ$ Rohrbogen};
+\draw[pencolor, thin, dashed] (6.9, -3.9) circle (0.4); 
+
+% Circle around first valve
+%\draw[pencolor, thin] (1.5, -1) ellipse (0.7 and 1);
+
+
+%\draw[fill=white,xshift=-5cm,yshift=8cm] (5.5, -4) circle (0.5);
+%% Pump inner triangle symbol (flow direction)
+%%\draw (5.2, -4.2) -- (5.8, -4.2) -- (5.5, -3.6) -- cycle;
+%\draw[xshift=-3cm] (5.5,-3.5) -- (6,-4);
+%\draw[xshift=-3cm] (5.5,-4.5) -- (6,-4);
+
+
+\end{tikzpicture}
+}
+\caption{Modell des Rohrleitungssystems.\\
+ \symPumpe~Pumpe, 
+ \\
+ \symVentil~Absperrventil, \\ \symBogen~$90^\circ$-Rohrbogen.}
+\label{rohr}
+%\end{figure}
+\end{marginfigure}
+\begin{itemize}
+\item Ermitteln Sie die mittlere Strömungsgeschwindigkeit in der Rohrleitung.
+\item Bestimmen Sie die Reynoldszahl der Rohrströmung und aus dem Moody Diagramm die Rohrreibungszahl $\xi$.
+\item Wie groß ist der Gesamtdruckverlust der Rohrleitung? (Beschleunigungsdruckverlust kann hier vernachlässigt werden)
+\item Welchen Druck muss die Pumpe aufbauen? 
+\item Wie groß ist die mechanische Antriebsleistung der Pumpe? 
+\end{itemize}
+
+\pp
+%\marginnote[]{\small
+%\fplmt{Werte für Aufgabe 5:} \pp
+%\begin{multicols}{2}
+%
+%$\dot{V} = 18 \text{ m}^3\text{/h}$ \par 
+%Gesamtrohrlänge $l = 8 \text{ m}$\par
+%Rohrrauheit $k/d$ \par
+%Viskosität von Wasser $\nu = 1 \cdot 10^{-6} \text{ m}^2\text{/s}$ \par 
+%\columnbreak
+%Rohrbögen 90° $\zeta = 0,2$\par
+%Einlauf scharfkantig $\zeta = 0,5$\par
+%Ventil $\zeta = 0,8$\par
+%$d_o=60.3 \text{ mm}$\par
+%Wandstärke $s=2.9 \text{ mm}$ \par
+%$\rho = 1000 \text{ kg/m}^3$\par
+%%}
+%
+%\end{multicols}
+\begin{table}[h]
+\caption{Werte für Aufgabe 5}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ll|ll}
+    $\dot{V}$&$= 18 \text{ m}^3\text{/h}$ & Rohrbögen 90$^\circ$ $\zeta $&$= 0,2$ \\ \hline
+    Gesamtrohrlänge $l $&$= 8 \text{ m}$ & Einlauf scharfkantig $\zeta$&$ = 0,5$ \\ \hline
+    Rohrrauheit $k/d$ &$=1/2.000$ & Ventil $\zeta $&$= 0,8$ \\ \hline
+    Viskosität von Wasser $\nu $&$= 1 \cdot 10^{-6} \text{ m}^2\text{/s}$ & Rohrdurchmesser&$=60.3 \text{ mm}$ \\ \hline
+$\rho $&$= 1.000 \text{ kg/m}^3$    & Wandstärke $s $&$=2.9 \text{ mm}$ 
+\end{tabular}
+}
+\end{table}
+
+\ifshowme
+\pagebreak
+\newgeometry{top=2cm,bottom=2cm,left=2cm,right=2cm}
+\antwort{
+\textbf{Mittlere Strömungsgeschwindigkeit:}
+\begin{align*}
+\dot{V} &= \overline{v} \cdot A \\
+\overline{v} &= \frac{\dot{V}}{A} \\
+\overline{v} &= \frac{\dot{V}}{\pi \cdot \left(\frac{d_i}{2}\right)^2}
+\end{align*}
+Innendurchmesser berechnen:
+\begin{align*}
+d_i &= d_a - 2 \cdot s \\
+	&= 60,3~\text{mm} - 2 \cdot 2,4~\text{mm} = 54,5 ~\text{mm}
+\end{align*}
+Einsetzen:
+\begin{align*}
+\overline{v} &= \frac{18~\text{m}^3}{3.600~\text{s} \cdot \pi \cdot \left(\frac{54,5\cdot 10^{-3}~\text{m}}{2}\right)^2}\\
+&=2,143~\text{m/s}
+\end{align*}
+\pp
+\textbf{Bestimmung der Reynoldszahl:}
+\begin{align*}
+Re &= \frac{v \cdot d}{\nu} \\
+&= \frac{2,143~\text{m/s} \cdot 54,5 \cdot 10^{-3}~\text{m}}{10^{-6}~\text{m/s}} \\
+&= 116.794 \rightarrow ~\text{turbulent}
+\end{align*}
+Rohrreibungszahl $\xi$ für turbulente Strömung berechnen:
+%\begin{align*}
+%\lambda_R = \frac{64}{Re}
+%\end{align*}
+\begin{align*}
+\frac{k}{d} = \frac{1}{2.000} = 0,0005 \rightarrow ~\text{Ablesen Moody-Diagramm}
+\end{align*}
+Beim Ablesen des Moody Diagramms erhalten wir für $\xi$ einen Wert von 0,02 \ppbig
+\textbf{Druckverlust bestimmen:}
+\begin{align}
+\Delta p_{\mathsmaller{R}} = \left( \xi_{Rohr} \cdot \frac{l}{d} + \sum \zeta_{Bauteil} \right) \cdot \frac{1}{2}\rho \overline{v}^2
+\end{align}
+Werte einsetzen:
+\begin{align*}
+\Delta p_{\mathsmaller{R}} &= \left( 0,02 \cdot \frac{8~\text{m}}{54,5 \cdot 10^{-3}~\text{m}} + 0,5 + 3 \cdot 0,2 + 4 \cdot 0,8 \right) \cdot \frac{1.000~\text{kg/m}^3}{2} \cdot (2,143~\text{m/s})^2 \\
+&= 16.614,98~\text{Pa}
+\end{align*}
+
+
+\pagebreak
+\textbf{Druck den Pumpe aufbauen muss:}
+\pp 
+Pumpe muss sowohl Druckverlust durch Reibung, geodätischen Höhendruck sowie Überdruck im Tank kompensieren: 
+\pp
+Geodätischer Druck:
+\begin{align*}
+\Delta p_{h} &= \rho \cdot g \cdot \Delta h \\
+&= 49.050~\text{Pa}
+\end{align*}
+Summe:
+\begin{align*}
+\Delta p_{G} &= p_{\mathsmaller{R}} + p_{h} + p_{\mathsmaller{B}} \\
+&= 16.614,98~\text{Pa} + 49.050~\text{Pa} + 200.000 ~\text{Pa} \\
+&= 265.664,98~\text{Pa} \\
+&\approx 2,685~\text{bar}
+\end{align*}
+
+\pp
+\textbf{Pumpenleistung}
+\begin{align*}
+P &= \dot{V} \cdot \Delta p \\
+ &= 18 ~\text{m$^3$/h}  \cdot 2,683 ~\text{bar} \\
+ &= 5 \cdot 10^{-3}  ~\text{m$^3$/s} \cdot 2,685 \cdot 10^{5}~\text{Pa}\\
+ &= 1.342,5~\text{W}
+\end{align*}
+}
+\newgeometry{top=1.8cm,bottom=4cm,left=1.5cm,right=7.5cm,marginparsep=-2.00cm,marginparwidth=4.75cm}
+
+\else
+\fi
+
+
+%
+
+
+
+
+\end{document}

@@ -1,0 +1,182 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{F://LaTex-Files/shiet/basic.tex}
+\input{F://LaTeX-Files/shiet/colors.tex}
+\input{F://LaTeX-Files/shiet/SI.tex}
+\input{F://LaTeX-Files/shiet/plmtuebungpreamble.tex}
+\usepackage[table]{xcolor}
+\usepackage{pgfplots}
+    \pgfplotsset{
+        every axis post/.style={
+	yticklabel=\empty,
+	xticklabel=\empty,
+	y label style={at={(axis description cs:-0.2,1.1)}},
+	x label style={at={(axis description cs:1.05,0.2)}},
+	ticks=none,
+	width=6cm,
+	axis lines=middle,
+%	xlabel near ticks,
+        },
+    }
+\usetikzlibrary{positioning, arrows.meta, calc, patterns}
+
+\usepackage{relsize}
+
+\newif\ifshowme
+\showmetrue
+
+
+
+
+\begin{document}
+\newgeometry{top=1.8cm,bottom=4cm,left=1.5cm,right=9.5cm,marginparsep=-4.00cm,marginparwidth=6.75cm}
+
+
+\bckgrnd
+
+\begin{center}
+\LARGE
+\color{white}
+\textbf{Tafelanschrift} \par \vspace*{2mm}
+\large \color{miugray} \textbf{Dienstag, 21.04.2026}
+\end{center}
+\par 
+\vspace*{6mm}
+
+
+\color{miudiutex}
+
+\section*{Laminare Rohrströmung mit Reibung}
+\small
+\begin{marginfigure}
+\resizebox{1.2\textwidth}{!}{
+\begin{tikzpicture}[font=\sffamily]
+
+    % Überschrift und Text
+%    \node[anchor=west] at (-4, 4.5) {\Large \underline{Laminare Rohrströmung mit Reibung (für lange Rohre)}};
+%    \node[anchor=west] at (-3, 3.5) {Annahme: inkompressibles, newtonsches Fluid};
+
+    % Linke Textspalte
+%    \node[anchor=west, text width=5cm] at (-5, 1.5) {
+%        $\bullet$ Antrieb für eine\\ 
+%        \hspace*{0.4cm} Rohrströmung: $\dfrac{dp}{dx}$\\[2mm]
+%        \hspace*{0.4cm} Druckgradient\\[5mm]
+%        $\bullet$ Reibungswiderstand\\
+%        \hspace*{0.4cm} kommt durch Viskosität\\
+%        \hspace*{0.4cm} des Fluids zustande
+%    };
+
+    % Das Rohr
+    \draw[thick] (0, 1.5) -- (10, 1.5);
+    \draw[thick] (0, -1.5) -- (10, -1.5);
+    
+    % Linker Rohrquerschnitt (Ellipse)
+    \draw[thick] (0,0) circle [x radius=0.6, y radius=1.5];
+    \draw[->, >=Stealth] (0,0) -- (0.5, 1.4) node[midway, left] {$R$};
+
+    % Zylindrisches Fluidelement
+    \begin{scope}[shift={(4,0)}]
+        \draw[thick] (0,0) circle [x radius=0.3, y radius=0.75];
+        \draw (0,0) -- (0.2, 0.7) node[midway, left, scale=0.8] {$r$};
+        \node at (0,-0.3) {$A$};
+        \draw[thick] (0, 0.75) -- (2, 0.75);
+        \draw[thick] (0, -0.75) -- (2, -0.75);
+        \draw[thick, dashed] (2,0) circle [x radius=0.3, y radius=0.75];
+        
+        % Kräfte am Element
+        \draw[->, thick, >=Stealth] (-1, 0) -- (-0.1, 0) node[pos=0, above] {$F_{p_1}$};
+        \draw[<-, thick, >=Stealth] (2.1, 0) -- (3, 0) node[pos=1, above] {$F_{p_2}$};
+        
+        % Längenmaß dx
+        \draw[|<->|] (0, -1) -- (2, -1) node[midway, below] {$dx$};
+    \end{scope}
+
+    % Geschwindigkeitsprofil (Parabel)
+    \begin{scope}[shift={(8,0)}]
+        \draw[dashed] (0, -1.5) -- (0, 1.5);
+        \draw[domain=-1.5:1.5, smooth, variable=\y, thick, uniblau] plot ({1.5*(1-(\y/1.5)^2)}, \y);
+        
+        \foreach \y in {-1.2,-0.9,-0.6,-0.3,0,0.3,0.6,0.9,1.2}
+            \draw[->, >=Stealth, uniblau!50!miugray] (0,\y) -- ({1.5*(1-(\y/1.5)^2)}, \y);
+            
+        \node[anchor=south west] at (0, 1.5) {$v(r)$};
+        \node[anchor=west, scale=0.8] at (1.5, 0) {$v_{max}$};
+    \end{scope}
+
+    % Legende unten
+    \node[anchor=west] at (3.5, -2.5) {$r$: Radius des zylindrischen Fluidelements};
+    \node[anchor=west] at (3.5, -3.1) {$A$: Stirnfläche \hspace{3.8cm} $(A = \pi r^2)$};
+
+\end{tikzpicture}
+}
+\caption{Schematische Darstellung; Annahme: inkompressibles, newtonsches Fluid}
+\end{marginfigure}
+
+
+\subsubsection*{Druckkraft}
+Der Antrieb für eine Rohrströmung ergibt sich aus dem Druckgradienten $\frac{dp}{dx}$
+\begin{align*}
+F_{p_1} &= p \cdot \pi r^2 \\
+F_{p_2} &= (p + dp) \cdot \pi r^2
+\end{align*}
+
+Effektiv wirkende Kraft $F_p$
+\begin{align*}
+F_p = F_{p_1} - F_{p_2} = -\pi r^2 \, dp
+\end{align*}
+
+
+\subsubsection*{Reibungswiderstand}
+Der Reibungswiderstand kommt durch die Viskosität des Fluids zustande.
+\begin{align*}
+\tau &= \eta \cdot \frac{dv(r)}{dr} \\
+\tau &= \frac{F}{A} \\ \\
+F_R &= \tau \cdot A \\
+&= \tau \cdot 2\pi r \cdot dx \\
+&= \eta \cdot \frac{dv(r)}{dr} \cdot 2\pi r \cdot dx
+\end{align*}
+
+\subsubsection*{Gleichsetzen}
+Gleichsetzen der Druckkraft und der Reibungskraft (stationäre Strömung)
+\marginnote[]{\small $\mathlarger{\frac{dv(r)}{dr}}$ = Geschwindigkeitsgradient der Strömung in radialer Richtung \pp
+$\mathlarger{\frac{dp}{dx}}$ = Druckgradient in axialer Richtung}
+\begin{align*}
+F_R &= F_p \\
+\eta \cdot \frac{dv(r)}{dr} \cdot 2\pi r \cdot dx &= -\pi r^2 \cdot dp \\
+\frac{dv(r)}{dr} &= -\frac{1}{2\eta} \cdot \frac{dp}{dx}\\
+\end{align*}
+
+
+\subsubsection*{Integration}\vspace*{-6mm}
+
+\marginnote[]{\small \color{uniblau}
+Strömungsgeschwindigkeit für r = R: 0
+\begin{align*}
+-\frac{1}{4\eta} \cdot \frac{dp}{dx} \cdot R^2 + C = 0 \\
+C = \frac{1}{4\eta} \cdot \frac{dp}{dx} \cdot R^2
+\end{align*}
+}[1.5cm]
+\begin{align*}
+v(r) &= \int -\frac{1}{2\eta} \cdot \frac{dp}{dx} \cdot r \cdot dr \\
+v(r) &= -\frac{1}{4\eta} \cdot \frac{dp}{dx} \cdot r^2 \color{uniblau}{+~ C} \\
+&= -\frac{1}{4\eta} \cdot \frac{dp}{dx} \cdot r^2 + \frac{1}{4\eta} \cdot \frac{dp}{dx} \cdot R^2
+\end{align*}
+
+Gesetz von Stokes:
+\begin{align*}
+v(r) &= -\frac{1}{4\eta} \cdot \frac{dp}{dx} \cdot (R^2 - r^2) \\
+v(r) &= \underbrace{-\frac{R^2}{4\eta} \cdot \frac{dp}{dx}}_{=v_{max}} \cdot \left[ 1 - \left(\frac{r}{R}\right)^2 \right]
+\end{align*}
+\subsubsection*{Maximale Geschwindigkeit}\vspace*{-6mm}
+\begin{align*}
+v_{max} &= v(r=0) \\
+&= - \frac{R^2}{4\eta} \cdot \frac{dp}{dx} \cdot \left[ 1 - \left(\frac{0}{R}\right)^2 \right] \\
+&= - \frac{R^2}{4\eta} \cdot \frac{dp}{dx}
+\end{align*}
+
+
+
+
+
+
+\end{document}

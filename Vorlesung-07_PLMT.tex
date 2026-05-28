@@ -1,0 +1,379 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{F://LaTeX-Files/shiet/kemie2.tex}
+\input{F://LaTeX-Files/shiet/macros.tex}
+\input{F://LaTeX-Files/shiet/vl.tex}
+\usepackage{pgfplots}
+\usepackage{booktabs, makecell}
+\usepackage{awesomebox}
+\usepackage{caption}
+\usepackage{hypcap}
+\usepackage[makeroom]{cancel}
+%\setcounter{section}{1} % <--- FALLS KEINE SECTION DEFINIERT WIRD
+    \pgfplotsset{
+    	compat=1.18,
+        every axis post/.style={
+	yticklabel=\empty,
+	xticklabel=\empty,
+	ticks=none,
+%	width=6cm,
+	xlabel near ticks,
+        },
+    }
+\usepgfplotslibrary{fillbetween}
+
+
+\begin{document}
+
+\sidebar
+\miushead{Vorlesung 07 - PLMT}{Vorlesung 07}
+\par \vspace*{5mm}
+\section{Vorlesung 07 - Wärme}
+%\subsection{Wiederholung}
+%\begin{itemize}
+%\item Scherratenabhängigkeit der Viskosität
+%\begin{itemize}
+%\item Newtonsche Flüssigkeit
+%\item scherverdünnende Flüssigkeit
+%\item scherverdickend/dilatant
+%\end{itemize}
+%\item Scherrate $D$ auch $\dot{\gamma}$
+%\item Thixotropes Verhalten 
+%\end{itemize}
+
+
+%\subsection{Wärme}
+
+\dfn{
+Für die Wärme $Q$ gilt:
+\begin{align}
+Q = m \cdot c_p \cdot \Delta T
+\end{align}
+\pp
+Für den Wärmestrom $\dot{Q}$ (Einheit W = J/s):
+\begin{align}
+\dot{Q} = \frac{\partial Q}{\partial t}
+\end{align}
+}
+
+\ppbig
+%\begin{tikzpicture}
+%\draw (0,2) -- (0,0) -- (1,0) -- (1,2);
+%\end{tikzpicture}
+\begin{figure}[h]
+  \begin{minipage}[c]{0.35\textwidth}
+\centering     
+     \begin{tikzpicture}
+\node[scale=1](a)at(0,0){
+\begin{tikzpicture}
+\begin{axis}[width=6cm,ymin=0,xmin=0,xlabel=t,ylabel=T,title=Wärmekapazität,	axis y line=middle,
+	axis x line=left,]
+\addplot[mark=none,miugray2] {1.5*x+1};
+\addplot[mark=none,miugray2] {x+1};
+\end{axis}
+\end{tikzpicture}};
+\end{tikzpicture}
+  \end{minipage}
+%  \hfill
+  \begin{minipage}[c]{0.55\textwidth}
+  \centering
+    \caption{
+      Linearer Anstieg der Temperatur bei konstanter Energiezufuhr über Zeit
+    } \label{fig:03-03}
+  \end{minipage}
+\end{figure}
+
+\pp
+Die Wärmekapazität von Wasser ist mit 4,2 kJ/kg$\cdot$K relativ hoch. Dahingegen hat Aluminium beispielsweise eine relativ geringe Wärmekapazität mit 0,9 kJ/kg$\cdot$K. Die höchste Wärmekapazität hat Wasserstoff mit 14 kJ/kg$\cdot$K. Wasserstoff ist aber beispielsweise als Kühlmittel dennoch ungeeignet, da es gerne explodiert.
+
+\subsection{Wärmeübertragung}
+\begin{itemize}
+\item Strahlung
+\begin{itemize}
+\item Elektromagnetische Strahlung
+\end{itemize}
+\item Wärmeleitung - Stoßübertragung der Teilchenschwingung
+\item Konvektion
+\begin{itemize}
+\item Freie Konvektion - Verschiebung aufgrund Gravitationskräfte
+\item Erzwungene Konvektion - Verschiebung aufgrund äußerer Kräfte
+\end{itemize}
+\end{itemize}
+
+
+\subsection{Wellen}
+\par \vspace*{4mm}
+\begin{ctab}{1.2}{@{1}lr@{ (wellen)}}
+\multicolumn{2}{c}{Verschiedene Wellenlängen} \\
+\toprule
+\multicolumn{1}{l}{\textbf{Wellenlänge}} &  \multicolumn{1}{r}{\textbf{Bezeichnung}} \\ \cline{1-2}
+fm & Höhen- \\
+pm & Gamma- \\
+nm & Röntgen- / UV \\ \cline{1-2}
+\multicolumn{2}{c}{Sichtbarer Bereich} \\ \cline{1-2}
+µm & Infrarot- \\
+mm & Terahertz- \\
+cm & Radar- /Mikro- \\
+m & Rundfunk \\
+km & Rundfunk \\ \bottomrule
+\end{ctab}
+\pp 
+\subsection{Strahlung}
+\pp
+\begin{minipage}[c]{.65\textwidth}
+
+%\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}
+\draw[dashed,black!75] (0,0) -- (8,0) -- (8,1) -- (0,1) -- cycle;
+\draw[->] (0,2) -- (2,1) -- (4,1.5) node[right] {Reflexion (R) \RA Weißer Körper};
+\draw[->] (2,1) -- (3,-0.5) node[right] {Transmission (D)};
+\draw[->] (2,1) -- (3.5,0.5) node[right] {Absorption (A) \RA Wärme};
+\end{tikzpicture}
+\captionof{figure}{Wärmeübertragung auf Körper}
+\end{center}
+
+%\end{figure}
+\end{minipage}\hfill 
+%
+%
+%
+\begin{minipage}[c]{.35\textwidth}
+\begin{center}
+Es gilt: R+A+D = 1 \RA Energieerhaltung \pp
+A = 1 \RA Schwarzer Körper \par 
+R = 1 \RA Weißer Körper
+\end{center}
+\end{minipage}
+
+
+
+
+\pp
+\boxfr{
+\textbf{Kirchhoff'sches Strahlungsgesetz:} \par
+Strahlungsabsorption und -emission entsprechen bei gegebener Wellenlänge einander: Ein Körper, der gut absorbiert, strahlt auch gut.  
+}
+
+\pp
+
+\subsection{Weitere wichtige Gesetze für Strahlung}
+Schwarzkörperstrahlung / Stefan-Boltzmann-Gesetz: 
+\begin{align}
+P = \epsilon \cdot \sigma \cdot A \cdot T^4
+\end{align}
+Elektromagnetische Strahlung: 
+\begin{align}
+E = h \cdot c \cdot \ell^{-1} = h \cdot f
+\end{align}
+Plank'sches Strahlungsgesetz:
+\begin{align}
+i = \frac{C_1}{\ell^5 \cdot [\text{exp}(C_2/\ell \cdot T)-1]}
+\end{align} 
+
+\pagebreak
+\subsection{Wärmefluss}
+\pp
+\boxfr{
+\textbf{2. Hauptsatz der Thermodynamik:}\par 
+Wärme wird immer von einem Gebiet mit höherer Temperatur zu einem Gebiet mit niedrigerer Temperatur übertragen.
+}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\node(2)at(4,2){$T_1 > T_2$};
+\draw[black!70] (8,0)  [looseness=0.8,bend left=35] to node[left] {T$_2$} (8,1);
+\draw[dotted,black] (0,0)  [looseness=0.8,bend right=35] to node[right] {T$_1$} (0,1);
+\draw (0,0)-- (8,0)  [bend right=35] to (8,1) -- (0,1) [bend right=35]  to cycle;
+\draw[<->] (0,1.2) -- node[above] {$d$}(8,1.2);
+\draw[-,miugray2,fill=miugray2!25] (4,0) to [looseness=0.8,bend right=35] node[right] {$A$} (4,1) to [looseness=0.8,bend right=35] (4,0);
+\end{tikzpicture}
+\caption{Temperaturfluss im Zylinder}
+
+\end{figure}
+
+
+
+Es gilt für den Wärmestrom $\dot{Q}$ (nach Fourier) :
+\begin{align*}
+\dot{Q} &= \frac{\partial Q}{\partial t} \\
+\dot{Q}	&= - \lambda \cdot A \cdot \frac{T_2-T_1}{d}
+\end{align*}
+
+\pp
+\footnotesize
+\textit{Die Wärmeleitfähigkeit „Lambda“ ($\lambda$) ist eine Stoffeigenschaft. Sie gibt den Wärmestrom an, der bei einem Temperaturunterschied von 1 Kelvin (K) durch eine 1 m$^2$ große und 1 m dicke Schicht eines (Bau)Stoffs geht. Die Einheit ist W/mK.}
+\
+\normalsize
+\ppbig
+\dfn{
+\textbf{Erwärmungsgesetz:}
+\begin{align*}
+Q = m \cdot c \cdot \Delta T 
+\end{align*}
+}
+\pagebreak
+\section{Vorlesung 08}
+\subsection{Herleitung Wärmeleitungsgleichung}
+Erwärmungsgesetz mit der Nettowärme $Q_n$ die innerhalb der Zeit $\partial t$ übertragen wird
+\begin{align*}
+Q_n &= \overbrace{A \cdot \partial x \cdot \rho}^{m} ~\cdot~ C_p \cdot \partial T \\
+%\frac{Q_n}{\partial t}  &= A \cdot \partial x \cdot \rho \cdot C_p \cdot \frac{\partial T}{\partial t} \\
+\dot{Q}_n &= A \cdot \partial x \cdot \rho \cdot C_p \cdot \frac{\partial T}{\partial t} \\
+\end{align*}
+\begin{center}
+\begin{tikzpicture}
+\draw[black!70,->] (6.5,0.4) to node[above] {$\dot{Q}_{aus}$} (7.7,0.4);
+\draw[black!70,->] (0.3,0.4) to node[above] {$\dot{Q}_{ein}$} (1.5,0.4);
+\fill[gray!20] (2,0) to [looseness=0.8,bend right=35] (2,1) to (6,1) to [looseness=0.8,bend right=35] (6,0) to cycle;
+\draw[black!20] (8,0) .. controls (7.75,0.15) and (7.75,0.85) .. (8,1) ;
+\draw (0,0)-- (8,0) .. controls (8.25,0.15)and(8.25,0.85) .. (8,1) -- (0,1) [bend right=35]  to cycle;
+\draw[-,gray,fill=gray!25,dashed,opacity=0.7] (2,0) to [looseness=0.8,bend right=35] (2,1) to [looseness=0.8,bend right=35] (2,0);
+\draw[<->] (2,-0.15) -- node[below] {$\partial x$}(6.05,-0.15);
+\draw[yshift=-1mm,-{Latex[length=5pt]},decorate,decoration={snake,segment length=1.95mm,amplitude=0.5mm}] (3,0.5) to [bend right=20] (4.5,0.7) node[right] {$\partial \dot{Q}$};
+\draw[-,gray,fill=gray!25,dashed,opacity=0.7] (6,0) to [looseness=0.8,bend right=35] (6,1) to [looseness=0.8,bend right=35] (6,0);
+\end{tikzpicture}
+\captionof{figure}{Temperaturfluss im Zylinder}
+\end{center}
+
+
+\begin{align*}
+\dot{Q}_n &= \dot{Q}_{aus} - \dot{Q}_{ein} = d \dot{Q} \\
+\end{align*}
+Da der Temperaturverlust bzw. der austretende Wärmestrom stets negativ sein muss, gilt:
+\begin{align*}
+\dot{Q}_n &= - d \dot{Q}
+\end{align*}
+Daraus folgt:
+\begin{align*}
+- d \dot{Q} &= A \cdot d x \cdot \rho \cdot c \cdot \frac{d T}{d t}\\
+\frac{d T}{d t} &= - \frac{1}{A \cdot \rho \cdot c} \cdot \frac{d \dot{Q}}{d x}
+\end{align*}
+Einsetzen von Fourier:
+\begin{align*}
+\frac{d T}{d t} &= - \frac{1}{A \cdot \rho \cdot c} \cdot \frac{d (-\lambda \cdot A \cdot \frac{d T}{d t})}{d x} \\
+\frac{d T}{d t} &= - \frac{1}{\bcancel{A} \cdot \rho \cdot c} \cdot \frac{d (-\lambda \cdot \bcancel{A} \cdot \frac{d T}{d t})}{d x} \\ 
+\\
+\frac{\partial T}{\partial t} &= \frac{\lambda}{\rho \cdot c} \cdot \frac{\partial^2T}{\partial x^2}
+\end{align*}
+
+\pp
+
+\dfn{
+\textbf{Wärmeleitungsgleichung:} \par 
+\begin{align*}
+\frac{\partial T(x,t)}{\partial t} &= \frac{\lambda}{\rho \cdot c} \cdot \frac{\partial^2T(x,t)}{\partial x^2}
+\end{align*}
+}
+
+\pagebreak
+\subsection{Interpretation der Wärmeleitungsgleichung}
+%\begin{tikzpicture}
+%\draw[->] (0,0) to (0,3);
+%\draw[->] (0,0) to (10,0);
+%\draw[-,miugray2,rounded corners=6pt] (0,0.4) .. controls (1,3) .. (2,1) .. controls (3,0.8) .. (3.5,1.5); 
+%
+%\end{tikzpicture}
+Die Abbildung 5 zeigt zu einem bestimmten Zeitpunkt die Temperaturverteilung entlang eines Stabes. Des Weiteren ist der Temperaturgradient als erste Ableitung der Temperaturfunktion nach dem Ort eingezeichnet. Die örtliche Änderung dieses Temperaturgradienten entspricht der zweiten Ableitung der Temperatur und gemäß der Wärmeleitungsgleichung schließlich der zeitlichen Temperaturänderung. Man kann hieraus erkennen, dass im Bereich der Hochpunkte der Temperaturverteilung die zeitliche Temperaturänderung negativ ist und im Bereich der Tiefpunkte positiv. Dies bedeutet also, dass Bereiche mit hohen Temperaturen sich abkühlen und Bereiche mit niedrigen Temperaturen sich erwärmen. Es kommt folglich mit der Zeit zu einem Angleichen der Temperaturen, bis sich schließlich eine konstante Temperatur eingestellt hat.
+\pp
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\begin{axis}[%
+		xmin=0,
+		ymin=-1.5,
+		xmax=7,
+		ymax=4,
+		scale only axis=true,
+		axis x line=middle,
+		axis y line=left,
+		width=12cm,
+		height=5cm,
+		clip=true,
+		legend pos=north east,
+		legend style={nodes={scale=0.8}},
+		]
+\addplot[forget plot,gray,densely dotted,line width=0.2mm] coordinates {(0.05,-1.5) (0.05,4)};
+\addplot[forget plot,gray,densely dotted,line width=0.2mm] coordinates {(1,-1.5) (1,4)};
+\addplot[forget plot,gray,densely dotted,line width=0.2mm] coordinates {(3,-1.5) (3,4)};
+\addplot[forget plot,gray,densely dotted,line width=0.2mm] coordinates {(5,-1.5) (5,4)};
+\addplot[forget plot,gray,densely dotted,line width=0.2mm] coordinates {(6.3,-1.5) (6.3,4)};
+\addplot[forget plot,gray,densely dotted,line width=0.2mm] coordinates {(7,-1.5) (7,4)};
+	
+	\addplot[miugray2,smooth,line width=0.4mm] coordinates {(-2,3) (0,0.25) (2,2.5) (4,1.5) (5.5,2) (7,0.75) (8,1.5) (12,0.25)};
+	\addlegendentry{Temperaturprofil}
+	\addplot[petunidin,smooth,dashed] coordinates {(0,0) (1,2) (3,-1) (5,0.5) (6.3,-1.25) (7,0) (9,4)};
+\addlegendentry{Temperaturgradient}	
+	\addplot[name path=A,delphinidin,smooth] coordinates {(0,2) (1.3,-0.6) (3,0.35) (6.5,-0.25) (7.5,7)};
+\addlegendentry{Temperaturveränderung}
+	\node[petunitext!60,scale=0.7](flame)at(2.1,2.2){\faFire};
+	\node[petunitext!60,scale=0.7](flame)at(5.4,1.7){\faFire};
+    \path [name path=B]
+        (\pgfkeysvalueof{/pgfplots/xmin},0) --
+        (\pgfkeysvalueof{/pgfplots/xmax},0);
+%        	\addplot[black,smooth] coordinates {(5,2) (1.3,-0.6) (3,0.35) (6.5,-0.25) (8,5)};
+    \addplot[miugray2!40] fill between [of=A and B];
+%    \addlegendentry{d}
+\end{axis}
+\end{tikzpicture}
+\captionof{figure}{Temperaturverteilung eines Stabes der an zwei Stellen erhitzt wurde.}
+\end{center}
+
+\pp
+
+\pagebreak
+\subsection{Wärmeleitung - Wand}
+\begin{center}
+\begin{tikzpicture}
+\draw (0,0) -- (0,3);
+\draw (1,0) -- (1,3);
+\draw[line width=0.5mm] (-1,2) node[left] {$T_1$} -- (0,2) -- (1,1.5) -- (2,1.5) node[right] {$T_2$};
+\node[align=left](a)at(-1,0.7){heiße \\ Flüssigkeit};
+\node[align=left](b)at(2,0.7){kalte \\ Flüssigkeit};
+\node[anchor=south west](3)at(5,-0.5){
+\begin{tikzpicture}
+\draw node[below] {$T_1$}(0,0) -- (0,3);
+\draw (1.5,0) node[below] {$T_2$} -- (1.5,3);
+\draw (3.5,0) node[below] {$T_3$} -- (3.5,3);
+\draw (4.2,0) node[below] {$T_4$} -- (4.2,3);
+\draw[line width=0.5mm] (0,2) -- (1.5,1.5) -- (3.5,1.2) -- (4.2,0.5);
+\node at (0.5,2.5) {$\lambda_1$};
+\node at (2.25,2.5) {$\lambda_2$};
+\node at (3.5,2.5) {$\lambda_3$};
+\end{tikzpicture}
+};
+\end{tikzpicture}
+\captionof{figure}{\textit{Links:} Wand umgeben von Flüssigkeiten versch. Temperaturen.\textit{ Rechts:} Zusammengesetzte Wand.}
+\end{center}
+\begin{align*}
+& \dot{Q}_1 &&= \dot{Q}_2 &&= \dot{Q}_3  \\
+& - A \cdot \frac{\lambda_1}{d_1} \cdot (T_2-T_1) &&= - A \cdot \frac{\lambda_2}{d_2} \cdot (T_3-T_2) &&= - A \cdot \frac{\lambda_3}{d_3} \cdot (T_4-T_3)\\
+\\
+\end{align*}
+\begin{spacing}{1.5}
+\reversemarginpar
+\marginnote[Hier ist der Ausdruck "$\Delta T$" mathematisch nicht ganz korrekt, da hier für Delta auch ein negativer Wert angenommen werden könnte, ein Delta aber nie negativ ist. Korrekt wäre einfach die Differenz $T_4 - T_1$]{}[2cm]
+\begin{align*}
+(T_4-T_1) &= - \frac{\dot{Q}}{A} \cdot (\frac{d_3}{\lambda_3}+\frac{d_2}{\lambda_2}+\frac{d_1}{\lambda_1})   \\
+\frac{1}{(T_4-T_1)} &= - \frac{A}{\dot{Q}} \cdot (\frac{\lambda_3}{d_3}+\frac{\lambda_2}{d_2}+\frac{\lambda_1}{d_1})  \\
+\dot{Q} &= - \frac{A \cdot \Delta T_{ges}}{(\frac{d_3}{\lambda_3}+\frac{d_2}{\lambda_2}+\frac{d_1}{\lambda_1})} \\
+\dot{Q} &= - \frac{A \cdot \Delta T_{ges}}{\sum_{}^{} \frac{\lambda_i}{d_i} }\\
+\dot{Q} &= - \frac{A \cdot \Delta T_{ges}}{R_{ges}}\\
+\end{align*}
+
+\end{spacing}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

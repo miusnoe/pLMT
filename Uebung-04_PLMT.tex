@@ -1,0 +1,307 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{F://LaTex-Files/shiet/kemie2.tex}
+\input{F://LaTex-Files/shiet/macros.tex}
+\input{F://LaTex-Files/shiet/vl.tex}
+\input{F://LaTeX-Files/shiet/SI.tex}
+\newgeometry{top=2cm,bottom=2cm,left=4cm,right=2cm,heightrounded,
+  marginparwidth=2.7cm, marginparsep=8mm}
+\usepackage{pgfplots}
+\usepackage{awesomebox}
+%\setcounter{section}{1} % <--- FALLS KEINE SECTION DEFINIERT WIRD
+    \pgfplotsset{
+        every axis post/.style={
+	yticklabel=\empty,
+	xticklabel=\empty,
+	y label style={at={(axis description cs:-0.2,1.1)}},
+	x label style={at={(axis description cs:1.05,0.2)}},
+	ticks=none,
+	width=6cm,
+	axis lines=middle,
+%	xlabel near ticks,
+        },
+    }
+
+
+\newcommand{\answ}{{\color{miugray2}Antwort: \par \vspace*{-3mm} 
+\hrulefill }\par }
+
+\begin{document}
+
+\sidebar
+\miushead{Übung 04 - Prozessbezogene LMT}{Übung 04}
+\par \vspace*{5mm}
+
+
+\section*{Übung 04}
+\subsection*{Aufgabe 01}
+Ein 2 cm dickes Stahlrohr (Wärmeleitfähigkeit = 43 W/(m°C)) mit einem
+Innendurchmesser von 6 cm wird verwendet, um Dampf von einem Kessel über eine
+Strecke von 40 m zu einer Prozessanlage zu leiten. Die Oberflächentemperatur der
+Innenseite des Rohrs beträgt 115 °C und die Oberflächentemperatur der Außenseite
+90 °C. Berechnen Sie den gesamten Wärmeverlust an die Umgebung unter stationären
+Bedingungen.
+
+\begin{align*}
+\dot{Q} &= (T_i - T_a) \frac{2 \pi l \cdot \lambda}{\ln(\frac{r_a}{r_i})} \\
+		&= (115 - 90)\text{°C} \cdot \frac{2 \pi \cdot 40~\text{m} \cdot 43~ \text{W/m°C}}{\ln(\frac{0,05~\text{m}}{0,03~\text{m}})} \\
+		&= 528.902,54~ \text{W}
+\end{align*}
+
+
+\subsection*{Aufgabe 02}
+Eine Kühlhauswand (3m x 6m) wird aus 15 cm dickem Beton (Wärmeleitfähigkeit = 1,37
+W/(m°C)) erstellt. Es soll auch eine Isolierung an der Innenseite eingebaut werden, um
+die Wärmeübertragungsrate durch die Wand bei oder unter 500 W zu halten. Berechnen
+Sie die erforderliche Dicke der Dämmung. Die Wärmeleitfähigkeit der Dämmung liegt bei
+0,04 W/(m°C). Nehmen Sie an, dass die Temperatur an der Außenseite 38 °C und die
+Temperatur an der Oberfläche der Dämmung 5 °C beträgt.
+
+
+\reversemarginpar
+\marginnote[Hier ist die Verwendung der richtigen Vorzeichen besonders wichtig. Hätten wir für die Temperatur einen negativen Wert raus, müssten wir auch einen negativen Vorfaktor vor dem Bruch benutzen. Ein falsches Vorzeichen würde tatsächlich auch eine andere Zahl im Ergebnis zur Folge haben.]{}[3cm]
+
+
+\begin{align*}
+\dot{Q} &= \frac{A \cdot T_a - T_i}{\frac{d_2}{\lambda_2} + \frac{d_1}{\lambda_1}} \\
+	d_2 &= \lambda_2 \cdot (\frac{A \cdot (T_a - T_i)}{\dot{Q}} - \frac{d_1}{\lambda_1}) \\
+	d_2 &= 0,04~ \text{W/m°C} \cdot (\frac{18~\text{m}^2 \cdot ((38-5) \text{°C})}{500~\text{W}} - \frac{0,15~\text{m}}{1,37~ \text{W/m°C} }) \\
+	d_2 &= 0,043~\text{m} \rightarrow 4,3~ \text{cm}
+\end{align*}
+
+\pagebreak
+
+\subsection*{Aufgabe 03 - Wärmetransport durch eine Rohrwand}
+
+a. Wie groß ist der Wärmestrom durch ein 5 m langes Rohr aus Stahl mit
+Innendurchmesser 10 cm und Außendurchmesser 11 cm, wenn im Innern eine
+Flüssigkeit der Temperatur 80 °C und außen eine Flüssigkeit der Temperatur
+20 °C zirkuliert? Stahl hat eine Wärmeleitfähigkeit von 16,3 W/(mK). Die
+Widerstände der Wärmeübergänge an der inneren und äußeren Rohroberfläche
+seien zu vernachlässigen.
+\pp 
+
+\begin{align*}
+\dot{Q} &= (T_i - T_a) \frac{2 \pi l \cdot \lambda}{\ln(\frac{r_i}{r_a})} \\
+\dot{Q} &= 60~ \text{°C} \cdot \frac{2 \pi \cdot 5~\text{m} \cdot 16,3~ \text{W/m°C} }{\ln(\frac{55}{50})} \\
+	&= 322.366,15~ \text{W}
+\end{align*}
+
+
+\ppbig
+
+b. Wie ändert sich der Wärmestrom, wenn innen eine 0,3 cm dicke Schicht aus
+Glas aufgetragen wird? Die Wärmeleitfähigkeit von Glas liegt bei 1,0 W/(mK).
+\pp
+
+\begin{align*}
+\dot{Q} &= 2 \pi \cdot l \cdot (T_i - T_a) \cdot \left( \frac{\ln(\frac{r_{SA}}{r_{SI}})}{\lambda_1} + \frac{\ln(\frac{r_{GA}}{r_{GI}})}{\lambda_2} \right)^{-1} \\
+\dot{Q} &= 2 \pi \cdot 5m \cdot 60~ \text{°C} \cdot \left( {\frac{\ln(\frac{0,055}{0,05})}{16,3~ \text{W/m°C}} + \frac{\ln(\frac{0,05}{0,047})}{1~ \text{W/m°C}}} \right)^{-1} \\
+	&= 27.833,46~ \text{W}
+\end{align*}
+
+\ppbig
+\begin{center}
+
+\begin{tikzpicture}[scale=0.6]
+\draw[line width=0.01mm,fill=miugray2!50] (0,0) circle (2cm);
+\draw[miugray2,fill=miugray2!20] (0,0) circle (1.5cm);
+\draw[miugray2,fill=white] (0,0) circle (1.3cm);
+\draw (0,0) to (20:2cm) node [right] {$r_{SA}$ = 0,055 m};
+\draw (0,0) to (-20:1.5cm) node [right,xshift=4mm,yshift=1mm] {$r_{SI}$ / $r_{GA}$ = 0,05 m};
+\draw (0,0) to (-60:1.3cm) node [right,xshift=6mm,yshift=-2mm] {$r_{GI}$ = 0,047 m};
+\end{tikzpicture}
+\captionof{figure}{Stahlrohr mit innerer Glasschicht.}
+\end{center}
+
+
+\pagebreak
+
+\subsection*{Aufgabe 04}
+Wärmeübergang im Rohr
+a. Wie groß ist der Wärmeübergangskoeffizient innen, wenn Wasser mit einer
+Geschwindigkeit von 0,5 m/s durch das Stahlrohr von Aufgabe 3 fließt?
+\pp
+
+
+\boxfr{
+Eigenschaften von Wasser bei 80 °C: \pp
+\begin{tabular}{ll}
+Dichte & $\rho$ = 972kg/m$^3$ \\
+Kinematische Viskosität & $\nu$  = 0,3648 x 10$^{-6}$ m$^{2}$/s \\
+Wärmeleitfähigkeit & $\lambda$ = 0,67 W/(mK) \\
+Prandtlzahl & Pr = 2,22  \\
+\end{tabular}
+}
+\ppbig
+
+Gesucht ist $\alpha$
+\begin{align*}
+\text{Nu} = \frac{\alpha \cdot d}{\lambda}
+\end{align*}
+\begin{align} \label{alpha}
+\alpha = \frac{\text{Nu} \cdot \lambda}{d}
+\end{align}
+Für die Berechnung von $\alpha$ fehlt uns die Nusseltzahl Nu:
+\begin{align}\label{nus}
+\text{Nu} = \frac{(\frac{\xi}{8}) \cdot \text{Re} \cdot \text{Pr}}{1 + 12,7 \cdot (\frac{\xi}{8})^{\frac{1}{2}} \cdot (\text{Pr}^{\frac{2}{3}}-1)} \cdot \left[ 1 + (\frac{d}{l})^{\frac{2}{3}} \right]
+\end{align}
+Wobei
+\begin{align*}
+\xi &= (1,8 \cdot \log_{10} (\text{Re}) - 1,5)^{-2}
+\end{align*}
+Und Reynoldszahl Re (Für Rohr aus Aufgabe 3 mit 0,3 cm dicken Glasschicht innen):
+\reversemarginpar
+\marginnote[Hier ist mit $l$ nicht die Länge des Rohres, sondern die charakteristische Länge des geometrischen Objektes gemeint. Dies ist beim Rohr i.d.R der Innendurchmesser]{}[1cm]
+\begin{align*}
+\text{Re} &= \frac{v \cdot l}{\nu} \\
+\text{Re} &= \frac{0,5~ \text{m/s} \cdot (0,1-0,006)~\text{m}}{0,3648 \cdot 10^{-6} ~\text{m}^2 /s} \\
+&= 128.837,7193
+\end{align*}
+Daraus folgt für $\xi$:
+\begin{align*}
+\xi &= (1,8 \cdot \log_{10} (128.837,7193) - 1,5)^{-2} \\
+ &= 0,0168746
+\end{align*}
+Werte einsetzen in (\ref{nus}):
+\marginnote[hier ist d = Rohrinnendurchmesser und l = Länge des Rohres]{}[2cm]
+\begin{align*}
+\text{Nu} &= \frac{(\frac{0,0168746}{8}) \cdot  128.837,7193 \cdot 2,22}{1 + 12,7 \cdot \sqrt{\frac{0,0168746}{8}} \cdot (2,22^{\frac{2}{3}}-1)} \cdot \left[ 1 + (\frac{0,094 ~ \text{m}}{5 ~ \text{m}})^{\frac{2}{3}} \right] \\
+ &= 428,082 \cdot 1,070703118 \\
+ &= 458,3487434
+\end{align*}
+Daraus folgt:
+\begin{align*}
+\alpha &= \frac{458,3487434 \cdot 0,67 \text{W/(mK)}}{ 0,094~ \text{m}} \\
+ &\approx 3.266,95 ~ \text{W/(m$^2$ K)}
+\end{align*}
+
+\pagebreak
+
+b. Wie ändert sich der Wärmestrom der Aufgabe 3 unter Berücksichtigung des
+Widerstands des inneren Wärmeübergangs? \pp
+Wärmedurchgang - Rohr:
+\begin{align*}
+\dot{Q} &= 2 \pi \cdot l \cdot \Delta T \cdot \left( \frac{1}{\alpha_i \cdot r_i} + \frac{1}{\alpha_a \cdot r_a} + \frac{\ln(\frac{r_a}{r_i})}{\lambda_W} \right)^{-1} \\
+\end{align*}
+Hier stellt sich aber die Problematik, dass wir $\alpha_a$ nicht kennen und es deswegen vernachlässigen müssen. Desweiteren ist $\lambda_W$ die Summe aus $\lambda_G$ für die innere Glasschicht und $\lambda_S$ für die äußere Stahlschicht. \par 
+Daraus ergibt sich:
+\begin{align*}
+\dot{Q} &= 2 \pi \cdot l \cdot \Delta T \cdot \left( \frac{1}{\alpha_i \cdot r_i} +  \frac{\ln(\frac{r_{aG}}{r_{iG}})}{\lambda_G} +  \frac{\ln(\frac{r_{aS}}{r_{iS}})}{\lambda_S} \right)^{-1}
+\end{align*}
+Wenn wir nun die Werte einsetzen: 
+\begin{align*}
+\dot{Q} &= 2 \pi \cdot 5~ \text{m} \cdot 60\text{°C} \cdot \left( \frac{1}{3.266,95 ~ \text{W/(m$^2$ K)} \cdot 0,047 ~ \text{m}} +  \frac{\ln(\frac{0,055}{0,05})}{16,3~ \text{W/m°C}} + \frac{\ln(\frac{0,05}{0,047})}{1~ \text{W/m°C}} \right)^{-1} \\
+ &= 25.391,62~ \text{W}
+\end{align*}
+
+\pp
+
+
+\pagebreak
+\subsection*{Aufgabe 05}
+Berechnen Sie den konvektiven Wärmeübergangskoeffizienten, wenn Luft mit einer
+Temperatur von 90 °C durch ein Festbett aus grünen Erbsen geleitet wird. Nehmen Sie
+an, die Oberflächentemperatur einer Erbse beträgt 30 °C. Der Durchmesser jeder Erbse
+beträgt 0,5 cm. Die Geschwindigkeit der Luft durch das Bett beträgt 0,3 m/s.
+\pp
+Stoffwerte für Luft bei 60 °C:
+\pp
+\boxfr{
+\begin{tabular}{ll}
+Dichte & $\rho$ = 1,025 kg/m$^3$ \\
+Spezifische Wärmekapazität & $c$ = 1,017 kJ/(kg°C) \\ 
+Wärmeleitfähigkeit & $\lambda$ = 0,0279 W/(m°C) \\
+Dynamische Viskosität & $\eta$ = 19,907 x 10$^{-6}$ Pa s \\
+Prandtlzahl & Pr = 0,71  \\
+\end{tabular}
+} \pp
+
+\awesomebox[petunitext]{1mm}{\faExclamationTriangle}{miugray2}{%
+Anscheinend gab es bei der Formelsammlung widersprüchliche Infos. Im Folgenden sind die aktuellen Lösungen aus dem Lehrbuch. Auf der letzten Seite die ursprünglich gedachte Lösung zu Referenzzwecken.
+}
+\pp
+\subsubsection{Berechnung für eine Kugel}
+Schritt 1: 
+\begin{align*}
+T_f = \frac{T_1 + T_2}{2} = \frac{30 + 90}{2} = 60 \text{°C}
+\end{align*}
+Schritt 2:
+\begin{align*}
+\text{Re} &= \frac{1,025~ \text{kg/m}^3 \cdot 0,3~ \text{m/s} \cdot 0,005~\text{m}}{19,907 \cdot 10^{-6} \text{Pa s}} = 77,2
+\end{align*}
+Schritt 3:
+\begin{align*}
+\text{Nu} &= 2 + 0,6 \cdot \sqrt{\text{Re}} \cdot \sqrt[3]{Pr}\\
+			&= 2 + 0,6 \cdot \sqrt{77,2} \cdot \sqrt[3]{0,71}\\
+			&= 6,71
+\end{align*}
+Schritt 4:
+\begin{align*}
+\alpha &= \frac{6,71 \cdot 0,0279 ~\text{W/(m°C)}}{0,005 ~\text{m}}\\
+		&= 37 ~\text{W/(m$^2$ °C)}
+\end{align*}
+
+\subsubsection{Berechnung für ein Festbett}
+Anders als in der unteren Lösung gedacht, ignorieren wir Nu$_{turbulent}$. Außerdem gehen wir von einem Hohlraumanteil von $\varepsilon = 40\%$ aus. \pp
+Daraus ergibt sich:
+\begin{align*}
+\text{Nu}_{laminar} &= 8,2 \\
+\text{Nu}_{Kugel} &= 2 + \sqrt{\text{Nu}_{laminar}^2} = 10,2 \\
+\text{Nu}_{Festbett} &= (1+1,5 \cdot (1-\varepsilon)) \cdot \text{Nu}_{Kugel} = 19,38 \\ \\
+\alpha &=  \frac{19,38 \cdot 0,0279 ~\text{W/(m°C)}}{0,005 ~\text{m}} = 108,14 ~\text{W/(m$^2~$°C)}
+\end{align*}
+
+\pagebreak
+
+\begin{tikzpicture}[remember picture, overlay]
+  \color{petunitext!50}
+%  \draw[line width=1ex] (current page.north west) --
+%                        (current page.south east);
+  \draw[line width=3ex] (current page.north east) -- 
+                        (current page.south west);
+\end{tikzpicture}
+
+
+Ähnliche Verfahrensweise wie bei Aufgabe 04. \ppbig
+
+Nusselt für Festbett mit runden Partikeln: 
+\begin{align*}
+\text{Nu} = (1+1,5 \cdot (1-\varepsilon)) \cdot \text{Nu}_{Kugel} \\ 
+\end{align*}
+Mit
+\reversemarginpar
+\marginnote[Bei der Reynoldszahl muss man beachten, dass in der Formelsammlung die kinematische Viskosität gegeben ist, wir aber nur die dynamische Viskosität gegeben haben. Daher erweitern wir die Formel mit $\nu = \eta / \rho$]{}
+\begin{align*}
+\varepsilon &= \frac{V_{leer}}{V_{gesamt}} = 1 - \frac{V_{Partikel}}{V_{gesamt}} \\
+\text{Re} &= \frac{v_{leer} \cdot d_{Partikel}}{\varepsilon \cdot \nu} = \frac{\text{\color{red}$\rho$}  \cdot v_{leer} \cdot d_{Partikel}}{\varepsilon \cdot \text{\color{red}$\eta$}}\\
+\text{Nu}_{laminar} &= 0,664 \cdot \sqrt{\text{Re}} \cdot \sqrt[3]{\text{Pr}} \\
+\text{Nu}_{turbulent} &= \frac{0,037 \cdot \text{Re}^{0,8} \cdot \text{Pr} }{1 + 2,433 \cdot \text{Re}^{-0,1} \cdot (\text{Pr}^{\frac{2}{3}} -1)} \\
+\text{Nu}_{Kugel} &= 2 + \sqrt{ \text{Nu}_{laminar}^2 + \text{Nu}_{turbulent}^2  }\\
+\text{Nu} &= [1 + 1,5 \cdot (1-\varepsilon)] \cdot \text{Nu}_{Kugel} \\
+\end{align*}
+Zunächst Epsilon berechnen:
+\begin{align*}
+\varepsilon &= 1 - \frac{(0,0025~\text{m})^3 \cdot \frac{4}{3} \pi}{(0,005 ~\text{m})^3} = 0,4764\\
+\end{align*}
+Daraus die Reynoldszahl:
+\begin{align*}
+\text{Re} &= \frac{1,025~ \text{kg/m}^3 \cdot 0,3~ \text{m/s} \cdot 0,005~\text{m}}{ 0,4764 \cdot 19,907 \cdot 10^{-6} \text{Pa s}} = 162,1204
+\end{align*}
+Und folglich die Nusseltzahlen errechnen:
+\begin{align*}
+\text{Nu}_{laminar} &= 0,664 \cdot \sqrt{162,1} \cdot \sqrt[3]{0,71} = 7,542 \\
+\text{Nu}_{turbulent} &= \frac{0,037 \cdot 162,1^{0,8} \cdot 0,71 }{1 + 2,433 \cdot 162,1^{-0,1} \cdot (0,71^{\frac{2}{3}} -1)} = 2,194 \\
+\text{Nu}_{Kugel} &= 2 + \sqrt{ 7,542^2 + 2,194^2  } = 9,8546\\
+\text{Nu} &= [1 + 1,5 \cdot (1-0,4764)] \cdot 9,8546 = 17,594 \\
+\end{align*}
+Nun wieder $\alpha$ berechnen durch einsetzen in (\ref{alpha}):
+\begin{align*}
+\alpha =  \frac{17,594 \cdot 0,0279 ~\text{W/(m°C)}}{0,005 ~\text{m}} = 98,17 ~\text{W/(m$^2~$°C)}
+\end{align*}
+
+
+
+
+
+\end{document}

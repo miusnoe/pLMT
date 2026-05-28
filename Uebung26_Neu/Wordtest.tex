@@ -1,0 +1,971 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[ngerman]{babel}
+\usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry} %NICHT IN KEMIE2
+
+
+%\usepackage{microtype} %schöneres typesetting  mit [stretch=10] für nur 1% anstelle von 2%
+%\usepackage{lmodern} %Latin Modern FONT
+%\usepackage{pifont} %schönere Font
+
+
+
+\usepackage{amsmath}
+\usepackage{nicefrac}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+
+\usepackage{titlesec} %Um Section, etc bearbeiten zu können
+\usepackage{setspace}
+\usepackage{enumitem} %enumerate
+\usepackage{multicol}
+\usepackage[many]{tcolorbox}
+\usepackage{hyperref}
+\usepackage{arydshln}
+
+%\renewcommand{\ttdefault}{lmtt} %Schriftart wird geändert zu Latin Modern Typewriter
+
+
+\hypersetup{hidelinks,
+			colorlinks=true,
+			linkcolor=black,
+			citecolor=miudiutex,
+			urlcolor=miugray2
+			}
+
+\setlength{\parindent}{0pt}
+\setcounter{section}{0}
+
+
+\titlespacing*{\section}{0pt}{20mm}{6mm}
+\titlespacing*{\subsection}{0pt}{6mm}{3mm}
+\titlespacing*{\subsubsection}{0pt}{3mm}{0mm}
+
+
+
+%\definecolor{miudiutex}{HTML}{2f3d39}
+\definecolor{miudiutex}{HTML}{1d2926}
+\definecolor{miugray}{HTML}{b4cccf}
+\definecolor{miugray2}{HTML}{4d7365}
+\definecolor{red}{HTML}{cf1f5c}
+\definecolor{green}{HTML}{00A36C}
+\definecolor{delphinidin}{HTML}{315794}
+\definecolor{pelargonidin}{HTML}{b33807}
+\definecolor{cyanidin}{HTML}{ba0746}
+\definecolor{petunidin}{HTML}{b56fed}
+
+
+
+\raggedcolumns %wichtig für Multicolumns
+
+
+%================================
+% SYMBOLS
+%================================
+
+\newcommand{\RA}{$\rightarrow$~}
+\newcommand{\RL}{$\rightleftharpoons$~}
+\newcommand{\HARP}{\ding{226}~}
+%$\xrightarrow{2}$ %Pfeil mit 2 drüber
+
+
+%================================
+% SHORT COMMANDS (BOXES ; ETC)
+%================================
+
+
+\newcommand{\notiz}[1]{\begin{notizz}{}{}\begin{center}
+			{\color{miugray2!50!miudiutex}#1} \end{center}\end{notizz}}
+\newcommand{\zit}[2]{\begin{zitat*}{#1}{}\small #2 \end{zitat*}}
+
+\newcommand{\frage}[2]{\begin{qst*}{#1}{}\small #2 \end{qst*}}
+
+\newcommand{\unten}{\end{center} \tcblower \begin{center}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=0.5pt,miudiutex] (char) {\tiny #1};}}
+            
+\newcommand{\miusquare}{{\color{miugray2!50}\scriptsize $\blacksquare$}~}
+\newcommand{\miusquarp}{{\color{petunidin!50}\scriptsize $\blacktriangleright$}~}
+\newcommand{\niu}{\item[\miusquare]}
+\newcommand{\nip}{\item[\miusquarp]}
+
+%%%%% ABSAETZE
+
+\newcommand{\pps}{\par \vspace*{1mm}}
+\newcommand{\pp}{\par \vspace*{3mm}}
+\newcommand{\ppbig}{\par \vspace*{8mm}}
+\newcommand{\pphuge}{\par \vspace*{10mm}}
+
+%================================
+% FRAGE BOX
+%================================
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{qst}{Frage:}
+{%
+	enhanced,
+	breakable,
+	colback = gray!15!white,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2.5pt}{0pt}{red!70},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = black,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, gray!50!black},
+}
+{th}
+
+
+
+
+%================================
+% ZITAT BOX
+%================================
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{zitat}{Zitat}
+{%
+	enhanced,
+	breakable,
+	colback = gray!15!white,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2.5pt}{0pt}{black!70},
+	sharp corners,
+	detach title,
+%	before upper = \tcbtitle\par\smallskip,
+	coltitle = gray!50!black,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+%	separator sign none,
+	segmentation style={solid, gray!50!black},
+}
+{th}
+
+
+
+%================================
+% SIMPLE SCHWARZER RAHMEN BOX
+%================================
+
+
+\newcommand{\boxfr}[1]{
+	\begin{tcolorbox}[
+	drop shadow southeast,
+	enhanced,
+	colframe=black!50,
+	colback=white,
+	boxrule = 1pt, 
+%	toprule=0pt, bottomrule=0pt,rightrule=0pt,leftrule=0pt,
+	boxsep=5pt,
+	arc=1pt,
+	]
+	\begin{center}
+	#1
+	\end{center}
+	\end{tcolorbox}
+}
+
+
+\definecolor{miudiutex}{HTML}{1d2926}
+\definecolor{miugray}{HTML}{b4cccf}
+\definecolor{miugray2}{HTML}{4d7365}
+\definecolor{white2}{HTML}{f5f7f8}
+\definecolor{red}{HTML}{cf1f5c}
+\definecolor{green}{HTML}{00A36C}
+\definecolor{delphinidin}{HTML}{315794}
+\definecolor{uniblau}{HTML}{004e9f}
+\definecolor{unigelb}{HTML}{fcba00}
+\definecolor{unigrau}{HTML}{909085}
+\definecolor{pelargonidin}{HTML}{b33807}
+\definecolor{cyanidin}{HTML}{ba0746}
+\definecolor{paeonidin}{HTML}{d15ca6}
+\definecolor{petunidin}{HTML}{b56fed}
+\definecolor{malvidin}{HTML}{8a2d8c}
+
+\newcommand{\metermilli}{\mskip3mu \text{mm}}
+\newcommand{\cm}{\mskip3mu \text{cm}}
+\newcommand{\m}{ \text{m}}
+\newcommand{\lite}{ \text{l}}
+\newcommand{\kg}{ \text{kg}}
+\newcommand{\g}{ \text{g}}
+\newcommand{\km}{ \text{km}}
+\newcommand{\h}{ \text{h}}
+\newcommand{\s}{ \text{s}}
+\newcommand{\tonne}{ \text{t}}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage[
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100,
+    stretch=30,
+    shrink=20
+]{microtype}
+\usepackage{pdfpages}
+\usepackage{awesomebox}
+\usepackage{marginnote}
+\tcbuselibrary{documentation}
+\usepackage{sidenotes}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{transparent}
+\usepackage[table]{xcolor}
+
+
+\newcommand{\abbicon}{%
+  \protect\tikz[baseline=0.2mm,scale=0.8]{%
+    % Das blaue Quadrat mit abgerundeten Ecken
+    \fill[uniblau, rounded corners=1.2pt] (0,0) rectangle (0.8em, 0.8em);
+    % Der weiße Kreis in der Mitte
+    \fill[white] (0.4em, 0.4em) circle (0.12em);
+  }%
+} 
+\usepackage[labelfont={bf},font={color=miudiutex,small},figurename={\abbicon $~$Abbildung}]{caption}
+
+
+\newcommand{\bckgrnd}{
+\AddToHookNext{shipout/background}{
+\begin{tikzpicture}[remember picture, overlay]
+ \draw[draw=none,fill=uniblau!70, shift={(current page.north west)}] (-3,0) rectangle (23,-3.75);
+ \draw[draw=none,fill=miugray, shift={(current page.north east)}] (-7,0) rectangle (3,-3.75);
+\end{tikzpicture}
+}
+}
+
+\newcommand{\incfig}[2]{%
+\def\svgwidth{#2\columnwidth}
+\import{F://LaTeX-Files/pngs/}{#1.pdf_tex}
+}
+
+\renewcommand{\textbf}[1]{\textsf{{\bfseries {#1}}}}
+
+
+
+\titleformat{\section}[hang]
+		{\LARGE \color{uniblau!75!black} \sffamily \bfseries}
+		{\thesection}
+		{6mm}
+		{}
+		[]
+\titleformat{\subsection}[hang]
+		{\large \sffamily \bfseries \color{black}}
+		{\thesubsection}
+		{4mm}
+		{{\color{miugray}$\blacksquare ~$}}
+
+\titleformat{\subsubsection}[block]
+		{\normalsize \bfseries \sffamily \color{black}}%
+		{\normalsize \color{black} \thesubsubsection}
+		{2mm}
+		{}
+		[ \color{black}]
+		
+\titleformat{\paragraph}
+		{\normalsize \bfseries \sffamily \color{black}}
+		{\footnotesize \theparagraph}
+		{1mm}
+		{}
+
+\pagestyle{empty}
+\titlespacing*{\section}{0pt}{20mm}{12mm}
+\titlespacing{\section}{0pt}{20mm}{12mm}
+
+\titlespacing*{\subsection}{0pt}{14mm}{4mm}
+\titlespacing{\subsection}{0pt}{14mm}{4mm}
+
+\titlespacing*{\subsubsection}{0pt}{6mm}{3mm}
+\titlespacing{\subsubsection}{0pt}{6mm}{3mm}
+
+\titlespacing*{\paragraph}{0pt}{6mm}{2mm}
+\titlespacing{\paragraph}{0pt}{6mm}{2mm}
+
+
+\let\oldmarginfigure\marginfigure
+\let\endoldmarginfigure\endmarginfigure
+
+\let\oldmarginfigure\marginfigure
+\let\endoldmarginfigure\endmarginfigure
+
+\renewenvironment{marginfigure}[1][0pt] % [1] steht für 1 Argument, [0pt] ist der Standardwert
+  {\oldmarginfigure[#1]\captionsetup{labelfont={sf,bf,color=uniblau!75!black},font={color=miudiutex,small}}}
+  {\endoldmarginfigure}
+  
+  
+  
+  
+\renewcommand{\labelitemi}{\color{uniblau!70}$\bullet$}
+\renewcommand{\labelitemii}{\color{uniblau!70}$\cdot$}
+\newcommand{\plmtsquare}{{\color{uniblau!70}$\blacksquare~$}}
+\newcommand{\splmt}[1]{{\color{uniblau!75!black} \sffamily #1}}
+\newcommand{\fplmt}[1]{{\color{uniblau!75!black} \sffamily \bfseries #1}}
+
+\newcommand{\antwort}[1]{
+\begin{tcolorbox}[
+	enhanced,
+	enforce breakable,
+	standard jigsaw,
+	boxrule=0.7pt,
+	colframe=black,
+	sharp corners,
+	boxsep=5pt,
+	title=\bfseries \sffamily Antwort,
+	opacityback=0,
+	coltitle=miudiutex,
+	attach boxed title to top text left={yshift=-\tcboxedtitleheight/2},
+	boxed title style={colback=white,colframe=white},
+	bottomrule at break=0pt,
+	toprule at break=0pt,
+	pad at break=16mm,
+]
+	\begin{center}
+	#1
+	\end{center}
+	\end{tcolorbox}
+}
+
+
+
+
+\rowcolors{2}{miugray!50}{miugray!50}
+\arrayrulecolor{white} % Weiße Gitterlinien
+\setlength{\arrayrulewidth}{1.5pt} % Etwas dickere Linien
+\renewcommand{\arraystretch}{1.4} % Mehr Zeilenhöhe für bessere Lesbarkeit}
+
+\setlist[enumerate]{itemsep=4mm}
+
+
+
+\usepackage{relsize}
+\usetikzlibrary{positioning, arrows.meta, calc}
+
+
+
+\newif\ifshowme
+%\showmetrue
+
+
+
+
+\begin{document}
+\newgeometry{top=1.8cm,bottom=3cm,left=1.5cm,right=7.5cm,marginparsep=-2.00cm,marginparwidth=4.75cm}
+
+
+\bckgrnd
+
+
+\begin{center}
+\LARGE
+\color{white}
+\textbf{Übung 01} \par \vspace*{2mm}
+\large \color{miugray} \textbf{Prozessbezogene Lebensmitteltechnologie}
+\end{center}
+\par 
+\vspace*{6mm}
+
+
+\color{miudiutex}
+\section*{\makebox{Allgemeine Grundlagen \& Massenerhaltung}}
+\subsection*{Aufgabe 1 - Dichte}
+
+\begin{enumerate}[leftmargin=6mm,font={\bfseries \sffamily \color{uniblau!75!black}},label=\alph*)]
+
+
+
+\item Wie ist die Dichte eines Körpers definiert? Welches Formelzeichen wird für die Dichte verwendet? Welche SI-Einheit hat sie? Ist die Dichte eine extensive oder intensive Größe?
+\ifshowme
+\antwort{
+Die Dichte eines Stoffes ist der Quotient aus der Masse $m$ des Körpers und seinem Volumen $V$.
+\pp
+Das Formelzeichen ist $\rho$. 
+\pp
+Die SI-Einheit ist kg/m$^3$. 
+\pp
+Es handelt sich um eine intensive Größe, da sie unabhängig von Form und Größe des Körpers ist.
+
+}
+\else
+\fi
+
+
+\item Ordnen Sie die Dichten den jeweiligen Lebensmittelbestandteilen zu. Die Dichteangaben sind in der SI-Einheit angegeben.
+
+%\begin{center}
+%\color{black}
+%\begin{tabular}{l|r}
+%\rowcolor{miugray}
+%\textbf{Lebensmittelbestandteil} & \textbf{Dichte} \\ \hline 
+%Fett			&900 – 950 \\
+%Protein			&1000 \\
+%Stärke			&ca. 1400 \\
+%Salz			&1500 \\
+%Wasser			&2160 \\
+%\end{tabular}
+%\end{center}
+\pp
+
+\resizebox{.9\textwidth}{!}{
+\begin{tikzpicture}[font=\sffamily]
+
+  % --- Gemeinsame Stile definieren ---
+  \tikzset{
+    % Stil für die Kopfzeilen-Zellen
+    headercell/.style={rectangle, fill=miugray, text=black, font=\bfseries, minimum height=2.2em, align=center, inner sep=6pt},
+    % Stil für die linken Datenzeilen-Zellen (Text)
+    bodycell/.style={rectangle, fill=miugray!50, draw=white, minimum height=2.2em, align=left, inner sep=6pt},
+    % Stil für die rechten Datenzeilen-Zellen (Zahlen)
+    rightbodycell/.style={rectangle, fill=miugray!50, draw=white, minimum height=2.2em, align=center, inner sep=6pt},
+    % Stil für die kreisförmigen Verbindungsknoten
+    connectnode/.style={circle, draw=miugray, fill=white, inner sep=0pt, minimum size=7pt, anchor=center}
+  }
+
+  % ==========================================
+  %   LINKE SPALTE (Lebensmittelbestandteil)
+  % ==========================================
+  \node (head_left) [headercell, minimum width=6cm] {Lebensmittelbestandteil};
+
+  % Datenzeile: Fett
+  \node (fett) [bodycell, minimum width=6cm, below=-\pgflinewidth of head_left] {Fett};
+  \node (fett_conn) [connectnode] at (fett.east) {};
+
+  % Datenzeile: Protein
+  \node (protein) [bodycell, minimum width=6cm, below=-\pgflinewidth of fett] {Protein};
+  \node (protein_conn) [connectnode] at (protein.east) {};
+
+  % Datenzeile: Stärke
+  \node (staerke) [bodycell, minimum width=6cm, below=-\pgflinewidth of protein] {Stärke};
+  \node (staerke_conn) [connectnode] at (staerke.east) {};
+
+  % Datenzeile: Salz
+  \node (salz) [bodycell, minimum width=6cm, below=-\pgflinewidth of staerke] {Salz};
+  \node (salz_conn) [connectnode] at (salz.east) {};
+
+  % Datenzeile: Wasser
+  \node (wasser) [bodycell, minimum width=6cm, below=-\pgflinewidth of salz] {Wasser};
+  \node (wasser_conn) [connectnode] at (wasser.east) {};
+
+
+  % ==========================================
+  %      RECHTE SPALTE (Dichte)
+  % ==========================================
+  % Horizontale Positionierung relativ zur linken Spalte
+  \node (head_right) [headercell, minimum width=4cm, right=2.0cm of head_left.east, anchor=west] {Dichte};
+
+  % Datenzeile: 900 - 950
+  \node (dichte1) [rightbodycell, minimum width=4cm, below=-\pgflinewidth of head_right] {900 - 950};
+  \node (dichte1_conn) [connectnode] at (dichte1.west) {};
+
+  % Datenzeile: 1000
+  \node (dichte2) [rightbodycell, minimum width=4cm, below=-\pgflinewidth of dichte1] {1.000};
+  \node (dichte2_conn) [connectnode] at (dichte2.west) {};
+
+  % Datenzeile: ca. 1400
+  \node (dichte3) [rightbodycell, minimum width=4cm, below=-\pgflinewidth of dichte2] {ca. 1.400};
+  \node (dichte3_conn) [connectnode] at (dichte3.west) {};
+
+  % Datenzeile: 1500
+  \node (dichte4) [rightbodycell, minimum width=4cm, below=-\pgflinewidth of dichte3] {1.500};
+  \node (dichte4_conn) [connectnode] at (dichte4.west) {};
+
+  % Datenzeile: 2160
+  \node (dichte5) [rightbodycell, minimum width=4cm, below=-\pgflinewidth of dichte4] {2.160};
+  \node (dichte5_conn) [connectnode] at (dichte5.west) {};
+
+  % ==========================================
+  %      VERBINDUNGSLINIEN ZEICHNEN
+  % ==========================================
+  % Zeichnet eine saubere Linie für das im Bild gezeigte Beispiel (Wasser -> Protein/1000)
+  \draw[ultra thick, uniblau] (wasser_conn) -- (dichte2_conn);
+\ifshowme
+	\draw[ultra thick, uniblau] (fett_conn) -- (dichte1_conn);
+	\draw[ultra thick, uniblau] (protein_conn) -- (dichte3_conn);
+	\draw[ultra thick, uniblau] (staerke_conn) -- (dichte4_conn);
+	\draw[ultra thick, uniblau] (salz_conn) -- (dichte5_conn);
+\else
+\fi
+
+  % Optional: Wenn du weitere Linien hinzufügen möchtest, nutze diese Syntax:
+  % \draw[thick, gray] (fett_conn) -- (dichte1_conn);
+
+\end{tikzpicture}
+}
+
+
+
+
+
+
+
+
+
+
+
+\color{miudiutex}
+\ifshowme
+\antwort{
+In aufsteigender Reihenfolge: Fett, Wasser, Protein, Stärke, Salz
+}
+\pagebreak
+\else
+\fi
+
+%\marginnote[]{\small Bei porösen Festkörpern wird zwischen der sogenannten \fplmt{Reindichte} und der \fplmt{Rohdichte} unterschieden. Die Rohdichte ist die Dichte des Festkörpers basierend auf dem Volumen einschließlich der Porenräume. Die Reindichte bezieht sich auf die Dichte des stofflichen Teils des Körpers, ohne etwaige Hohlräume zu berücksichtigen. 
+%}
+\item Bei porösen Festkörpern wird zwischen der sogenannten Reindichte und der Rohdichte unterschieden. Die Rohdichte ist die Dichte des Festkörpers basierend auf dem Volumen einschließlich der Porenräume. Die Reindichte bezieht sich auf die Dichte des stofflichen Teils des Körpers, ohne etwaige Hohlräume zu berücksichtigen. 
+ 
+Stellen Sie die Formeln zur Berechnung der Roh- und der Reindichte auf.
+\ifshowme
+\antwort{
+\vspace*{-4mm}
+\begin{align*}
+{\mathlarger \rho}_{roh} &= \frac{m}{V_{Stoff} + V_{por}} \\
+{\mathlarger \rho}_{rein} &= \frac{m}{V_{Stoff}}
+\end{align*}
+$m$ : Masse des Festkörpers \par 
+$V_{Stoff}$ : Volumen des Stoffes \par 
+$ V_{por}$ : Volumen der Poren
+}
+\else
+\fi
+
+
+
+\item Die Schüttdichte bezeichnet die Dichte eines Gemenges aus einem körnigen Feststoff und einem kontinuierlichen Fluid. Stellen Sie die Formel zur Berechnung der Schüttdichte auf.
+\ifshowme
+\antwort{
+\vspace*{-4mm}
+\begin{align*}
+{\mathlarger \rho}_{Sch} &= \frac{m}{V_{Sch}}
+\end{align*}
+}
+\else
+\fi
+
+
+
+\item Die Schüttdichte von Kakaobohnen beispielsweise liegt um die 1.073 kg/m$^3$, die Schüttdichte von Weizen um 770 kg/m$^3$. Im Fall von Getreide wird häufig auch die Hektolitermasse bestimmt. 
+
+Wie groß ist die Hektolitermasse des Weizens? Die Hektolitermasse kann mit \splmt{20 L-Probern} bestimmt werden. Wie viel wiegt in dem Fall ein 20 L-Prober?
+\marginnote[]{\small Ein \fplmt{Getreideprober} wird eingesetzt um die Restfeuchte von Getreide zu bestimmen, indem man die Schüttdichte über das Wiegen eines genau normierten Volumens von Getreide errechnet.}[-2.5cm]
+\ifshowme
+\antwort{
+\vspace*{-4mm}
+\begin{align*}
+770 ~\text{kg/m}^3 = 77 ~\text{kg/hL}\\
+0,77~\text{kg/L} \cdot 20~\text{L} = 15,4 ~\text{kg}
+\end{align*}
+}
+\pagebreak
+\else
+\fi
+
+
+\item Die Dichte von Lebensmitteln kann über folgende Formel abgeschätzt werden:
+\begin{align}
+\rho = \frac{1}{\sum \frac{m_i}{\rho_i}}
+\end{align}
+
+\marginnote[]{\small 
+\splmt{$m_i$:} Massenanteil des jeweiligen Bestandteils \par 
+\splmt{$\rho_i$:} Dichte des jeweiligen Bestandteils
+}[-1.8cm]
+
+Für die Dichten gelten in Abhängigkeit von der absoluten \makebox{Temperatur $T$} die Funktionen aus Tabelle \ref{table1} 
+\ppbig
+
+\marginnote[]{\small Die Dichte von Wasser verhält sich bei den verschiedenen Temperaturen nicht linear. Die Gleichung für Wasser ist deshalb, aufgrund der \fplmt{Dichteanomalie}, ein Polynom 2.Ordnung.}[1.5cm]
+
+
+\begin{table}[h]
+\centering
+\captionsetup{width=.85\linewidth}
+\caption{Dichte $\rho$ in kg/m$^3$ für verschiede Lebensmittelkomponenten; Daten nach Singh \& Heldman, Introduction to Food Engineering}
+\label{table1}
+\resizebox{.85\textwidth}{!}{
+\begin{tabular}{l|l}
+\hline
+\rowcolor{miugray}
+\textbf{Komponente} & \textbf{Gleichung für die Dichte ($\rho$)} \\ \hline
+Protein & $\rho = 1,3299 \times 10^{3} - 5,1840 \times 10^{-1}T$ \\
+Fett & $\rho = 9,2559 \times 10^{2} - 4,1757 \times 10^{-1}T$ \\
+Kohlenhydrate & $\rho = 1,5991 \times 10^{3} - 3,1046 \times 10^{-1}T$ \\
+Ballaststoffe & $\rho = 1,3115 \times 10^{3} - 3,6589 \times 10^{-1}T$ \\
+Asche & $\rho = 2,4238 \times 10^{3} - 2,8063 \times 10^{-1}T$ \\
+Wasser & $\rho = 9,9718 \times 10^{2} + 3,1439 \times 10^{-3}T - 3,7574 \times 10^{-3}T^{2}$ \\
+Eis & $\rho = 9,1689 \times 10^{2} - 1,3071 \times 10^{-1}T$ \\ \hline
+\end{tabular}
+}
+\end{table}
+
+
+\pp
+
+Für Weizen wurde folgende Zusammensetzung bestimmt: 
+
+\begin{multicols}{2}
+
+\begin{itemize}
+\item 12,8\% Wasser
+\item 10,9\% Eiweiß
+\item 1,8\% Fett
+\item 59,5\% Kohlenhydrate
+\item 13,3\% Ballaststoffe
+\item 1,7\% Mineralstoffe
+
+\end{itemize}
+
+\end{multicols}
+Schätzen Sie die Dichte des Weizens mit obiger Formel für 20°C ab.
+
+\marginnote[]{\small Denken Sie darüber nach, welche Einheit für die Temperatur am meisten Sinn macht. Grad \splmt{Celsius} oder \splmt{Kelvin}?}[-1cm]
+\ifshowme
+\antwort{
+\small
+\begin{align*}
+&\rho = \frac{1}{\sum \frac{m_i}{\rho_i}} = \\
+& \frac{1}{\frac{0,128}{995,7399} + \frac{0,109}{1.319,532} + \frac{0,018}{917,2386} + \frac{0,595}{1.592,8908} + \frac{0,133}{1.304,1822} + \frac{0,017}{2.418,1874}} \\ \\
+&= 1.401,90~\text{kg/m}^3
+\end{align*}
+}
+\pagebreak
+\else
+\fi
+
+
+\end{enumerate}
+
+\subsection*{Aufgabe 2 - Konzentration}
+10 kg Saccharose werden in 90 kg Wasser gegeben. Die Dichte der Saccharoselösung ist 1.040 kg/m$^33$. Die molare Masse von Saccharose beträgt 342,3 g/mol. Berechnen Sie folgende Werte: 
+
+\begin{itemize}
+\item Stoffmengenkonzentration/Molarität
+
+\ifshowme
+\antwort{
+\begin{align*}
+c = \frac{n}{V} = \frac{m / M}{m / \rho} &= \frac{10~\text{kg} ~/~ 0,3423~\text{kg$\cdot$mol}^{-1}}{100 ~\text{kg} ~/~ 1.040~\text{kg$\cdot$m}^{-3}}\\ &= 303,83~\text{mol/m}^3 \\
+&= 0,3~\text{mol/L}
+\end{align*}
+}
+\else
+\fi
+\item Massenkonzentration
+\ifshowme
+\antwort{
+\begin{align*}
+\beta = \frac{m}{V} = \frac{m}{m / \rho} = \frac{10~\text{kg}}{100 ~\text{kg} / 1.040~\text{kg/m}^3} = 104 ~\text{kg/m}^3
+\end{align*}
+}
+\else
+\fi
+\item Massenanteil
+\ifshowme
+\antwort{
+\begin{align*}
+w = \frac{m}{m} = \frac{10~\text{kg}}{100~\text{kg}} = 0,1 = 10\%
+\end{align*}
+}
+\else
+\fi
+\item Wie viel Grad Brix hat die Saccharoselösung?
+\ifshowme
+\antwort{
+1 Grad Brix entspricht der Dichte von 1 g Saccharose in 100 g Lösung \par oder: \par 
+Gew.\% multipliziert mit 100
+\begin{align*}
+\text{Brix} = 0,1 \cdot 100 = 10
+\end{align*}
+}
+\pagebreak
+\else
+\fi
+
+\end{itemize}
+
+
+\pagebreak
+
+\subsection*{Aufgabe 3 - Massenerhaltung}
+\begin{enumerate}[leftmargin=6mm,font={\bfseries \sffamily \color{uniblau!75!black}},label=\alph*)]
+\item Ein Lebensmittel enthält 70\% Wasser. Durch einen Trocknungsvorgang werden 80\% des Wassers entfernt. Berechnen Sie 
+\begin{itemize}
+\item wie viel Wasser pro kg des Lebensmittels entzogen wurde, und
+\item wie viel Wasser und wie viel Trockensubstanz das Endprodukt enthält.
+\end{itemize}
+\ifshowme
+\antwort{
+Entferntes Wasser:
+\begin{align*}
+1~\text{kg} \cdot 0,7 \cdot 0,8 = 0,56~\text{kg}
+\end{align*}
+Wasseranteil im Lebensmittel:
+\begin{align*}
+0,7~\text{kg} - 0,56~\text{kg} = 0,14~\text{kg}
+\end{align*}
+Trockensubstanz im Lebensmittel:
+\begin{align*}
+1~\text{kg} \cdot 0,3 = 0,3~\text{kg}
+\end{align*}
+}
+\pagebreak
+\else
+\fi
+
+\ppbig
+
+
+
+\item Mithilfe eines zweistufigen Membranverfahrens wird Saft von 10\% Trockensubstanz (TS) auf 30\% TS aufkonzentriert. Eine schematische Darstellung des Prozesses ist in \figurename{ \ref{figure1}}  gegeben. Berechnen Sie den Massenstrom des Rücklaufs R.
+
+\marginnote[]{\small \fplmt{Tipp:} Starten Sie, indem Sie Beziehungen zwischen den jeweiligen Bestandteilen aufstellen (z.B.: F = P + W). Substituieren Sie ggf. dann mit den Informationen, die Sie aus der Grafik entnehmen können.}
+
+\ifshowme
+\begin{marginfigure}[4cm]
+\else
+\begin{figure}[h]
+\fi
+\ifshowme
+    \def\mycolumnwidth{1.3\textwidth}
+\else
+    \def\mycolumnwidth{0.9\textwidth}
+\fi
+
+\centering
+\resizebox{\mycolumnwidth}{!}{
+
+
+\begin{tikzpicture}[scale=0.5,
+    >={Latex[length=6pt, width=5pt]}, % Erzeugt die ausgefüllten dreieckigen Pfeilspitzen
+    font=\sffamily, % Nutzt eine serifenlose Schriftart wie im Bild
+    block1/.style={draw, rectangle, minimum height=2.4cm, minimum width=2.4cm, fill=miugray!50},
+    block2/.style={draw, rectangle, minimum height=2.4cm, minimum width=2.4cm, fill=miugray}
+]
+
+% 1. Die beiden Hauptblöcke setzen
+\node[block1] (u1) at (0,0) {};
+\node[block2, right=2.5cm of u1] (u2) {};
+
+% 2. Systemgrenze (gestrichelte Box)
+% Wird zuerst gezeichnet, damit die Box im Hintergrund liegt
+\draw[dashed] ($(u1.north west) + (-1cm, 1.5cm)$) rectangle ($(u2.south east) + (1cm, -2.5cm)$);
+
+% 3. Feed-Strom (F)
+\draw[<-] (u1.west) -- ++(-1.8cm,0) node[left, align=center] {F\\$10\%$ TS};
+
+% 4. Waste/Wasser-Strom (W) nach oben
+\draw[->] (u1.north) -- ++(0, 2.5cm) node[above] {W} node[right, pos=1,xshift=2mm] {$0.5\%$ TS};
+
+% 5. Zwischenstrom (B)
+\draw[->] (u1.east) -- (u2.west) node[midway, above] {B} node[midway, below] {$25\%$ TS};
+
+% 6. Produkt-Strom (P)
+\draw[->] (u2.east) -- ++(1.8cm,0) node[right, align=center] {P\\$30\%$ TS\\100 kg/min};
+
+% 7. Rückführungs-Strom (Recycle, R)
+\draw[->] (u2.south) -- ++(0, -1.2cm) coordinate (r_corner)
+          -- (r_corner -| u1.south) node[midway, above] {R} node[midway, below] {$2\%$ TS}
+          -- (u1.south);
+
+\end{tikzpicture}
+}
+\captionsetup{width=.85\linewidth}
+\caption{abgeändert, nach Singh \& Heldman, Introduction to Food Engineering}
+\label{figure1}
+
+\ifshowme
+\end{marginfigure}
+\else
+\end{figure}
+\fi
+
+
+
+\ifshowme
+\antwort{
+Für das ganze System gilt folgende Gleichung
+\begin{align*}
+F = W + P
+\end{align*}
+Daher gilt für die Trockensubstanz:
+\begin{align*}
+0,1F = 0,005W + 0,3P
+\end{align*}
+Da wir wissen, dass $P$ einen Volumenstrom von 100 kg/min hat, können wir in die Gleichung (für die dann der Zeitraum von 1 min gilt) wie folgt einsetzen:
+\begin{align*}
+0,1F &= 0,005W + 0,3\cdot100 \\
+0,1F &= 0,005W + 30
+\end{align*}
+Nun substituieren wir $F$ mit $F = W + P$:
+\begin{align*}
+0,1(W + P) 	&= 0,005W + 30 \\
+0,1(W + 100)&= 0,005W + 30 \\
+0,1W + 10	&= 0,005W + 30 \\
+0,1W -0,005W&= 30 - 10 \\
+0,095W &= 20 \\
+W &= 210,5
+\end{align*}
+
+
+
+Ähnlich verfahren wir für die Berechnung des Rückstroms $R$. Für $R$ gilt die Beziehung:
+\begin{align*}
+F + R = W + B
+\end{align*}
+Für die Trockensubstanz können wir folgende Faktoren bestimmen:
+\begin{align*}
+0,1F + 0,02R = 0,005 W + 0,25 B
+\end{align*}
+Nun können wir unsere errechneten Werte für $F$ und $W$ einsetzen und nach R auflösen:
+\begin{align*}
+0,1\cdot 310,5 + 0,02 R &= 0,005 \cdot 210,5 + 0,25 B \\
+31,05 + 0,02 R 			&= 1.0525 + 0,25 (R + P) \\
+31,05 + 0,02 R			&= 1.0525 + 0,25 R + 25 \\
+4,9975					&= 0,23 R \\
+R 						&= 21,73~\text{kg/min}
+\end{align*}
+}
+\pagebreak
+\else
+\fi
+
+
+\ppbig
+
+
+\item Kartoffelflocken mit einem Wasseranteil von 75\% werden in einen Gleich\-strom-Durchlauftrockner gegeben. Der Prozess ist in \figurename{ \ref{figure2}}  veranschaulicht. Berechnen Sie den Massenstrom des Produkts. Berechnen Sie den Wassergehalt des Produkts.
+
+
+\ifshowme
+\begin{marginfigure}[2.5cm]
+\else
+\begin{figure}[h]
+\fi
+\centering
+\ifshowme
+    \def\mycolumnwidth{1.2\textwidth}
+\else
+    \def\mycolumnwidth{0.9\textwidth}
+\fi
+
+\centering
+\resizebox{\mycolumnwidth}{!}{
+\begin{tikzpicture}[
+    >={Latex[length=6pt, width=5pt]}, % Etwas größere Pfeilspitzen (wie zuvor besprochen)
+    font={\sffamily \small},
+    mainblock/.style={draw, rectangle, minimum width=3.5cm, minimum height=4.2cm, fill=miugray!50}
+]
+
+% 1. Hauptblock (Trocknerkammer)
+\node[mainblock] (dryer) at (0,0) {};
+
+% 2. Die inneren Fächer (Regale/Bleche) einzeichnen
+% Wir nutzen eine Schleife, um die 4 Bleche mit festem Abstand zu zeichnen
+\foreach \y in {1.2, 0.6, 0.0, -0.6} {
+    \draw ($(dryer.center) + (-1.2,\y)$) -- ++(0,-0.25) -- ++(2.4,0) -- ++(0,0.25);
+}
+
+% --- Linke Seite (Eingänge) ---
+
+% Inlet Air (I)
+\coordinate (I_start) at (-6.5, 1.2); % Startpunkt weit links
+\coordinate (I_end)   at (dryer.west |- I_start); % Endpunkt genau am Rand der Box
+\draw[->] (I_start) -- (I_end) node[midway, below=0.1cm] {I};
+\node[align=left, anchor=south west, inner sep=0pt, yshift=0.2cm,xshift=-8mm] at (I_start) {Luft-Zufuhr\\0.08 kg Wasser/kg Trockenluft\\100 kg/h Trockenluft};
+
+% Feed (F)
+\coordinate (F_start) at (-6.5, -1.5);
+\coordinate (F_end)   at (dryer.west |- F_start);
+\draw[->] (F_start) -- (F_end) node[midway, below=0.1cm] {F};
+\node[align=left, anchor=south west, inner sep=0pt, yshift=0.2cm,xshift=-8mm] at (F_start) {Lebensmittel-Zufuhr\\50 kg feuchte Kartoffelflocken/h\\Wasseranteil 75\% };
+
+% --- Rechte Seite (Ausgänge) ---
+
+% Exit Air (E)
+\coordinate (E_start) at (dryer.east |- I_start);
+\coordinate (E_end)   at (4, 1.2);
+\draw[->] (E_start) -- (E_end) node[right] {E};
+% Text rechts unten am Pfeil
+\node[align=left, anchor=north west, inner sep=0pt, yshift=-0.2cm,xshift=2mm] at (E_start) {Luft-Abfuhr\\0.18 kg Wasser/kg Trockenluft};
+
+% Product (P)
+\coordinate (P_start) at (dryer.east |- F_start);
+\coordinate (P_end)   at (4, -1.5);
+\draw[->] (P_start) -- (P_end) node[right] {P};
+% Text rechts unten am Pfeil
+\node[align=left, anchor=north west, inner sep=0pt, yshift=-0.2cm,xshift=2mm] at (P_start) {Produkt\\Wassergehalt?};
+
+\end{tikzpicture}
+}
+\captionsetup{width=.85\linewidth}
+\caption{abgeändert, nach Singh \& Heldman, Introduction to Food Engineering}
+\label{figure2}
+\ifshowme
+\end{marginfigure}
+\else
+\end{figure}
+\fi
+
+\ifshowme
+\marginnote[]{\small 
+\fplmt{Anmerkung:} \par 
+\splmt{Wasseranteil:} Verhältnis der Masse des im Stoff enthaltenen Wassers zur Gesamtmasse des Stoffes \par 
+\splmt{Wassergehalt:} Verhältnis der Masse des im Stoff enthaltenen Wassers zur Masse des wasserfreien Stoffs}[7cm]
+\else
+\marginnote[]{\small 
+\fplmt{Anmerkung:} \par 
+\splmt{Wasseranteil:} Verhältnis der Masse des im Stoff enthaltenen Wassers zur Gesamtmasse des Stoffes \par 
+\splmt{Wassergehalt:} Verhältnis der Masse des im Stoff enthaltenen Wassers zur Masse des wasserfreien Stoffs}[-6cm]
+\fi
+
+
+\ifshowme
+\antwort{
+Zunächst einmal berechnen wir über die Massenerhaltung die fehlende Größe $P$. Zur Vereinfachung schauen wir uns einen Zeitraum für 1 Stunde an. Demnach gilt:
+\begin{align*}
+I + F &= E + P \\
+100 \cdot 1,08 + 50 &= 100 \cdot 1,18 + P\\
+108 + 50 &= 118 + P \\
+P &= 40
+\end{align*}
+Jetzt ist die Frage, wie groß ist der Wasseranteil in $P$?
+Wir wissen, das unser ursprüngliches Lebensmittel $F$ einen Wasseranteil von 75\% hatte und somit einen Trockenanteil von 25\%. Demnach beträgt die absolute Masse des Trockenanteils
+\begin{align*}
+1 - 0.75 &= 0.25 \\
+0.25 \cdot 50~\text{kg} &= 12,5~\text{kg}
+\end{align*}
+Bezogen auf unser getrocknetes Lebensmittel $P$ ist der Anteil an Trockensubstanz $w_{TS}$:
+\begin{align*}
+w_{TS} = \frac{12,5~\text{kg}}{40~\text{kg}} = 0,3125
+\end{align*}
+
+Und somit der Wasseranteil $w_{W}$
+\begin{align*}
+w_{W} = 1 - w_{TS} = 1 - 0,3125 &= 0,6875 \\
+&= 68,75\%
+\end{align*}
+Um eine brauchbare Aussage über den Massenstrom machen zu können, bestimmen wir vorher noch den Wasseranteil pro kg Trockensubstanz:
+\begin{align*}
+w_{WTS} = \frac{0,6875}{0,3125} = 2,2
+\end{align*}
+\RA Der Massenstrom der Kartoffelflocken beträgt 40 kg/h mit einem Wassergehalt von 2,2 kg pro kg Trockensubstanz
+
+}
+\else
+\fi
+\end{enumerate}
+
+
+\end{document}

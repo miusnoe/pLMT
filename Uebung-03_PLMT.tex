@@ -1,0 +1,184 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{F://LaTex-Files/shiet/kemie2.tex}
+\input{F://LaTex-Files/shiet/macros.tex}
+\input{F://LaTex-Files/shiet/vl.tex}
+\input{F://LaTeX-Files/shiet/SI.tex}
+\usepackage{pgfplots}
+\usepackage{awesomebox}
+
+
+\newcommand{\answ}{{\color{miugray2}Antwort: \par \vspace*{-3mm} 
+\hrulefill }\par }
+
+\begin{document}
+
+\sidebar
+\miushead{Übung 03 - Prozessbezogene LMT}{Übung 03}
+\par \vspace*{5mm}
+
+
+\section{Übung 03}
+\subsection{Aufgabe 01}
+Berechnen Sie die Strahlungsleistung, die von 100m$^2$ einer polierten Eisenoberfläche
+(Emissionsgrad = 0,06) abgegeben wird. Die Temperatur der Oberfläche beträgt 37°C.
+\antwort{
+\begin{align*}
+P &= \varepsilon \cdot \sigma \cdot A \cdot T^4 \\ 
+P &= 0,06 \cdot  100~\text{m}^2 \cdot 5,67 \cdot 10^{-8} \text{W} \cdot \text{m}^{-2}\text{K}{-4}\cdot 310,15~\text{K}^4 \\
+P &= 3.147,9~\text{W}
+\end{align*}
+}
+\subsection{Aufgabe 02}
+Eine Seite einer 1 cm dicken Edelstahlplatte wird auf 110°C gehalten, die andere Seite
+auf 90°C. Berechnen Sie unter der Annahme stationärer Bedingungen die
+Wärmeübertragungsrate pro Flächeneinheit durch die Platte. Die Wärmeleitfähigkeit von
+nichtrostendem Stahl beträgt 17W/(m°C).
+\antwort{
+\begin{align*}
+\dot{Q} &= - A \cdot \frac{\lambda}{d} \cdot (T_2 - T_1) \\
+- \frac{\dot{Q}}{A} &= \cdot \frac{\lambda}{d} \cdot (T_2 - T_1) \\
+- \frac{\dot{Q}}{A} &= \cdot \frac{17 \text{W} / \text{m°C}}{0,01m} \cdot 20\text{°C}\\
+	&= 34.000 ~\text{W / m$^2$ s}
+\end{align*}
+}
+\pagebreak
+\subsection{Aufgabe 03}
+Ein Glühofen hat eine 4 m$^2$ große Wand aus Schamotte. Die Dicke der Wand sei 0,5 m.
+Zwischen der Innen- und der Außenseite der Wand besteht eine Temperaturdifferenz von
+1000 K. Die Temperatur außerhalb des Ofens beträgt 20°C. Die Wärmeleitfähigkeit der
+Schamotte ist $\lambda_1$ = 0,93 W/mK. 
+
+\begin{enumerate}[label=\alph*)]
+\item Wie groß ist der tägliche Wärmeverlust durch die Wand?
+\antwort{
+\begin{align*}
+\dot{Q} &= - A \cdot \frac{\lambda}{d} \cdot (T_2 - T_1) \\
+&= - 4m^2 \cdot \frac{0,93}{0,5m} \cdot 1000 K \\
+&= - 7.440~W \\
+&= - 7.440~W \cdot 24h \\
+&= - 178.560~Wh
+\end{align*}
+}
+\item Um wie viel Prozent verringert sich dieser Verlust, wenn die Außenwand (von außen)
+durch eine 3 cm dicke Isolierschicht mit einer Wärmeleitfähigkeit von $\lambda_2$ = 0,093
+W/mK verstärkt wird?
+\antwort{
+\begin{align*}
+\dot{Q} &= - \frac{A \cdot \Delta T_{ges}}{(\frac{d_2}{\lambda_2}+\frac{d_1}{\lambda_1})} \\
+\end{align*}
+Einsetzen:
+\begin{align*}
+\dot{Q} &= - \frac{4m^2 \cdot 1000 K}{(\frac{0,03m}{0,093 W/mk}+\frac{0,5m}{0,93 W/mk})} \\
+&= 4.650 W
+\end{align*}
+Prozentualer Unterschied:
+\begin{align*}
+\frac{4.650 W}{7.440 W} &\approx  0,625 = 62,5\%
+\end{align*}
+Also verringert sich der Verlust um 100-62,5\% = 37,5\%
+}
+
+\item Welche Temperatur herrscht an der Grenze zwischen der Isolierung und der
+Schamotte-Schicht?
+\antwort{
+\begin{align*}
+\dot{Q} &= - \lambda \cdot A \cdot \frac{T_3 - T_2}{d} \\
+T_2 &= \frac{\dot{Q} \cdot d}{\lambda \cdot A } + T_3 \\
+\\
+T_2 &= \frac{4.650 W \cdot 0,03m}{0,093 W/mk \cdot 4m^2} + 20^{\circ}C \\
+ &= 395^{\circ}C
+\end{align*}
+}
+
+\end{enumerate}
+
+\pagebreak
+\subsection{Aufgabe 4}
+Welche Wärmemenge (in kWh) benötigen Sie, um 6,5l einer Kartoffelsuppe von 10°C auf
+60°C zu erhitzen? Es wird angenommen das die Dichte der Suppe 1kg/dm3 beträgt und
+es keine Wärmeverluste gibt. \par 
+Die Suppe setzt sich pro 100g zusammen aus: \par 
+\begin{itemize}
+\item Fett: 14,3 g
+\item Proteine: 2,7 g
+\item Kohlenhydrate: 11,5 g
+\item Weitere Bestandteile: 0,5 g
+\end{itemize}
+Für die Berechnung der spezifischen Wärmekapazität kann folgende Formel verwendet
+werden:
+\boxfr{
+\begin{align*}
+c = &\quad ~   4,180 \cdot \text{Wasser} \\& + 1,711 \cdot \text{Proteine} \\& + 1,928 \cdot \text{Fett} \\&+ 1,547 \cdot \text{Kohlenhydrate} \\& + 0,908 \cdot \text{weitere Bestandteile}
+\end{align*}
+\pp
+}
+Achtung: Es soll mit Mengenanteilen gerechnet werden.
+\pp
+\antwort{
+Zunächst Wärmekapazität $c$ ausrechnen:
+\begin{align*}
+c &= 4,180 \cdot 0,71 + 1,711 \cdot 0,027 + 1,928 \cdot 0,143 + 1,547 \cdot 0,115 + 0,908 \cdot 0,005 \\
+ &= 3,472146~ \text{kJ} \cdot \text{kg}^{-1} \cdot \text{K}^{-1}
+\end{align*}
+Energie berechnen:
+\begin{align*}
+Q &= m \cdot c \cdot \Delta T \\ \\
+Q &= 6,5~ \text{kg} \cdot 3,472~ \text{kJ} \cdot \text{kg}^{-1}\cdot \text{K}^{-1} \cdot (333,15-283,15 ~ \text{K}) \\
+&= 1.128,45~ \text{kJ} \\
+&= 1.128,45~ \text{kWs}  \\
+&= 0,313~ \text{kWh}
+\end{align*}
+
+
+
+}
+%
+%x_2 \cdot T_3 - x_2 \cdot T_2 &= x_1 \cdot T_2 - x_1 \cdot T_1 \\
+%- x_2 \cdot T_2 &= x_1 \cdot T_2 - x_1 \cdot T_1 - x_2 \cdot T_3 \\
+%T_2 \cdot (x_1 - x_2)&= - x_1 \cdot T_1 - x_2 \cdot T_3 \\
+%T_2	&= \frac{x_1 \cdot T_1 - x_2 \cdot T_3}{x_1 - x_2} \\
+%\\
+%T_2 &= \frac{93/50 \cdot 1020 - 93/30 \cdot 20}{93/50 - 93/30}
+
+%
+%\dot{Q} &= - A  \cdot (\frac{d_2}{\lambda_2}+\frac{d_1}{\lambda_1}) \cdot (T_3 - T_1) \\
+%- A \cdot \frac{d_2}{\lambda_2} \cdot (T_3 - T_2) &= - A  \cdot \frac{d_1}{\lambda_1} \cdot (T_2 - T_1)\\
+%x_2 \cdot (T_3 - T_2) &= x_1 \cdot (T_2 - T_1)\\
+%x_2 \cdot T_3 - x_2 \cdot T_2 &= x_1 \cdot T_2 - x_1 \cdot T_1 \\
+%- x_2 \cdot T_2 - x_1 \cdot T_2 &= - x_1 \cdot T_1 - x_2 \cdot T_3 \\
+%T_2(-x_2 -x_1) &= - x_1 \cdot T_1 - x_2 \cdot T_3 \\ 
+%T_2 &= \frac{ - x_1 \cdot T_1 - x_2 \cdot T_3}{(-x_2 -x_1)} \\
+%T_2 &= \frac{ -  \frac{d_1}{\lambda_1} \cdot T_1 - \frac{d_2}{\lambda_2} \cdot T_3}{(-\frac{d_2}{\lambda_2} - \frac{d_1}{\lambda_1})}\\
+%T_2 &= \frac{ -  \frac{50}{93} \cdot 1020 K - \frac{30}{93} \cdot 20 K}{(-\frac{30}{93} - \frac{50}{93})}\\
+% &= 645
+
+%x \cdot T_3 - x \cdot T_2 &= x \cdot T_2 - x \cdot T_1 \\
+%- x \cdot T_2 &= x \cdot T_2 - x \cdot T_1 - x \cdot T_3 \\
+%- 2(x\cdot T_2) &= - x \cdot T_1 - x \cdot T_3 \\
+%T_2	&= \frac{x \cdot T_1 - x \cdot T_3}{2 \cdot x} \\
+%T_2	&= \frac{x(T_1 - T_3)}{2x} \\ \\
+%T_2 &= \frac{(\frac{d_2}{\lambda_2}+\frac{d_1}{\lambda_1})\cdot (T_1-T_3)}{2\cdot(\frac{d_2}{\lambda_2}+\frac{d_1}{\lambda_1})}\\
+%T_2 &= \frac{(\frac{0,03m}{0,093 W/mk}+\frac{0,5}{0,93 W/mk})\cdot (1000K)}{2\cdot(\frac{0,03m}{0,093 W/mk}+\frac{0,5}{0,93 W/mk})}\\
+% &= 500 K
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,205 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{F://LaTex-Files/shiet/basic.tex}
+\input{F://LaTeX-Files/shiet/colors.tex}
+\input{F://LaTeX-Files/shiet/SI.tex}
+\input{F://LaTeX-Files/shiet/plmtuebungpreamble.tex}
+\usetikzlibrary{patterns, arrows.meta, calc}
+
+\newif\ifshowme
+\showmetrue
+
+
+
+
+\begin{document}
+\newgeometry{top=1.8cm,bottom=4cm,left=1.5cm,right=7.5cm,marginparsep=-2.00cm,marginparwidth=4.75cm}
+
+
+\bckgrnd
+
+
+\begin{center}
+\LARGE
+\color{white}
+\textbf{Übung 05} \par \vspace*{2mm}
+\large \color{miugray} \textbf{Prozessbezogene Lebensmitteltechnologie}
+\end{center}
+\par 
+\vspace*{6mm}
+
+
+\color{miudiutex}
+
+\section{Wärmeübertragung III}
+
+
+\subsection*{Aufgabe 1}
+Eine gefrorene Kartoffelsuppe (-19 °C, 850 g) soll mithilfe einer Mikrowelle zum Verzehr auf
+80 °C erwärmt werden. Die Leistung der Mikrowelle liegt bei 800 W. Nehmen Sie an, dass
+diese Leistung zu 100\% für die Erwärmung der Kartoffelsuppe zur Verfügung steht.
+Die spezifische Wärmekapazität der gefrorenen Suppe beträgt 2,0 kJ/(kgK) und die der
+aufgetauten Suppe beträgt 4,62 kJ/(kgK). Es werden eine spezifische Schmelzwärme von 334
+kJ/kg und eine Dichte der Suppe von 1 g/cm$^3$ angenommen. \pp
+Wie lange dauert es, bis die gewünschte Temperatur erreicht ist?
+
+\ifshowme
+\antwort{
+\begin{align*}
+Q &= m \cdot c \cdot \Delta T \\
+Q &= 0,85~\text{kg} \cdot 2 ~\text{kJ/kgK} \cdot 19 ~\text{K} + 0,85~\text{kg} \cdot 334 ~\text{kJ/kg} 
+\\&~~~ + 0,85~\text{kg} \cdot 4,62 ~\text{kJ/kgK} \cdot 80 ~\text{K}\\
+	&= 630,36 ~\text{kJ}  \\
+	&= 630.360,0 ~\text{Ws } && | : 800 ~\text{W} \\
+	&= 787.95~\text{s} \\
+	&\approx 13~\text{min}~ 8~\text{s}
+\end{align*}
+
+}
+\pagebreak
+\else
+\fi
+
+
+
+
+
+
+\subsection*{Aufgabe 2}
+Auf welche Temperatur kühlt sich ein Getränk (500 g, 20 °C) ab, wenn 50 g Eis mit einer
+Temperatur von -20 °C hinzugegeben werden? Die spezifische Wärmekapazität von Eis liegt
+bei 2,0 kJ/(kgK) und von Wasser bei 4,2 kJ/(kgK). Die spezifische Schmelzwärme von Eis ist angegeben mit $q_S$ = 334 kJ/kg. Vernachlässigen Sie etwaige Wärmeströme in Bezug auf das
+Glas oder die Luft. \pp
+Berechnen Sie die Endtemperatur $T_f$. Überlegen Sie dafür zunächst, in welche (berechenbare) Schritte Sie diesen Prozess aufteilen können.
+
+
+\ifshowme
+\antwort{
+Zunächst Energie des Eiswürfels ausrechnen (wir gehen davon aus, dass er schmelzen wird)
+
+
+\begin{align*}
+Q &= m \cdot c \cdot \Delta T \\ 
+Q &= 0,05 ~\text{kg} \cdot 2 ~\text{kJ/kg} \cdot 20 ~\text{K} + 0,05 \cdot 334 ~\text{kJ/kg} \\ 
+Q &= 18,7 ~\text{kJ} 
+\end{align*}
+
+Im nächsten Schritt schauen wir uns an, wie sehr wie die Temperatur unseres Getränkes mit der Energie aus dem Eiswürfel absenken können:
+
+\begin{align*}
+Q &= m \cdot c \cdot \Delta T \qquad \rightarrow \qquad \Delta T = \frac{Q}{m \cdot c} \\ \\
+\Delta T &= \frac{18,7 ~\text{kJ}}{0,5 ~\text{kg} \cdot 4,2 ~\text{kJ/kgK}} \\ 
+		&= 8,9 ~\text{°C}
+\end{align*}
+
+Wir wissen nun, dass unser Getränk eine Temperatur von 11,1°C (20-8,9 °C) und unsere Flüssigkeit, die ehemals Eiswürfel war, eine Temperatur von 0°C hat. Wenn zwei Flüssigkeiten mit unterschiedlichen Temperaturen gemischt werden, gilt für die Endtemperatur: 
+
+
+\begin{align*}
+T_f &= \frac{c_1 \cdot m_1 \cdot T_1 + c_2 \cdot m_2 \cdot T_2}{c_1 \cdot m_1 + c_2 \cdot m_2} \\
+T_f &= \frac{m_1 \cdot T_1 + m_2 \cdot T_2}{m_1 + m_2} \\
+T_f &= \frac{0,5~\text{kg} \cdot 11,1 ~\text{°C} + 0,05~\text{kg} \cdot 0 ~\text{°C}}{0,5 ~\text{kg} + 0,05 ~\text{kg}} \\
+	&= 10,09 ~\text{°C}
+\end{align*}
+
+}
+\pagebreak
+\else
+\fi
+
+
+
+
+\pagebreak
+\subsection*{Aufgabe 3}
+Für eine Mikrowellenfrequenz von 2450 MHz und eine Temperatur von \mbox{20 °C} beträgt die
+stoffabhängige Permitivitätszahl $\varepsilon '$ von rohen Kartoffeln 64 und der Verlustwinkel tan $\delta$ 0,23.
+Nehmen Sie als Lichtgeschwindigkeit den gerundeten Wert 3 * 10$^8$ m/s an.
+\begin{enumerate}[label=\alph*)]
+
+\item Bestimmen Sie anhand untenstehender Formel die Eindringtiefe des Feldes in die
+Kartoffel.
+\item Bestimmen Sie die Eindringtiefe auch für Wasser bei 25°C ($\varepsilon '$ 78; tan $\delta$: 0,16) und Eis
+($\varepsilon '$: 3,2; tan $\delta$: 0,0009).
+\item Wie ist die Eindringtiefe definiert?
+
+\end{enumerate}
+Es gilt für die Eindringtiefe Z mit der Wellenlänge $\lambda$: 
+\begin{align*}
+Z = \frac{\lambda}{2 \pi} \left[ \frac{2}{\varepsilon ' \cdot (\sqrt{1+ \tan^2 \delta - 1)}} \right]^{\frac{1}{2}}
+\end{align*}
+
+\ppbig 
+
+
+\ifshowme
+\antwort{
+Für das Lösen der oben stehenden Aufgaben müssen wir zunächst die Wellenlänge $\lambda$ ausrechnen:
+
+
+\begin{align*}
+\lambda = \frac{c}{f} \qquad \rightarrow \qquad \frac{3 \cdot 10^8 ~\text{m/s}}{2.450 \cdot 10^6 ~\text{Hz}} = 0,1224 ~\text{m}
+\end{align*}
+
+\marginnote[]{Vorsicht beim Einsetzen von tan $\delta$. Die Formel ist einwenig verwirrend.}[1cm]
+Dann Werte einsetzen (Kartoffel): 
+
+\begin{align*}
+Z &= \frac{0,1224 ~\text{m}}{2 \pi} \left[ \frac{2}{64 \cdot (\sqrt{1+ (0,23)^2 - 1)}} \right]^{\frac{1}{2}} \\
+ &= 0,0213 ~\text{m}
+\end{align*}
+
+Das Selbe für Wasser: 
+
+\begin{align*}
+Z &= \frac{0,1224 ~\text{m}}{2 \pi} \left[ \frac{2}{78 \cdot (\sqrt{1+ (0,16)^2 - 1)}} \right]^{\frac{1}{2}} \\
+ &= 0,0276 ~\text{m}
+\end{align*}
+
+
+Und Eis:
+
+\begin{align*}
+Z &= \frac{0,1224 ~\text{m}}{2 \pi} \left[ \frac{2}{2,3 \cdot (\sqrt{1+ (0,0009)^2 - 1)}} \right]^{\frac{1}{2}} \\
+ &= 24,2 ~\text{m}
+\end{align*}
+
+
+}
+\else
+\fi
+
+
+
+
+\ifshowme
+\antwort{
+\textbf{Eindringtiefe Z:} \par Punkt, an dem die elektrische Feldstärke nur noch 1/e von der ursprünglichen Feldstärke entspricht.
+
+}
+\else
+\fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

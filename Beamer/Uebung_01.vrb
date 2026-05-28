@@ -1,0 +1,68 @@
+\frametitle{Vergleich der Dichten}
+\begin{center}
+\begin{tikzpicture}[thick, font=\sffamily, scale=0.8, transform shape]
+    % scale=0.8 verkleinert die Grafik leicht, damit sie gut auf die Folie passt
+
+    % --- 1. REINDICHTE ---
+    \begin{scope}[shift={(0,0)}]
+        \fill[miugray!50] (0,0) rectangle (3,3);
+        % Partikel füllen und zuschneiden (hartcodierte Koordinaten)
+        \begin{scope}
+            \clip[rounded corners=2pt]
+                (0.2, 0.5) -- (0.8, 0.3) -- (1.2, 0.7) -- (1.0, 1.4) -- (0.4, 1.3) -- cycle
+                (1.5, 0.2) -- (2.3, 0.4) -- (2.6, 1.2) -- (1.9, 1.6) -- (1.3, 1.1) -- cycle
+                (0.3, 1.8) -- (1.1, 1.9) -- (1.4, 2.6) -- (0.7, 2.7) -- (0.2, 2.3) -- cycle
+                (1.7, 1.9) -- (2.7, 1.8) -- (2.8, 2.7) -- (2.1, 2.8) -- (1.6, 2.4) -- cycle;
+
+            \fill[uniblau] (0,0) rectangle (3,3);
+
+            % Innere Poren (weiß aussparen)
+            \foreach \p in {(0.6,0.8), (0.9,1.1), (0.5,1.0), (1.8,0.7), (2.2,1.0), (2.0,1.3), (0.8,2.3), (1.1,2.5), (2.2,2.3), (2.5,2.1)}
+                \fill[white] \p circle (0.08);
+        \end{scope}
+
+        % Umrisse zeichnen (hartcodierte Koordinaten)
+        \draw[rounded corners=2pt]
+                (0.2, 0.5) -- (0.8, 0.3) -- (1.2, 0.7) -- (1.0, 1.4) -- (0.4, 1.3) -- cycle
+                (1.5, 0.2) -- (2.3, 0.4) -- (2.6, 1.2) -- (1.9, 1.6) -- (1.3, 1.1) -- cycle
+                (0.3, 1.8) -- (1.1, 1.9) -- (1.4, 2.6) -- (0.7, 2.7) -- (0.2, 2.3) -- cycle
+                (1.7, 1.9) -- (2.7, 1.8) -- (2.8, 2.7) -- (2.1, 2.8) -- (1.6, 2.4) -- cycle;
+
+        \draw (0,0) rectangle (3,3);
+        \node[below=5pt] at (1.5,0) {\textbf{Reindichte}};
+    \end{scope}
+
+    % --- 2. ROHDICHTE ---
+    \begin{scope}[shift={(4,0)}]
+        \fill[miugray!50] (0,0) rectangle (3,3);
+        \begin{scope}
+            \clip[rounded corners=2pt]
+                (0.2, 0.5) -- (0.8, 0.3) -- (1.2, 0.7) -- (1.0, 1.4) -- (0.4, 1.3) -- cycle
+                (1.5, 0.2) -- (2.3, 0.4) -- (2.6, 1.2) -- (1.9, 1.6) -- (1.3, 1.1) -- cycle
+                (0.3, 1.8) -- (1.1, 1.9) -- (1.4, 2.6) -- (0.7, 2.7) -- (0.2, 2.3) -- cycle
+                (1.7, 1.9) -- (2.7, 1.8) -- (2.8, 2.7) -- (2.1, 2.8) -- (1.6, 2.4) -- cycle;
+            \fill[uniblau] (0,0) rectangle (3,3);
+        \end{scope}
+
+        \draw[rounded corners=2pt]
+                (0.2, 0.5) -- (0.8, 0.3) -- (1.2, 0.7) -- (1.0, 1.4) -- (0.4, 1.3) -- cycle
+                (1.5, 0.2) -- (2.3, 0.4) -- (2.6, 1.2) -- (1.9, 1.6) -- (1.3, 1.1) -- cycle
+                (0.3, 1.8) -- (1.1, 1.9) -- (1.4, 2.6) -- (0.7, 2.7) -- (0.2, 2.3) -- cycle
+                (1.7, 1.9) -- (2.7, 1.8) -- (2.8, 2.7) -- (2.1, 2.8) -- (1.6, 2.4) -- cycle;
+
+        \draw (0,0) rectangle (3,3);
+        \node[below=5pt] at (1.5,0) {\textbf{Rohdichte}};
+    \end{scope}
+
+    % --- 3. SCHÜTTDICHTE ---
+    \begin{scope}[shift={(8,0)}]
+        \fill[uniblau] (0,0) rectangle (3,3);
+        \draw (0,0) rectangle (3,3);
+        \node[below=5pt] at (1.5,0) {\textbf{Schüttdichte}};
+    \end{scope}
+
+    % --- FORMEL AM BODEN ---
+    \node[scale=2] at (5.5, -2.5) {\bfseries $\rho = \dfrac{m}{\textcolor{uniblau}{V}}$};
+
+\end{tikzpicture}
+\end{center}

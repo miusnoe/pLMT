@@ -1,0 +1,110 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{F://LaTex-Files/shiet/kemie2.tex}
+\input{F://LaTex-Files/shiet/macros.tex}
+\input{F://LaTex-Files/shiet/vl.tex}
+%\input{F://LaTeX-Files/shiet/SI.tex}
+\renewcommand{\arraystretch}{1.3}
+\newgeometry{bottom=2cm,top=2cm,left=4cm,right=2cm}
+\begin{document}
+
+\sidebar
+\miushead{Übung 12 - Prozessbezogene LMT}{Übung 12}
+\par \vspace*{5mm}
+
+
+\section*{Übung 12}
+
+\subsection*{Aufgabe 01}
+Zwischen dem Serum und den Fettkügelchen von Rohmilch besteht ein Dichteunterschied
+von \mbox{$\Delta \rho$ = 99,8 kg/m$^3$.} Die Viskosität beträgt $\eta$ = 1,79 $\cdot$ 10$^{-3}$ Pa $\cdot$ s und die Dichte der Milch ist
+mit \mbox{$\rho$ = 1028 kg/m$^3$} angegeben. 
+
+\pp
+a. Berechnen Sie die Aufrahmgeschwindigkeit eines Fettkügelchens mit einem
+Durchmesser von \mbox{4 µm} unter der Annahme einer laminaren Strömung.
+
+\begin{align*}
+v &= \frac{d^2 \cdot g \cdot (\rho_1 - \rho_2)}{18 \cdot \eta} \\
+v &= \frac{(4 \cdot 10^{-6} ~\text{m})^2 \cdot 9,81 ~\text{m/s}^2 \cdot 99,8 ~\text{kg/m}^3}{18 \cdot 1,79 \cdot 10^{-3} ~\text{Pa s}} \\
+v &= 4,86 \cdot 10^{-7} ~\text{m/s}
+\end{align*}
+
+
+\pp
+b. Prüfen Sie mit Hilfe der Reynoldszahl, ob die Annahme einer laminaren Strömung
+korrekt war. Erinnerung: Eine laminare Strömung kann angenommen werden, wenn
+die Reynoldszahl $<$ 0,5 ist.
+\begin{align*}
+Re &= \frac{\rho \cdot d \cdot v}{\eta} \\
+Re &= \frac{1028 ~\text{kg/m}^3 \cdot 4 \cdot 10^{-6} ~\text{m} \cdot 4,86 \cdot 10^{-7} ~\text{m/s}}{1,79 \cdot 10^{-3} ~\text{Pa s}} \\
+Re &= 1,116 \cdot 10^{-6}
+\end{align*}
+\RA Die Annahme einer laminaren Strömung war korrekt
+
+\pp
+c. Die Fettkügelchen (d = 4 µm) haben nach 7 500 Minuten die Oberfläche erreicht. In
+welcher Zeit schaffen es die größten Fettkügelchen (d = 5 µm) an die Oberfläche?
+
+
+Strecke berechnen:
+\begin{align*}
+s = v \cdot t \rightarrow s &= 4,86 \cdot 10^{-7} ~\text{m/s} \cdot 7500 \cdot 60s \\
+ &= 0,2187 ~\text{m} \\
+\end{align*}
+Geschwindigkeit größerer Fettkügelchen berechnen: 
+\begin{align*}
+v &= \frac{d^2 \cdot g \cdot (\rho_1 - \rho_2)}{18 \cdot \eta} \\
+v &= \frac{(5 \cdot 10^{-6} ~\text{m})^2 \cdot 9,81 ~\text{m/s}^2 \cdot 99,8 ~\text{kg/m}^3}{18 \cdot 1,79 \cdot 10^{-3} ~\text{Pa s}} \\
+v &= 7,59 \cdot 10^{-7} ~\text{m/s}
+\end{align*}
+Zeit die größere Fettkügelchen für Strecke $s$ benötigen:
+\begin{align*}
+t = \frac{s}{v} \rightarrow t &= \frac{0,2187 ~\text{m}}{7,59 \cdot 10^{-7} ~\text{m/s} \cdot 60} \\
+&= 4802,4 ~\text{min}
+\end{align*}
+
+
+\pagebreak
+\subsection*{Aufgabe 02}
+Aus 70 °C heißer Bierwürze sollen Heißtrub und Hopfentrester in einem runden Absetzbecken
+(Füllhöhe 850 mm; Durchmesser 7000 mm) zur Vorklärung absedimentiert werden, bevor das
+Gemisch zentrifugiert wird. Die Partikel sind zwischen 30 und 90 µm groß und haben eine
+Dichte von 1050 kg/m$^3$. Für die Dichte und die Viskosität der Würze bei 70 °C nehmen Sie
+bitte die Kennzahlen für Wasser an. Welche Partikel sind nach 40 min vollständig
+absedimentiert? Nehmen Sie laminare Strömungsverhältnisse an.
+
+
+
+Geschwindigkeit die Partikel brauchen um nach 40min vollständig absedimentiert zu sein:
+\begin{align*}
+v &= 0,85~\text{m} / ~2400~\text{s} \\
+&= 3,5 \cdot 10^{-4} ~\text{m/s}
+\end{align*}
+Stokes umstellen:
+\begin{align*}
+v &= \frac{d^2 \cdot g \cdot (\rho_1 - \rho_2)}{18 \cdot \eta} \\
+d &= \sqrt{\frac{v \cdot 18 \cdot \eta}{g \cdot \Delta p}} \\
+d &= \sqrt{\frac{3,5 \cdot 10^{-4} ~\text{m/s} \cdot 18 \cdot 1 \cdot 10^{-3} ~\text{Pa s}}{9,81 ~\text{m/s} \cdot 50 ~\text{kg/m}^3}} \\
+ &= 7,2 \cdot 10^{-5} ~\text{m} \\
+ &= 72 ~\text{µm}
+\end{align*}
+Alle Fettkügelchen die größer als 72µm sind, sedimentieren vollständig.
+
+\subsection*{Aufgabe 03}
+Milch soll mittels Mikrofiltration entkeimt werden. Hierfür wählen Sie ein geeignetes
+Filterelement mit einem Porendurchmesser von 0,2 µm, einer Länge von 20 cm und einer
+Porenanzahl von 1.000.000. Gehen Sie dabei bitte von einer laminaren Strömung aus. Die
+Viskosität der Milch beträgt 2 mPa$\cdot$s. Durch Anlegen eines Vakuums wird eine Druckdifferenz
+von 0,5 bar erzeugt. Wie groß ist die Volumenstromstärke der Milch durch das Filterelement? 
+
+\begin{align*}
+\dot{V} &= \frac{\pi \cdot \Delta p \cdot R^4}{8 \cdot l \cdot \eta} \\
+\dot{V} &= \frac{\pi \cdot 5 \cdot 10^4 ~\text{Pa} \cdot (1 \cdot 10^{-7} ~\text{m})^4}{8 \cdot 0,2 ~\text{m} \cdot 2 \cdot 10^{-3} ~\text{Pa s}} \\
+&= 4,91 \cdot 10^{-21} ~\text{m}^3/\text{s}
+\end{align*}
+Dadurch, dass wir aber eine Anzahl von 1.000.000 Poren haben, müssen wir den Volumenstrom $\dot{V}$ nochmal mit der Anzahl multiplizieren:
+\begin{align*}
+4,91 \cdot 10^{-21} ~\text{m}^3/\text{s} \cdot 1.000.000 = 4,91 \cdot 10^{-15}
+\end{align*}
+\end{document}
