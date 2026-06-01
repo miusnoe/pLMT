@@ -1,0 +1,21 @@
+name: LaTeX-Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git Repository
+        uses: actions/checkout@v3
+
+      - name: Compile LaTeX Document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex  # <--- HIER DEINEN DATEINAMEN EINTRAGEN
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: pLMT Mitschrit 2025
+          path: pLMT-Mitschriften_2025.pdf

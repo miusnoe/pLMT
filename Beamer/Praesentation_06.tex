@@ -11,6 +11,7 @@
 \usepackage[table]{xcolor}
 \usepackage{fontawesome5}
 \usepackage{enumitem}
+\usepackage{setspace}
 \usepackage[labelfont={bf},font={color=black!40,footnotesize},tablename={Tabelle},figurename={Abbildung}]{caption}
 \usetikzlibrary{positioning, arrows.meta, calc}
 \usefonttheme[onlymath]{serif}
@@ -276,7 +277,7 @@ Beim Erhitzen einer Sporensuspension bei 112 °C werden folgende Sporenzahlen na
 
 
 \pp
-\begin{center}\begin{tabular}{r|r}
+\begin{center}\begin{tabular}{rr}
 \rowcolor{miugray}
 Zeit [min] & Sporenzahl \\ \hline
 0 &1.000.000 \\
@@ -352,7 +353,7 @@ Bestimmen Sie den D-Wert sowohl
 
 
 Für eine Sporensuspension wurden folgende D-Werte bestimmt:
-\begin{center}\begin{tabular}{r|r}
+\begin{center}\begin{tabular}{rr}
 \rowcolor{miugray}
 Temperatur [°C] & D-Wert [min] \\ \hline
 104 &27,5 \\
@@ -540,6 +541,243 @@ z &= \frac{116 - 104}{\log(27,5) - \log (2,2)} = 10,93 \\
 \caption{Ermittlung eines Temperatur-Zeit-Punktes unter Sicherheits- und Qualitätsaspekten (Muschiolik 2013)}
 \end{figure}
 
+
+
+\end{frame}
+
+
+\begin{frame}
+\begin{minipage}{.5\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 3} \par \vspace*{2mm}
+
+
+In einem Lebensmittel liegt die Anfangskeimzahl bei 1.000 Sporen pro Gramm. Es wird ein 12D-Konzept angewandt. Das Lebensmittel wird in 500 g-Packungen abgefüllt. 
+\pp
+In wie vielen Packungen ist nach der Erhitzung theoretisch noch eine Spore enthalten?
+
+
+
+
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+\antwort{
+\uncover<2->{
+Sporen pro Gramm:}
+\uncover<3->{
+\begin{align*}
+1000 ~(\text{Sporen} /\text{g}) \cdot 10^{-12} = 10^{-9} ~(\text{Sporen} /\text{g})
+\end{align*}
+}
+\uncover<4->{
+Sporen pro 500 g - Packung:}
+\uncover<5->{
+\begin{align*}
+10^{-9} \cdot 500 ~\text{g} = \frac{1}{2.000.000}
+\end{align*}
+}
+\uncover<6->{
+In einer von 2 Millionen Packungen ist noch eine Spore enthalten.
+}
+}
+\end{minipage}%
+\end{frame}
+
+
+
+
+\begin{frame}
+\begin{minipage}{.5\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 4} \par \vspace*{2mm}
+
+
+Die Anfangskeimbelastung liegt bei 10.000 Sporen pro Konserve. Es wird 50 min lang bei
+113°C erhitzt. Der D-Wert liegt bei dieser Temperatur bei 4 min. 
+\pp 
+Wie hoch ist das Risiko, dass eine Packung eine Spore enthält?
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+
+
+
+
+\antwort{
+\uncover<2->{
+Formel aus Food Processing Handbook, S.35:
+\begin{align}
+\frac{\text{Heating Time}}{D_T} &= \log(\frac{N_0}{N}) 
+\end{align}}
+\uncover<3->{
+Zunächst potenzieren wir um den Logarithmus umstellen zu können:
+\begin{align*}
+10^{\frac{\text{Heating Time}}{D_T}} &= \frac{N_0}{N} \\
+N &= \frac{N_0}{10^{\frac{\text{Heating Time}}{D_T}}}
+\end{align*}
+}
+\uncover<4->{
+Werte einsetzen:
+\begin{align*}
+N &= \frac{10.000}{10^{\frac{\text{50 ~\text{min}}}{4 ~\text{min}}}} \\
+ &= 3,16 \cdot 10^{-9}
+\end{align*}
+}
+\uncover<5->{
+Anzahl der Konserven, die geöffnet werden müssen um eine Spore zu finden:
+\begin{align*}
+\frac{1}{3,16 \cdot 10^{-9}} = 3,16 \cdot 10^{8}
+\end{align*}
+}
+}
+\end{minipage}%
+\end{frame}
+
+
+
+
+\begin{frame}
+\begin{minipage}{.5\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 5} \par \vspace*{2mm}
+
+
+Wie lange muss erhitzt werden, um bei T = 75 °C einen Endkeimgehalt bzgl.
+\textit{Streptococcus spp.} von 10$^{-3}$ pro Behältnis zu erreichen?
+\par 
+
+Konserveninhalt: 450 g \par 
+Anfangskeimgehalt: 10$^2$/g \par 
+D$_T^{Z}$ = D$_{80 ~\text{°C}}^{8,5 ~\text{°C}}$ = 0,5 min \par 
+
+
+
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+\antwort{
+\uncover<2->{
+D-Wert der neuen Temperatur ausrechnen:}
+\uncover<3->{
+\begin{align*}
+D_1 &= D_2 \cdot 10^{\frac{T_2-T_1}{z}} \\
+D_1 &= 0,5 ~\text{min}  \cdot 10^{\frac{80-75}{8,5}} \\
+	&= 1,94
+\end{align*}
+}
+
+\uncover<4->{
+Anfangskeimgehalt einer 450 g-Konserve: }
+\uncover<5->{
+\begin{align*}
+10^2 \cdot 450 = 45.000 
+\end{align*}
+}
+\uncover<6->{ 
+Zeit die nötig ist, um auf 10$^{-3}$ Sporen pro Behältnis zu reduzieren:}
+\begin{align*}
+\uncover<7->{
+\text{Heating Time} &= D_T \cdot \log(\frac{N_0}{N}) \\}
+\uncover<8->{\text{Heating Time} &= 1,94 \cdot \log(\frac{45.000}{10^{-3}}) \\
+ &= 14,85 ~ \text{min}}
+\end{align*}
+
+}
+\end{minipage}%
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+
+\begin{minipage}{.4\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 6} \par \vspace*{2mm}
+
+
+In der folgenden Tabelle fehlen einige Angaben. Bitte füllen Sie diese Lücken aus. Nehmen Sie an, dass es sich hierbei nur um eine Reaktion handelt, sodass die Spalten
+zueinander in einer Beziehung stehen. \par 
+
+
+
+
+
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.6\textwidth}
+
+
+%\antwort{
+
+\begin{spacing}{1.5}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lll}
+\hline
+\textbf{D-Wert} & \textbf{Temperatur} & \textbf{Zeit} \\
+\hline
+D$_{80\text{°C}}^{5 \text{°C}}$ = 0,5 min & T = 80 °C & t = 0,5 min \\
+%\hline
+D$_{70\text{°C}}^{5 \text{°C}}$ = 50 min & T = 70°C  & t = 50 min \\
+%\hline
+D$_{85\text{°C}}^{5 \text{°C}}$ = 0,05 min & T = 85 °C & t = 0,05 min \\
+%\hline
+D$_{100\text{°C}}^{5 \text{°C}}$ = 0,00005 min & T = 100°C &t = 0,00005 min \\
+\hline
+\end{tabular}
+
+}
+\end{spacing}
+
+%}
+
+\begin{align*}
+T_2 = \log \left( \frac{D_1}{D_2} \right) \cdot z + T_1
+\end{align*}
+
+\end{minipage}%
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+\begin{frame}
+
+\begin{minipage}{.5\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 7} \par \vspace*{2mm}
+Sie haben für Ihren Erhitzungsprozess einen D-Wert von D$_{121,1}$ = 3 min gegeben. Wie sieht
+der D-Wert bei einer Temperatur von 112 °C aus, wenn ein z-Wert von 10 °C gegeben ist?
+
+
+
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+\antwort{
+\begin{align*}
+D_1 &= D_2 \cdot 10^{\frac{T_2-T_1}{z}} \\
+\uncover<2->{D_1 &= 3 \cdot 10^{\frac{121,1-112}{10}} \\
+ &= 24,38 ~\text{min}}
+\end{align*}
+}
+\end{minipage}%
 
 
 \end{frame}
