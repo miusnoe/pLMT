@@ -15,8 +15,8 @@
 
 
 \newcommand{\info}[1]{\begin{note}{\color{miudiutex}#1}\end{note}}
-\newcommand{\qsbig}[1]{\begin{qstion}{}{}\begin{center}
-			#1 \end{center}\end{qstion}}
+%\newcommand{\qsbig}[1]{\begin{qstion}{}{}\begin{center}
+%			#1 \end{center}\end{qstion}}
 \newcommand{\notiz}[1]{\begin{notizz}{}{}\begin{center}
 			{\color{miugray2!50!miudiutex}#1} \end{center}\end{notizz}}
 \newcommand{\klausur}[1]{\begin{klausurinfo}{}{}\begin{center}
@@ -179,20 +179,47 @@
 % Antwort-Box
 %================================
 
-\newcommand{\antwort}[1]{\par 
-	\begin{tcolorbox}[
-	colback=gray!15,
-	breakable,
+%\newcommand{\antwort}[1]{\par 
+%	\begin{tcolorbox}[
+%	colback=gray!15,
+%	breakable,
+%	enhanced,
+%	frame hidden,
+%	arc=5pt,
+%	boxrule = 2pt,
+%%	borderline west = {2pt}{0pt}{petunidin},
+%%	drop shadow=miugray2!30
+%	]
+%	\color{miudiutex}	#1
+%	\end{tcolorbox}
+%}
+
+\newcommand{\antwort}[1]{
+\begin{tcolorbox}[
 	enhanced,
-	frame hidden,
-	arc=5pt,
-	boxrule = 2pt,
-%	borderline west = {2pt}{0pt}{petunidin},
-%	drop shadow=miugray2!30
-	]
-	\color{miudiutex}	#1
+	enforce breakable,
+	standard jigsaw,
+	boxrule=0.7pt,
+	colframe=black,
+	sharp corners,
+	boxsep=5pt,
+	title=\bfseries \sffamily Antwort,
+	opacityback=0,
+	coltitle=miudiutex,
+	attach boxed title to top text left={yshift=-\tcboxedtitleheight/2},
+	boxed title style={colback=white,colframe=white},
+	bottomrule at break=0pt,
+	toprule at break=0pt,
+	pad at break=16mm,
+]
+	\begin{center}
+	#1
+	\end{center}
 	\end{tcolorbox}
 }
+
+
+
 
 %================================
 % Frame-IT
@@ -219,33 +246,59 @@
 % Question BOX
 %================================
 
-\makeatletter
-\newtcbtheorem{qstion}{Frage}{enhanced,
-	breakable,
-	colback=white,
-	colframe=delphinidin!100,
-%	capture=hbox,
-	boxsep=-3pt,
-	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
-	fonttitle=\bfseries,
-%	title={#2},
-	boxed title size=title,
-	boxed title style={%
-			sharp corners,
-			rounded corners=northwest,
-			colback=tcbcolframe,
-			boxrule=0pt,
-		},
-	underlay boxed title={%
-			\path[fill=tcbcolframe] (title.south west)--(title.south east)
-			to[out=0, in=180] ([xshift=5mm]title.east)--
-			(title.center-|frame.east)
-			[rounded corners=\kvtcb@arc] |-
-			(frame.north) -| cycle;
-		},
+%\makeatletter
+%\newtcbtheorem{qstion}{Frage}{enhanced,
+%	breakable,
+%	colback=white,
+%	colframe=delphinidin!100,
+%%	capture=hbox,
+%	boxsep=-3pt,
+%	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+%	fonttitle=\bfseries,
+%%	title={#2},
+%	boxed title size=title,
+%	boxed title style={%
+%			sharp corners,
+%			rounded corners=northwest,
+%			colback=tcbcolframe,
+%			boxrule=0pt,
+%		},
+%	underlay boxed title={%
+%			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+%			to[out=0, in=180] ([xshift=5mm]title.east)--
+%			(title.center-|frame.east)
+%			[rounded corners=\kvtcb@arc] |-
+%			(frame.north) -| cycle;
+%		},
+%	#1
+%}{def}
+%\makeatother
+
+\newcommand{\qsbig}[1]{
+\begin{tcolorbox}[
+	enhanced,
+	enforce breakable,
+	standard jigsaw,
+	boxrule=0.7pt,
+	colframe=miugray2,
+%	colback=miugray!20,
+	sharp corners,
+	boxsep=5pt,
+	title=\bfseries \sffamily Antwort,
+	opacityback=0,
+	coltitle=miudiutex,
+	attach boxed title to top text left={yshift=-\tcboxedtitleheight/2},
+	boxed title style={colback=white,colframe=white},
+	bottomrule at break=0pt,
+	toprule at break=0pt,
+	pad at break=16mm,
+]
+	\begin{center}
+	\color{miugray2}
 	#1
-}{def}
-\makeatother
+	\end{center}
+	\end{tcolorbox}
+}
 
 
 
