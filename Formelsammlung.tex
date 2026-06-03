@@ -196,34 +196,6 @@
 \end{align*}
 
 
-\vspace*{4mm}
-\plmtsquare \textbf{Kennzahlen turbulente Strömung:} \par \vspace*{-4mm}
-\begin{align*}
-&\text{Reynoldszahl:} \quad Re = \frac{v \cdot l \cdot \rho}{\eta} = \frac{v \cdot l}{\color{red}{\nu}}
-\\
-&\text{Grashofzahl:} \quad Gr = - \frac{g \cdot l^3}{{\color{red}{\nu}}^2} \cdot \frac{\Delta \rho}{ \rho} \\
-&\text{Nusseltzahl:} \quad Nu = \frac{\alpha \cdot l}{\lambda} \\
-&\text{Prandtlzahl:} \quad Pr = \frac{{\color{red}{\nu}}}{a} = \frac{\eta \cdot c_p}{\lambda} \\ \\
-\end{align*}
-\par \vspace*{-6mm}
-
-{\color{red} \textit{Kinematische Viskosität $\nu$ in Rot dargestellt.}}
-\par \vspace*{4mm}
-\textbf{Anmerkung:} Bei diesen Formeln steht $l$ für die charakteristische Länge des jeweiligen geometrischen Objekts. Für Rohre wäre $l$ dann beispielsweise der Innendurchmesser $d$
-\par \vspace*{8mm}
-
-\end{minipage}\hfill
-\begin{minipage}[t]{.45\textwidth}
-\vspace*{5.5mm}
-\plmtsquare \textbf{Diffusion, Packstoffe} \par \vspace*{-4mm}
-\begin{align*}
-&\text{Säurekonstante:} \quad K_S = \frac{[H^+] \cdot [A^-]}{[HA]} \\ 
-&\text{Fick'sches Gesetz:} \quad \dot{n} = D \cdot A \cdot \frac{\Delta c}{l} \\[5pt]
-&\text{Henry Gesetz:} \quad c_i = \alpha \cdot p_i \\[3pt]
-&\text{Permeation:} \quad J = P \cdot A \cdot \frac{\Delta p}{l}   
-\end{align*}
-
-
 
 \vspace*{8mm}
 \plmtsquare \textbf{Pasteurisieren, Haltbarmachen} \par \vspace*{-4mm}
@@ -240,6 +212,53 @@
 &\text{Risiko für Kontamination:} \quad \frac{1}{n} = \frac{N_0}{10^{\frac{F}{D}}} 
 \end{align*}
 
+
+
+\end{minipage}\hfill
+\begin{minipage}[t]{.45\textwidth}
+\vspace*{5.5mm}
+\plmtsquare \textbf{Diffusion, Packstoffe} \par \vspace*{-4mm}
+\begin{align*}
+&\text{Säurekonstante:} \quad K_S = \frac{[H^+] \cdot [A^-]}{[HA]} \\ 
+&\text{Fick'sches Gesetz:} \quad \dot{n} = D \cdot A \cdot \frac{\Delta c}{l} \\[5pt]
+&\text{Henry Gesetz:} \quad c_i = \alpha \cdot p_i \\[3pt]
+&\text{Permeation:} \quad J = P \cdot A \cdot \frac{\Delta p}{l}   
+\end{align*}
+
+
+\vspace*{6mm}
+\plmtsquare \textbf{Verdampfung} \par \vspace*{-4mm}
+\begin{align*}
+&\text{Clausius-Clapeyron:}\\[4pt]
+& \quad \ln\left(\frac{p_2}{p_1}\right) = \frac{\Delta h_v \cdot M_L}{R} \cdot \left(\frac{1}{T_1} - \frac{1}{T_2}\right) \\ 
+& \hspace*{17mm} = \frac{\Delta h_{vM}}{R} \cdot \left(\frac{1}{T_1} - \frac{1}{T_2}\right) \\ \\
+& \text{Siedepunkterhöhung durch gelöste Stoffe:} \\[4pt]
+& \quad \Delta T \approx \frac{R \cdot T_L^2}{\Delta h_{vM}} \cdot x_i = \frac{R \cdot T_L^2}{M_L \cdot \Delta h_v} \cdot x_i \approx \frac{R \cdot T_L^2}{\rho_L \cdot \Delta h_v} \cdot c_i \\ \\
+& \text{Siedepunkterhöhung durch hydrostatischen Druck:} \\[4pt]
+& \quad \Delta T = \frac{\rho_{lg} \cdot g \cdot h \cdot R \cdot T_L^2}{\Delta h_{vM} \cdot p} = \frac{\rho_{lg} \cdot g \cdot h \cdot R \cdot T_L^2}{M_L \cdot \Delta h_v \cdot p}\\ \\
+& \text{Siedepunkterhöhung durch Oberflächenspannung:} \\[4pt]
+& \quad \Delta T = \frac{4\sigma \cdot R \cdot T_L^2}{d \cdot \Delta h_{vM} \cdot p} \\ \\
+& \text{Benötigter Wärmestrom für kontinuierliche Verdampfung:} \\
+& \quad \dot{Q} = \dot{m}_F \cdot c_{pF} \cdot (T_S - T_F) + \dot{m}_D \cdot \Delta h_v
+\end{align*}
+
+
+\vspace*{4mm}
+\plmtsquare \textbf{Kennzahlen turbulente Strömung:} \par \vspace*{-4mm}
+\begin{align*}
+&\text{Reynoldszahl:} \quad Re = \frac{v \cdot l \cdot \rho}{\eta} = \frac{v \cdot l}{\color{red}{\nu}}
+\\
+&\text{Grashofzahl:} \quad Gr = - \frac{g \cdot l^3}{{\color{red}{\nu}}^2} \cdot \frac{\Delta \rho}{ \rho} \\
+&\text{Nusseltzahl:} \quad Nu = \frac{\alpha \cdot l}{\lambda} \\
+&\text{Prandtlzahl:} \quad Pr = \frac{{\color{red}{\nu}}}{a} = \frac{\eta \cdot c_p}{\lambda}
+\end{align*}
+\par
+
+
+{\color{red} \textit{Kinematische Viskosität $\nu$ in Rot dargestellt.}}
+\par \vspace*{4mm}
+\textbf{Anmerkung:} Bei diesen Formeln steht $l$ für die charakteristische Länge des jeweiligen geometrischen Objekts. Für Rohre wäre $l$ dann beispielsweise der Innendurchmesser $d$
+\par \vspace*{8mm}
 
 
 \vfill
