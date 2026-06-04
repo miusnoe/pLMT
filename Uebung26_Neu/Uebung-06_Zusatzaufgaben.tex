@@ -1,0 +1,150 @@
+\documentclass[a4paper,10pt]{article}
+\input{../misc/basic.tex}
+\input{../misc/colors.tex}
+\input{../misc/SI.tex}
+\input{../misc/plmtuebungpreamble.tex}
+\usepackage{float}
+\usepackage[table]{xcolor}
+\usepackage{pgfplots}
+    \pgfplotsset{
+        every axis post/.style={
+	yticklabel=\empty,
+	xticklabel=\empty,
+	y label style={at={(axis description cs:-0.2,1.1)}},
+	x label style={at={(axis description cs:1.05,0.2)}},
+	ticks=none,
+	width=6cm,
+	axis lines=middle,
+%	xlabel near ticks,
+        },
+    }
+\usetikzlibrary{positioning, arrows.meta, calc}
+
+\usepackage{relsize}
+\usepackage{cancel}
+
+\newif\ifshowme
+%\showmetrue
+
+\setlength{\columnsep}{8mm}
+
+\begin{document}
+
+%\newgeometry{top=3cm,bottom=3cm,left=4.5cm,right=4.5cm}
+\newgeometry{top=2cm,bottom=2cm,left=2cm,right=2cm}
+
+
+\begin{center}
+\LARGE
+\color{uniblau}
+\textbf{Übung 06} \par \vspace*{2mm}
+\large \color{miugray!50!black} \textbf{Prozessbezogene Lebensmitteltechnologie}\par 
+\normalsize Zusatzaufgaben
+\end{center}
+\par 
+%\vspace*{6mm}
+
+
+\color{miudiutex}
+
+\begin{multicols}{2}
+\subsection*{Aufgabe 1}
+Was ist der Unterschied zwischen Reindichte, Rohdichte und Schüttdichte?
+
+\par \vspace*{15mm}
+\subsection*{Aufgabe 2}
+In \figurename{~\ref{masse}} sehen Sie den fünfstufigen Herstellungsprozess eines Fertigprodukts. 
+\begin{itemize}
+\item Bestimmen Sie den Massenstrom von Produkt $P$
+\item Bestimmen Sie den Massenstrom von Rücklauf $A$
+\end{itemize}
+
+
+\begin{figure}[H]
+\centering
+\resizebox{\columnwidth}{!}{
+\begin{tikzpicture}[font=\sffamily, >={Latex[length=6pt, width=5pt]}]
+
+    % --- Definition der Stile für die Blöcke ---
+    \tikzset{
+        block/.style={rectangle, draw=black, minimum width=1.6cm, minimum height=1.4cm, align=center},
+		blaublock/.style={block, fill=uniblau!50},
+        grayblock/.style={block, fill=miugray!50},
+        redblock/.style={block, fill=miugray}
+    }
+
+    % --- Positionierung der Blöcke ---
+    \node[blaublock] (I)   at (0, 0)      {I};
+    \node[redblock]  (II)  at (0, -2.5)   {II};
+    \node[redblock]  (III) at (-1.5, -5.0){III};
+    \node[redblock]  (IV)  at (1.5, -5.0) {IV};
+    \node[grayblock] (V)   at (1.5, -7.5) {V};
+
+    % --- Systemgrenze (gestrichelte Linie) ---
+    \draw[dashed, semithick, uniblau] (-3.2, 1) rectangle (3.2, -8.7);
+    \node[above left, inner sep=2pt] at (3.2, 1.2) {\color{uniblau}Systemgrenze};
+
+    % --- Stoffströme (Pfeile & Beschriftungen) ---
+    
+    % Feed F
+    \draw[->] (-4.8, 0) -- (-2.7, 0);
+    \draw[->] (-2.7, 0) -- (I.west);
+    \node[left, align=left, inner sep=2pt] at (-5, 0) {Feed F \\ 1000 kg/h\\15\% TS\\85\% Wasser};
+
+    % Stream D
+    \draw[->] (I.east) -- (4.2, 0);
+    \node[right, align=left, inner sep=2pt] at (4.5, 0) {D \\ 150 kg/h\\0\% TS};
+
+    % Stream B
+    \draw[->] (I.south) -- (II.north) node[midway, right] {B};
+
+    % Stream C, E und G (Aufteilung)
+    \draw[->]  (II.south) -- (0, -3.75) node[midway, right] {C};
+    \draw[-]  (0, -3.75) -- (-1.5, -3.75) node[midway, below,xshift=5pt] {E 10\% TS};
+    \draw[->] (-1.5, -3.75) -- (III.north);
+    \draw[-]  (0, -3.75) -- (1.5, -3.75) node[right] {G};
+    \draw[->] (1.5, -3.75) -- (IV.north);
+
+    % Stream A (Rückführung)
+    \draw[-]  (III.west) -- (-2.7, -5.0);
+    \draw[->] (-2.7, -5.0) -- (-2.7, 0);
+    \node[right, align=left] at (-2.7, -2.5) {A\\5\% TS};
+
+    % Stream R (Rückführung)
+    \draw[-]  (IV.east) -- (2.7, -5.0) -- (2.7, -2.5);
+    \draw[->] (2.7, -2.5) -- (II.east);
+    \node[left] at (2.7, -3.75) {R};
+
+    % Stream L
+    \draw[->] (IV.south) -- (V.north) node[midway, right] {L};
+
+    % Stream K
+    \draw[->] (III.south) -- (-1.5, -9.0) node[below, align=left] {K\\450 kg/h\\20\% TS};
+
+    % Stream Product P
+    \draw[->] (V.south) -- (1.5, -9.0) node[below, align=left] {Produkt P\\80\% TS};
+
+    % Stream W
+    \draw[->] (V.east) -- (4.2, -7.5) node[right, align=left] {W\\Wasser};
+
+\end{tikzpicture}
+}
+
+\caption{Schematische Darstellung des Herstellungsprozesses. Abgeändert nach Singh und Heldman.}
+\label{masse}
+\end{figure}
+
+%\pagebreak
+\subsection*{Aufgabe 3}
+Sie veranstalten eine Sommerparty und Daniel Düsentrieb schenkt Ihnen eine absolut perfekt isolierte Kühlbox. Leider hat er vergessen auch den Styropor-Deckel perfekt zu isolieren.
+Der Deckel ist 0,5 m$^2$ groß und besitzt eine Dicke von 10 cm. 
+Die Getränke in der Kühlbox werden auf 7° C gemessen. Die Temperatur außerhalb der Kühlbox beträgt 35 °C. Die Wärmeleitfähigkeit des Styropors ist $\lambda_1$ = 0,04 W/mK. Auf der Innenseite des Deckels ist eine zusätzliche 2 cm dicke Isolierschicht mit Wärmeleitfähigkeit $\lambda_2$ = 0,02 W/mK angebracht. 
+
+\begin{itemize}
+\item Wie lange dauert es bis die 20 Flaschen mit Füllvolumen von 0,33 L (Wärmekapazität c = 4,2 kJ/kg K) zu warm sind (15 °C) ? Gehen Sie von einer stationären Wärmeleitung aus. Die Dichte der Getränke beträgt 1.000 kg/m$^3$. Wärmeübergangskoeffizienten können vernachlässigt werden.
+\item Welche Temperatur herrscht an der Grenze zwischen Isolierschicht und Styropor?
+\end{itemize}
+
+
+\end{multicols}
+\end{document}

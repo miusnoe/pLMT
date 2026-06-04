@@ -1,0 +1,105 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{F://LaTex-Files/shiet/basic.tex}
+\input{F://LaTeX-Files/shiet/colors.tex}
+\input{F://LaTeX-Files/shiet/SI.tex}
+\input{F://LaTeX-Files/shiet/plmtuebungpreamble.tex}
+
+
+\usetikzlibrary{positioning, arrows.meta, calc}
+
+
+
+\newif\ifshowme
+\showmetrue
+
+
+
+
+\begin{document}
+\newgeometry{top=1cm,bottom=3cm,left=4cm,right=4cm}
+
+\AddToHookNext{shipout/background}{
+\begin{tikzpicture}[remember picture, overlay]
+ \draw[draw=none,fill=uniblau!70, shift={(current page.north west)}] (-3,0) rectangle (26,-2.75);
+% \draw[draw=none,fill=miugray, shift={(current page.north east)}] (-1,0) rectangle (3,-3.75);
+\end{tikzpicture}
+}
+\begin{center}
+\LARGE
+\color{white}
+\textbf{Theorie} \par \vspace*{2mm}
+\large \color{miugray} \textbf{Prozessbezogene Lebensmitteltechnologie}
+\end{center}
+\par 
+\vspace*{4mm}
+
+
+\color{miudiutex}
+\section*{Massenstrom}
+\subsection*{Erläuterung zum praktischen Verständnis der Aufgaben}
+Allgemein gesprochen, betrachten wir oft Systeme, in denen etwas aufkonzentriert bzw. getrocknet wird. In der Übung hatte ich als Beispiel einen Orangensaft genannt, dessen Fruchtanteil wir erhöhen wollen. Dazu schauen wir uns folgende Überlegung zu \figurename{~\ref{a}} an:
+
+\begin{figure}[h]
+\centering
+\resizebox{.8\textwidth}{!}{
+\begin{tikzpicture}[
+    font=\sffamily,
+    >={Latex[length=6pt, width=5pt]},
+    block/.style={
+        draw, 
+        fill=miugray, 
+        minimum width=4cm, 
+        minimum height=3cm, 
+        line width=1pt
+    },
+    arrow_label/.style={align=left, font=\small\sffamily}
+]
+
+    % Der zentrale Block
+    \node[block] (box) at (0,0) {};
+
+    % Eingang F (Links)
+    \draw[->, line width=1pt] (-4, 0) -- (box.west |- 0,0) 
+        node[pos=0, left, arrow_label] {
+            \textbf{F}\\
+            100 kg/h\\
+            TS 10\%
+        };
+
+    % Ausgang Wasser (Oben)
+    \draw[->, line width=1pt] (box.north) -- (0, 3) 
+        node[pos=1, above, font=\large\sffamily] {\textbf{W}asser};
+
+    % Ausgang P (Rechts)
+    \draw[->, line width=1pt] (box.east |- 0,0) -- (4,0) 
+        node[pos=1, right, arrow_label] {
+            \textbf{P}\\
+            TS 20\%
+        };
+
+\end{tikzpicture}
+}
+\caption{Modell zum Massenstrom}
+\label{a}
+\end{figure}
+
+
+Wir wissen, dass wir unseren ursprünglichen Saft mit beispielsweise 100 kg/h und 10 \% Trockensubstanz (TS) in das System einführen. Wenn wir nun die Werte für F betrachten, ergibt sich daraus, dass ein Trockenanteil von 10 kg/h in unserem System vorhanden sein muss.
+\begin{align*}
+0,1 F = 0,1 \cdot 100 ~\text{kg/h} = 10 ~\text{kg/h}
+\end{align*}
+Wenn wir nun auf der anderen Seite unser aufkonzentriertes Produkt P betrachten, sehen wir, dass wir dort einen Trockenanteil von 20\% gegeben haben. Diese 20\% müssen (nach der Massenerhaltung) unseren anfänglichen 10 kg/h entsprechen. Aus dieser Überlegung können wir nun auf den gesamten Massenstrom schließen, da wir wissen, welche Masse in den 20\% enthalten sind.
+\begin{align*}
+P = 10 ~\text{kg/h} \cdot \frac{100\%}{20\%} = 50 ~\text{kg/h}
+\end{align*}
+Da unser eingehende Massenstrom F 100 kg/h beträgt, muss die Summe der ausgehenden Ströme auch 100 kg/h betragen. Daher gilt
+\begin{align*}
+F &= W + P \\ 
+W &= F - P \\ 
+W &= 100 - 50 \\ 
+W &= 50 ~\text{kg/h}
+\end{align*}
+
+
+\end{document}

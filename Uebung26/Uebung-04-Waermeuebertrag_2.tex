@@ -1,0 +1,293 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{F://LaTex-Files/shiet/basic.tex}
+\input{F://LaTeX-Files/shiet/colors.tex}
+\input{F://LaTeX-Files/shiet/SI.tex}
+\input{F://LaTeX-Files/shiet/plmtuebungpreamble.tex}
+\usepackage{relsize}
+\usetikzlibrary{patterns, arrows.meta, calc}
+
+\newif\ifshowme
+\showmetrue
+
+
+
+
+\begin{document}
+\newgeometry{top=1.8cm,bottom=4cm,left=1.5cm,right=7.5cm,marginparsep=-2.00cm,marginparwidth=4.75cm}
+
+
+\bckgrnd
+
+
+\begin{center}
+\LARGE
+\color{white}
+\textbf{Übung 04} \par \vspace*{2mm}
+\large \color{miugray} \textbf{Prozessbezogene Lebensmitteltechnologie}
+\end{center}
+\par 
+\vspace*{6mm}
+
+
+\color{miudiutex}
+
+\section*{Wärmeübertragung II}
+\subsection*{Aufgabe 1}
+Ein 2 cm dickes Stahlrohr (Wärmeleitfähigkeit = 43 W/(m°C)) mit einem
+Innendurchmesser von 6 cm wird verwendet, um Dampf von einem Kessel über eine
+Strecke von 40 m zu einer Prozessanlage zu leiten. Die Oberflächentemperatur der
+Innenseite des Rohrs beträgt 115 °C und die Oberflächentemperatur der Außenseite
+90 °C. Berechnen Sie den gesamten Wärmeverlust an die Umgebung unter stationären
+Bedingungen.
+\begin{marginfigure}[-3cm]
+\centering
+\resizebox{.6\textwidth}{!}{
+\includegraphics[width=12cm]{F://LaTeX-Files/pngs/40mrohr}
+}
+\caption{Modell eines Stahlrohres}
+\end{marginfigure}
+
+
+\ifshowme
+\antwort{
+\begin{align*}
+\dot{Q} &= (T_i - T_a) \frac{2 \pi l \cdot \lambda}{\ln(\frac{r_a}{r_i})} \\
+		&= (115 - 90)\text{°C} \cdot \frac{2 \pi \cdot 40~\text{m} \cdot 43~ \text{W/m°C}}{\ln(\frac{0,05~\text{m}}{0,03~\text{m}})} \\
+		&= 528.902,54~ \text{W}
+\end{align*}
+}
+\pagebreak
+\else
+\fi
+
+
+
+\subsection*{Aufgabe 2}
+Eine Kühlhauswand (3 m x 6 m) wird aus 15 cm dickem Beton (Wärmeleitfähigkeit = 1,37
+W/(m°C)) erstellt. Es soll auch eine Isolierung an der Innenseite eingebaut werden, um
+die Wärmeübertragungsrate durch die Wand bei oder unter 500 W zu halten. Berechnen
+Sie die erforderliche Dicke der Dämmung. Die Wärmeleitfähigkeit der Dämmung liegt bei
+0,04 W/(m°C). Nehmen Sie an, dass die Temperatur an der Außenseite 38 °C und die
+Temperatur an der Oberfläche der Dämmung 5 °C beträgt.
+\begin{marginfigure}[-3.5cm]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}
+
+    % Schicht 1 (schraffiert) - Breite x
+    \draw[thick,fill=miugray!50] (0,0) rectangle (1,5);
+
+    % Schicht 2 - Breite 15cm
+    \draw[thick] (1,0) rectangle (3,5);
+
+    % Wärmestrom Pfeil (500 W)
+    \draw[very thick, -{Stealth[scale=1.3]}] (3.5,3) -- (-1,3) node[above,yshift=2mm,
+ font=\large
+    ] {500 W};
+
+    % Temperaturen
+    \node[font=\large] at (-0.8,2) {5°C};
+    \node[font=\large] at (3.8,2) {38°C};
+
+    % Bemaßung unten (x)
+    \draw[<->,thick, >=latex] (0,-0.3) -- (1,-0.3) node[midway, below,font=\large] {$x$};
+    
+    % Bemaßung unten (15cm)
+    \draw[<->,thick, >=latex] (1,-0.3) -- (3,-0.3) node[midway, below,font=\large] {15 cm};
+
+\end{tikzpicture}
+}
+\caption{Modell einer Kühlhauswand mit Dämmung}
+\end{marginfigure}
+
+\ifshowme%
+\marginnote[]{\small Hier ist die Verwendung der richtigen Vorzeichen besonders wichtig. Hätten wir für die Temperatur einen negativen Wert raus, müssten wir auch einen negativen Vorfaktor vor dem Bruch benutzen. Ein falsches Vorzeichen würde tatsächlich auch eine andere Zahl im Ergebnis zur Folge haben.}[2cm]%
+%
+\antwort{
+\begin{align*}
+\dot{Q} &= \frac{A \cdot T_a - T_i}{\frac{d_2}{\lambda_2} + \frac{d_1}{\lambda_1}} \\
+	d_2 &= \lambda_2 \cdot (\frac{A \cdot (T_a - T_i)}{\dot{Q}} - \frac{d_1}{\lambda_1}) \\
+	d_2 &= 0,04~ \text{W/m°C} \cdot (\frac{18~\text{m}^2 \cdot ((38-5) \text{°C})}{500~\text{W}} - \frac{0,15~\text{m}}{1,37~ \text{W/m°C} }) \\
+	d_2 &= 0,043~\text{m} \rightarrow 4,3~ \text{cm}
+\end{align*}
+}
+\else
+\fi
+
+\subsection*{Aufgabe 3 - Wärmetransport durch eine Rohrwand}
+
+\begin{enumerate}[label=\alph*),itemsep=-3mm]
+
+\item 
+Wie groß ist der Wärmestrom durch ein 5 m langes Rohr aus Stahl mit
+Innendurchmesser 10 cm und Außendurchmesser 11 cm, wenn im Innern eine
+Flüssigkeit der Temperatur 80 °C und außen eine Flüssigkeit der Temperatur
+20 °C zirkuliert? Stahl hat eine Wärmeleitfähigkeit von 16,3 W/(mK). Die
+Widerstände der Wärmeübergänge an der inneren und äußeren Rohroberfläche
+seien zu vernachlässigen.
+
+\ifshowme
+\antwort{
+\begin{align*}
+\dot{Q} &= (T_i - T_a) \frac{2 \pi l \cdot \lambda}{\ln(\frac{r_i}{r_a})} \\
+\dot{Q} &= 60~ \text{°C} \cdot \frac{2 \pi \cdot 5~\text{m} \cdot 16,3~ \text{W/m°C} }{\ln(\frac{55}{50})} \\
+	&= 322.366,15~ \text{W}
+\end{align*}
+}
+\else
+\fi
+
+
+
+\begin{marginfigure}[-3cm]
+\begin{tikzpicture}[scale=0.6]
+\draw[line width=0.01mm,fill=miugray] (0,0) circle (2cm);
+\draw[miugray2,fill=miugray!50] (0,0) circle (1.5cm);
+\draw[miugray2,fill=white] (0,0) circle (1.3cm);
+\draw (0,0) to (20:2cm) node [right] {$r_\mathsmaller{{SA}}$ = 0,055 m};
+\draw[miugray!75!black] (0,0) to (-20:1.5cm) node [right,xshift=4mm,yshift=0mm] {$r_\mathsmaller{{SI}}$ = 0,05 m};
+\draw[uniblau] (0,0) to (-60:1.3cm) node [right,xshift=4mm,yshift=-4mm] {$r_\mathsmaller{{GI}}$ = 0,047 m};
+\end{tikzpicture}
+\caption{Stahlrohr mit innerer Glasschicht.}
+\end{marginfigure}
+
+\item Wie ändert sich der Wärmestrom, wenn innen eine 0,3 cm dicke Schicht aus
+Glas aufgetragen wird? Die Wärmeleitfähigkeit von Glas liegt bei 1,0 W/(mK).
+\end{enumerate}
+
+\ifshowme
+\antwort{
+\begin{align*}
+\dot{Q} &= 2 \pi \cdot l \cdot (T_i - T_a) \cdot \left( \frac{\ln(\frac{r_{SA}}{r_{SI}})}{\lambda_1} + \frac{\ln(\frac{r_{GA}}{r_{GI}})}{\lambda_2} \right)^{-1} \\
+\dot{Q} &= 2 \pi \cdot 5m \cdot 60~ \text{°C} \cdot \left( {\frac{\ln(\frac{0,055}{0,05})}{16,3~ \text{W/m°C}} + \frac{\ln(\frac{0,05}{0,047})}{1~ \text{W/m°C}}} \right)^{-1} \\
+	&= 27.833,46~ \text{W}
+\end{align*}
+}
+\else
+\fi
+
+
+
+
+\subsection*{Aufgabe 4 - Wärmeübergang im Rohr}
+\begin{enumerate}[label=\alph*)]
+\item Wie groß ist der Wärmeübergangskoeffizient innen, wenn Wasser mit einer
+Geschwindigkeit von 0,5 m/s durch das Stahlrohr von Aufgabe 3 fließt?
+
+\begin{table}[h]
+\centering
+\caption{Eigenschaften von Wasser bei 80 °C}
+%\resizebox{\textwidth}{!}{
+\begin{tabular}{l|l}\rowcolor{miugray!50}
+Dichte & $\rho$ = 972kg/m$^3$ \\ \hline
+Kinematische Viskosität & $\nu$  = 0,3648 x 10$^{-6}$ m$^{2}$/s \\ \hline
+Wärmeleitfähigkeit & $\lambda$ = 0,67 W/(mK) \\ \hline
+Prandtlzahl & Pr = 2,22  \\ \hline
+\end{tabular}
+%}
+\end{table}
+
+\ifshowme
+\antwort{
+Gesucht ist $\alpha$
+\begin{align*}
+\text{Nu} = \frac{\alpha \cdot d}{\lambda}
+\end{align*}
+\begin{align} \label{alpha}
+\alpha = \frac{\text{Nu} \cdot \lambda}{d}
+\end{align}
+Für die Berechnung von $\alpha$ fehlt uns die Nusseltzahl Nu:
+\begin{align}\label{nus}
+\text{Nu} = \frac{(\frac{\xi}{8}) \cdot \text{Re} \cdot \text{Pr}}{1 + 12,7 \cdot (\frac{\xi}{8})^{\frac{1}{2}} \cdot (\text{Pr}^{\frac{2}{3}}-1)} \cdot \left[ 1 + (\frac{d}{l})^{\frac{2}{3}} \right]
+\end{align}
+Wobei
+\begin{align*}
+\xi &= (1,8 \cdot \log_{10} (\text{Re}) - 1,5)^{-2}
+\end{align*}
+Und Reynoldszahl Re:
+\marginnote[]{Hier ist mit $l$ nicht die Länge des Rohres, sondern die charakteristische Länge des geometrischen Objektes gemeint. Dies ist beim Rohr i.d.R der Innendurchmesser}[1cm]
+\begin{align*}
+\text{Re} &= \frac{v \cdot l}{\nu} \\
+\text{Re} &= \frac{0,5~ \text{m/s} \cdot 0,1~\text{m}}{0,3648 \cdot 10^{-6} ~\text{m}^2 /s} \\
+&= 137.061,4035
+\end{align*}
+Daraus folgt für $\xi$:
+\begin{align*}
+\xi &= (1,8 \cdot \log_{10} (137.061) - 1,5)^{-2} \\
+ &= 0,0167
+\end{align*}
+Werte einsetzen in (\ref{nus}):
+\marginnote[]{hier ist d = Rohrinnendurchmesser und l = Länge des Rohres}[2cm]
+\begin{align*}
+\text{Nu} &= \frac{(\frac{0,0167}{8}) \cdot  137.061 \cdot 2,22}{1 + 12,7 \cdot \sqrt{\frac{0,0167}{8}} \cdot (2,22^{\frac{2}{3}}-1)} \cdot \left[ 1 + (\frac{0,094 ~ \text{m}}{5 ~ \text{m}})^{\frac{2}{3}} \right] \\
+ &= 451,373 \cdot 1,070703118 \\
+ &\approx 483
+\end{align*}
+Daraus folgt:
+\begin{align*}
+\alpha &= \frac{483 \cdot 0,67 \text{W/(mK)}}{ 0,1~ \text{m}} \\
+ &\approx 3.236,1 ~ \text{W/(m$^2$ K)}
+\end{align*}
+}
+\else
+\fi
+
+\ifshowme
+\pagebreak
+\newgeometry{top=1cm,bottom=1cm,left=1cm,right=4cm}
+\else
+\fi
+
+\item Wie ändert sich der Wärmestrom der Aufgabe 3 unter Berücksichtigung des
+Widerstands des inneren Wärmeübergangs? \pp
+
+\ifshowme
+\antwort{
+Wärmedurchgang - Rohr:
+\begin{align*}
+\dot{Q} &= 2 \pi \cdot l \cdot \Delta T \cdot \left( \frac{1}{\alpha_i \cdot r_i} + \frac{1}{\alpha_a \cdot r_a} + \frac{\ln(\frac{r_a}{r_i})}{\lambda_W} \right)^{-1} \\
+\end{align*}
+Hier stellt sich aber die Problematik, dass wir $\alpha_a$ nicht kennen und es deswegen vernachlässigen müssen. Desweiteren ist $\lambda_W$ die Summe aus $\lambda_G$ für die innere Glasschicht und $\lambda_S$ für die äußere Stahlschicht. \par 
+Daraus ergibt sich:
+\begin{align*}
+\dot{Q} &= 2 \pi \cdot l \cdot \Delta T \cdot \left( \frac{1}{\alpha_i \cdot r_i} +  \frac{\ln(\frac{r_{aG}}{r_{iG}})}{\lambda_G} +  \frac{\ln(\frac{r_{aS}}{r_{iS}})}{\lambda_S} \right)^{-1}
+\end{align*}
+Wenn wir nun die Werte einsetzen: 
+\begin{align*}
+\dot{Q} &= 2 \pi \cdot 5~ \text{m} \cdot 60\text{°C} \cdot \left( \frac{1}{3.266,95 ~ \text{W/(m$^2$ K)} \cdot 0,047 ~ \text{m}} +  \frac{\ln(\frac{0,055}{0,05})}{16,3~ \text{W/m°C}} + \frac{\ln(\frac{0,05}{0,047})}{1~ \text{W/m°C}} \right)^{-1} \\
+ &= 25.391,62~ \text{W}
+\end{align*}
+}
+\else
+\fi
+
+\ifshowme
+
+\antwort{
+\begin{align*}
+\dot{Q} &= 2 \pi \cdot l \cdot \Delta T \cdot \left( \frac{1}{\alpha_i \cdot r_i} + \frac{1}{\alpha_a \cdot r_a} + \frac{\ln(\frac{r_a}{r_i})}{\lambda_W} \right)^{-1} \\
+\end{align*}
+Hier stellt sich aber die Problematik, dass wir $\alpha_a$ nicht kennen und es deswegen vernachlässigen müssen. \par 
+Daraus ergibt sich:
+\begin{align*}
+\dot{Q} &= 2 \pi \cdot l \cdot \Delta T \cdot \left( \frac{1}{\alpha_i \cdot r_i} +   \frac{\ln(\frac{r_{aS}}{r_{iS}})}{\lambda_S} \right)^{-1}
+\end{align*}
+Wenn wir nun die Werte einsetzen: 
+\begin{align*}
+\dot{Q} &=  \frac{\pi \cdot 5~ \text{m} \cdot 60\text{°C} }{\frac{1}{3.245,28 ~ \text{W/(m$^2$ K)} \cdot 0,05 ~ \text{m}} +  \frac{\ln(\frac{0,055}{0,05})}{16,3~ \text{W/m°C}}}    \\
+ &= 156.948,23~ \text{W} \\
+ &= 157 ~\text{kW}
+\end{align*}
+}
+\else
+\fi
+
+\end{enumerate}
+
+
+
+
+
+
+\end{document}

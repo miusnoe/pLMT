@@ -1,0 +1,277 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{F://LaTex-Files/shiet/kemie2.tex}
+\input{F://LaTex-Files/shiet/macros.tex}
+\input{F://LaTex-Files/shiet/vl.tex}
+%\input{F://LaTeX-Files/shiet/SI.tex}
+\renewcommand{\arraystretch}{1.3}
+
+\begin{document}
+
+\sidebar
+\miushead{Übung 06 - Prozessbezogene LMT}{Übung 06}
+\par \vspace*{5mm}
+
+
+\section{Übung 06}
+
+\subsection{Aufgabe 1} Beim Erhitzen einer Sporensuspension bei 112 °C werden folgende Sporenzahlen nach unterschiedlichen Erhitzungszeiten festgestellt:
+\begin{ctab}{1}{ll}
+
+Zeit [min] & Sporenzahl \\ \cline{1-2}
+0 &1.000.000 \\
+4 &110.000 \\
+8 &12.000 \\
+12 &1.200 \\
+
+\end{ctab}
+Bestimmen Sie den D-Wert a) mittels semi-logarithmischer graphischer Auftragung, b) rechnerisch.
+
+\begin{align*}
+D = \frac{4 ~\text{min}}{\log (\frac{10^6}{1,1 \cdot 10^5})} = 4,17 ~\text{min}
+\end{align*}
+
+\ppbig
+
+\subsection{Aufgabe 2} Für eine Sporensuspension wurden folgende D-Werte bestimmt:
+
+\begin{ctab}{1}{ll}
+
+Temperatur [°C] & D-Wert [min] \\ \cline{1-2}
+104 &27,5 \\
+107 &14,5 \\
+110 &7,5 \\
+113 &4,0 \\
+116 &2,2 \\
+
+\end{ctab}
+Bestimmen Sie den z-Wert a) anhand einer semi-logarithmischen Auftragung, b)
+rechnerisch.
+
+
+\begin{align*}
+z &= \frac{T_2 - T_1}{\log(D_1) - \log (D_2)} \\
+z &= \frac{107 - 104}{\log(27,5) - \log (14,5)} \\
+ &= 10,79
+\end{align*}
+
+
+
+\pp
+\subsection{Aufgabe 3}
+In einem Lebensmittel liegt die Anfangskeimzahl bei 1000 Sporen pro Gramm. Es wird ein 12D-Konzept angewandt. Das Lebensmittel wird in 500 g-Packungen abgefüllt. In wie
+vielen Packungen ist nach der Erhitzung theoretisch noch eine Spore enthalten?
+\pp
+
+Sporen pro Gramm:
+\begin{align*}
+1000 ~(\text{Sporen} /\text{g}) \cdot 10^{-12} = 10^{-9} ~(\text{Sporen} /\text{g})
+\end{align*}
+Sporen pro 500 g - Packung:
+\begin{align*}
+10^{-9} \cdot 500 ~\text{g} = \frac{1}{2.000.000}
+\end{align*}
+In einer von 2 Millionen Packungen ist noch eine Spore enthalten.
+\pp
+
+\subsection{Aufgabe 4}
+Die Anfangskeimbelastung liegt bei 10.000 Sporen pro Konserve. Es wird 50 min lang bei
+113°C erhitzt. Der D-Wert liegt bei dieser Temperatur bei 4 min. Wie hoch ist das Risiko,
+dass eine Packung eine Spore enthält?
+\pp
+
+Formel aus Food Processing Handbook, S.35:
+\begin{align}
+\frac{\text{Heating Time}}{D_T} &= \log(\frac{N_0}{N}) 
+\end{align}
+Zunächst potenzieren wir um den Logarithmus umstellen zu können:
+\begin{align*}
+10^{\frac{\text{Heating Time}}{D_T}} &= \frac{N_0}{N} \\
+N &= \frac{N_0}{10^{\frac{\text{Heating Time}}{D_T}}}
+\end{align*}
+Werte einsetzen:
+\begin{align*}
+N &= \frac{10.000}{10^{\frac{\text{50 ~\text{min}}}{4 ~\text{min}}}} \\
+ &= 3,16 \cdot 10^{-9}
+\end{align*}
+Anzahl der Konserven, die geöffnet werden müssen um eine Spore zu finden:
+\begin{align*}
+\frac{1}{3,16 \cdot 10^{-9}} = 3,16 \cdot 10^{8}
+\end{align*}
+\pp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\pagebreak
+
+\subsection{Aufgabe 5}
+Wie lange muss erhitzt werden, um bei T = 75 °C einen Endkeimgehalt bzgl.
+\textit{Streptococcus spp.} von 10$^{-3}$ pro Behältnis zu erreichen?
+\par 
+\boxfr{
+Konserveninhalt: 450 g \par 
+Anfangskeimgehalt: 10$^2$/g \par 
+D$_T^{~~z}$ = D$_{80 \text{°C}}^{~~8,5 \text{°C}}$ = 0,5 min \par 
+}
+
+\pp
+
+D-Wert der neuen Temperatur ausrechnen:
+\begin{align*}
+D_1 &= D_2 \cdot 10^{\frac{T_2-T_1}{z}} \\
+D_1 &= 0,5 ~\text{min}  \cdot 10^{\frac{80-75}{8,5}} \\
+	&= 1,94
+\end{align*}
+
+
+Anfangskeimgehalt einer 450 g-Konserve: 
+\begin{align*}
+10^2 \cdot 450 = 45.000 
+\end{align*} 
+Zeit die nötig ist, um auf 10$^{-3}$ Sporen pro Behältnis zu reduzieren:
+\begin{align*}
+\text{Heating Time} &= D_T \cdot \log(\frac{N_0}{N}) \\
+\text{Heating Time} &= 1,94 \cdot \log(\frac{45.000}{10^{-3}}) \\
+ &= 14,85 ~ \text{min}
+\end{align*}
+
+
+
+\pp
+\subsection{Aufgabe 6}
+In der folgenden Tabelle fehlen einige Angaben. Bitte füllen Sie diese Lücken aus. Nehmen Sie an, dass es sich hierbei nur um eine Reaktion handelt, sodass die Spalten
+zueinander in einer Beziehung stehen. \par 
+
+\begin{ctab}{1}{|l|l|l|}
+\cline{1-3}
+D$_{80\text{°C}}^{5 \text{°C}}$ = 0,5 min & T = 80 °C & t = 0,5 min \\
+\cline{1-3}
+D$_{70\text{°C}}^{5 \text{°C}}$ = 50 min & T = 70°C  & t = 50 min \\
+\cline{1-3}
+D$_{85\text{°C}}^{5 \text{°C}}$ = 0,05 min & T = 85 °C & t = 0,05 min \\
+\cline{1-3}
+D$_{100\text{°C}}^{5 \text{°C}}$ = 0,00005 min & T = 100°C &t = 0,00005 min \\
+\cline{1-3}
+\end{ctab}
+
+\pp
+\subsection{Aufgabe 7}
+Sie haben für Ihren Erhitzungsprozess einen D-Wert von D$_{121,1}$ = 3 min gegeben. Wie sieht
+der D-Wert bei einer Temperatur von 112 °C aus, wenn ein z-Wert von 10 °C gegeben ist?
+
+\begin{align*}
+D_1 &= D_2 \cdot 10^{\frac{T_2-T_1}{z}} \\
+D_1 &= 3 \cdot 10^{\frac{121,1-112}{10}} \\
+ &= 24,38 ~\text{min}
+\end{align*}
+
+\pp
+\subsection{Aufgabe 8}
+Für die Abtötung von Mikroorganismen in einem Fleischprodukt soll der z-Wert ermittelt
+werden. Es liegen folgende Daten vor:
+\pp
+\begin{center}
+\fbox{
+\parbox[c][1cm][c]{0.3\textwidth}{
+T1 = 50 °C ; T2 = 65 °C \par D1 = 180 s ; D2 = 5 s
+}
+}
+\end{center}
+\begin{align*}
+D_1 &= D_2 \cdot 10^{\frac{T_2-T_1}{z}} \\
+\log(\frac{D_1}{D_2}) &= \frac{T_2-T_1}{z} \\
+z &= \frac{T_2 - T_1}{\log(\frac{D_1}{D_2})} \\
+z &= \frac{65 - 50}{\log(\frac{180}{5})} \\ 
+ &= 9,64  ~\text{°C}
+\end{align*}
+
+\pp
+\subsection{Aufgabe 9}
+Ein Lebensmittel wird für 2 Minuten schlagartig auf 150°C erhitzt. Berechnen Sie den F$_0$-
+Wert, wenn der z-Wert 15 K beträgt.
+\begin{align*}
+F_1 &= F_2 \cdot 10^{\frac{T_2-T_1}{z}} \\
+F_1 &= 2 ~\text{min} \cdot 10^{\frac{150-121,1}{15}} \\
+ &= 168,926 ~\text{min}
+\end{align*}
+
+\pp
+\subsection{Aufgabe 10}
+Wie groß ist der Letalitätswert einer einminütigen, schlagartigen Erhitzung bei 128 °C
+bzw. 118 °C und einem z-Wert von 6 K?
+
+\begin{align*}
+L &= 10^{\frac{T_2-121,1}{z}} \\ \\
+L_{128} &= 10^{\frac{128-121,1}{6}} = 14,125 \\
+L_{118} &= 10^{\frac{118-121,1}{6}} = 0,304
+\end{align*}
+
+\pagebreak
+
+\subsection{Aufgabe 11}
+Sie erhalten für den Erhitzungsprozess ihres Produktes für die Qualitätssicherung die
+Vorgabe, dass der F$_0$-Wert maximal 5 Minuten betragen darf. Der z-Wert liegt bei 10 K.
+Um zu prüfen, ob die Anforderung erfüllt wird, haben Sie in der folgenden Tabelle die
+Daten Ihres Erhitzungsprozesses gesammelt. Wird die Anforderung der
+Qualitätssicherung erfüllt?
+
+\begin{ctab}{1}{ll}
+Temperatur [°C] & Zeit [s] \\ \cline{1-2}
+95 & 10 \\
+110 & 15 \\
+130 & 42 \\
+120 & 35 \\
+90 & 10 \\
+
+\end{ctab}
+
+\begin{align*}
+F_0  &= &F_t \cdot 10^{\frac{T_2-T_1}{z}} \qquad && \\ \\
+F_01 &= &10 ~\text{s} \cdot 10^{\frac{95-121,1}{10}}  \qquad &= 0,025 ~\text{s} \\
+F_02 &= &15 ~\text{s} \cdot 10^{\frac{110-121,1}{10}} \qquad &= 1,16 ~\text{s} \\
+F_03 &= &42 ~\text{s} \cdot 10^{\frac{130-121,1}{10}} \qquad &= 326,02 ~\text{s} \\
+F_04 &= &35 ~\text{s} \cdot 10^{\frac{120-121,1}{10}} \qquad &= 27,17 ~\text{s} \\
+F_05 &= &10 ~\text{s} \cdot 10^{\frac{90-121,1}{10}}  \qquad &= 0,008 ~\text{s} \\
+\end{align*}
+
+Summe aller Zeiten:
+\begin{align*}
+\sum_{i=1}^{5} F_{0i} = 5,91 ~\text{min}
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

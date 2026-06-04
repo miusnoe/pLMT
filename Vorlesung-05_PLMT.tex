@@ -1,0 +1,171 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{F://LaTeX-Files/shiet/kemie2.tex}
+\input{F://LaTeX-Files/shiet/macros.tex}
+\input{F://LaTeX-Files/shiet/vl.tex}
+\usepackage{pgfplots}
+  \tikzset{
+    every pin/.style={fill=miugray2!40!white,rectangle,rounded corners=3pt,font=\tiny},
+    small dot/.style={fill=black,circle,scale=0.3}
+  }
+
+\usepackage{awesomebox}
+%\setcounter{section}{1} % <--- FALLS KEINE SECTION DEFINIERT WIRD
+
+
+\begin{document}
+
+\sidebar
+\miushead{Vorlesung 05 - PLMT}{Vorlesung 05}
+\par \vspace*{5mm}
+\section{Pumpen}
+\subsection{Wiederholung - Druck}
+$\Delta P_{ges}$ = $\Delta P_{geo} + \Delta P_{stat} + \Delta P_{dyn}$ \pp
+$\Delta P_{geo}$ = Geodätische Druckunterschiede zwischen Ein- und Ausgang der Rohrleitung \par 
+$\Delta P_{stat}$ = Statische Druckunterschiede zwischen Ein- und Ausgang der Rohrleitung \par 
+$\Delta P_{dyn}$ = Dynamischer Druckabfall
+
+\ppbig
+\reversemarginpar
+\marginnote[volumetrische Pumpe platzt bei rückläufigem Volumenstrom]{}[3cm]
+
+\begin{tikzpicture}
+\node(a)at(0,0){
+\begin{tikzpicture}
+\begin{axis}[
+		ylabel=$\Delta P_{ges}$,
+		xlabel=$\dot{V}$,
+		yticklabel=\empty,
+		xticklabel=\empty,
+		axis y line=middle,
+		axis x line=left,
+		xlabel near ticks,
+		xmin=0,
+		ymin=0
+		]
+%\addplot[dashed,miugray2!50!miudiutex] coordinates{ (0,1) (5,1)} node[below,near start, scale=0.7]{Pumpenkennlinie};
+\addplot[domain=0:5,white] {0.2*(x^2)+1}node[above,near start, scale=0.6,xshift=-23mm,yshift=-4mm]{Anlagenkennlinie};
+\addplot[domain=0:4.5,miugray2] {0.2*(x^2)+1}node[scale=0.6,xshift=-23mm,yshift=-4mm]{Anlagenkennlinie};
+\addplot[domain=0:5,petunitext] {0.2*-(x^2)+3} node[above,near start, scale=0.6,yshift=7mm,xshift=-7mm]{Pumpenkennlinie};
+\node[small dot,align=center,pin=0:{Betriebspunkt der Anlage}] at (axis description cs:0.445,0.335){};
+
+\end{axis}
+\end{tikzpicture}
+};
+\node(b)at(8,0){
+\begin{tikzpicture}
+\begin{axis}
+[
+		ylabel=$\Delta P_{ges}$,
+		xlabel=$\dot{V}$,
+		yticklabel=\empty,
+		xticklabel=\empty,
+		axis y line=middle,
+		axis x line=left,
+		xlabel near ticks,
+		xmin=0,
+		ymax=4,
+		xmax=4,
+		ymin=0,
+		]
+%\addplot[dashed,miugray2!50!miudiutex] coordinates{ (0,1) (5,1)} node[below,near start, scale=0.7]{Pumpenkennlinie};
+\addplot[domain=0:5,miugray2] {0.3*-(x^2)+3};
+\addplot[domain=1.3:5,petunitext] {0.4*-(x^2)+4};
+\node[miugray2,scale=0.7] at (axis cs:1,1) {dynamische Pumpe};
+\node[petunitext,scale=0.7] at (axis cs:3,3) {volumetrische Pumpe};
+\filldraw[petunitext] (axis cs:1.25,3.4) circle (1pt) node[above,scale=0.5,yshift=2mm,align=center] {Hier Druck zu hoch! \\ \RA Rohr platzt};
+
+\end{axis}
+\end{tikzpicture}
+};
+
+\end{tikzpicture}
+
+\begin{itemize}
+\item volumetrisch wirkende Pumpen (Verdrängerpumpen) \RA Bsp.: Kolbenpumpe, Exzenterschnecke, Membranpumpe
+\item dynamisch wirkende Pumpen \RA
+Bsp.: Kreiselpumpe
+\end{itemize}
+
+\subsection{Homogenisation}
+\begin{itemize}
+\item Hohe Scherraten setzen Maschinen einer hohen Belastung aus
+\item Hohe Scherraten dennoch manchmal gewollt. Beispiel: Homogenisieren
+\item \qssmall{}\textbf{Frage:} Kavitation kann als Folge von Druckschwankungen, welche durch unterschiedliche Strömungsgeschwindigkeiten entstehen, auftreten. Wodurch können diese Druckschwankungen noch erzeugt werden?
+\antwort{Kavitation in Wasser durch Ultraschall (20kHz - 1 GHz)\par bei Frequenzen zwischen 2 und 20 MHz ab einem Schalldruck von 15 MPa
+} 
+\end{itemize}
+
+\pagebreak
+
+\subsection{Herleitung der Filmströmungsgeschwindigkeit}
+\reversemarginpar
+\marginnote[Volumenstrom des Fallfilms]{}[3cm]
+\pp
+\begin{minipage}{.3\textwidth}
+\hspace*{1cm}
+\begin{tikzpicture}
+\draw[-](0,0) -- (0,4) -- (1,5);
+\draw[-](1.5,0) -- (1.5,4) -- (2.5,5);
+\draw[-](1.5,2) -- (1,2) -- (1,3) -- (1.5,3);
+\draw[dashed](1.5,3) -- (2.5,4) -- (2.5,3) -- (1.5,2);
+\draw[dashed](2.5,4) -- (2,4) -- (1,3);
+\draw[Latex-Latex,miugray2](2,3.5) to node[right] {$c$} (2,2.5);
+\draw[-Latex,miugray2](0,3.8) to node[above] {$a$} (1.5,3.8);
+\draw[-Latex,miugray2](0,2.5) to node[above] {$x$} (1,2.5);
+\draw[Latex-Latex,miugray2](1.5,1.5) to node[above] {$b$} (2.5,2.5);
+\draw[-Latex,miugray2!50,thick](0.2,1) to (0.2,0.4);
+\draw[-Latex,miugray2!50,thick](0.5,1) to (0.5,0);
+\draw[-Latex,miugray2!50,thick](0.8,1) to (0.8,-0.4);
+\draw[-Latex,miugray2!50,thick](1.2,1) to (1.2,-0.8);
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.6\textwidth}
+\begin{tabular}{ll>{\color{miugray2}\footnotesize}l}
+$F_G$ &= $m \cdot g = V \cdot \rho \cdot g$ \\
+&= Gewichtskraft &[$\frac{kg \cdot m}{s^2}$]\\ 
+$F_\eta$ &= $A_R \cdot \eta \cdot \frac{dv_y}{dx}$ \\ 
+&= Reibungskraft des Quaders &[$\frac{kg \cdot m}{s^2}$]\\ \\
+$V$ &= Volumen des Quaders &[m$^3$]  \\ 
+$m$ &= Masse des Quaders &[kg]  \\ 
+$g$ &= Erdbeschleunigung & 9,81 m/s$^2$ \\  
+$\rho$ &= Dichte der Flüssigkeit &[kg/m$^3$] \\  
+$A_R$ &= Reibungsfläche des Quaders &[m$^2$] \\ 
+$\frac{dv_y}{dx}$ &= Geschwindigkeitszunahme in x-Richtung &[1/s]  \\ 
+$\eta$ &= dynamische Viskosität &[$\frac{kg}{m \cdot s}$]  \\ 
+$v_y$ &= lokale Filmgeschwindigkeit in y-Richtung &[m/s]  \\ 
+a &= Dicke des Films \\ 
+x &= Abstand des Quaders von Wandoberfläche \\ 
+b &= Breite des Films bzw. Quaders  \\ 
+c &= Höhe des Quaders \\ 
+\end{tabular}
+\end{minipage}
+\ppbig \vspace*{4mm}
+Herleitung durch Gleichsetzen der Gewichtskraft mit Reibungswiderstand und anschließender Integration von x: 
+\marginnote[C = 0 \par da $v_y$ = 0 für x = 0]{}[3cm]
+\begin{align*}
+F_\eta &= F_G \\
+b \cdot c \cdot \eta \cdot \frac{dv_y}{dx} &= (a-x) \cdot b \cdot c \cdot \rho \cdot g \\
+dv_y &= \frac{\rho g}{\eta} \cdot (a-x) \cdot dx \\
+v_y &= \int \frac{\rho g}{\eta} \cdot (a-x) \cdot dx \\
+v_y &= \frac{\rho g}{\eta} \cdot (ax - \frac{1}{2} x^2 + C) \\
+v_y &= \frac{\rho g}{\eta} \cdot (ax-\frac{x^2}{2})
+\end{align*}
+
+
+
+
+\ppbig
+\notiz{\textbf{Videos bei Youtube: }\pp
+Funnktionsprinzip Druckluftmembranpumpe - Video Verder Deutschland \pp
+Doppelmembranpumpe - WP-Aro GmbH\pp
+Wie funktioniert eine Wälzkolbenpumpe / Wie funktioniert eine Kreiselpumpe? \par 
+hydraulic and pneumatic systems \pp
+Drehkolbenpumpe - Vogelsang \pp
+Schlauchpumpe \pp 
+Turbopump - Pfeiffer Vacuum + Fab Solutions \pp 
+TFD Kavitation - (haeny epfl) IET Institute \pp 
+}
+
+	
+\end{document}

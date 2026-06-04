@@ -1,0 +1,338 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{F://LaTex-Files/shiet/basic.tex}
+\input{F://LaTeX-Files/shiet/colors.tex}
+\input{F://LaTeX-Files/shiet/SI.tex}
+\input{F://LaTeX-Files/shiet/plmtuebungpreamble.tex}
+\usepackage[table]{xcolor}
+\usepackage{pgfplots}
+    \pgfplotsset{
+        every axis post/.style={
+	yticklabel=\empty,
+	xticklabel=\empty,
+	y label style={at={(axis description cs:-0.2,1.1)}},
+	x label style={at={(axis description cs:1.05,0.2)}},
+	ticks=none,
+	width=6cm,
+	axis lines=middle,
+%	xlabel near ticks,
+        },
+    }
+\usetikzlibrary{positioning, arrows.meta, calc}
+
+\usepackage{relsize}
+\usepackage{cancel}
+
+\newif\ifshowme
+\showmetrue
+
+
+\DeclareRobustCommand{\symPumpe}{%
+    \tikz[baseline=-0.5ex, line width=0.8pt, x=1.2ex, y=1.2ex]{
+        \draw[fill=white] (0,0) circle (1);
+        \draw (0,1) -- (1,0);
+        \draw (0,-1) -- (1,0);
+    }% 
+}
+
+\DeclareRobustCommand{\symVentil}{%
+    \tikz[baseline=-0.5ex, line width=0.8pt, x=1.2ex, y=1.2ex]{
+        \draw[fill=white] (-0.5,-0.6) -- (0.5,0.6) -- (-0.5,0.6) -- (0.5,-0.6) -- cycle;
+        \draw (0,0) -- (0.8,0);
+        \draw (0.8,-0.3) -- (0.8,0.3);
+    }%
+}
+
+\DeclareRobustCommand{\symBogen}{%
+    \tikz[baseline=-0.5ex, line width=0.8pt, x=1.2ex, y=1.2ex]{
+        \draw[rounded corners=0.6ex] (0, 1) |- (1, 0);
+    }%
+}
+
+\begin{document}
+%\newgeometry{top=1.8cm,bottom=4cm,left=1.5cm,right=7.5cm,marginparsep=-2.00cm,marginparwidth=4.75cm}
+\newgeometry{top=3cm,bottom=3cm,left=4.5cm,right=4.5cm}
+
+%\bckgrnd
+
+\begin{center}
+\LARGE
+\color{uniblau}
+\textbf{Übung 03} \par \vspace*{2mm}
+\large \color{miugray!50!black} \textbf{Prozessbezogene Lebensmitteltechnologie}\par 
+\normalsize Zusatzaufgaben
+\end{center}
+\par 
+%\vspace*{6mm}
+
+
+\color{miudiutex}
+
+
+
+%\section*{Zusatzaufgaben}
+
+\subsection*{Aufgabe 1}
+%\tcbdocmarginnote[colback=unigelb!50,colframe=uniblau]{
+%Wiederholungsaufgabe
+%}
+In \figurename{~\ref{masse}} (auf der nächsten Seite) sehen Sie den fünfstufigen Herstellungsprozess eines Fertigprodukts. 
+\begin{itemize}
+\item Bestimmen Sie den Massenstrom von Produkt $P$
+\item Bestimmen Sie den Massenstrom von Rücklauf $A$
+\end{itemize}
+
+
+\begin{figure}[h]
+\centering
+\resizebox{.8\textwidth}{!}{
+\begin{tikzpicture}[font=\sffamily, >={Latex[length=6pt, width=5pt]}]
+
+    % --- Definition der Stile für die Blöcke ---
+    \tikzset{
+        block/.style={rectangle, draw=black, minimum width=1.6cm, minimum height=1.4cm, align=center},
+		blaublock/.style={block, fill=uniblau!50},
+        grayblock/.style={block, fill=miugray!50},
+        redblock/.style={block, fill=miugray}
+    }
+
+    % --- Positionierung der Blöcke ---
+    \node[blaublock] (I)   at (0, 0)      {I};
+    \node[redblock]  (II)  at (0, -2.5)   {II};
+    \node[redblock]  (III) at (-1.5, -5.0){III};
+    \node[redblock]  (IV)  at (1.5, -5.0) {IV};
+    \node[grayblock] (V)   at (1.5, -7.5) {V};
+
+    % --- Systemgrenze (gestrichelte Linie) ---
+    \draw[dashed, semithick, uniblau] (-3.2, 1) rectangle (3.2, -8.7);
+    \node[above left, inner sep=2pt] at (3.2, 1.2) {\color{uniblau}Systemgrenze};
+
+    % --- Stoffströme (Pfeile & Beschriftungen) ---
+    
+    % Feed F
+    \draw[->] (-4.8, 0) -- (-2.7, 0);
+    \draw[->] (-2.7, 0) -- (I.west);
+    \node[left, align=left, inner sep=2pt] at (-5, 0) {Feed F \\ 1000 kg/h\\15\% TS\\85\% Wasser};
+
+    % Stream D
+    \draw[->] (I.east) -- (4.2, 0);
+    \node[right, align=left, inner sep=2pt] at (4.5, 0) {D \\ 150 kg/h\\0\% TS};
+
+    % Stream B
+    \draw[->] (I.south) -- (II.north) node[midway, right] {B};
+
+    % Stream C, E und G (Aufteilung)
+    \draw[->]  (II.south) -- (0, -3.75) node[midway, right] {C};
+    \draw[-]  (0, -3.75) -- (-1.5, -3.75) node[midway, below,xshift=5pt] {E 10\% TS};
+    \draw[->] (-1.5, -3.75) -- (III.north);
+    \draw[-]  (0, -3.75) -- (1.5, -3.75) node[right] {G};
+    \draw[->] (1.5, -3.75) -- (IV.north);
+
+    % Stream A (Rückführung)
+    \draw[-]  (III.west) -- (-2.7, -5.0);
+    \draw[->] (-2.7, -5.0) -- (-2.7, 0);
+    \node[right, align=left] at (-2.7, -2.5) {A\\5\% TS};
+
+    % Stream R (Rückführung)
+    \draw[-]  (IV.east) -- (2.7, -5.0) -- (2.7, -2.5);
+    \draw[->] (2.7, -2.5) -- (II.east);
+    \node[left] at (2.7, -3.75) {R};
+
+    % Stream L
+    \draw[->] (IV.south) -- (V.north) node[midway, right] {L};
+
+    % Stream K
+    \draw[->] (III.south) -- (-1.5, -9.0) node[below, align=left] {K\\450 kg/h\\20\% TS};
+
+    % Stream Product P
+    \draw[->] (V.south) -- (1.5, -9.0) node[below, align=left] {Produkt P\\80\% TS};
+
+    % Stream W
+    \draw[->] (V.east) -- (4.2, -7.5) node[right, align=left] {W\\Wasser};
+
+\end{tikzpicture}
+}
+
+\caption{Schematische Darstellung des Herstellungsprozesses. Abgeändert nach Singh und Heldman.}
+\label{masse}
+\end{figure}
+
+
+
+\ifshowme
+\antwort{
+Produkt $P$:
+\begin{align*}
+F = D + W + K + P
+\end{align*}
+Für die Trockensubstanz gilt:
+\begin{align*}
+0,15 F &=  0 D + 0 W +0,2 K + 0,8 P \\
+0,15 F &=  0 + 0 +0,2 \cdot 450 + 0,8 P \\
+150 &= 90 + 0,8 P \\
+P &= 75 ~\text{kg/h}
+\end{align*}
+Rücklauf $A$:
+\begin{align*}
+E &= A + K \\
+0,1 E &= 0,05 A + 0,2 K \\
+0,1 (A+K) &= 0,05 A + 90 \\ 
+0,1 + 45 &= 0,05 A + 90 \\
+0,05 A &= 45 \\
+A &= 900 ~\text{kg/h}\\ \\
+E &= 1.350 ~\text{kg/h}
+\end{align*}
+}
+\else
+\pagebreak
+\fi
+
+\subsection*{Aufgabe 2}
+Stellen Sie die Formel für den Druckverlust durch Reibung (für laminare Strömung) nach dem Rohrdurchmesser $R$ um.
+
+\ifshowme
+\antwort{
+\begin{align*}
+\Delta p &= \frac{8\eta \cdot \Delta l}{\pi \cdot R^4} \cdot \dot{V} \\
+R &= \sqrt[4]{\frac{8\eta \cdot \Delta l}{\pi \cdot \Delta p} \cdot \dot{V}}
+\end{align*}
+}
+\pagebreak
+\else
+\par \vspace*{8cm}
+\fi
+
+\subsection*{Aufgabe 3}
+Stellen Sie nun die Formel für das Geschwindigkeitsprofil der laminaren Strömung nach dem Rohrdurchmesser $R$ um
+
+\ifshowme
+\antwort{
+\begin{align*}
+v(r) &= -\frac{R^2}{4\eta} \cdot \frac{dp}{dx} \cdot \left[ 1 - \left(\frac{r}{R}\right)^2 \right] \\
+R &= \sqrt{\frac{-4\eta \cdot v(r)}{\frac{dp}{dx}} + r^2}\\
+R &= \sqrt{-4\eta \cdot v(r) \cdot \frac{dx}{dp} + r^2}
+\end{align*}
+}
+\else
+\pagebreak
+\fi
+
+\subsection*{Aufgabe 4}
+%Für Lebensmittelchemiker spielt manchmal auch eine etwas überholte Druckeinheit eine Rolle. Früher hat man Gasdrücke häufig über Flüssigkeitssäulen gemessen. Dabei befindet sich die Flüssigkeit in einem U-förmigen Röhrchen, auf der einen Seite wird das zu messende Gas angeschlossen. Durch den Druckunterschied zwischen dem zu zu messenden Druck p und dem Luftdruck $p_L$ = 1.013 hPa sind beide Pegel unterschiedlich hoch. Da die eingefüllte
+%Flüssigkeitsmenge bekannt ist, genügt eine Skala auf der Luftdruckseite, um den Druck zu bestimmen. Da man den Stand der Flüssigkeit misst, gibt man den Druck dann in Einheiten wie
+%mmH2O oder mmHg an.
+%
+%\begin{itemize}
+%
+%\item Spielt der Durchmesser des Röhrchens für die Messung des Drucks über den
+%Wasserstand eine Rolle?
+%\item Gebt für die folgenden drei angelegten Drücke 
+%\begin{itemize}
+%\item $p_1$ = 1.013 hPa
+%\item $p_2$ = 1.020 hPa
+%\item $p_3$ = 990 hPa 
+%\end{itemize}
+%den Druckunterschied $\Delta p = p - p_L$ unter Verwendung von Wasser in der Einheit mmH2O und von Quecksilber ($\mathlarger{\rho}$ = 13,5 g/cm$^3$) in mmHg an.
+%Wie hängt der Pegel rechts von der Dichte der verwendeten Flüssigkeit ab?
+%\end{itemize}
+In einem Wasserrohr fließen 60 L/h Wasser. Der Durchmesser der Zuleitung beträgt 20 mm, der Durchmesser an der Ableitung 10 mm. Der absolute Druck an der Zuleitung entspricht einem Umgebungsdruck von 1 bar. Die Ableitung liegt zu dem 0,5 m tiefer als die Zuleitung. Wie hoch ist der relative Druck und der absolute Druck im Ableitungsrohr? Welchen Einfluss hat der Höhenunterschied auf den Druck?
+\ifshowme
+\antwort{
+Bernoulli:
+\begin{align*}
+p + \frac{1}{2} \rho v^2 + \rho g h = ~\text{const.}
+\end{align*}
+Geschwindigkeit $v$
+\begin{align*}
+v_1 &= \frac{\dot{V}}{A} = \frac{60~\text{L/h}}{\pi \cdot \left(\frac{0,02~\text{m}}{2}\right)^2} = \frac{1,6 \cdot 10^{-5}~\text{m}^3/\text{s}}{3,14 \cdot 10^{-4}} = 0,05~\text{m/s}\\ \\
+v_2 &= 0,05 \cdot \frac{20^2}{10^2} = 0,2~\text{m/s}
+\end{align*}
+Bernoulli nach $p_2$ umstellen:
+\begin{align*}
+p_2 &= p_1 + \frac{1}{2} \rho v^2 + \rho g h - \frac{1}{2} \rho v^2 \\
+&= 100.000~\text{Pa} + 0,5 \cdot 1000 \cdot (0,05^2 - 0,2^2) + 1000 \cdot 9,81 \cdot 0,5 \\
+&= 104.886,25
+\end{align*}
+Relativer Druck = 4.886,25 Pa \pp 
+Einfluss Höhenunterschied: \par 
+Durch die Verengung würde normalerweise über den dynamischen Druck ein kleiner relativer Unterdruck entstehen, durch den vorhandenen Höhenunterschied ist der Druck an der Verengung aber größer als der Umgebungsdruck.
+}
+%\pagebreak
+\else
+\par \vspace*{8cm}
+\fi
+
+
+
+
+\subsection*{Aufgabe 5}
+Berechnen Sie den Massenstrom von R. Bestimmen Sie anschließend den Wasseranteil, sowie den Anteil der Trockensubstanz in R
+
+\begin{figure}[h]
+\centering
+\resizebox{.7\textwidth}{!}{
+\begin{tikzpicture}[
+    >={Latex[fill=white, length=3mm, width=2.5mm]}, % Offene Pfeilspitzen
+    font=\sffamily, 
+    line width=1pt
+]
+
+% --- Blöcke (Unit 1 und Unit 2) ---
+\node[draw, thick, fill=uniblau!75, minimum width=3.5cm, minimum height=2.5cm] (Unit1) at (0,0) {};
+\node[draw, thick, fill=miugray!50, minimum width=3.5cm, minimum height=2.5cm, right=2cm of Unit1] (Unit2) {};
+
+% --- Systemgrenze (gestrichelte Linie) ---
+% Die Koordinaten werden relativ zu den Blöcken berechnet, um alles passend einzurahmen
+\draw[dashed, thick, color=uniblau, dash pattern=on 6pt off 4pt, rounded corners=2mm]
+    ($(Unit1.north west) + (-0.8cm, 0.8cm)$) rectangle ($(Unit2.south east) + (0.8cm, -1.8cm)$);
+
+% --- Feed (F) ---
+\node[align=left, left] (F) at ($(Unit1.west) - (1.5cm, 0)$) {F \\ 100 kg/h \\ TS 10\%};
+\draw[->] (F) -- (Unit1.west);
+
+% --- Wasserstrom nach oben ---
+\draw[->] (Unit1.north) -- ++(0, 1.5cm) node[above] {WASSER};
+
+% --- Zwischenstrom (K) ---
+\draw[->] (Unit1.east) -- (Unit2.west) node[midway, align=center, yshift=5mm] {K \\ TS 20\%};
+
+% --- Produktstrom (P) ---
+\draw[->] (Unit2.east) -- ++(1.5cm, 0) node[right, align=left] {P \\ TS 30\%};
+
+% --- Rückstrom / Recycle (R) ---
+% Der Pfad geht erst nach unten, dann horizontal zurück und wieder nach oben in Unit 1
+\draw[->] (Unit2.south) -- ++(0, -1cm) coordinate (R_corner)
+    -- (Unit1.south |- R_corner) node[midway, below, align=center,yshift=5mm] {R \\ 5\% TS}
+    -- (Unit1.south);
+
+\end{tikzpicture}
+}
+\caption{Modell zum Massenstrom}
+
+\end{figure}
+
+\ifshowme
+\antwort{
+\begin{align*}
+    100  \cdot 0,1 &= P \cdot 0,3 \\
+    10  &= P \cdot 0,3 \\
+    P &= 33,33 ~\text{kg/h}
+\end{align*}
+Zweite Beziehung:
+\begin{align*}
+R + F &= W + K \\ 
+0,05 R + 0,1F &= \cancel{W} + 0,2 K \\
+0,05 R + 10 &= 0,2 K \\
+0,05 R + 10 &= 0,2 (P + R) \\
+0,05 R + 10 &= 6,66 + 0,2R \\
+3,3333 &= 0,15R \\
+R &= 22,22
+\end{align*}
+5\% TS von 22,22 kg/h Massenstrom sind 1,11 kg/h und 95\% Wasser sind 21,11 kg/h
+}
+\else
+\fi
+
+
+
+\end{document}

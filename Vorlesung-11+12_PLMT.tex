@@ -1,0 +1,249 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{F://LaTeX-Files/shiet/kemie2.tex}
+\input{F://LaTeX-Files/shiet/macros.tex}
+\input{F://LaTeX-Files/shiet/vl.tex}
+\usepackage{awesomebox}
+
+\renewcommand{\arraystretch}{1.3}
+%\setcounter{section}{1} % <--- FALLS KEINE SECTION DEFINIERT WIRD
+\renewcommand{\textbf}[1]{\textsf{{\bfseries {#1}}}}
+
+\begin{document}
+
+\sidebar
+\miushead{Vorlesung 20.05. \& 21.05. - PLMT}{Vorlesung 11 + 12}
+\par \vspace*{5mm}
+\section{Vorlesung 20.05.}
+\subsection{Effekte von Temperatur}
+\ppbig
+\begin{center}
+	\begin{tabular}{l|l}
+\textbf{Temperaturerhöhung} & \textbf{Temperaturabsenkung} \\
+\cline{1-2}
+Abtöten von Mikroorganismen & Verringerung des Wachstums von Mikroorganismen \\ 
+Beschleunigung chemischer Reaktionen & Verlangsamung chemischer Reaktionen \\
+Denaturierung von Proteinen & Verringerung Enzymaktivität \\
+Änderung des Aggregatzustandes & Änderung des Aggregatzustandes
+\end{tabular}
+	\end{center}	
+
+\subsection{Einteilung von Mikroorganismen}
+\ppbig
+
+\begin{center}
+\begin{tabular}{l|c|c|c}
+ & \textbf{Minimum} &\textbf{Optimum} & \textbf{Maximum} \\
+\cline{1-4}
+psychrophil & -5 bis 5°C & 12-15°C & 15-20°C \\
+psychrotolerant & 3-5°C & 20-30°C & 30-35°C \\
+mesophil & 7-15°C & 30-40°C & 35-47°C \\
+thermophil & 40-45°C & 55-75°C & 60-90°C \\
+hyperthermophil &79-80°C & 80-90°C & 90-110°C \\
+\end{tabular}
+\end{center}
+
+
+
+\subsection{Wiederholung Aktivierungsenergie}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{endoexo}
+\caption{Verschiedene Aktivierungsenergien}
+\end{figure}
+
+%\pagebreak
+
+%\subsection{Begriffserklärungen für die Folien}
+
+\textbf{Q10} ist der Faktor um den sich die Reaktionsgeschwindigkeit erhöht, wenn man die Temperatur um 10°C erhöht. \par
+\textbf{Z-Wert} ist die Temperaturdifferenz, die benötigt wird um die Reaktionsgeschwindigkeit um den Faktor 10 zu erhöhen. \pp
+
+\subsection{Effekte des Blanchierens}
+\begin{itemize}
+\item Inaktivierung der Enzyme
+\item Elimination von Sauerstoff
+\item Farbe
+\item Reduktion der Keimbelastung
+\item Schrumpfen bzw. Erweichen der Rohware
+\item Entfernen von unerwünschten Aromastoffen
+\end{itemize}
+\pp
+
+\subsection{Pasteurisation}
+
+\klausur{pH 4,5 $>$ Pasteurisation \par pH 4,5 $<$ Sterilisation }
+
+\pp
+Im Folgenden wurden zwei Videos gezeigt über YouTube:\par 
+\begin{center}
+Tunnelpasteur-Video KHS INNOPAS \par 
+JBT Hydromatic Hydrostatic Sterilizer
+\end{center}
+
+\subsection{Abtöten von Mikroorganismen}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\draw[->] (0,0) to (0,4) node[right] {$N$};
+\draw[->] (0,0) to (8,0) node[right] {$t$};
+\draw[rounded corners=4pt] (0,3.5) .. controls (0.5,2) and (0.9,1) .. (2.5,0.5) .. controls (3.5,0.4) .. (5.5,0.3) to (8,0.2);
+\end{tikzpicture}
+\caption{Verlaufskurve Abtöten von Mikroorganismen}
+\end{figure}
+
+\ppbig
+
+Kinetik erster Ordnung:
+\begin{align*}
+\frac{dN}{dt} = - k \cdot N
+\end{align*}
+Wobei $k$ die Reaktionsgeschwindigkeit in 1/s darstellt.
+\par 
+Für die Zahl der Mikroorganismen $N$ nach einer Zeit $t$ lässt sich folgende Formel aufstellen:
+\begin{align*}
+N(t) = N_0 \cdot e^{-k \cdot t}
+\end{align*}
+
+\pagebreak
+
+\begin{figure}[h]
+
+\begin{center}
+\begin{tikzpicture}
+\node[anchor=west] at (0,0){
+\begin{tikzpicture}
+\draw[->] (0,0) to (0,4) node[right] {$N$};
+\draw[->] (0,0) to (4,0) node[right] {$t$};
+\draw[-,miugray2] (0,3.5) to (3.5,0);
+\draw (-0.1,3.5) node[left] {$10^6$} to (0,3.5);
+\draw (-0.1,2.5) node[left] {$10^5$} to (0,2.5);
+\draw (-0.1,1.5) node[left] {$10^4$} to (0,1.5);
+\draw (-0.1,0.5) node[left] {$10^3$} to (0,0.5);
+
+\draw (0,-0.1) node[below,scale=0.7] {1 min} to (0,0);
+\draw (1,-0.1) node[below,scale=0.7] {2 min} to (1,0);
+\draw (2,-0.1) node[below,scale=0.7] {3 min} to (2,0);
+\draw (3,-0.1) node[below,scale=0.7] {4 min} to (3,0);
+\draw [dashed,petunitext] (1,2.5) to (1,1.5);
+\draw [<->, petunitext] (1,1.5) to node[below,scale=1,yshift=-2mm] {$D_t$}(2,1.5);
+\end{tikzpicture} };
+\node[anchor=west] at (6,0){
+\begin{tikzpicture}
+\draw[->] (0,0) to (0,4) node[right] {$D$ (min)};
+\draw[->] (0,0) to (4,0) node[right] {$T$ (°C)};
+\draw[-,miugray2] (0,3.5) to (3.5,0);
+\draw (-0.1,3.5) node[left] {100} to (0,3.5);
+\draw (-0.1,2.5) node[left] {10} to (0,2.5);
+\draw (-0.1,1.5) node[left] {1} to (0,1.5);
+\draw (-0.1,0.5) node[left] {0.1} to (0,0.5);
+
+\draw (0,-0.1) node[below,scale=0.7] {60} to (0,0);
+\draw (1,-0.1) node[below,scale=0.7] {70} to (1,0);
+\draw (2,-0.1) node[below,scale=0.7] {80} to (2,0);
+\draw (3,-0.1) node[below,scale=0.7] {90} to (3,0);
+\draw [dashed,petunitext] (1,2.5) to (1,1.5);
+\draw [<->, petunitext] (1,1.5) to node[below,scale=1,yshift=-2mm] {Z}(2,1.5);
+\end{tikzpicture} };
+\end{tikzpicture}
+\caption{Linker Graph - Mikroorganismen über Zeit ; Rechter Graph D-Wert über Temperatur}
+\end{center}
+
+\end{figure}
+
+\pp
+Der \textbf{D-Wert} ist die Zeit, die man erhitzen muss, um die Keimzahl auf ein Zehntel zu reduzieren. \par 
+Der \textbf{Z-Wert} ist die erforderliche Temperaturerhöhung, die nötig ist, um den D-Wert um eine Zehnerpotenz zu reduzieren
+\ppbig
+%\boxfr{
+%\textbf{12D-Konzept:} \textit{Clostridium botulinum} muss 12 mal um ein Zehntel reduziert werden, damit es als abgestorben gilt. \textit{Clostridium botulinum} dient als Leitkeim für sichere Konserven nach dem 12D-Konzept
+%}
+\awesomebox[petunitext]{1mm}{\faExclamationTriangle}{miugray2}{\textbf{12D-Konzept:} \textit{Clostridium botulinum} muss 12 mal um ein Zehntel reduziert werden, damit es als abgestorben gilt. \textit{Clostridium botulinum} dient als Leitkeim für sichere Konserven nach dem 12D-Konzept}
+
+\section{Vorlesung 21.05.}
+
+\subsection{D-Wert}
+Wie bereits in der letzten Vorlesung erwähnt, ist der \textbf{D-Wert} die Zeit, die man erhitzen muss, um die Keimzahl auf ein Zehntel zu reduzieren. Um den D-Wert für eine bestimmte Temperatur zu errechnen, können wir uns folgende Formel herleiten:
+
+\begin{align*}
+z &= \frac{T_2 - T_1}{\log(D_1) - \log(D_2)} \\
+ &= \frac{T_2 - T_1}{\log(\frac{D_1}{D_2})} \\
+\log(\frac{D_1}{D_2}) &= \frac{T_2 - T_1}{z} \\
+\frac{D_1}{D_2} &= 10^{\frac{T_2 - T_1}{z}} \\
+D_1 &= D_2 \cdot 10^{\frac{T_2 - T_1}{z}} 
+\end{align*}
+
+\pagebreak
+
+\reversemarginpar
+\subsection{F-Wert}
+Der \textbf{F-Wert} ist definiert als die Summe aller letalen Effekte, die im Verlauf einer Erhitzung auf eine Mikroorganismen-Population wirken.
+Der F-Wert beschreibt den Erhitzungseffekt, also die Keimabtötungsrate. Dabei geht man von folgendem Grundwert aus:
+%\marginnote[Manchmal auch anders in Formelsammlungen: log$_1$ - log$_2$ = $\frac{log_1}{log_2}$]{}[3cm]
+\pp
+\begin{center}
+1 F-Wert = 1 Minute bei 121°C
+\end{center}
+
+\pp
+Zur Berechnung des jeweiligen F-Wertes nutzen wir folgende Formel:
+
+\begin{align*}
+F = D(\log N_0 - \log N(t) )
+\end{align*}
+
+\subsubsection{Beispielberechnung}
+Vor der Sterilisation beträgt die Keimzahl 1 Spore \textit{Clostridium botulinum} pro Gramm Lebensmittel. Da \textit{Clostridium botulinum} ein gefährlicher Toxinbildner ist, wird das sogenannte 12-D-Konzept angewendet, um auf 10$^{-12}$ Sporen pro Gramm Lebensmittel zu reduzieren, um eine ausreichende Sicherheit zu gewährleisten.\par 
+Im Ergebnis enthält dann jedes billionste Gramm des Lebensmittels noch eine überlebende Spore, oder bei 1000 g-Dosen noch jede milliardenste Dose. Aus diesen Werten für den Leitkeim \textit{Clostridium botulinum} (D-Wert: 0,2 min) und den Anforderungen ergibt sich:
+\begin{align*}
+F &= 0,2 ~\text{min} \cdot (\log (1) - \log (10^{-12})) = 2,4 ~\text{min}
+\end{align*}
+Daher müssen wir 2,4 min bei 121°C erhitzen um eine ausreichende Sicherheit des Lebensmittels zu gewährleisten.
+
+
+
+
+
+
+\subsubsection{Letalitätswert}
+
+\marginnote[Je kleiner der Letalitätswert, desto effektiver \pp L = 1 \RA 121°C bei 1min \par L = 0,1 \RA 121°C bei 0,1min]{}[0pt]
+Der \textbf{Letalitätswert} $L$, auch Letalitätsrate oder Teil-F-Wert (F abgeleitet von Fahrenheit) genannt, gibt an, wie effektiv Mikroorganismen mit definierter Hitzeresistenz abgetötet werden, wenn sie eine Minute lang einer bestimmten Temperatur ausgesetzt werden.
+\pp
+In der Berechnung des konkreten Letalitätswertes bei der Untersuchung einer Probe spielen die Dezimale Reduktionszeit und der Z-Wert eine Rolle.
+\pp
+So lässt sich der L-Wert wie folgt berechnen:
+
+
+\begin{align*}
+L = \frac{F_0}{F_t} = \frac{D(121,1)}{D_t} = 10^{\frac{T-121,1}{z}}
+\end{align*}
+
+
+\subsubsection{Erhitzungsprozess}
+\marginnote[L-Wert gilt für idealen Erhitzungsprozess]{}[0pt]
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\draw[->] (0,0) to (0,4) node[right] {$T$};
+\draw[->] (0,0) to (8.5,0) node[right] {$t$};
+
+\draw[petunitext] (0,0) .. controls (2.5,4) and (5.5,4)  .. (8,0) node[above,yshift=15mm,xshift=-6mm] {real};
+\draw[miugray2] (2.5,0) to (2.5,3) node[below,xshift=15mm] {ideal} to (5.5,3) to (5.5,0); 
+\end{tikzpicture}
+\caption{Realer vs. Idealer Erhitzungsprozess}
+\end{figure}
+
+%\begin{zitat}{Wikipedia}{} \small Der Z-Wert ist ein Begriff, der bei der Berechnung der thermischen Absterbezeit von Mikroorganismen verwendet wird . Er gibt an, um wie viele Grad die Temperatur erhöht werden muss, um eine zehnfache (d. h. 1 log 10 ) Verringerung des D-Werts zu erreichen . Der D-Wert eines Organismus gibt die Zeit an, die in einem bestimmten Medium bei einer bestimmten Temperatur benötigt wird, um die Anzahl der Organismen um das Zehnfache zu reduzieren. Er ist nützlich, um die Wirksamkeit thermischer Inaktivierungen unter verschiedenen Bedingungen zu untersuchen, beispielsweise beim Kochen und Konservieren von Lebensmitteln. Der Z-Wert ist ein Maß für die Änderung des D-Werts bei variierenden Temperaturen und stellt eine vereinfachte Version der Arrhenius-Gleichung dar. Er entspricht z=2,303 RT T ref /E. [ 2 ]
+
+%Der z-Wert eines Organismus in einem bestimmten Medium ist die Temperaturänderung , die erforderlich ist, damit sich der D-Wert um den Faktor zehn ändert, oder anders ausgedrückt: die Temperatur, die erforderlich ist, damit sich die thermische Zerstörungskurve um einen Logarithmuszyklus verschiebt . Er ist der Kehrwert der Steigung, die sich aus der Auftragung des Logarithmus des D-Werts gegen die Temperatur ergibt, bei der der D-Wert ermittelt wurde. Während der D-Wert die Zeit angibt, die bei einer bestimmten Temperatur benötigt wird, um 90 % der Organismen abzutöten, setzt der z-Wert die Resistenz eines Organismus gegenüber unterschiedlichen Temperaturen in Beziehung. Der z-Wert ermöglicht die Berechnung der Äquivalenz zweier thermischer Prozesse, sofern der D-Wert und der z-Wert bekannt sind.
+
+%\end{zitat}
+
+
+
+
+
+
+\end{document}
