@@ -17,9 +17,14 @@ jobs:
         with:
           root_file: pLMT-Mitschriften_2025.tex 
 
+      - name: Prepare PDF for Pages
+        run: |
+          mkdir public
+          cp pLMT VL-Mitschrift 2025.pdf public/pLMT VL-Mitschrift 2025.pdf
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: ./public
           publish_file: pLMT VL-Mitschrift 2025.pdf # Die Datei, die du veröffentlichen willst
