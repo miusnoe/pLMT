@@ -20,7 +20,7 @@ jobs:
       - name: Prepare PDF for Pages
         run: |
           mkdir public
-          cp pLMT-Mitschriften_2025.pdf public/pLMT VL-Mitschrift 2025.pdf
+          cp pLMT-Mitschriften_2025.pdf public/pLMT_VL-Mitschrift_2025.pdf
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
