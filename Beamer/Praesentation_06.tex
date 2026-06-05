@@ -403,7 +403,7 @@ Bestimmen Sie den z-Wert
     
 
 
-\uncover<2->{\addplot[color=uniblau, thick, mark=*] coordinates {(104,27.5) (107,14.5) (110,7.5) (113, 4) (116,2.2)};}
+\only<2->{\addplot[color=uniblau, thick, mark=*] coordinates {(104,27.5) (107,14.5) (110,7.5) (113, 4) (116,2.2)};}
 
 
 
@@ -718,7 +718,7 @@ zueinander in einer Beziehung stehen. \par
 
 
 %\antwort{
-
+\uncover<2->{
 \begin{spacing}{1.5}
 \resizebox{\textwidth}{!}{
 \begin{tabular}{lll}
@@ -739,10 +739,13 @@ D$_{100\text{°C}}^{5 \text{°C}}$ = 0,00005 min & T = 100°C &t = 0,00005 min \
 \end{spacing}
 
 %}
+}
 
+\uncover<3->{
 \begin{align*}
 T_2 = \log \left( \frac{D_1}{D_2} \right) \cdot z + T_1
 \end{align*}
+}
 
 \end{minipage}%
 
@@ -773,8 +776,8 @@ der D-Wert bei einer Temperatur von 112 °C aus, wenn ein z-Wert von 10 °C gege
 \begin{minipage}{.5\textwidth}
 \antwort{
 \begin{align*}
-D_1 &= D_2 \cdot 10^{\frac{T_2-T_1}{z}} \\
-\uncover<2->{D_1 &= 3 \cdot 10^{\frac{121,1-112}{10}} \\
+\uncover<2->{D_1 &= D_2 \cdot 10^{\frac{T_2-T_1}{z}} \\}
+\uncover<3->{D_1 &= 3 \cdot 10^{\frac{121,1-112}{10}} \\
  &= 24,38 ~\text{min}}
 \end{align*}
 }
