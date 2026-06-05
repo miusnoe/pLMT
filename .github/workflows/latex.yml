@@ -19,17 +19,12 @@ jobs:
 
       - name: Prepare PDF for Pages
         run: |
-          mkdir public
+          mkdir -p public
           cp pLMT-Mitschriften_2025.pdf public/pLMT_VL-Mitschrift_2025.pdf
+          cp index.html public/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-
-- name: Prepare PDF for Pages
-        run: |
-          mkdir -p public
-          cp pLMT-Mitschriften_2025.pdf public/pLMT_VL-Mitschrift_2025.pdf
-          cp index.html public/index.html
