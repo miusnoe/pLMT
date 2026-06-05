@@ -30,6 +30,6 @@ jobs:
 
 - name: Prepare PDF for Pages
         run: |
-          mkdir public
-          cp pLMT-Mitschriften_2025.pdf public/index.pdf
-          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=index.pdf"></head></html>' > public/index.html
+          mkdir -p public
+          cp pLMT-Mitschriften_2025.pdf public/pLMT_VL-Mitschrift_2025.pdf
+          cp index.html public/index.html
