@@ -27,3 +27,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+
+- name: Prepare PDF for Pages
+        run: |
+          mkdir public
+          cp pLMT-Mitschriften_2025.pdf public/index.pdf
+          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=index.pdf"></head></html>' > public/index.html
