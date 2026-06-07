@@ -24,7 +24,7 @@
 \usepackage{cancel}
 
 \newif\ifshowme
-\showmetrue
+%\showmetrue
 
 
 \DeclareRobustCommand{\symPumpe}{%
@@ -531,6 +531,9 @@ In \figurename{~\ref{rohr}} können Sie den Aufbau eines Pumpensystems mit Rohrl
 
 % Circle around first valve
 %\draw[pencolor, thin] (1.5, -1) ellipse (0.7 and 1);
+
+\node[pencolor, align=center,scale=0.8] at (1.5, 0.6) {Einlauf scharfkantig};
+\draw[pencolor, thin, dashed] (1.5, 0) circle (0.4); 
 
 
 %\draw[fill=white,xshift=-5cm,yshift=8cm] (5.5, -4) circle (0.5);
