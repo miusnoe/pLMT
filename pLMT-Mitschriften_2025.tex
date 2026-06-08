@@ -1672,17 +1672,68 @@ Um Wasser aus der flüssigen Phase in die gasförmige Phase zu überführen, kö
 \draw[-, petunitext] (1,1) to [bend right=35](3,3);
 \draw[->, miugray2] (1.5,2) to (3.5,2);
 \draw[->, miugray2] (1.5,2) to (1.5,0.5);
-\node[scale=0.7] at(1.75,3) {flüssig};
-\node[scale=0.7] at(3,1) {gasförmig};
+\node[scale=0.7] at(1.75,3) {\Large \bfseries flüssig};
+\node[scale=0.7] at(3,1) {\Large \bfseries gasförmig};
 \end{tikzpicture}
 \caption{Dampfdruckkurve}
+\label{Dampfdruckkurve}
 \end{figure}
 
-\footnotesize
-\textit{Ein Phasendiagramm (auch Zustandsdiagramm, Zustandsschaubild oder Gleichgewichtsschaubild) ist eine Projektion von Phasengrenzlinien aus dem Zustandsraum eines thermodynamischen Systems in ein zweidimensionales kartesisches Koordinatensystem. Verschiedene Zustände lassen sich über die Clausius-Clapeyron-Gleichung berechnen.}
-\normalsize
+Ähnlich wie in Abbildung \ref{Dampfdruckkurve} können wir in Abbildung \ref{Saccharose} sehen, dass auch eine Sättigungslinie einer Saccharose-Lösung sich ähnlich wie eine Dampfdruckkurve verhält. Es wird ein Gleichgewichtszustand beschrieben der sich mathematisch in Abhängigkeit von Druck und Temperatur bestimmen lässt.
+%\footnotesize
+%\textit{Ein Phasendiagramm (auch Zustandsdiagramm, Zustandsschaubild oder Gleichgewichtsschaubild) ist eine Projektion von Phasengrenzlinien aus dem Zustandsraum eines thermodynamischen Systems in ein zweidimensionales kartesisches Koordinatensystem. Verschiedene Zustände lassen sich über die Clausius-Clapeyron-Gleichung berechnen.}
+%\normalsize
 
+\begin{marginfigure}[-8cm]
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[x=1.2cm, y=1.2cm, font=\sffamily]
 
+    % Define colors sampled from the uploaded image
+    \definecolor{colorLabil}{RGB}{90, 117, 147}
+    \definecolor{colorInter}{RGB}{149, 178, 206}
+    \definecolor{colorMeta}{RGB}{197, 215, 232}
+    \definecolor{colorUnsat}{RGB}{230, 238, 245}
+
+    \def\xmax{7}
+    \def\ymax{6}
+
+    % 1. Fill entire area with ungesättigter background
+    \fill[miugray2!7] (0,0) rectangle (\xmax,\ymax);
+
+    % 2. Fill metastabil area (and everything above it)
+    \fill[miugray2!20] (0,\ymax) -- (0,0.8) .. controls (4,1.2) and (5.5,3.0) .. (6.5,\ymax) -- cycle;
+
+    % 3. Fill intermediär area (and everything above it)
+    \fill[miugray2!30] (0,\ymax) -- (0,1.6) .. controls (3.5,2.0) and (4.8,3.5) .. (5.5,\ymax) -- cycle;
+
+    % 4. Fill labil area
+    \fill[miugray2!60] (0,\ymax) -- (0,2.5) .. controls (2.5,2.8) and (3.8,4.0) .. (4.5,\ymax) -- cycle;
+
+    % Draw the separation curves
+    \draw[thick] (0,0.8) .. controls (4,1.2) and (5.5,3.0) .. (6.5,\ymax);
+    \draw[thick] (0,1.6) .. controls (3.5,2.0) and (4.8,3.5) .. (5.5,\ymax);
+    \draw[thick] (0,2.5) .. controls (2.5,2.8) and (3.8,4.0) .. (4.5,\ymax);
+
+    % Draw the axes
+    \draw[->, very thick] (0,0) -- (\xmax+0.5,0) node[below left=2pt] {\Large Temperatur};
+    \draw[->, very thick] (0,0) -- (0,\ymax+0.5) node[above left=2pt, rotate=90] {\Large Anteil Zucker};
+
+    % Add region labels
+    \node[rotate=0] at (1.1, 4) {\Large \textbf{labil}};
+    \node[rotate=0] at (1.2, 2.4) {\textbf{intermediär}};
+    \node[rotate=0] at (1.2, 1.5) {\textbf{metastabil}};
+
+    \node[align=center] at (5.0, 1.2) {\Large \textbf{ungesättigter}\\[1ex] \Large \textbf{Bereich}};
+    
+    \draw[->, very thick,red] (4,0.2) -- (2,0.2) node[above] {Abkühlung};
+    \draw[->, very thick,red] (6.8,2.5) -- (6.8,5) node[left,rotate=90,yshift=3mm,xshift=-1mm] {Verdampfung};
+    \draw[->, very thick,red] (5,2.5) -- (2,5) node[midway, rotate=-40,yshift=4mm] {\large Flash Evaporation};
+
+\end{tikzpicture}
+}
+\caption{Schematische Darstellung des Zusammenhangs von Temperatur und Verdampfung auf die Kristallbildung in einer Saccharoselösung.}
+\label{Saccharose}
+\end{marginfigure}
 
 \subsection{Energie für Verdampfung berechnen}
 
