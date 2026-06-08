@@ -136,15 +136,16 @@ eine 0,1 molare wässrige Lösung aus Kochsalz? Die Dichte von Wasser soll als 1
 \begin{minipage}{.6\textwidth}
 \antwort{
 \footnotesize
-Formel zur Bearbeitung der Aufgabe:
-\begin{align*}
+\uncover<2->{
+Formel zur Bearbeitung der Aufgabe:}
+\uncover<3->{\begin{align*}
 \Delta T \approx \frac{R \cdot T_L^2}{\rho_L \cdot \Delta h_v} \cdot c_i
-\end{align*}
-Werte einsetzen:
-\begin{align*}
+\end{align*}}
+\uncover<4->{Werte einsetzen:}
+\uncover<5->{\begin{align*}
 \Delta T &\approx \frac{8,314 ~\text{J/K mol} \cdot (373,15 ~\text{K})^2}{1.000 ~\text{kg/m$^3$} \cdot 2,26 \cdot 10^6 ~\text{J/kg}} \cdot 0,2 \cdot 10^{3}~\text{mol/m}^3 \\
 &\approx 0,1 ~\text{K}
-\end{align*}
+\end{align*}}
 }
 \end{minipage}%
 
@@ -173,15 +174,15 @@ von Wasser 18 g/mol. Als Umgebungsdruck sollen 100 kPa angenommen werden.
 \begin{minipage}{.62\textwidth}
 \antwort{
 \footnotesize
-Formel zur Bearbeitung der Aufgabe:
-\begin{align*}
+\uncover<2->{Formel zur Bearbeitung der Aufgabe:}
+\uncover<3->{\begin{align*}
 \Delta T = \frac{\rho_{lg} \cdot g \cdot h \cdot R \cdot T_L^2}{\Delta h_{v} \cdot M_L \cdot p}
-\end{align*}
-Werte einsetzen:
-\begin{align*}
+\end{align*}}
+\uncover<4->{Werte einsetzen:}
+\uncover<5->{\begin{align*}
 \Delta T &= \frac{960 ~\text{kg/m}^3 \cdot 9,81 ~\text{m/s}^2 \cdot 1,6 ~\text{m} \cdot 8,314 ~\text{J/mol K} \cdot (373,15 ~\text{K})^2}{2,26 \cdot 10^6 ~\text{J/kg} \cdot 0,018 ~\text{kg/mol} \cdot 100.000 ~\text{Pa}} \\
 &= 4,29 ~\text{K} 
-\end{align*}
+\end{align*}}
 }
 \end{minipage}%
 
@@ -216,24 +217,26 @@ Ein Lösungsmittel hat einen Dampfdruck von 0,126 bar bei 25 °C und einen Dampf
 \begin{minipage}{.7\textwidth}
 \antwort{
 \footnotesize
+\uncover<2->{
 Wir wissen, dass
 \begin{align*}
 \ln(\frac{p_2}{p_1}) = \ln(\frac{p_3}{p_1})
-\end{align*}
-Clausius-Clapeyron:
+\end{align*}}
+\uncover<3->{Clausius-Clapeyron:
 \begin{align*}
 \ln(\frac{p_2}{p_1}) = \frac{\Delta h_{vM}}{R} \cdot \left( \frac{1}{T_1} - \frac{1}{T_2} \right)
-\end{align*}
-Umformen:
+\end{align*}}
+\uncover<4->{Umformen:}
+\uncover<5->{
 \begin{align*}
 \Delta h_{vM} = \frac{R \cdot T_1 \cdot T_2 \cdot \ln(\frac{p_2}{p_1})}{T_2 - T_1}
-\end{align*}
-Werte einsetzen:
-
+\end{align*}}
+\uncover<6->{Werte einsetzen:}
+\uncover<7->{
 \begin{align*}
 \Delta h_{vM} &= \frac{8,314 ~\text{J/(mol K)} \cdot 298,15 ~\text{K} \cdot 350,15 ~\text{K} \cdot \ln(\frac{1,013 \cdot 10^5 ~\text{Pa}}{0,126 \cdot 10^5 ~\text{Pa}})}{350,15 ~\text{K} - 298,15 ~\text{K}} \\
  &= 34.791,6 ~\text{J/mol}
-\end{align*}
+\end{align*}}
 
 }
 \end{minipage}%
@@ -255,15 +258,15 @@ Ein Lösungsmittel hat einen Dampfdruck von 0,126 bar bei 25 °C und einen Dampf
 \begin{minipage}{.7\textwidth}
 \antwort{
 \footnotesize
-
+\uncover<2->{
 Clausius-Clapeyron nach $p_3$ umstellen:
-
+}
 \begin{align*}
-\ln(p_3) &= \frac{\Delta h_{vM}}{R} \cdot \left( \frac{1}{T_1} - \frac{1}{T_3} \right) + \ln(p_1) \\
-\ln(p_3) &= \frac{34.791,6 ~\text{J/mol}}{8,314 ~\text{J/(mol K)}} \cdot \left( \frac{1}{298,15 ~\text{K}} - \frac{1}{324,15 ~\text{K}} \right) + \ln(0,126 \cdot 10^5 ~\text{Pa}) \\
-&= 10,57 ~\text{Pa}\qquad \qquad| e^x \\ \\
-p_3 &= 38.948,67 ~\text{Pa} \\
-&= 0,389 ~\text{bar}
+\uncover<3->{\ln(p_3) &= \frac{\Delta h_{vM}}{R} \cdot \left( \frac{1}{T_1} - \frac{1}{T_3} \right) + \ln(p_1) \\}
+\uncover<4->{\ln(p_3) &= \frac{34.791,6 ~\text{J/mol}}{8,314 ~\text{J/(mol K)}} \cdot \left( \frac{1}{298,15 ~\text{K}} - \frac{1}{324,15 ~\text{K}} \right) + \ln(0,126 \cdot 10^5 ~\text{Pa}) \\}
+\uncover<5->{&= 10,57 ~\text{Pa}\qquad \qquad| e^x \\ \\}
+\uncover<6->{p_3 &= 38.948,67 ~\text{Pa} \\
+&= 0,389 ~\text{bar}}
 \end{align*}
 
 }
@@ -311,10 +314,10 @@ Verdampfungsenthalpie der Flüssigkeit beträgt 40,657 kJ/mol am Siedepunkt.
 \antwort{
 \footnotesize
 \begin{align*}
-\ln(p_3) &= \frac{40.657 ~\text{J/mol}}{8,314 ~\text{J / (mol K)}} \cdot \left( \frac{1}{298,15~\text{K}} - \frac{1}{378,15~\text{K}} \right) + \ln(101,325 \cdot 10^3 ~\text{Pa}) \\
-&= 14,99~\text{Pa} \qquad \qquad| e^x \\ \\
-p_3 &= 3.255.914,7 ~\text{Pa} \\
-&= 32,5 ~\text{bar}
+\uncover<2->{\ln(p_3) &= \frac{40.657 ~\text{J/mol}}{8,314 ~\text{J / (mol K)}} \cdot \left( \frac{1}{298,15~\text{K}} - \frac{1}{378,15~\text{K}} \right) + \ln(101,325 \cdot 10^3 ~\text{Pa}) \\}
+\uncover<3->{&= 14,99~\text{Pa}}\uncover<4->{ \qquad \qquad| e^x \\ \\}
+\uncover<5->{p_3 &= 3.255.914,7 ~\text{Pa} \\}
+\uncover<6->{&= 32,5 ~\text{bar}}
 \end{align*}
 
 }
@@ -357,10 +360,10 @@ Verdampfungsenthalpie beträgt 2260 kJ/kg, das Molgewicht 18 g/mol.
 \antwort{
 \footnotesize
 \begin{align*}
-\ln(\frac{p_2}{p_1}) \cdot \frac{R}{\Delta h_{vM}}+\frac{1}{T_2}&=\frac{1}{T_1} \\
-\ln(\frac{101.325~\text{Pa}}{200.000~\text{Pa}}) \cdot \frac{8,314 ~\text{J/(mol K)}}{2,26 \cdot 10^6 ~\text{J/kg} \cdot 0,018 ~\text{kg/mol}}+\frac{1}{373,15 ~\text{K}}&=
-\frac{2,541 \cdot 10^{-3}}{\text{K}} \\
-&=393,55 ~\text{K}
+\uncover<2->{\ln(\frac{p_2}{p_1}) \cdot \frac{R}{\Delta h_{vM}}+\frac{1}{T_2}&=\frac{1}{T_1} \\}
+\uncover<3->{\ln(\frac{101.325~\text{Pa}}{200.000~\text{Pa}}) \cdot \frac{8,314 ~\text{J/(mol K)}}{2,26 \cdot 10^6 ~\text{J/kg} \cdot 0,018 ~\text{kg/mol}}+\frac{1}{373,15 ~\text{K}}&=
+\frac{2,541 \cdot 10^{-3}}{\text{K}} \\}
+\uncover<4->{&=393,55 ~\text{K}}
 \end{align*} 
 
 }
@@ -405,9 +408,9 @@ Verdampfungsenthalpie beträgt 2.260 kJ/kg, das Molgewicht 18 g/mol.
 \antwort{
 \footnotesize
 \begin{align*}
-\ln(\frac{p_2}{p_1})\cdot \frac{R}{\Delta h_{vM}}+\frac{1}{T_2}&=\frac{1}{T_1} \\
-\ln(\frac{101.325~\text{Pa}}{32.500~\text{Pa}}) \cdot \frac{8,314 ~\text{J/(mol K)}}{2,26 \cdot 10^6 ~\text{J/kg} \cdot 0,018 ~\text{kg/mol}}+\frac{1}{373,15~\text{K}}&=\frac{2,915 \cdot 10^{-3}}{\text{K}}\\ 
-&=343 ~\text{K}
+\uncover<2->{\ln(\frac{p_2}{p_1})\cdot \frac{R}{\Delta h_{vM}}+\frac{1}{T_2}&=\frac{1}{T_1} \\}
+\uncover<3->{\ln(\frac{101.325~\text{Pa}}{32.500~\text{Pa}}) \cdot \frac{8,314 ~\text{J/(mol K)}}{2,26 \cdot 10^6 ~\text{J/kg} \cdot 0,018 ~\text{kg/mol}}+\frac{1}{373,15~\text{K}}&=\frac{2,915 \cdot 10^{-3}}{\text{K}}\\ }
+\uncover<4->{&=343 ~\text{K}}
 \end{align*} 
 }
 
@@ -434,9 +437,9 @@ das Ziel des Erhitzungsprozesses auch bei der reduzierten Temperatur erreicht wi
 
 \footnotesize
 \begin{align*}
-F_1 &= F_2 \cdot 10^{\frac{T_2-T_1}{z}} \\
-F_1 &= 8~\text{min} \cdot 10^{\frac{373,15 ~\text{K}-343 ~\text{K}}{20 ~\text{K}}} \\
- &= 257,38 ~\text{min}
+\uncover<2->{F_1 &= F_2 \cdot 10^{\frac{T_2-T_1}{z}} \\}
+\uncover<3->{F_1 &= 8~\text{min} \cdot 10^{\frac{373,15 ~\text{K}-343 ~\text{K}}{20 ~\text{K}}} \\}
+\uncover<4->{ &= 257,38 ~\text{min}}
 \end{align*}
 
 }
