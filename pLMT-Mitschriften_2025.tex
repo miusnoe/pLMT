@@ -1666,14 +1666,15 @@ Um Wasser aus der flüssigen Phase in die gasförmige Phase zu überführen, kö
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[scale=0.8]
-\draw[->] (0,0) to (4,0) node[right] {T};
-\draw[->] (0,0) to (0,4) node[right] {P};
+\draw[->] (0,0) to (4,0) node[right] {$T$};
+\draw[->] (0,0) to (0,4) node[right] {$p$};
 \draw[-, rounded corners=5pt] (0.5,0.5) to (1,1) to (1,3);
 \draw[-, petunitext] (1,1) to [bend right=35](3,3);
-\draw[->, miugray2] (1.5,2) to (3.5,2);
-\draw[->, miugray2] (1.5,2) to (1.5,0.5);
-\node[scale=0.7] at(1.75,3) {\Large \bfseries flüssig};
-\node[scale=0.7] at(3,1) {\Large \bfseries gasförmig};
+%\draw[<->, miugray2!60,dashed] (0.5,2) to (3.5,2);
+%\draw[<->, miugray2!60,dashed] (1.5,2.5) to (1.5,0.5);
+\node[scale=0.7] at(1.75,2.5) {\large \bfseries flüssig};
+\node[scale=0.7] at(3,1) {\large \bfseries gasförmig};
+\node[scale=0.7,rotate=90] at(0.5,2) {\large \bfseries fest};
 \end{tikzpicture}
 \caption{Dampfdruckkurve}
 \label{Dampfdruckkurve}
@@ -1831,8 +1832,8 @@ $z$ = Anzahl Ionen pro Formeleinheit des Salzes \pp
 Formel zur Berechnung der Temperaturdifferenz des Siedepunkts bei Zugabe eines Lösungsmittels:
 
 \begin{align*}
-\Delta T &= \frac{R \cdot T^2}{\Delta h_{vM]}} \cdot \frac{\Delta p}{p_0} \\
-\Delta T &= \frac{R \cdot T^2}{\Delta h_{vM]}} \cdot x_i \\
+\Delta T &= \frac{R \cdot T^2}{\Delta h_{vM}} \cdot \frac{\Delta p}{p_0} \\
+\Delta T &= \frac{R \cdot T^2}{\Delta h_{vM}} \cdot x_i \\
 &\approx \frac{R \cdot T^2}{\delta_L \cdot \Delta h_v} \cdot c_i
 \end{align*}
 \antwort{
