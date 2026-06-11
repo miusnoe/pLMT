@@ -217,22 +217,17 @@ Ein Lösungsmittel hat einen Dampfdruck von 0,126 bar bei 25 °C und einen Dampf
 \begin{minipage}{.7\textwidth}
 \antwort{
 \footnotesize
-\uncover<2->{
-Wir wissen, dass
-\begin{align*}
-\ln(\frac{p_2}{p_1}) = \ln(\frac{p_3}{p_1})
-\end{align*}}
-\uncover<3->{Clausius-Clapeyron:
+\uncover<2->{Clausius-Clapeyron:
 \begin{align*}
 \ln(\frac{p_2}{p_1}) = \frac{\Delta h_{vM}}{R} \cdot \left( \frac{1}{T_1} - \frac{1}{T_2} \right)
 \end{align*}}
-\uncover<4->{Umformen:}
-\uncover<5->{
+\uncover<3->{Umformen:}
+\uncover<4->{
 \begin{align*}
 \Delta h_{vM} = \frac{R \cdot T_1 \cdot T_2 \cdot \ln(\frac{p_2}{p_1})}{T_2 - T_1}
 \end{align*}}
-\uncover<6->{Werte einsetzen:}
-\uncover<7->{
+\uncover<5->{Werte einsetzen:}
+\uncover<6->{
 \begin{align*}
 \Delta h_{vM} &= \frac{8,314 ~\text{J/(mol K)} \cdot 298,15 ~\text{K} \cdot 350,15 ~\text{K} \cdot \ln(\frac{1,013 \cdot 10^5 ~\text{Pa}}{0,126 \cdot 10^5 ~\text{Pa}})}{350,15 ~\text{K} - 298,15 ~\text{K}} \\
  &= 34.791,6 ~\text{J/mol}
@@ -243,6 +238,33 @@ Wir wissen, dass
 
 
 \end{frame}
+
+
+
+
+\begin{frame}
+\begin{align*}
+\ln(\frac{p_2}{p_1}) &= \frac{\Delta h_{vM}}{R} \cdot \left( \frac{1}{T_1} - \frac{1}{T_2} \right) \\ 
+\Delta h_{vM} &= \frac{\ln(\frac{p_2}{p_1}) \cdot R}{\left( \frac{1}{T_1} - \frac{1}{T_2} \right)} \\ 
+\Delta h_{vM} &= \frac{\ln(\frac{p_2}{p_1}) \cdot R \cdot {\color{red}T_1 \cdot T_2}}{\left( \frac{1}{T_1} - \frac{1}{T_2} \right)\cdot {\color{red}T_1 \cdot T_2}} \\ 
+\Delta h_{vM} &= \frac{\ln(\frac{p_2}{p_1}) \cdot R \cdot {\color{red}T_1 \cdot T_2}}{\left( \frac{{\color{red}T_1 \cdot T_2}}{T_1} - \frac{{\color{red}T_1 \cdot T_2}}{T_2} \right)}\\ 
+\Delta h_{vM} &= \frac{\ln(\frac{p_2}{p_1}) \cdot R \cdot T_1 \cdot T_2}{T_2 - T_1} \\ 
+\end{align*}
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{frame}
 \begin{minipage}{.3\textwidth}
 
