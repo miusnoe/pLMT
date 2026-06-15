@@ -1,0 +1,249 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{F://LaTex-Files/shiet/basic.tex}
+\input{F://LaTeX-Files/shiet/colors.tex}
+\input{F://LaTeX-Files/shiet/SI.tex}
+\input{F://LaTeX-Files/shiet/plmtuebungpreamble.tex}
+
+
+
+
+\newif\ifshowme
+%\showmetrue
+
+
+
+
+\begin{document}
+\ifshowme
+\newgeometry{top=1.8cm,bottom=3cm,left=2cm,right=4cm}
+\else
+\newgeometry{top=1.8cm,bottom=4cm,left=1.5cm,right=7.5cm,marginparsep=-2.00cm,marginparwidth=4.75cm}
+\fi
+
+\bckgrnd
+
+
+\begin{center}
+\LARGE
+\color{white}
+\textbf{Übung 09} \par \vspace*{2mm}
+\large \color{miugray} \textbf{Prozessbezogene Lebensmitteltechnologie}
+\end{center}
+\par 
+\vspace*{6mm}
+
+
+\color{miudiutex}
+\section*{Säuren \& Verteilungskoeffizient}
+
+
+\subsection*{Aufgabe 1}
+Der pKS-Wert von Buttersäure beträgt 4,82. Berechnen Sie den Anteil an undissoziierter Säure
+bei den pH-Werten 1, 2, 3, 4, 5 und 6 und 7.
+
+
+\ifshowme
+\antwort{
+\footnotesize
+\begin{align*}
+K_S &= \frac{[H_3O^+] \cdot [A^-]}{[HA]}  \\
+pK_S &= -\log K_S \\
+pH &= -\log [H_3O^+]
+\end{align*}
+\pp 
+Henderson-Hasselbalch:
+\begin{align*}
+pK_S &= pH -\log(\frac{[A^-]}{HA}) \\
+ &= -\log [H_3O^+] -\log(\frac{[A^-]}{HA})
+\end{align*}
+\pp
+Umstellen:
+\begin{align*}
+pH - pK_S &= \log(\frac{[A^-]}{HA}) \\
+10^{pH - pK_S} &= \frac{[A^-]}{HA} \\
+	&~\hat{=}~ \frac{1 - [HA]}{HA} \\
+	&~\hat{=}~ \frac{1}{HA} - \frac{[HA]}{HA} \\
+	&~\hat{=}~ \frac{1}{HA} - 1 \\
+\\
+10^{pH - pK_S}	&~\hat{=}~ \frac{1}{HA} - 1 \\
+10^{pH - pK_S} +1 &= \frac{1}{HA} \\ \\
+HA &= \frac{1}{10^{pH - pK_S} + 1 }
+\end{align*}
+Nachdem Einsetzen von pK$_S$ und pH-Wert erhält man folgende Ergebnisse: \pp
+pH 1 \RA 99,985\% \par pH 2 \RA 99,85\% \par pH 3 \RA 98,5\% \par pH 4 \RA 86,9\% \par pH 5 \RA 39,8\% \par pH 6 \RA 6,2\% \par pH 7 \RA 0,656\%
+}
+\else
+\fi
+
+
+\subsection*{Aufgabe 2}
+Bei der Entwicklung einer Light Mayonnaise mit einem Fettgehalt von 35\% steht die Frage im
+Raum, ob Sorbinsäure oder Benzoesäure zugesetzt werden soll. Der pH-Wert der Mayonnaise
+liegt bei pH 4,4.
+\begin{enumerate}[label=\alph*)]
+\item Berechnen Sie, wie hoch jeweils der Anteil an dissoziierter Säure wäre. Der pKS-Wert
+von Benzoesäure liegt bei 4,18 und der pK$_S$-Wert von Sorbinsäure bei 4,76.
+
+\ifshowme
+\antwort{
+
+Säurekonstante nach Dissoziationsgrad $\alpha$ umstellen:
+\begin{align*}
+K &= \frac{[H^+] \cdot [A]}{[HA]} \\
+K &= \frac{[H^+] \cdot \alpha}{1 - \alpha} \\
+K \cdot (1-\alpha) & = [H^+] \cdot \alpha \\
+K - \alpha \cdot K &= [H^+] \cdot \alpha \\
+K &= [H^+] \cdot \alpha + \alpha \cdot K \\
+K &= \alpha \cdot ([H^+] + K) \\
+\alpha &= \frac{K}{[H^+] + K}
+\end{align*}
+Nun können wir einfach einsetzen mit $K= 10^{-pK_S}$ und $[H^+] = 10^{-pH}$ \pp
+
+\textbf{Benzoesäure:}
+\begin{align*}
+\alpha &= \frac{10^{-4,18}}{10^{-4,4} + 10^{-4,18}} \\
+&= 0,624
+\end{align*}
+Daher liegt der Anteil an undissoziierter Säure bei 1-0,624 = 0,3759 \RA 37,6 \%
+\pp 
+\textbf{Sorbinsäure:}
+\begin{align*}
+\alpha &= \frac{10^{-4,76}}{10^{-4,4} + 10^{-4,76}} \\
+&= 0,303
+\end{align*}
+Daher liegt der Anteil an undissoziierter Säure bei 1-0,303 = 0,697 \RA 69,7 \%
+}
+\else
+\fi
+
+\item Welche Relevanz hat das Ergebnis für die Auswahl des Konservierungsstoffs? Welche
+weiteren Aspekte sind bei der Auswahl von Konservierungsstoffen zu beachten?
+\ifshowme
+\antwort{
+\begin{itemize}
+\item Für konservierende Wirkung ist der Anteil an undissozierter Säure ausschlaggebend.
+Für den vorliegenden pH-Wert wäre also die Sorbinsäure stärker konservierend wirksam.
+\item Betrachtung der ADI-Werte/Höchstmengen
+\item Wirkungsspektrum und ''Ziel-MO'
+\item Möglichkeit des kombinierten Einsatzes
+\item Sensorische Eigenschaften des Produktes
+\item Verteilungskoeffizient Fett/Wasser
+\end{itemize}
+
+}
+\else
+\fi
+
+%\pagebreak
+\item Nehmen Sie an, dass 200 mg/kg der Säure undissoziiert in der Mayonnaise vorliegen.
+Wie hoch ist der Anteil in der wässrigen Phase? Verwenden Sie zur Abschätzung den
+Verteilungskoeffizient K$_{OW}$ der beiden Säuren. Für Benzoesäure beträgt er in der
+Mayonnaise 4,5, für Sorbinsäure beträgt er 8,7.
+
+\ifshowme
+\antwort{
+Gibt man einen Stoff in ein System zweier nicht mischbarer Phasen, so verteilt er sich durch Diffusion,
+bis sich ein Gleichgewicht eingestellt hat. Das Gleichgewicht wird durch den Nernst’schen
+Verteilungskoeffizienten beschrieben:
+\boxfr{
+\begin{align*}
+K_N = \frac{c_{p1}}{c_{p2}}
+\end{align*}
+}
+\pp
+\begin{align*}
+K= 4,5 &= \frac{\frac{200~\text{mg}-x}{350}}{\frac{x}{650~\text{g}}} \\
+4,5 &= \frac{200~\text{mg}-x}{350~\text{g}} \cdot \frac{650~\text{g}}{x}  \\
+4,5 &= \frac{650}{350} \cdot (\frac{200~\text{mg}}{x}-1) \\ 
+4,5 \cdot \frac{350}{650} &= \frac{200~\text{mg}}{x} -1 \\
+(4,5 \cdot \frac{350}{650}+1) &= \frac{200~\text{mg}}{x} \\
+\frac{1}{4,5 \cdot \frac{350}{650} + 1} \cdot 200 ~\text{mg} &= x  \\
+x &= 58,43  ~\text{mg}
+\end{align*}
+
+Bei gleicher Verfahrensweise erhält man für \textbf{Sorbinsäure} (Verteilungskoeffizient = 8,7) einen Anteil von 35 mg in der wässrigen Phase
+}
+\else
+\fi
+
+
+
+\end{enumerate}
+\subsection*{Aufgabe 3}
+Propansäure hat einen pK$_S$-Wert von 4,88. Berechnen Sie den pH-Wert einer 0,1 molaren
+Propansäurelösung.
+
+\ifshowme
+\antwort{
+Formel für schwache Säuren:
+\begin{align*}
+pH &= \frac{1}{2} \cdot (pK_S - \log(c)) \\
+pH &= \frac{1}{2} \cdot (4,88 - \log(0,1)) = 2,9
+\end{align*}
+
+
+}
+\else
+\pagebreak
+\fi
+
+
+\subsection*{Aufgabe 4}
+Sie extrahieren 300 mL Orangensaft mit 50 mL Lösungsmittel, um Carotinoide zu isolieren.
+Der Carotinoidgehalt des Orangensaftes liegt bei 2,5 g/100 mL. Nach der Extraktion
+verbleiben 0,5 g Carotinoide im Orangensaft.
+\begin{enumerate}[label=\alph*)]
+\item Berechnen Sie den Verteilungskoeffizienten.
+\ifshowme
+\antwort{
+\par 100 ml Orangensaft enthalten nach dem extrahieren 0,16 g Carotinoide. Das Lösungsmittel folglich (3*2,5 g - 0,5 g)/50 ml
+\begin{align*}
+\frac{14~\text{g / 100 ml}}{0,1\overline{6}~\text{g / 100 ml}} = 84
+\end{align*}
+
+\begin{align*}
+K &= \frac{(x - y) / 50ml}{y / 300ml}  \\
+K &= \frac{7/50}{0,5/300} \\
+ &= 84
+\end{align*}
+}
+\else
+\fi
+
+\item Berechnen Sie die extrahierte Menge, wenn Sie anstatt einmal mit 50 mL zweimal mit 25
+mL Lösungsmittel extrahieren.
+
+\ifshowme
+\antwort{
+
+\textbf{Erste Extraktion:}
+\begin{align*}
+84 &= \frac{(x-y)/25}{y/300ml} \\
+&= \frac{(7,5-y)/25}{y/300ml} \\
+&= \frac{7,5/25 - y/25}{y/300ml} \\
+84 \cdot \frac{y}{300ml} &= \frac{7,5}{25} - \frac{y}{25} \\
+\frac{84 \cdot y \cdot 25}{300ml} &= 7,5 - y \\
+\frac{2100y}{300ml} &= 7,5 - y \\
+2100y &= 2250 - 300y \\
+2400y &= 2250 \\
+y &= 0,9375 ~\text{g}
+\end{align*}
+
+\textbf{Zweite Extraktion:}
+\begin{align*}
+&... \\
+\frac{2100y}{300ml} &= 0,9375 - y \\
+2100y &= 281,25 - 300y \\
+2400y &= 281,25\\
+y &= 0,117 ~\text{g}
+\end{align*}
+
+}
+\else
+\fi
+
+\end{enumerate}
+
+
+\end{document}

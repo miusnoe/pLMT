@@ -306,7 +306,10 @@ Berechnung hydrostatischer Druck:
 F_{p_1} &= p \cdot A \\
 &= p \cdot \pi \cdot r^2 \\
 F_{p_2} &= (p + dp) \cdot A \\ 
-&= (p + dp) \cdot \pi \cdot r^2 \\ \\
+&= (p + dp) \cdot \pi \cdot r^2
+\end{align*}
+Effektiv wirkende Kraft:
+\begin{align*}
 F_p &= F_{p_1} - F_{p_2}\\
 \vdots & \qquad \qquad \vdots \\
 F_p &= -\pi \cdot r^2 \cdot dp
@@ -321,9 +324,9 @@ F_R &= \tau \cdot A_M  \\
 \end{align*} 
 
 \end{multicols}
+\pp
 
-
-Wir wissen, dass der Reibungswiderstand $F_R$ gleich des hydrostatischen Drucks $F_P$ ist:
+Gleichsetzen:
 \marginnote[kürzen und umformen]{}[2cm]
 \marginnote[$C = \frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot R^2$]{}[5cm]
 \begin{align*}
@@ -335,8 +338,8 @@ v_{(r)} &= \int_{}{} - \frac{1}{2\eta} \cdot \frac{dp}{dx} \cdot r \cdot dr_R \\
 v_{(r)} &= -\frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot r^2  +C \\
 v_{(r)} &= -\frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot r^2  +\frac{1}{4 \eta} \cdot \frac{dp}{dx} \cdot R^2 
 \end{align*}
-\marginnote[{\color{petunitext}Finale Schritte Herleitung \RA}]{}[0.6cm]
-\marginnote[$l$ = Länge des Rohres \pp $v = 0$ wenn innerer Radius $r$ gleich Mantelradius $R$\pp $v(r=R)=0$]{}[1.5cm]
+\marginnote[{\color{petunitext}Finale Schritte Herleitung \RA}]{}[1cm]
+\marginnote[$l$ = Länge des Rohres \pp $v = 0$ wenn innerer Radius $r$ gleich Mantelradius $R$\pp $v(r=R)=0$]{}[1.9cm]
 \antwort{
 {\bfseries \sffamily Gesetz von Stokes:}
 \begin{align*}
@@ -347,7 +350,7 @@ v		 &= \frac{\Delta p}{4 \cdot l \cdot \eta} \cdot (R^2 - r^2) \\
 }
 
 \reversemarginpar
-\marginnote[$v_{max}$ ist am größten, wenn $r = 0$]{}[-3cm]
+\marginnote[$v_{max}$ ist am größten, wenn $r = 0$]{}[1cm]
 \pp
 Herleitung Hagen-Poiseuille:
 \begin{align*}
@@ -365,10 +368,101 @@ Somit $v_{max} = 2 \cdot \overline{v}$ \par wobei $\overline{v}$ = mittlere Str�
 %%%\sidebar
 %\miushead{Vorlesung 03 - PLMT}{Vorlesung 03}
 
-\section{Vorlesung 03 - Keine Tafelanschrift}
-KEINE TAFELANSCHRIFT
+\section{Vorlesung 03 - Laminare Strömung}
 
 
+\subsection{Volumenstrom}
+Volumenstrom wurde genause erklärt wie auf \href{https://www.tec-science.com/de/mechanik/gase-und-fluessigkeiten/hagen-poiseuille-gesetz-fur-rohrstromungen-mit-reibung}{tec-science.com}
+
+
+\begin{figure}[h]
+\centering
+\resizebox{.8\textwidth}{!}{
+\begin{tikzpicture}[font=\sffamily]
+
+    % Überschrift und Text
+%    \node[anchor=west] at (-4, 4.5) {\Large \underline{Laminare Rohrströmung mit Reibung (für lange Rohre)}};
+%    \node[anchor=west] at (-3, 3.5) {Annahme: inkompressibles, newtonsches Fluid};
+
+    % Linke Textspalte
+%    \node[anchor=west, text width=5cm] at (-5, 1.5) {
+%        $\bullet$ Antrieb für eine\\ 
+%        \hspace*{0.4cm} Rohrströmung: $\dfrac{dp}{dx}$\\[2mm]
+%        \hspace*{0.4cm} Druckgradient\\[5mm]
+%        $\bullet$ Reibungswiderstand\\
+%        \hspace*{0.4cm} kommt durch Viskosität\\
+%        \hspace*{0.4cm} des Fluids zustande
+%    };
+
+    % Das Rohr
+    \draw[thick] (0, 1.5) -- (10, 1.5);
+    \draw[thick] (0, -1.5) -- (10, -1.5);
+    
+    % Linker Rohrquerschnitt (Ellipse)
+    \draw[thick] (0,0) circle [x radius=0.6, y radius=1.5];
+    \draw[dotted, thick] (0,0) -- (0, 1.5) node[midway, left,yshift=3mm,xshift=0mm] {$R$};
+
+    \draw[thick] (0,0) circle [x radius=0.2, y radius=0.8];
+    \draw[dashed,red] (0.2,0) -- (0.6, -0.3) node[midway, right,xshift=2mm] {$dA$};
+
+    % Zylindrisches Fluidelement
+    \begin{scope}[shift={(4,0)}]
+        \draw[thick] (0,0) circle [x radius=0.3, y radius=0.75];
+        \draw (0,0) -- (0.2, 0.7) node[midway, left, scale=0.8] {$r$};
+        \node at (0,-0.3) {$A$};
+        \draw[thick] (0, 0.75) -- (2, 0.75);
+        \draw[thick] (0, -0.75) -- (2, -0.75);
+        \draw[thick, dashed] (2,0) circle [x radius=0.3, y radius=0.75];
+        
+        % Kräfte am Element
+        \draw[->, thick, >=Stealth] (-1, 0) -- (-0.1, 0) node[pos=0, above] {$F_{p_1}$};
+        \draw[<-, thick, >=Stealth] (2.1, 0) -- (3, 0) node[pos=1, above] {$F_{p_2}$};
+        
+        % Längenmaß dx
+        \draw[|<->|] (0, -1) -- (2, -1) node[midway, below] {$dx$};
+    \end{scope}
+
+    % Geschwindigkeitsprofil (Parabel)
+    \begin{scope}[shift={(8,0)}]
+        \draw[dashed] (0, -1.5) -- (0, 1.5);
+        \draw[domain=-1.5:1.5, smooth, variable=\y, thick, uniblau] plot ({1.5*(1-(\y/1.5)^2)}, \y);
+        
+        \foreach \y in {-1.2,-0.9,-0.6,-0.3,0,0.3,0.6,0.9,1.2}
+            \draw[->, >=Stealth, uniblau!50!miugray] (0,\y) -- ({1.5*(1-(\y/1.5)^2)}, \y);
+            
+        \node[anchor=south west] at (0, 1.5) {$v(r)$};
+        \node[anchor=west, scale=0.8] at (1.5, 0) {$v_{max}$};
+    \end{scope}
+
+    % Legende unten
+    \node[anchor=west] at (3.5, -2.5) {$r$: Radius des zylindrischen Fluidelements};
+    \node[anchor=west] at (3.5, -3.1) {$A$: Stirnfläche \hspace{3.8cm} $(A = \pi r^2)$};
+
+\end{tikzpicture}
+}
+\caption{Schematische Darstellung; Annahme: inkompressibles, newtonsches Fluid}
+\end{figure}
+
+
+\pp
+Fläche des Ringelements
+\begin{align*}
+dA &= 2 \pi r \cdot dr \\ 
+dV &= dA \cdot dx = 2 \pi r \cdot dr \cdot v(r) \cdot dt \\
+dV &= -2\pi r \cdot \frac{R^2}{4\eta} \frac{dp}{dx} \cdot \left[ 1 - \left( \frac{r}{R} \right)^2 \right] \cdot dr \cdot dt \\[1ex]
+d\dot{V} &= \frac{dV}{dt} = - \frac{2\pi R^2}{4\eta} \frac{dp}{dx} \cdot \left[ r - \frac{r^3}{R^2} \right] \cdot dr
+\end{align*}
+Nach Integrieren und auflösen erhält man:
+\begin{align*}
+\dot{V} &= \int\limits_{(A)} d\dot{V} = \int\limits_{0}^{R} -\frac{2\pi R^2}{4\eta} \frac{dp}{dx} \cdot \left[ r - \frac{r^3}{R^2} \right] \cdot dr \\[1ex]
+\dot{V} &= -\frac{2\pi R^2}{4\eta} \frac{dp}{dx} \cdot \left| \frac{r^2}{2} - \frac{r^4}{4R^2} \right|_{0}^{R} \\[1ex]
+\dot{V} &= -\frac{2\pi R^2}{4\eta} \frac{dp}{dx} \cdot \left( \frac{R^2}{2} - \frac{R^4}{4R^2} \right) = -\frac{2\pi R^2}{4\eta} \frac{dp}{dx} \cdot \frac{R^2}{4} \\ 
+\dot{V} &= -\frac{\pi R^4}{8 \eta} \frac{dp}{dx}
+\end{align*}
+
+
+
+\pagebreak
 % ==========================================
 % VORLESUNG 05
 % ==========================================
