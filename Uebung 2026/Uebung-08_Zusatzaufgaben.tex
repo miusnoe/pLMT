@@ -1,0 +1,124 @@
+\documentclass[a4paper,10pt]{article}
+\input{../misc/basic.tex}
+\input{../misc/colors.tex}
+\input{../misc/SI.tex}
+\input{../misc/plmtuebungpreamble.tex}
+\usepackage{float}
+\usepackage[table]{xcolor}
+\usepackage{pgfplots}
+    \pgfplotsset{
+        every axis post/.style={
+	yticklabel=\empty,
+	xticklabel=\empty,
+	y label style={at={(axis description cs:-0.2,1.1)}},
+	x label style={at={(axis description cs:1.05,0.2)}},
+	ticks=none,
+	width=6cm,
+	axis lines=middle,
+%	xlabel near ticks,
+        },
+    }
+\usetikzlibrary{positioning, arrows.meta, calc}
+
+\usepackage{relsize}
+\usepackage{cancel}
+
+\newif\ifshowme
+\showmetrue
+
+\setlength{\columnsep}{8mm}
+
+\begin{document}
+
+%\newgeometry{top=3cm,bottom=3cm,left=4.5cm,right=4.5cm}
+\newgeometry{top=2cm,bottom=2cm,left=2cm,right=2cm}
+
+
+\begin{center}
+\LARGE
+\color{uniblau}
+\textbf{Übung 07} \par \vspace*{2mm}
+\large \color{miugray!50!black} \textbf{Prozessbezogene Lebensmitteltechnologie}\par 
+\normalsize Zusatzaufgaben
+\end{center}
+\par 
+%\vspace*{6mm}
+
+
+\color{miudiutex}
+
+\begin{multicols}{2}
+\subsection*{Aufgabe 1}
+Was besagt die RGT-Regel?
+\ifshowme
+\antwort{Die RGT-Regel (Reaktionsgeschwindigkeit-Temperatur-Regel) ist eine Faustregel der chemischen Kinetik und erlaubt die Abschätzung vieler Phänomene der Chemie, Biochemie und Ökologie. Sie besagt, dass chemische Reaktionen bei einer um 10 K erhöhten Temperatur ungefähr doppelt bis viermal so schnell ablaufen.}
+\else
+\fi
+
+
+
+
+\subsection*{Aufgabe 2}
+
+Wie hoch ist der Q$_{10}$-Wert bei einem z-Wert von 5 K ?
+\ifshowme
+\antwort{
+\begin{align*}
+Q_{10} = \frac{k_{T+10}}{k_T} = 100
+\end{align*}
+}
+\else
+\fi
+
+
+\subsection*{Aufgabe 3}
+Wie lautet die Arrhenius-Gleichung und wofür stehen die einzelnen Faktoren?
+\ifshowme
+\antwort{
+\begin{align*}
+k = A \cdot 10^{- \frac{E_A}{R \cdot T}}
+\end{align*}
+}
+\else
+\fi
+
+\subsection*{Aufgabe 4}
+Was ist der D-Wert, F-Wert und z-Wert?
+
+
+\subsection*{Aufgabe 5}
+Durch Lagerungsexperimente haben Sie für die Haltbarkeit eines Lebensmittels einen Zeitraum von einem Tag bei einer Lagerung bei 33°C bestimmt. Die haltbarkeitsbestimmende Reaktion ist die Bildung eines unerwünschten Off-Flavors. Für die Bildung des Off-Flavors ist bekannt, dass der Q10-Wert 2 beträgt und der z-Wert 33 °C beträgt. Wie lange ist das Lebensmittel bei folgenden Temperaturen haltbar?
+\begin{itemize}
+\item 23 °C
+\item 13 °C
+\item 3 °C
+\item 0 °C
+\end{itemize}
+\ifshowme
+\antwort{
+\begin{align*}
+2, 4, 8, 10
+\end{align*}
+}
+\else
+\fi
+
+\subsection*{Aufgabe 6}
+Wasser siedet unter 1 atm (101,325 kPa) Druck bei 100 °C. Bei welcher Temperatur siedet
+Wasser in einem Dampfkochtopf, welcher 4,3 bar Druck hat? Die spezifische
+Verdampfungsenthalpie beträgt 2260 kJ/kg, das Molgewicht 18 g/mol.
+\ifshowme
+\antwort{
+\footnotesize
+\begin{align*}
+\ln(\frac{p_2}{p_1}) \cdot \frac{R}{\Delta h_{vM}}+\frac{1}{T_2}&=\frac{1}{T_1} \\
+\ln(\frac{10,1325}{43}) \cdot \frac{8,314 ~\text{J/(mol K)}}{2,26 \cdot 10^6 \cdot 0,018}+\frac{1}{373,15}&=2,3845 \cdot 10^{-3} \\ 
+&=419,38 ~\text{K}\\
+&=146,23 ~\text{°C}
+\end{align*} 
+
+}
+\else
+\fi
+\end{multicols}
+\end{document}
