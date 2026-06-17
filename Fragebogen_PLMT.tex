@@ -1,9 +1,9 @@
 \documentclass[a4paper,11pt,twoside]{article}
 %\documentclass{book}
 
-\input{F://LaTeX-Files/shiet/kemie2.tex}
-\input{F://LaTeX-Files/shiet/macros.tex}
-\input{F://LaTeX-Files/shiet/vl.tex}
+\input{misc/kemie2.tex}
+\input{misc/macros.tex}
+\input{misc/vlplmtalt.tex}
 %\usepackage[fleqn]{amsmath}
 
 
@@ -26,8 +26,7 @@
 
 
 
-
-
+\raggedbottom
 
 
 
@@ -48,6 +47,7 @@
 
 
 \begin{document}
+
 
 
 \AddToHookNext{shipout/background}{
@@ -141,7 +141,7 @@ v = \sqrt{2gh}
 \antwort{Die Gleichung von Toricelli gilt nur für bestimmte Bedingungen. So gilt wieder, dass die Strömung \textbf{verlustfrei} sein muss und das Fluid \textbf{inkompressibel}. Desweiteren werden eckige oder besonders große Ausflussöffnungen nicht berücksichtigt.}
 
 
-%\pagebreak
+\pagebreak
 \item Was versteht man unter der dynamischen und kinematischen Viskosität einer Flüssigkeit?
 \antwort{
 Die Unterschiede lassen sich am ehesten mit denen dazugehörigen Formeln beschreiben:\par 
@@ -159,9 +159,10 @@ Für die kinematische Viskosität $\nu$ [$\frac{m}{s^2}$] gilt:
 Die \textbf{Schubspannung} bezeichnet die Kraft, die auf eine Fläche $A$ wirkt, wenn eine andere Kraft parallel zur Scherbewegung in die entgegengesetzte Richtung wirkt (Welche Kraft aufgewendet wird, damit das Fluid fließt). \pp
 Die \textbf{Schergeschwindigkeit} beschreibt die Veränderung der Flussgeschwindigkeit eines Fluides aufgrund einer Scherung dieses Fluids (Wie schnell das Fluid fließt). \par 
 }
-\pagebreak
+%\pagebreak
 \item Was versteht man unter einer Newton’schen Flüssigkeit?
 \antwort{Bei einem Newtonschen Fluid verhält sich die Schergeschwindigkeit proportional zur Scherspannung}
+\columnbreak
 \item Was versteht man unter einer laminaren und turbulenten Strömung? Worin unterscheiden sich
 laminare und turbulente Rohrströmungen und was sind die Konsequenzen in der Praxis?
 \antwort{
@@ -188,9 +189,11 @@ Anlaufströmung ausgebildet?
 
 %\pagebreak
 \item Wofür verwendet man das Moody-Diagramm und wie sieht es aus?
-\antwort{ Das Moody-Diagramm zeigt im logarithmischen Maßstab den Zusammenhang zwischen Reibungskoeffizient, Reynoldszahl und Relativer Rauheit. \par
+\antwort{ Das Moody-Diagramm zeigt im logarithmischen Maßstab den Zusammenhang zwischen Reibungskoeffizient, Reynoldszahl und Relativer Rauheit.
+% \par
 %So können etwaige Ergebnisse direkt abgelesen werden ohne sie berechnen zu müssen.
 }
+\pagebreak
 \item Was versteht man unter den Begriffen Rohrleitungskennlinie und Pumpenkennlinie?
 \antwort{
 \textbf{Rohrleitungskennlinie} (auch Anlagenkennlinie): \par 
@@ -218,6 +221,7 @@ Wir unterscheiden vorallem zwischen: \par
 \end{itemize}
 }
 
+\columnbreak
 \item Was versteht man unter Kavitation? Ist Kavitation erwünscht oder unerwünscht?
 \antwort{
 \textbf{Kavitation} kann als Folge von Druckschwankungen, welche durch unterschiedliche
@@ -228,7 +232,7 @@ Strömungsgeschwindigkeiten entstehen, auftreten. \pp
 
 
 
-\pagebreak
+%\pagebreak
 \item Welche Anforderungen gelten für den Transport von Lebensmitteln? Welche apparative Ausstattung wird für Transportvorgänge verwendet?
 \antwort{
 \begin{itemize}
@@ -238,6 +242,7 @@ Strömungsgeschwindigkeiten entstehen, auftreten. \pp
 \item Gleichmäßiger, pulsationsfreier \textbf{Transport}
 \end{itemize}
 }
+\pagebreak
 \item Mit welchen Messgeräten kann man das rheologische Verhalten von Lebensmitteln bestimmen?
 \antwort{
 \textbf{Rheometer:}
@@ -248,7 +253,7 @@ Strömungsgeschwindigkeiten entstehen, auftreten. \pp
 \item Kapillar-Viskosimeter
 \item Rotations-Viskosimeter
 \end{itemize}
-\includegraphics[width=\columnwidth]{F://LaTeX-Files/pngs/rheo}
+\includegraphics[width=\columnwidth]{misc/rheo}
 \pp
 \textbf{Rotationsviskosimeter} werden üblicherweise \textbf{bevorzugt}, da in ihnen eine exakt
 definierte Strömung vorliegt und die Resultate besser interpretiert werden können.
@@ -260,7 +265,7 @@ Viskositätsabnahme eines Fluids über die Zeit einer konstanten Scherbeanspruch
 }
 
 
-\columnbreak
+%\columnbreak
 
 \item Was versteht man unter pseudoplastischem und dilatantem rheologischen Verhalten und was sind
 mögliche Gründe für ein solches Verhalten?
@@ -274,6 +279,8 @@ So nimmt bei \textbf{scherverdickenden Flüssigkeiten} die Viskosität bei Scher
 Bei \textbf{scherverdünnenden Flüssigkeiten} nimmt die Viskosität bei Scherbelastung ab (Proteine die vorher vernetzt waren, richten sich nun in Scherrichtung aus und führen zur Viskositätsabnahme).
 }
 \item Welche Auswirkungen hat viskoelastisches Verhalten bei lebensmitteltechnologischen Prozessen? 
+
+
 \antwort{
 \textbf{Pumpen} \par
 Viskoelastische Flüssigkeiten können nicht-newtonsches Verhalten zeigen, was die Fließgeschwindigkeit und den Druckverlust in Rohrleitungen und Pumpen beeinflusst.
@@ -284,12 +291,10 @@ Scherbeanspruchung gestreckt werden (Weissenberg-Effekt).
 \pp
 \textbf{Extrusion} \par 
 bei Extrusion durch eine Düse weitet sich der Strang auf, d.h. er wird im Durchmesser deutlich größer als die Düsenöffnung (z.B. bei Polymerlösungen und –schmelzen).
-In der Düse werden die Polymerketten gestreckt, nach der Düse kehren sie in geknäuelte
-ungeordnete Form zurück.
-
+In der Düse werden die Polymerketten gestreckt, nach der Düse kehren sie in geknäuelte ungeordnete Form zurück.
 }
 \end{enumerate}
-
+\vfill 
 %\begin{align*}
 %\dot{Q} = \frac{d Q}{d t}
 %\end{align*}
@@ -1466,7 +1471,7 @@ a_w = \frac{p}{p_0}
 \end{itemize}
 \textbf{Zusammenhang a$_w$-Wert und Temperatur:}
 Der Wachstumsprozess von Mikroorganismen ist abhängig von a$_W$-Wert und Temperatur und zeigt dabei keinen linearen Verlauf
-\includegraphics[width=\columnwidth]{F://LaTeX-Files/pngs/awtemp}
+\includegraphics[width=\columnwidth]{misc/awtemp}
 }
 \item Wie kann die Sicherheit von Lebensmitteln gefährdet werden? Nennen Sie Beispiele. Wie kann die
 Sicherheit von Lebensmitteln gewährleistet werden? Wie kann das Wachstum von Mikroorganismen
@@ -1509,8 +1514,8 @@ Konsequenzen hat dies für den Einsatz als Lebensmittelverpackung?
 
 \end{multicols}
 
-\pagebreak
-\newgeometry{top=2cm,bottom=2cm,left=2cm,right=2cm}
-\section{Formelsammlung}
-\input{F://LaTeX-Files/SoSe2025/PLMT/formelinput.tex}
+%\pagebreak
+%\newgeometry{top=2cm,bottom=2cm,left=2cm,right=2cm}
+%\section{Formelsammlung}
+%\input{formelinput.tex}
 \end{document}

@@ -1,0 +1,148 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{../misc/basic.tex}
+\input{../misc/colors.tex}
+\input{../misc/SI.tex}
+\input{../misc/plmtuebungpreamble.tex}
+
+\usetikzlibrary{arrows.meta, decorations.pathmorphing}
+
+
+\newif\ifshowme
+\showmetrue
+
+
+
+
+\begin{document}
+\ifshowme
+\newgeometry{top=1.8cm,bottom=3cm,left=2cm,right=4cm}
+\else
+\newgeometry{top=1.8cm,bottom=4cm,left=1.5cm,right=7.5cm,marginparsep=-2.00cm,marginparwidth=4.75cm}
+\fi
+
+\bckgrnd
+
+
+\begin{center}
+\LARGE
+\color{white}
+\textbf{Tafelanschrift} \par \vspace*{2mm}
+\large \color{miugray} \textbf{Prozessbezogene Lebensmitteltechnologie}
+\end{center}
+\par 
+\vspace*{6mm}
+
+
+\color{miudiutex}
+\section*{Trocknung}
+Gegenstromprinzip bei hygroskopischen Gütern oder temperaturunempfindlichen Gütern, die eine schnelle Trocknung erfordern.
+\pp
+Agglomerate sind besser löslich in Heißgetränken oder ähnlichem 
+\subsection*{Gefriertrockner}
+Sublimatiton 1kg Wasser entspricht 98.000 m$^3$ Dampf
+
+\subsection*{Dipolrotation}
+
+
+\subsection*{Konventionelle Erhitzung}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    >=stealth,
+    very thick,
+    color=blue!40!black, % Angelehnt an die dunkelblaue Tinte
+    font=\sffamily\Large
+]
+
+% ==============================
+% 1. Ofen
+% ==============================
+\node at (1.65, 3.5) [anchor=south west, inner sep=0] {Ofen};
+\draw (0,0) rectangle (4.5, 3);
+
+% Das Erhitzungsgut (Oval)
+\draw (2.2, 1.5) ellipse (0.8cm and 0.6cm);
+
+% Wärmestrahlung von links (geschwungene Pfeile)
+\draw[->, decorate, decoration={snake, amplitude=1.5mm, segment length=5mm, post length=2mm}] (0.2, 1.2) -- (1.3, 1.2);
+\draw[->, decorate, decoration={snake, amplitude=1.5mm, segment length=5mm, post length=2mm}] (0.2, 0.5) -- (1.5, 0.8);
+
+\draw[->, decorate, decoration={snake, amplitude=1.5mm, segment length=5mm, post length=2mm}] (4.3, 2) -- (3.1, 1.7);
+\draw[->, decorate, decoration={snake, amplitude=1.5mm, segment length=5mm, post length=2mm}] (4.3, 1.3) -- (3.1, 1);
+%
+%% Luftströmung/Strahlung von rechts (gebogene Pfeile)
+%\draw[->] (4.3, 1.3) to[out=180,in=270] (3.5, 1.5);
+%\draw[->] (4.3, 2.0) to[out=180,in=90] (3.5, 1.8);
+
+% Pfeile von oben und unten
+\draw[->] (1.8, 3.0) -- (1.8, 2.2);
+\draw[->] (2.2, 3.0) -- (2.2, 2.2);
+\draw[->] (2.6, 3.0) -- (2.6, 2.2);
+
+\draw[->] (1.8, 0.0) -- (1.8, 0.8);
+\draw[->] (2.2, 0.0) -- (2.2, 0.8);
+\draw[->] (2.6, 0.0) -- (2.6, 0.8);
+
+% Kurze Pfeile, die in das Innere des Ovals zeigen
+\foreach \angle in {0, 45, 90, 135, 180, 225, 270, 315} {
+    \draw[->, shorten >=1mm] (\angle:0.8cm and 0.6cm) ++(2.2,1.5) -- ++(\angle+180:0.3cm);
+}
+
+% ==============================
+% 2. Kochtopf
+% ==============================
+\begin{scope}[xshift=6.5cm]
+    \node at (-0.6, 3.425) [anchor=south west, inner sep=0] {Kochtopf};
+    
+    % Topfumriss
+    \draw (-0.5, 3) -- (-0.5, 0.2) -- (1.2, 0.2) -- (1.2, 3);
+    
+    % Topfboden
+    \draw (-0.7, 0) -- (1.4, 0);
+    \draw (-0.6, 0) -- (-0.5, 0.2);
+    \draw (1.3, 0) -- (1.2, 0.2);
+    
+    % Wasseroberfläche (wellige Linie)
+    \draw[decorate, decoration={snake, amplitude=0.8mm, segment length=3mm}] (-0.5, 1.8) -- (1.2, 1.8);
+
+    % Konvektionsströme (Zirkulationspfeile) im Wasser
+    \draw[->] (-0.3, 0.5) to[out=0, in=180] (0.4, 0.8);  % unten links
+    \draw[->] (0.9, 0.6) to[out=120, in=70] (0.5, 0.4); % unten rechts
+    \draw[->] (-0.2, 1.3) to[out=90, in=120] (0.45, 1);  % oben links
+    \draw[->] (0.9, 1.5) to[out=180, in=0] (0.4, 1.4);    % oben rechts
+\end{scope}
+
+% ==============================
+% 3. Mikrowelle
+% ==============================
+\begin{scope}[xshift=9.25cm]
+    \node at (1.15, 3.5) [anchor=south west, inner sep=0] {Mikrowelle};
+    \draw (0,0) rectangle (4.5, 3);
+    
+    % Das Erhitzungsgut (Oval)
+    \draw (2.25, 1.5) ellipse (1.2cm and 0.6cm);
+
+    % Gekreuzte Pfeile (Dipolschwingungen) im Inneren
+    \begin{scope}[shift={(1.5, 1.5)}]
+        \draw[<->] (-0.3, 0) -- (0.3, 0);
+        \draw[<->] (0, -0.3) -- (0, 0.3);
+            \end{scope}
+    \begin{scope}[shift={(3, 1.5)}]
+        \draw[<->] (-0.3, 0) -- (0.3, 0);
+        \draw[<->] (0, -0.3) -- (0, 0.3);
+            \end{scope}
+    \begin{scope}[shift={(2.25, 1.5)}]
+        \draw[<->] (-0.3, 0) -- (0.3, 0);
+        \draw[<->] (0, -0.3) -- (0, 0.3);
+    \end{scope}
+\end{scope}
+
+\end{tikzpicture}
+\caption{Ofen: Strahlung, Konvektion, Leitung ; Kochtopf: Konvektion, Leitung ; Mikrowelle: Erhitzung des Gutes von innen heraus}
+\end{figure}
+
+
+
+
+\end{document}

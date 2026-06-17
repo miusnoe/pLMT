@@ -1,9 +1,9 @@
 \documentclass[a4paper,11pt]{article}
 
-\input{F://LaTex-Files/shiet/basic.tex}
-\input{F://LaTeX-Files/shiet/colors.tex}
-\input{F://LaTeX-Files/shiet/SI.tex}
-\input{F://LaTeX-Files/shiet/plmtuebungpreamble.tex}
+\input{../misc/basic.tex}
+\input{../misc/colors.tex}
+\input{../misc/SI.tex}
+\input{../misc/plmtuebungpreamble.tex}
 
 
 
@@ -35,159 +35,276 @@
 
 
 \color{miudiutex}
-\section*{Säuren \& Verteilungskoeffizient}
+\section*{Aufgaben zur Wiederholung}
 
-
-\subsection*{Aufgabe 1}
-Der pKS-Wert von Buttersäure beträgt 4,82. Berechnen Sie den Anteil an undissoziierter Säure
-bei den pH-Werten 1, 2, 3, 4, 5 und 6 und 7.
-
-
-\ifshowme
-\antwort{
-\footnotesize
-\begin{align*}
-K_S &= \frac{[H_3O^+] \cdot [A^-]}{[HA]}  \\
-pK_S &= -\log K_S \\
-pH &= -\log [H_3O^+]
-\end{align*}
-\pp 
-Henderson-Hasselbalch:
-\begin{align*}
-pK_S &= pH -\log(\frac{[A^-]}{HA}) \\
- &= -\log [H_3O^+] -\log(\frac{[A^-]}{HA})
-\end{align*}
-\pp
-Umstellen:
-\begin{align*}
-pH - pK_S &= \log(\frac{[A^-]}{HA}) \\
-10^{pH - pK_S} &= \frac{[A^-]}{HA} \\
-	&~\hat{=}~ \frac{1 - [HA]}{HA} \\
-	&~\hat{=}~ \frac{1}{HA} - \frac{[HA]}{HA} \\
-	&~\hat{=}~ \frac{1}{HA} - 1 \\
-\\
-10^{pH - pK_S}	&~\hat{=}~ \frac{1}{HA} - 1 \\
-10^{pH - pK_S} +1 &= \frac{1}{HA} \\ \\
-HA &= \frac{1}{10^{pH - pK_S} + 1 }
-\end{align*}
-Nachdem Einsetzen von pK$_S$ und pH-Wert erhält man folgende Ergebnisse: \pp
-pH 1 \RA 99,985\% \par pH 2 \RA 99,85\% \par pH 3 \RA 98,5\% \par pH 4 \RA 86,9\% \par pH 5 \RA 39,8\% \par pH 6 \RA 6,2\% \par pH 7 \RA 0,656\%
-}
-\else
-\fi
-
-
-\subsection*{Aufgabe 2}
-Bei der Entwicklung einer Light Mayonnaise mit einem Fettgehalt von 35\% steht die Frage im
-Raum, ob Sorbinsäure oder Benzoesäure zugesetzt werden soll. Der pH-Wert der Mayonnaise
-liegt bei pH 4,4.
-\begin{enumerate}[label=\alph*)]
-\item Berechnen Sie, wie hoch jeweils der Anteil an dissoziierter Säure wäre. Der pKS-Wert
-von Benzoesäure liegt bei 4,18 und der pK$_S$-Wert von Sorbinsäure bei 4,76.
-
-\ifshowme
-\antwort{
-
-Säurekonstante nach Dissoziationsgrad $\alpha$ umstellen:
-\begin{align*}
-K &= \frac{[H^+] \cdot [A^-]}{[HA]} \\
-K &= \frac{[H^+] \cdot \alpha}{1 - \alpha} \\
-K \cdot (1-\alpha) & = [H^+] \cdot \alpha \\
-K - \alpha \cdot K &= [H^+] \cdot \alpha \\
-K &= [H^+] \cdot \alpha + \alpha \cdot K \\
-K &= \alpha \cdot ([H^+] + K) \\
-\alpha &= \frac{K}{[H^+] + K}
-\end{align*}
-Nun können wir einfach einsetzen mit $K= 10^{-pK_S}$ und $[H^+] = 10^{-pH}$ \pp
-
-\textbf{Benzoesäure:}
-\begin{align*}
-\alpha &= \frac{10^{-4,18}}{10^{-4,4} + 10^{-4,18}} \\
-&= 0,624
-\end{align*}
-Daher liegt der Anteil an undissoziierter Säure bei 1-0,624 = 0,3759 \RA 37,6 \%
-\pp 
-\textbf{Sorbinsäure:}
-\begin{align*}
-\alpha &= \frac{10^{-4,76}}{10^{-4,4} + 10^{-4,76}} \\
-&= 0,303
-\end{align*}
-Daher liegt der Anteil an undissoziierter Säure bei 1-0,303 = 0,697 \RA 69,7 \%
-}
-\pagebreak
-\else
-\fi
-
-
-\item Welche Relevanz hat das Ergebnis für die Auswahl des Konservierungsstoffs? Welche
-weiteren Aspekte sind bei der Auswahl von Konservierungsstoffen zu beachten?
-\ifshowme
-\antwort{
-\begin{itemize}
-\item Für konservierende Wirkung ist der Anteil an undissozierter Säure ausschlaggebend.
-Für den vorliegenden pH-Wert wäre also die Sorbinsäure stärker konservierend wirksam.
-\item Betrachtung der ADI-Werte/Höchstmengen
-\item Wirkungsspektrum und ''Ziel-MO'
-\item Möglichkeit des kombinierten Einsatzes
-\item Sensorische Eigenschaften des Produktes
-\item Verteilungskoeffizient Fett/Wasser
-\end{itemize}
-
-}
-\else
-\fi
-
+%
+%\subsection*{Aufgabe 1}
+%Der pKS-Wert von Buttersäure beträgt 4,82. Berechnen Sie den Anteil an undissoziierter Säure
+%bei den pH-Werten 1, 2, 3, 4, 5 und 6 und 7.
+%
+%
+%\ifshowme
+%\antwort{
+%\footnotesize
+%\begin{align*}
+%K_S &= \frac{[H_3O^+] \cdot [A^-]}{[HA]}  \\
+%pK_S &= -\log K_S \\
+%pH &= -\log [H_3O^+]
+%\end{align*}
+%\pp 
+%Henderson-Hasselbalch:
+%\begin{align*}
+%pK_S &= pH -\log(\frac{[A^-]}{HA}) \\
+% &= -\log [H_3O^+] -\log(\frac{[A^-]}{HA})
+%\end{align*}
+%\pp
+%Umstellen:
+%\begin{align*}
+%pH - pK_S &= \log(\frac{[A^-]}{HA}) \\
+%10^{pH - pK_S} &= \frac{[A^-]}{HA} \\
+%	&~\hat{=}~ \frac{1 - [HA]}{HA} \\
+%	&~\hat{=}~ \frac{1}{HA} - \frac{[HA]}{HA} \\
+%	&~\hat{=}~ \frac{1}{HA} - 1 \\
+%\\
+%10^{pH - pK_S}	&~\hat{=}~ \frac{1}{HA} - 1 \\
+%10^{pH - pK_S} +1 &= \frac{1}{HA} \\ \\
+%HA &= \frac{1}{10^{pH - pK_S} + 1 }
+%\end{align*}
+%Nachdem Einsetzen von pK$_S$ und pH-Wert erhält man folgende Ergebnisse: \pp
+%pH 1 \RA 99,985\% \par pH 2 \RA 99,85\% \par pH 3 \RA 98,5\% \par pH 4 \RA 86,9\% \par pH 5 \RA 39,8\% \par pH 6 \RA 6,2\% \par pH 7 \RA 0,656\%
+%}
+%\else
+%\fi
+%
+%
+%\subsection*{Aufgabe 2}
+%Bei der Entwicklung einer Light Mayonnaise mit einem Fettgehalt von 35\% steht die Frage im
+%Raum, ob Sorbinsäure oder Benzoesäure zugesetzt werden soll. Der pH-Wert der Mayonnaise
+%liegt bei pH 4,4.
+%\begin{enumerate}[label=\alph*)]
+%\item Berechnen Sie, wie hoch jeweils der Anteil an dissoziierter Säure wäre. Der pKS-Wert
+%von Benzoesäure liegt bei 4,18 und der pK$_S$-Wert von Sorbinsäure bei 4,76.
+%
+%\ifshowme
+%\antwort{
+%
+%Säurekonstante nach Dissoziationsgrad $\alpha$ umstellen:
+%\begin{align*}
+%K &= \frac{[H^+] \cdot [A^-]}{[HA]} \\
+%K &= \frac{[H^+] \cdot \alpha}{1 - \alpha} \\
+%K \cdot (1-\alpha) & = [H^+] \cdot \alpha \\
+%K - \alpha \cdot K &= [H^+] \cdot \alpha \\
+%K &= [H^+] \cdot \alpha + \alpha \cdot K \\
+%K &= \alpha \cdot ([H^+] + K) \\
+%\alpha &= \frac{K}{[H^+] + K}
+%\end{align*}
+%Nun können wir einfach einsetzen mit $K= 10^{-pK_S}$ und $[H^+] = 10^{-pH}$ \pp
+%
+%\textbf{Benzoesäure:}
+%\begin{align*}
+%\alpha &= \frac{10^{-4,18}}{10^{-4,4} + 10^{-4,18}} \\
+%&= 0,624
+%\end{align*}
+%Daher liegt der Anteil an undissoziierter Säure bei 1-0,624 = 0,3759 \RA 37,6 \%
+%\pp 
+%\textbf{Sorbinsäure:}
+%\begin{align*}
+%\alpha &= \frac{10^{-4,76}}{10^{-4,4} + 10^{-4,76}} \\
+%&= 0,303
+%\end{align*}
+%Daher liegt der Anteil an undissoziierter Säure bei 1-0,303 = 0,697 \RA 69,7 \%
+%}
 %\pagebreak
-\item Nehmen Sie an, dass 200 mg/kg der Säure undissoziiert in der Mayonnaise vorliegen.
-Wie hoch ist der Anteil in der wässrigen Phase? Verwenden Sie zur Abschätzung den
-Verteilungskoeffizient K$_{OW}$ der beiden Säuren. Für Benzoesäure beträgt er in der
-Mayonnaise 4,5, für Sorbinsäure beträgt er 8,7.
+%\else
+%\fi
+%
+%
+%\item Welche Relevanz hat das Ergebnis für die Auswahl des Konservierungsstoffs? Welche
+%weiteren Aspekte sind bei der Auswahl von Konservierungsstoffen zu beachten?
+%\ifshowme
+%\antwort{
+%\begin{itemize}
+%\item Für konservierende Wirkung ist der Anteil an undissozierter Säure ausschlaggebend.
+%Für den vorliegenden pH-Wert wäre also die Sorbinsäure stärker konservierend wirksam.
+%\item Betrachtung der ADI-Werte/Höchstmengen
+%\item Wirkungsspektrum und ''Ziel-MO'
+%\item Möglichkeit des kombinierten Einsatzes
+%\item Sensorische Eigenschaften des Produktes
+%\item Verteilungskoeffizient Fett/Wasser
+%\end{itemize}
+%
+%}
+%\else
+%\fi
+%
+%%\pagebreak
+%\item Nehmen Sie an, dass 200 mg/kg der Säure undissoziiert in der Mayonnaise vorliegen.
+%Wie hoch ist der Anteil in der wässrigen Phase? Verwenden Sie zur Abschätzung den
+%Verteilungskoeffizient K$_{OW}$ der beiden Säuren. Für Benzoesäure beträgt er in der
+%Mayonnaise 4,5, für Sorbinsäure beträgt er 8,7.
+%
+%\ifshowme
+%\antwort{
+%Gibt man einen Stoff in ein System zweier nicht mischbarer Phasen, so verteilt er sich durch Diffusion,
+%bis sich ein Gleichgewicht eingestellt hat. Das Gleichgewicht wird durch den Nernst’schen
+%Verteilungskoeffizienten beschrieben:
+%
+%\begin{align}
+%K_N = \frac{c_{p1}}{c_{p2}}
+%\end{align}
+%
+%\pp
+%\begin{align*}
+%K= 4,5 &= \frac{\frac{200~\text{mg}-x}{350~\text{g}}}{\frac{x}{650~\text{g}}} \\
+%4,5 &= \frac{200~\text{mg}-x}{350~\text{g}} \cdot \frac{650~\text{g}}{x}  \\
+%4,5 &= \frac{650}{350} \cdot (\frac{200~\text{mg}}{x}-1) \\ 
+%4,5 \cdot \frac{350~\text{g}}{650~\text{g}} &= \frac{200~\text{mg}}{x} -1 \\
+%(4,5 \cdot \frac{350~\text{g}}{650~\text{g}}+1) &= \frac{200~\text{mg}}{x} \\
+%\frac{1}{4,5 \cdot \frac{350~\text{g}}{650~\text{g}} + 1} \cdot 200 ~\text{mg} &= x  \\
+%x &= 58,43  ~\text{mg}
+%\end{align*}
+%
+%Bei gleicher Verfahrensweise erhält man für \textbf{Sorbinsäure} (Verteilungskoeffizient = 8,7) einen Anteil von 35 mg in der wässrigen Phase
+%}
+%\else
+%\fi
+%
+%
+%
+%\end{enumerate}
+%\subsection*{Aufgabe 3}
+%Propansäure hat einen pK$_S$-Wert von 4,88. Berechnen Sie den pH-Wert einer 0,1 molaren
+%Propansäurelösung.
+%
+%\ifshowme
+%\antwort{
+%Formel für schwache Säuren:
+%\begin{align*}
+%pH &= \frac{1}{2} \cdot (pK_S - \log(c)) \\
+%pH &= \frac{1}{2} \cdot (4,88 - \log(0,1)) = 2,9
+%\end{align*}
+%
+%
+%}
+%\else
+%\pagebreak
+%\fi
+\subsection*{Aufgabe 1}
+Ein Erhitzungsprozess soll so durchgeführt werden, dass die Keimzahl um 99,9\%
+reduziert wird, für den Verderb wesentliche Enzyme inaktiviert werden, und kein
+Kochgeschmack auftritt. Aus Aufzeichnungen von Kollegen entnehmen Sie, dass die
+jeweiligen Prozesse bei folgenden Zeit-Temperatur-Kombinationen vollständig ablaufen:
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\rowcolor{miugray}
+Eigenschaft& Temperatur & Erhitzungszeit \\ \hline
+Reduktion der Keimzahl & 112°C & 5 min \\ \hline
+Enzyminaktivierung & 90°C & 15 min \\ \hline
+Kochgeschmack & 100°C & 20 min \\ 
+\end{tabular}
+
+\end{center}
+Um Temperaturänderungen Ihrer Erhitzungsanlage zu vermeiden, möchten Sie den
+Prozess bei 121°C durchführen. Kann der Erhitzungsprozess bei dieser Temperatur
+durchgeführt werden, ohne dass ein Kochgeschmack auftritt, wenn gewährleistet sein
+soll, dass die Enzyme inaktiviert sind und die Keimzahl um 99,9\% reduziert ist? 
+\par 
+Nehmen Sie dafür folgende z-Werte an: 10 °C (Mikroorganismen-Abtötung), 25°C
+(Enzyminaktivierung), \mbox{32 °C} (Kochgeschmack).
+
 
 \ifshowme
 \antwort{
-Gibt man einen Stoff in ein System zweier nicht mischbarer Phasen, so verteilt er sich durch Diffusion,
-bis sich ein Gleichgewicht eingestellt hat. Das Gleichgewicht wird durch den Nernst’schen
-Verteilungskoeffizienten beschrieben:
+
+Formel für die Aufgabe:
 
 \begin{align}
-K_N = \frac{c_{p1}}{c_{p2}}
+D_1 = D_2 \cdot 10^{\frac{T_2 - T_1}{z}}
 \end{align}
 
-\pp
+
+Reduktion der Keimzahl:
 \begin{align*}
-K= 4,5 &= \frac{\frac{200~\text{mg}-x}{350~\text{g}}}{\frac{x}{650~\text{g}}} \\
-4,5 &= \frac{200~\text{mg}-x}{350~\text{g}} \cdot \frac{650~\text{g}}{x}  \\
-4,5 &= \frac{650}{350} \cdot (\frac{200~\text{mg}}{x}-1) \\ 
-4,5 \cdot \frac{350~\text{g}}{650~\text{g}} &= \frac{200~\text{mg}}{x} -1 \\
-(4,5 \cdot \frac{350~\text{g}}{650~\text{g}}+1) &= \frac{200~\text{mg}}{x} \\
-\frac{1}{4,5 \cdot \frac{350~\text{g}}{650~\text{g}} + 1} \cdot 200 ~\text{mg} &= x  \\
-x &= 58,43  ~\text{mg}
+D_1 &= 5 ~\text{min} \cdot 10^{\frac{112 - 121}{10}} \\
+ &= 0,629 ~\text{min}
 \end{align*}
 
-Bei gleicher Verfahrensweise erhält man für \textbf{Sorbinsäure} (Verteilungskoeffizient = 8,7) einen Anteil von 35 mg in der wässrigen Phase
+Enzyminaktivierung:
+\begin{align*}
+D_1 &= 15 ~\text{min} \cdot 10^{\frac{90 - 121}{25}} \\
+ &= 0,86 ~\text{min}
+\end{align*}
+
+Kochgeschmack
+\begin{align*}
+D_1 &= 20 ~\text{min} \cdot 10^{\frac{100 - 121}{32}} \\
+ &= 4,413 ~\text{min}
+\end{align*}
+
+ Da 0,629 min + 0,012 min kürzer ist als 4,413 min, kann der Erhitzungsprozess bei dieser Temperatur
+durchgeführt werden, ohne dass ein Kochgeschmack auftritt.
 }
+\else
+\fi
+
+\subsection*{Aufgabe 2}
+In einem Lebensmittel kommen drei verschiedene Bakterienarten vor, die unerwünscht
+sind. Sie haben folgende Daten zur Hand:
+
+
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\rowcolor{miugray}
+ & D-Wert bei 100°C &z-Wert \\ \hline
+\textbf{ Keim A} &5 Minuten &10°C \\ \hline 
+\textbf{ Keim B} &10 Minuten &10°C \\ \hline 
+\textbf{ Keim C} &15 Minuten &5°C \\ \hline 
+\end{tabular}
+\end{center}
+
+Berechnen Sie, die D-Werte für eine Erhitzung bei a) 110°C, b) 120°C, c) 130°C.
+\pp
+Formel für die Aufgabe:
+\begin{align*}
+D_1 = D_2 \cdot 10^{\frac{T_2 - T_1}{z}}
+\end{align*}
+\pp
+
+
+\ifshowme
+\antwort{
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|r|r|r|}
+\rowcolor{miugray}
+ & D-Wert bei 110°C &D-Wert bei 120°C &D-Wert bei 130°C \\ \hline 
+ \textbf{Keim A} & 0,5 min & 0,05 min & 0,005 min \\ \hline
+ \textbf{Keim B} & 1 min & 0,1 min & 0,01 min \\ \hline
+ \textbf{Keim C} & 0,15 min & 0,0015 min & 0,000015 min \\ \hline
+
+\end{tabular}
+}
+}
+\pagebreak
 \else
 \fi
 
 
 
-\end{enumerate}
+
 \subsection*{Aufgabe 3}
-Propansäure hat einen pK$_S$-Wert von 4,88. Berechnen Sie den pH-Wert einer 0,1 molaren
-Propansäurelösung.
+Chloroform (CHCl$_3$) ist eine süßlich riechende, farblose Flüssigkeit, die Normalbedingungen bei 61 °C siedet. Für ihren Dampfdruck bei einer Temperatur von 20 °C wurde ein Wert von 209 hPa bestimmt. Berechnen Sie daraus die molare Verdampfungsenthalpie $\Delta_{vH}$
 
 \ifshowme
 \antwort{
-Formel für schwache Säuren:
 \begin{align*}
-pH &= \frac{1}{2} \cdot (pK_S - \log(c)) \\
-pH &= \frac{1}{2} \cdot (4,88 - \log(0,1)) = 2,9
+\ln \frac{p_2}{p_1} &= \frac{-\Delta_V H}{R} \cdot \left( \frac{1}{T_2} - \frac{1}{T_1} \right) \\[2ex]
+\Delta_V H &= -\frac{R \ln \frac{p_2}{p_1}}{\left( \frac{1}{T_2} - \frac{1}{T_1} \right)} = -\frac{8{,}314 \, \mathrm{J\,mol^{-1}\,K^{-1}} \cdot \ln \frac{101325 \, \mathrm{Pa}}{20900 \, \mathrm{Pa}}}{\left( \frac{1}{334{,}15 \, \mathrm{K}} - \frac{1}{293{,}15 \, \mathrm{K}} \right)} = \mathbf{31{,}355 \, \mathrm{kJ\,mol^{-1}}}
 \end{align*}
-
 
 }
 \else
-\pagebreak
 \fi
 
 
