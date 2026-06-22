@@ -7,19 +7,17 @@
 
 
 
-
 \newif\ifshowme
-%\showmetrue
-
+\showmetrue
 
 
 
 \begin{document}
-\ifshowme
-\newgeometry{top=1.8cm,bottom=3cm,left=2cm,right=4cm}
-\else
+%\ifshowme
+%\newgeometry{top=1.8cm,bottom=3cm,left=2cm,right=4cm}
+%\else
 \newgeometry{top=1.8cm,bottom=4cm,left=1.5cm,right=7.5cm,marginparsep=-2.00cm,marginparwidth=4.75cm}
-\fi
+%\fi
 
 \bckgrnd
 
@@ -35,7 +33,7 @@
 
 
 \color{miudiutex}
-\section*{Aufgaben zur Wiederholung}
+\section*{Aufgaben zur Vertiefung des Gelernten}
 
 %
 %\subsection*{Aufgabe 1}
@@ -196,22 +194,23 @@ Kochgeschmack auftritt. Aus Aufzeichnungen von Kollegen entnehmen Sie, dass die
 jeweiligen Prozesse bei folgenden Zeit-Temperatur-Kombinationen vollständig ablaufen:
 
 \begin{center}
-\begin{tabular}{|l|l|l|}
+\resizebox{1\textwidth}{!}{
+\begin{tabular}{|l|l|l|l|}
 \rowcolor{miugray}
-Eigenschaft& Temperatur & Erhitzungszeit \\ \hline
-Reduktion der Keimzahl & 112°C & 5 min \\ \hline
-Enzyminaktivierung & 90°C & 15 min \\ \hline
-Kochgeschmack & 100°C & 20 min \\ 
+\textbf{Eigenschaft}& \textbf{Temperatur} & \textbf{Erhitzungszeit} & \textbf{z-Wert}\\ \hline
+Reduktion der Keimzahl auf 99,9\% & 112°C & 5 min & 10 °C\\ \hline
+Enzyminaktivierung & 90°C & 15 min & 25 °C \\ \hline
+Kochgeschmack & 100°C & 20 min & 32 °C \\ 
 \end{tabular}
-
+}
 \end{center}
+
 Um Temperaturänderungen Ihrer Erhitzungsanlage zu vermeiden, möchten Sie den
-Prozess bei 121°C durchführen. Kann der Erhitzungsprozess bei dieser Temperatur
+Prozess bei 121 °C durchführen. \pp 
+Kann der Erhitzungsprozess bei dieser Temperatur
 durchgeführt werden, ohne dass ein Kochgeschmack auftritt, wenn gewährleistet sein
 soll, dass die Enzyme inaktiviert sind und die Keimzahl um 99,9\% reduziert ist? 
-\par 
-Nehmen Sie dafür folgende z-Werte an: 10 °C (Mikroorganismen-Abtötung), 25°C
-(Enzyminaktivierung), \mbox{32 °C} (Kochgeschmack).
+
 
 
 \ifshowme
@@ -257,14 +256,14 @@ sind. Sie haben folgende Daten zur Hand:
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \rowcolor{miugray}
- & D-Wert bei 100°C &z-Wert \\ \hline
-\textbf{ Keim A} &5 Minuten &10°C \\ \hline 
-\textbf{ Keim B} &10 Minuten &10°C \\ \hline 
-\textbf{ Keim C} &15 Minuten &5°C \\ \hline 
+ & \textbf{D-Wert bei 100 °C} &\textbf{z-Wert} \\ \hline
+Keim A &5 Minuten &10°C \\ \hline 
+Keim B &10 Minuten &10°C \\ \hline 
+Keim C &15 Minuten &5°C \\ \hline 
 \end{tabular}
 \end{center}
 
-Berechnen Sie, die D-Werte für eine Erhitzung bei a) 110°C, b) 120°C, c) 130°C.
+Berechnen Sie die D-Werte für eine Erhitzung bei a) 110°C, b) 120°C, c) 130°C.
 %\pp
 %Formel für die Aufgabe:
 %\begin{align*}
@@ -294,7 +293,7 @@ Berechnen Sie, die D-Werte für eine Erhitzung bei a) 110°C, b) 120°C, c) 130�
 
 
 \subsection*{Aufgabe 3}
-Chloroform (CHCl$_3$) ist eine süßlich riechende, farblose Flüssigkeit, die Normalbedingungen bei 61 °C siedet. Für ihren Dampfdruck bei einer Temperatur von 20 °C wurde ein Wert von 209 hPa bestimmt. Berechnen Sie daraus die molare Verdampfungsenthalpie $\Delta_{vH}$
+Chloroform (CHCl$_3$) ist eine süßlich riechende, farblose Flüssigkeit, die unter Normalbedingungen bei 61 °C siedet. Für ihren Dampfdruck bei einer Temperatur von 20 °C wurde ein Wert von 209 hPa bestimmt. Berechnen Sie daraus die molare Verdampfungsenthalpie $\Delta_{vH}$
 
 \ifshowme
 \antwort{
@@ -367,18 +366,59 @@ y &= 0,117 ~\text{g}
 \end{enumerate}
 
 \subsection*{Aufgabe 5}
-Vor Ihnen stehen Gefäße mit jeweils 1 L wässriger Flüssigkeit.
+\marginnote[]{\small \fplmt{Erläuterung zur Formel:}\par 
+$E_n$ ist die kryoskopische Konstante, die nur vom Lösungsmittel selbst abhängt (In dem Fall Wasser mit 1,86 K$\cdot$kg$\cdot$mol$^{-1}$). \pp $b$ ist die Molalität. \pp $i$ ist der Van 't Hoff-Faktor, der angibt in wie viele Teilchen der gelöste Stoff durchschnittlich dissoziiert.
+}
+Vor Ihnen stehen Gefäße mit jeweils 1 kg wässriger Flüssigkeit.
 \begin{itemize}
-\item In Gefäß A ist eine Stärkelösung suspendiert.
-\item In Gefäß B sind 13,125 g Kochsalz gelöst.
+\item In Gefäß A sind 13,125 g Kochsalz gelöst.
+\item In Gefäß B ist Maisstärke suspendiert.
 \item In Gefäß C sind die Zutaten eines Eiscreme-Mixes gelöst, der u.a. 34,2 g Rohrzucker, 37 g Erdnussöl und 60 g Erdbeermark (18 g Fructose) enthält.
 \end{itemize}
 
-Geben Sie an, um wieviel Grad Celsius die Gefrierpunkte der Flüssigkeiten jeweils abgesenkt werden. Nutzen Sie dafür folgende Formel 
+Geben Sie an, um wieviel Grad Celsius die Gefrierpunkte der Flüssigkeiten jeweils abgesenkt werden. Nutzen Sie dafür folgende Formel:
 \begin{align}
 \Delta T = E_n \cdot b \cdot i
 \end{align}
-\marginnote[]{\small \fplmt{Erläuterung zur Formel:}\par 
-$E_n$ ist die kryoskopische Konstante, die nur vom Lösungsmittel selbst abhängt (In dem Fall Wasser mit 1,86 K kg/mol). \pp $b$ ist die Molalität. \pp $i$ ist der Van 't Hoff-Faktor, der angibt in wie viele Teilchen der gelöste Stoff durchschnittlich dissoziiert.
-}[-5cm]
+\ifshowme
+\antwort{
+\textbf{Gefäß A:}
+\begin{align*}
+\Delta T &= E_n \cdot b \cdot i \\
+		&= 1,86 ~\text{K kg/mol}^{-1} \cdot \frac{\frac{13,125~\text{g}}{58 ~\text{g/mol}}}{~\text{kg}} \cdot 2 \\
+		&= 0,842 ~\text{K}
+\end{align*}
+\ppbig
+\textbf{Gefäß B:} \par 
+Da die Stärke nicht in Lösung geht sondern nur suspendiert ist, bleibt der Gefrierpunkt gleich.
+\ppbig
+\textbf{Gefäß C:} \par 
+Rohrzucker ist ein Synonym für Saccharose (Molgewicht: $\sim$342 g/mol). Das Erdnussöl löst sich nicht in Wasser und trägt demnach nicht zur Gefrierpunktsenkung bei. Das Erdbeermark wird ausschließlich als 18 g Fructose (Molgewicht: $\sim$180 g/mol) berechnet. Bestandteile wie Pektin (Teilweise $10^6$ g/mol !) tragen nicht wesentlich zur Gefrierpunktserniedrigung bei. Ebenso tragen Mikronährstoffe wie Vitamin C, Folat oder Kalium aufgrund ihrer niedrigen Mengen nicht wesentlich zur Gefrierpunktserniedrigung bei. \pp 
+Daraus ergibt sich folgende Gesamtrechnung:
+\begin{align*}
+\Delta T &= E_n \cdot b \cdot i \\
+		&= 1,86 ~\text{K kg/mol}^{-1} \cdot \left( \frac{34,2~\text{g}}{342~\text{g/mol}}   + \frac{18 ~\text{g}}{180 ~\text{g/mol}} \right) \cdot ~\text{kg}^{-1} \cdot 1 \\
+		&= 0,372 ~\text{K}
+\end{align*}
+}
+
+
+\else
+Sie sollten in der Lage sein, die Gefrierpunktsenkung für Gefäß A eigenständig zu errechnen. Für Gefäß B und C müssen Sie ein wenig knobeln. Versuchen Sie zunächst eigenständige Überlegungen zu entwickeln und nutzen Sie dann eventuell die Tipps auf der nächsten Seite
+
+
+\pagebreak
+
+
+
+\antwort{
+\fplmt{Tipps zu Gefäß B} \par 
+Wenn ein Stoff in einem Lösungsmittel suspendiert ist, trägt er dann zu einer Gefrierpunktsenkung bei?
+
+
+\ppbig
+\fplmt{Tipps zu Gefäß C} \par 
+\textit{Löst} sich Öl in Wasser? Warum spielen die restlichen Bestandteile des Erdbeermarks wie z.B. wasserlösliche Ballaststoffe keine große Rolle? 
+}
+\fi
 \end{document}

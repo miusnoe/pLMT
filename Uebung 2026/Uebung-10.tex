@@ -1,0 +1,243 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{F://LaTex-Files/shiet/basic.tex}
+\input{F://LaTeX-Files/shiet/colors.tex}
+\input{F://LaTeX-Files/shiet/SI.tex}
+\input{F://LaTeX-Files/shiet/plmtuebungpreamble.tex}
+\usepackage{relsize}
+\usetikzlibrary{patterns, arrows.meta, calc}
+
+
+
+\newif\ifshowme
+\showmetrue
+
+
+
+
+\begin{document}
+\newgeometry{top=1.8cm,bottom=4cm,left=1.5cm,right=7.5cm,marginparsep=-2.00cm,marginparwidth=4.75cm}
+
+
+\bckgrnd
+
+
+\begin{center}
+\LARGE
+\color{white}
+\textbf{Übung 10} \par \vspace*{2mm}
+\large \color{miugray} \textbf{Prozessbezogene Lebensmitteltechnologie}
+\end{center}
+\par 
+\vspace*{6mm}
+
+
+\color{miudiutex}
+\section*{Sinkgeschwindigkeit}
+
+\subsection*{Aufgabe 1}
+Zwischen dem Serum und den Fettkügelchen von Rohmilch besteht ein Dichteunterschied
+von \mbox{$\Delta \rho$ = 99,8 kg/m$^3$.} Die Viskosität der Milch beträgt $\eta$ = 1,79 $\cdot$ 10$^{-3}$ Pa $\cdot$ s. Die Dichte ist mit \mbox{$\rho$ = 1.028 kg/m$^3$} angegeben. 
+
+\begin{enumerate}[label=\alph*)]
+
+\item Berechnen Sie die Aufrahmgeschwindigkeit eines Fettkügelchens mit einem
+Durchmesser von \mbox{4 µm} unter der Annahme einer laminaren Strömung.
+
+\ifshowme
+\antwort{
+\begin{align*}
+v &= \frac{d^2 \cdot g \cdot (\rho_1 - \rho_2)}{18 \cdot \eta} \\
+v &= \frac{(4 \cdot 10^{-6} ~\text{m})^2 \cdot 9,81 ~\text{m/s}^2 \cdot 99,8 ~\text{kg/m}^3}{18 \cdot 1,79 \cdot 10^{-3} ~\text{Pa s}} \\
+v &= 4,86 \cdot 10^{-7} ~\text{m/s}
+\end{align*}
+}
+\else
+\fi
+
+
+
+
+\item Prüfen Sie mit Hilfe der Reynoldszahl, ob die Annahme einer laminaren Strömung
+korrekt war. Erinnerung: Eine laminare Strömung kann angenommen werden, wenn
+die Reynoldszahl $<$ 0,5 ist.
+\ifshowme
+\antwort{
+\begin{align*}
+Re &= \frac{\rho \cdot d \cdot v}{\eta} \\
+Re &= \frac{1028 ~\text{kg/m}^3 \cdot 4 \cdot 10^{-6} ~\text{m} \cdot 4,86 \cdot 10^{-7} ~\text{m/s}}{1,79 \cdot 10^{-3} ~\text{Pa s}} \\
+Re &= 1,116 \cdot 10^{-6}
+\end{align*}
+\RA Die Annahme einer laminaren Strömung war korrekt
+
+}
+\else
+\fi
+
+
+\item Die Fettkügelchen (d = 4 µm) haben nach 7.500 Minuten die Oberfläche erreicht. In
+welcher Zeit schaffen es die größten Fettkügelchen (d = 5 µm) an die Oberfläche?
+
+\ifshowme
+\antwort{
+
+Strecke berechnen:
+\begin{align*}
+s = v \cdot t \rightarrow s &= 4,86 \cdot 10^{-7} ~\text{m/s} \cdot 7500 \cdot 60s \\
+ &= 0,2187 ~\text{m} \\
+\end{align*}
+Geschwindigkeit größerer Fettkügelchen berechnen: 
+\begin{align*}
+v &= \frac{d^2 \cdot g \cdot (\rho_1 - \rho_2)}{18 \cdot \eta} \\
+v &= \frac{(5 \cdot 10^{-6} ~\text{m})^2 \cdot 9,81 ~\text{m/s}^2 \cdot 99,8 ~\text{kg/m}^3}{18 \cdot 1,79 \cdot 10^{-3} ~\text{Pa s}} \\
+v &= 7,59 \cdot 10^{-7} ~\text{m/s}
+\end{align*}
+Zeit die größere Fettkügelchen für Strecke $s$ benötigen:
+\begin{align*}
+t = \frac{s}{v} \rightarrow t &= \frac{0,2187 ~\text{m}}{7,59 \cdot 10^{-7} ~\text{m/s} \cdot 60} \\
+&= 4802,4 ~\text{min}
+\end{align*}
+}
+\else
+\fi
+
+
+\end{enumerate}
+
+\subsection*{Aufgabe 2}
+Aus 70 °C heißer Bierwürze sollen Heißtrub und Hopfentrester in einem runden Absetzbecken
+(Füllhöhe 850 mm; Durchmesser 7000 mm) zur Vorklärung absedimentiert werden, bevor das
+Gemisch zentrifugiert wird. Die Partikel sind zwischen 30 und 90 µm groß und haben eine
+Dichte von 1.050 kg/m$^3$. Für die Dichte und die Viskosität der Würze bei 70 °C nehmen Sie bitte die Kennzahlen für Wasser und laminare Strömungsverhältnisse an.
+\pp
+Welche Partikel sind nach 40 min vollständig absedimentiert?
+
+
+\ifshowme
+\antwort{
+
+Geschwindigkeit die Partikel brauchen um nach 40min vollständig absedimentiert zu sein:
+\begin{align*}
+v &= 0,85~\text{m} / ~2400~\text{s} \\
+&= 3,5 \cdot 10^{-4} ~\text{m/s}
+\end{align*}
+Stokes umstellen:
+\begin{align*}
+v &= \frac{d^2 \cdot g \cdot (\rho_1 - \rho_2)}{18 \cdot \eta} \\
+d &= \sqrt{\frac{v \cdot 18 \cdot \eta}{g \cdot \Delta p}} \\
+d &= \sqrt{\frac{3,5 \cdot 10^{-4} ~\text{m/s} \cdot 18 \cdot 1 \cdot 10^{-3} ~\text{Pa s}}{9,81 ~\text{m/s} \cdot 50 ~\text{kg/m}^3}} \\
+% &= 7,2 \cdot 10^{-5} ~\text{m} \\
+% &= 72 ~\text{µm}
+&= 1,13 \cdot 10^{-4} ~\text{m}
+&= 113 ~\text{µm}
+\end{align*}
+Alle Partikel die größer als 72µm sind, sedimentieren vollständig.
+}
+\else
+\pagebreak
+\fi
+
+
+
+\subsection*{Aufgabe 3}
+Milch soll mittels Mikrofiltration entkeimt werden. Hierfür wählen Sie ein geeignetes
+Filterelement mit einem Porendurchmesser von 0,2 µm, einer Länge von 20 cm und einer
+Porenanzahl von 1.000.000. Gehen Sie dabei bitte von einer laminaren Strömung aus. Die
+Viskosität der Milch beträgt 2 mPa$\cdot$s. Durch Anlegen eines Vakuums wird eine Druckdifferenz
+von 0,5 bar erzeugt. Wie groß ist die Volumenstromstärke der Milch durch das Filterelement? 
+
+\ifshowme
+\antwort{
+\begin{align*}
+\dot{V} &= \frac{\pi \cdot \Delta p \cdot R^4}{8 \cdot l \cdot \eta} \\
+\dot{V} &= \frac{\pi \cdot 5 \cdot 10^4 ~\text{Pa} \cdot (1 \cdot 10^{-7} ~\text{m})^4}{8 \cdot 0,2 ~\text{m} \cdot 2 \cdot 10^{-3} ~\text{Pa s}} \\
+&= 4,91 \cdot 10^{-21} ~\text{m}^3/\text{s}
+\end{align*}
+Dadurch, dass wir aber eine Anzahl von 1.000.000 Poren haben, müssen wir den Volumenstrom $\dot{V}$ nochmal mit der Anzahl multiplizieren:
+\begin{align*}
+4,91 \cdot 10^{-21} ~\text{m}^3/\text{s} \cdot 1.000.000 = 4,91 \cdot 10^{-15} ~\text{m}^3/\text{s}
+\end{align*}
+
+}
+\else
+\fi
+
+\subsection*{Aufgabe 4}
+Aus einer wässrigen Suspension sollen Sie mittels einer Dekanterzentrifuge ($D_Z$ = 500 mm, $L_Z$ = 450 mm, $n$ = 1200 min$^{-1}$) den Feststoff zurückgewinnen. Die Zentrifuge wird mit 40 \% Füllung betrieben.  
+\marginnote[]{\small Der \fplmt{mittlere Durchmesser $D_m$} beschreibt das arithmetische Mittel aus Außen- und Innendurchmesser.}[5cm]
+\begin{itemize}
+\item Berechnen Sie den \splmt{mittleren Durchmesser} des sich in der Zentrifuge einstellenden Flüssigkeitsringes.
+\item Was ist der Vorteil einer Dekanterzentrifuge gegenüber anderen Zentrifugentypen?
+\end{itemize}
+\begin{marginfigure}[-4cm]
+\begin{tikzpicture}[scale=0.6]
+\draw[line width=0.01mm,fill=miugray] (0,0) circle (2cm);
+\draw[miugray2, dashed ,fill=miugray] (0,0) circle (1.65cm);
+\draw[miugray2,fill=white] (0,0) circle (1.3cm);
+\draw (0,0) to (20:2cm) node [right] {$r_\mathsmaller{{a}}$};
+\draw[miugray2,dashed] (0,0) to (-20:1.65cm) node [right,xshift=4mm,yshift=0mm] {$r_\mathsmaller{{m}}$};
+\draw[black] (0,0) to (-60:1.3cm) node [left,xshift=-1mm,yshift=2mm] {$r_\mathsmaller{{i}}$};
+\end{tikzpicture}
+\caption{Flüssigkeitsfilm innerhalb der Dekanterzentrifuge. Hier in der Darstellung mit $r_i$ für den Innenradius, $r_a$ für den Außenradius und $r_m$ als ''mittleren Radius''}
+\end{marginfigure}
+
+
+\ifshowme
+\antwort{
+40 \% des Gesamtvolumens entsprechen dem Flüssigkeitsring:
+\begin{align*}
+\pi \cdot (r_a^2-r_i^2) \cdot h = 0,4 \cdot \pi \cdot r^2 \cdot h \\
+ r_a^2-r_i^2 &= 0,4 r^2 \\ 
+ 0,6 \cdot r_a^2 &= r_i^2 \\ 
+ \sqrt{0,6} \cdot r_a &= r_i
+\end{align*}
+Werte einsetzen: 
+\begin{align*}
+r_i &= \sqrt{0,6} \cdot 0,25~\text{m} \\
+&= 0,193 ~\text{m}
+\end{align*}
+Mittlerer Durchmesser:
+\begin{align*}
+\left( \frac{0,25~\text{m}+0,193~\text{m}}{2} \right) \cdot 2 = 0,443~\text{m}
+\end{align*}
+
+\pp 
+
+\textbf{Vorteile Dekanterzentrifugen} \par 
+Dekanterzentrifugen arbeiten kontinuierlich und können große Feststoffmengen tolerieren. So können Tellerzentrifugen beispielsweise nur kleinste Mengen Feststoff vertragen. 
+
+
+}
+\pagebreak
+\else 
+\fi 
+
+
+
+\subsection*{Aufgabe 5}
+Sie möchten getrocknete Apfelringe herstellen und haben diese bereits einem effizienten Trocknungsprozess in einem Vakuumtrockner ($9.590 \text{ Pa}$) unterzogen, so dass es nur noch das Kapillarwasser (Oberflächenspannung $\sigma$ = 0,065 N/m) zu entfernen gilt. Die kleinste Pore hat einen Durchmesser $d$ von 0,02 µm. Der bisherige Trocknungsprozess fand schonend bei 45 °C statt. Nehmen Sie eine molare Verdampfungsenthalpie von 43.000 J/mol in diesem Temperaturbereich an.
+\pp
+Bei wie viel Grad müssten Sie das Produkt nun erhitzen, um das restliche Wasser entfernen zu können? Welche Konsequenz können Sie aus Ihrem Ergebnis herleiten?
+
+
+\ifshowme
+\antwort{
+\begin{align*}
+\Delta p &= \frac{4 \cdot 0,065 ~\text{N/m}}{0,02 \cdot 10^{-6}~\text{m}} \\
+&= 13.000.000 ~\text{Pa} \\
+&= 130 ~\text{bar}
+\end{align*}
+Clausius-Clapeyron-Beziehung aufstellen:
+\begin{align*}
+T_2	&= - \frac{1}{\ln(\frac{p_2}{p_1}) \cdot \frac{R}{\Delta h_{vM} } - \frac{1}{T_1}} \\
+&= - \frac{1}{\ln(\frac{13.009.590}{9.590}) \cdot \frac{8,314 ~\text{J/mol K}}{43.000 ~\text{J/mol} } - \frac{1}{318 ~\text{K}}} \\
+&= 571,4 ~\text{K} \\
+&= 298,6 ~\text{°C}
+\end{align*}
+
+Die Apfelringe würden verbrennen. Daher können wir über dieses Verfahren das Kapillarwasser nicht entfernen.
+}
+\else
+\fi 
+
+\end{document}

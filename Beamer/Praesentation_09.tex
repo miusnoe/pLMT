@@ -1,0 +1,322 @@
+\documentclass[aspectratio=169,9pt]{beamer}
+\mode<presentation> 
+\usepackage[utf8]{inputenc}
+\usepackage{sansmathaccent} %Für equations
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage{relsize}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage[labelfont={bf},font={color=black!40,footnotesize},tablename={Tabelle},figurename={Abbildung}]{caption}
+\usetikzlibrary{positioning, arrows.meta, calc, matrix}
+\usefonttheme[onlymath]{serif}
+%\makeatletter
+%\makeatother
+
+\usetikzlibrary{patterns, arrows.meta, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{intersections, pgfplots.fillbetween}\usetikzlibrary{intersections, pgfplots.fillbetween}
+\rowcolors{2}{miugray!30}{miugray!10}
+
+\usetheme{Madrid}  %% Themenwahl
+\useoutertheme{split} % Alternatively: miniframes, infolines, split
+%\useinnertheme{circles}
+
+
+\setbeamertemplate{itemize item}{\color{miugray}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{uniblau}$\bullet$}
+
+
+
+%\input{F://LaTeX-Files/shiet/SI.tex}
+
+
+\newcommand{\RA}{$\rightarrow$~}
+\newcommand{\pp}{\par \vspace*{2mm}}
+\newcommand{\ppbig}{\par \vspace*{4mm}}
+
+\definecolor{miudiutex}{HTML}{1d2926}
+\definecolor{miugray}{HTML}{b4cccf}
+\definecolor{miugray2}{HTML}{4d7365}
+\definecolor{white2}{HTML}{f5f7f8}
+\definecolor{red}{HTML}{cf1f5c}
+\definecolor{green}{HTML}{00A36C}
+\definecolor{delphinidin}{HTML}{315794}
+\definecolor{uniblau}{HTML}{004e9f}
+\definecolor{unigelb}{HTML}{fcba00}
+\definecolor{unigrau}{HTML}{909085}
+\definecolor{pelargonidin}{HTML}{b33807}
+\definecolor{cyanidin}{HTML}{ba0746}
+\definecolor{paeonidin}{HTML}{d15ca6}
+\definecolor{petunidin}{HTML}{b56fed}
+\definecolor{malvidin}{HTML}{8a2d8c}
+
+%\setbeamercolor{palette primary}{bg=pelargonidin!35,fg=white}
+%\setbeamercolor{palette secondary}{bg=delphinidin!45,fg=white}
+\setbeamercolor{palette primary}{bg=uniblau!70,fg=white}
+\setbeamercolor{palette secondary}{bg=uniblau!45,fg=white}
+\setbeamercolor{palette tertiary}{bg=unigelb!70,fg=unigrau}
+\setbeamercolor{palette quaternary}{bg=miugray,fg=white}
+\setbeamercolor{structure}{fg=black} % itemize, enumerate, etc
+\setbeamercolor{section in toc}{fg=red} % TOC sections
+
+\setbeamersize{text margin left=1cm,text margin right=1cm}
+
+
+\useinnertheme{tcolorbox} 
+\newcommand{\goodtk}[2]{
+\begin{tcolorbox}[
+	enhanced,
+	colframe=uniblau!75,
+	sharp corners,
+	boxsep=5pt,
+	title=\bfseries \sffamily #1,
+	colback=white,
+	coltitle=black,
+	attach boxed title to top text left={yshift=-\tcboxedtitleheight/2},
+	boxed title style={colback=white,colframe=white}
+]
+	#2
+	\end{tcolorbox}
+}
+	
+\newcommand{\antwort}[1]{
+\begin{tcolorbox}[
+	enhanced,
+	colframe=unigrau!65,
+	sharp corners,
+	boxsep=1pt,
+	colback=white,
+	coltitle=black,
+]
+	#1
+	\end{tcolorbox}
+}
+
+
+\title{7. Übung}
+\author{PD Dr. Helene Loos}
+\date{\today}
+
+\begin{document}
+%\maketitle
+\small
+
+
+
+\begin{frame}
+\begin{center}
+
+\LARGE Übung 9  \par \normalsize
+Prozessbezogene Lebensmitteltechnologie
+\end{center}
+\small
+\end{frame}
+
+
+\begin{frame}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Update letzte Woche} \par \vspace*{2mm}
+
+
+Falsch:
+\begin{align*}
+Z = \frac{\lambda}{2 \pi} \left[ \frac{2}{\varepsilon ' \cdot (\sqrt{1+ \tan^2 \delta- 1)} } \right]^{\frac{1}{2}}
+\end{align*}
+
+Richtig:
+\begin{align*}
+Z = \frac{\lambda}{2 \pi} \left[ \frac{2}{\varepsilon ' \cdot (\sqrt{1+ \tan^2 \delta} - 1)} \right]^{\frac{1}{2}}
+\end{align*}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}
+
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Update letzte Woche} \par \vspace*{2mm}
+
+
+\begin{align*}
+Q_{10} = \frac{k_{T+10}}{k}
+\end{align*}
+Geschwindigkeit einer Reaktion mit $Q_{10}$-Wert berechnen:
+\begin{align*}
+k_1 = k_2 \cdot Q_{10}^{\frac{T_2-T_1}{10}}
+\end{align*}
+
+
+\end{frame}
+
+
+
+
+\begin{minipage}{.5\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 1} \par \vspace*{2mm}
+Ein Erhitzungsprozess soll so durchgeführt werden, dass die Keimzahl um 99,9\%
+reduziert wird, für den Verderb wesentliche Enzyme inaktiviert werden, und kein
+Kochgeschmack auftritt. Aus Aufzeichnungen von Kollegen entnehmen Sie, dass die
+jeweiligen Prozesse bei folgenden Zeit-Temperatur-Kombinationen vollständig ablaufen:
+
+\begin{center}
+\resizebox{1\textwidth}{!}{
+\begin{tabular}{|l|l|l|l|}
+\rowcolor{miugray}
+\textbf{Eigenschaft}& \textbf{Temperatur} & \textbf{Erhitzungszeit} & \textbf{z-Wert}\\ \hline
+Reduktion der Keimzahl auf 99,9\% & 112°C & 5 min & 10 °C\\ \hline
+Enzyminaktivierung & 90°C & 15 min & 25 °C \\ \hline
+Kochgeschmack & 100°C & 20 min & 32 °C \\ 
+\end{tabular}
+}
+\end{center}
+
+Um Temperaturänderungen Ihrer Erhitzungsanlage zu vermeiden, möchten Sie den
+Prozess bei 121 °C durchführen. \pp 
+Kann der Erhitzungsprozess bei dieser Temperatur
+durchgeführt werden, ohne dass ein Kochgeschmack auftritt, wenn gewährleistet sein
+soll, dass die Enzyme inaktiviert sind und die Keimzahl um 99,9\% reduziert ist? 
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+
+
+\antwort{
+
+Formel für die Aufgabe:
+
+\begin{align}
+D_1 = D_2 \cdot 10^{\frac{T_2 - T_1}{z}}
+\end{align}
+
+
+Reduktion der Keimzahl:
+\begin{align*}
+D_1 &= 5 ~\text{min} \cdot 10^{\frac{112 - 121}{10}} \\
+ &= 0,629 ~\text{min}
+\end{align*}
+
+Enzyminaktivierung:
+\begin{align*}
+D_1 &= 15 ~\text{min} \cdot 10^{\frac{90 - 121}{25}} \\
+ &= 0,86 ~\text{min}
+\end{align*}
+
+Kochgeschmack
+\begin{align*}
+D_1 &= 20 ~\text{min} \cdot 10^{\frac{100 - 121}{32}} \\
+ &= 4,413 ~\text{min}
+\end{align*}
+
+ Da 0,629 min + 0,012 min kürzer ist als 4,413 min, kann der Erhitzungsprozess bei dieser Temperatur
+durchgeführt werden, ohne dass ein Kochgeschmack auftritt.
+}
+\end{minipage}%
+
+
+
+
+\begin{frame}
+\begin{minipage}{.4\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 2} \par \vspace*{2mm}
+In einem Lebensmittel kommen drei verschiedene Bakterienarten vor, die unerwünscht
+sind. Sie haben folgende Daten zur Hand:
+
+
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\rowcolor{miugray}
+ & \textbf{D-Wert bei 100 °C} &\textbf{z-Wert} \\ \hline
+Keim A &5 Minuten &10°C \\ \hline 
+Keim B &10 Minuten &10°C \\ \hline 
+Keim C &15 Minuten &5°C \\ \hline 
+\end{tabular}
+\end{center}
+
+Berechnen Sie die D-Werte für eine Erhitzung bei 
+\begin{itemize}
+\item[\color{miugray}$\blacktriangleright$] 110 °C
+\item[\color{miugray}$\blacktriangleright$] 120 °C
+\item[\color{miugray}$\blacktriangleright$] 130 °C 
+\end{itemize}
+
+
+
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.6\textwidth}
+\antwort{
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|r|r|r|}
+\rowcolor{miugray}
+ & D-Wert bei 110°C &D-Wert bei 120°C &D-Wert bei 130°C \\ \hline 
+ \textbf{Keim A} & 0,5 min & 0,05 min & 0,005 min \\ \hline
+ \textbf{Keim B} & 1 min & 0,1 min & 0,01 min \\ \hline
+ \textbf{Keim C} & 0,15 min & 0,0015 min & 0,000015 min \\ \hline
+\end{tabular}
+
+}
+}
+
+
+\end{minipage}%
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}
+\begin{minipage}{.35\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 3} \par \vspace*{2mm}
+Chloroform (CHCl$_3$) ist eine süßlich riechende, farblose Flüssigkeit, die unter Normalbedingungen bei 61 °C siedet. Für ihren Dampfdruck bei einer Temperatur von 20 °C wurde ein Wert von 209 hPa bestimmt. Berechnen Sie daraus die molare Verdampfungsenthalpie $\Delta h_{vM}$
+
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.65\textwidth}
+\antwort{
+\begin{align*}
+\ln \frac{p_2}{p_1} &= - \frac{\Delta h_{vM}}{R} \cdot \left( \frac{1}{T_2} - \frac{1}{T_1} \right) \\[2ex]
+\Delta h_{vM} &= -\frac{R \ln \frac{p_2}{p_1}}{\left( \frac{1}{T_2} - \frac{1}{T_1} \right)} 
+\\ &= -\frac{8{,}314 ~\text{J/mol K} \cdot \ln \frac{101325 \, \mathrm{Pa}}{20900 \, \mathrm{Pa}}}{\left( \frac{1}{334{,}15 \, \mathrm{K}} - \frac{1}{293{,}15 \, \mathrm{K}} \right)} = 31{,}355 \, \mathrm{kJ\,mol^{-1}}
+\end{align*}
+
+}
+
+\end{minipage}%
+\end{frame}
+
+
+
+\end{document}
