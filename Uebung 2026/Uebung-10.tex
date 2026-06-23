@@ -10,7 +10,7 @@
 
 
 \newif\ifshowme
-\showmetrue
+%\showmetrue
 
 
 
@@ -71,6 +71,7 @@ Re &= 1,116 \cdot 10^{-6}
 \RA Die Annahme einer laminaren Strömung war korrekt
 
 }
+\pagebreak
 \else
 \fi
 
@@ -128,10 +129,10 @@ d &= \sqrt{\frac{v \cdot 18 \cdot \eta}{g \cdot \Delta p}} \\
 d &= \sqrt{\frac{3,5 \cdot 10^{-4} ~\text{m/s} \cdot 18 \cdot 1 \cdot 10^{-3} ~\text{Pa s}}{9,81 ~\text{m/s} \cdot 50 ~\text{kg/m}^3}} \\
 % &= 7,2 \cdot 10^{-5} ~\text{m} \\
 % &= 72 ~\text{µm}
-&= 1,13 \cdot 10^{-4} ~\text{m}
+&= 1,13 \cdot 10^{-4} ~\text{m} \\
 &= 113 ~\text{µm}
 \end{align*}
-Alle Partikel die größer als 72µm sind, sedimentieren vollständig.
+Alle Partikel die größer als 113 µm sind, sedimentieren vollständig.
 }
 \else
 \pagebreak
@@ -158,19 +159,21 @@ Dadurch, dass wir aber eine Anzahl von 1.000.000 Poren haben, müssen wir den Vo
 4,91 \cdot 10^{-21} ~\text{m}^3/\text{s} \cdot 1.000.000 = 4,91 \cdot 10^{-15} ~\text{m}^3/\text{s}
 \end{align*}
 
+\pagebreak
 }
 \else
 \fi
 
 \subsection*{Aufgabe 4}
-Aus einer wässrigen Suspension sollen Sie mittels einer Dekanterzentrifuge ($D_Z$ = 500 mm, $L_Z$ = 450 mm, $n$ = 1200 min$^{-1}$) den Feststoff zurückgewinnen. Die Zentrifuge wird mit 40 \% Füllung betrieben.  
-\marginnote[]{\small Der \fplmt{mittlere Durchmesser $D_m$} beschreibt das arithmetische Mittel aus Außen- und Innendurchmesser.}[5cm]
+Aus einer wässrigen Suspension sollen Sie mittels einer Dekanterzentrifuge (Durchmesser $d$ = 500 mm, Länge $l$ = 450 mm) den Feststoff zurückgewinnen. Die Zentrifuge wird mit 40 \% Füllung betrieben.  
+\marginnote[]{\small Der \fplmt{mittlere Durchmesser $d_m$} beschreibt das arithmetische Mittel aus Außen- und Innendurchmesser.}[3cm]
 \begin{itemize}
 \item Berechnen Sie den \splmt{mittleren Durchmesser} des sich in der Zentrifuge einstellenden Flüssigkeitsringes.
 \item Was ist der Vorteil einer Dekanterzentrifuge gegenüber anderen Zentrifugentypen?
 \end{itemize}
-\begin{marginfigure}[-4cm]
-\begin{tikzpicture}[scale=0.6]
+\begin{marginfigure}[-7cm]
+\centering
+\begin{tikzpicture}[scale=0.7]
 \draw[line width=0.01mm,fill=miugray] (0,0) circle (2cm);
 \draw[miugray2, dashed ,fill=miugray] (0,0) circle (1.65cm);
 \draw[miugray2,fill=white] (0,0) circle (1.3cm);
@@ -204,7 +207,7 @@ Mittlerer Durchmesser:
 \pp 
 
 \textbf{Vorteile Dekanterzentrifugen} \par 
-Dekanterzentrifugen arbeiten kontinuierlich und können große Feststoffmengen tolerieren. So können Tellerzentrifugen beispielsweise nur kleinste Mengen Feststoff vertragen. 
+Dekanterzentrifugen arbeiten kontinuierlich und können große Feststoffmengen tolerieren. So können Teller - und Röhrenzentrifugen beispielsweise nur kleinste Mengen Feststoff vertragen. Wobei hierbei auch die Tellerzentrifuge nochmal ein bisschen mehr Feststoff toleriert als die Röhrenzentrifuge. 
 
 
 }
@@ -215,6 +218,12 @@ Dekanterzentrifugen arbeiten kontinuierlich und können große Feststoffmengen t
 
 
 \subsection*{Aufgabe 5}
+
+\marginnote[]{ \small \fplmt{Tipp:} Die folgende Formel zur Dampfdruckerniedrigung in Kapillaren ($< 0,1 $ µm) finden Sie u.a. auch in den Vorlesungsfolien. 
+\begin{align}
+\Delta p_{\sigma} = \frac{4 \sigma}{d}
+\end{align}
+}
 Sie möchten getrocknete Apfelringe herstellen und haben diese bereits einem effizienten Trocknungsprozess in einem Vakuumtrockner ($9.590 \text{ Pa}$) unterzogen, so dass es nur noch das Kapillarwasser (Oberflächenspannung $\sigma$ = 0,065 N/m) zu entfernen gilt. Die kleinste Pore hat einen Durchmesser $d$ von 0,02 µm. Der bisherige Trocknungsprozess fand schonend bei 45 °C statt. Nehmen Sie eine molare Verdampfungsenthalpie von 43.000 J/mol in diesem Temperaturbereich an.
 \pp
 Bei wie viel Grad müssten Sie das Produkt nun erhitzen, um das restliche Wasser entfernen zu können? Welche Konsequenz können Sie aus Ihrem Ergebnis herleiten?

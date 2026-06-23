@@ -1,0 +1,182 @@
+\documentclass[a4paper,10pt]{article}
+\input{../misc/basic.tex}
+\input{../misc/colors.tex}
+\input{../misc/SI.tex}
+\input{../misc/plmtuebungpreamble.tex}
+\usepackage{float}
+\usepackage[table]{xcolor}
+\usepackage{pgfplots}
+    \pgfplotsset{
+        every axis post/.style={
+	yticklabel=\empty,
+	xticklabel=\empty,
+	y label style={at={(axis description cs:-0.2,1.1)}},
+	x label style={at={(axis description cs:1.05,0.2)}},
+	ticks=none,
+	width=6cm,
+	axis lines=middle,
+%	xlabel near ticks,
+        },
+    }
+\usetikzlibrary{positioning, arrows.meta, calc}
+
+\usepackage{relsize}
+\usepackage{cancel}
+
+\newif\ifshowme
+\showmetrue
+
+\setlength{\columnsep}{8mm}
+
+\begin{document}
+
+%\newgeometry{top=3cm,bottom=3cm,left=4.5cm,right=4.5cm}
+\newgeometry{top=2cm,bottom=2cm,left=2cm,right=2cm}
+
+
+\begin{center}
+\LARGE
+\color{uniblau}
+\textbf{Übung 09} \par \vspace*{2mm}
+\large \color{miugray!50!black} \textbf{Prozessbezogene Lebensmitteltechnologie}\par 
+\normalsize Zusatzaufgaben
+\end{center}
+\par 
+%\vspace*{6mm}
+
+
+\color{miudiutex}
+
+\begin{multicols}{2}
+
+\subsection*{Aufgabe 1}
+Eine wässrige Diethylether-Lösung (Ausgangskonzentration $c_0 = 1\,\text{mol/L}$) wird mit dem exakt gleichen Volumen an 1-Octanol versetzt. Da die beiden Lösungsmittel nicht mischbar sind, bildet sich ein Zweiphasensystem. Durch intensives Schütteln wird eine Umverteilung des Diethylethers zwischen der wässrigen und der organischen Phase initiiert. Nach der Phasentrennung betragen die Konzentrationen des Diethylethers $0{,}116\,\text{mol/L}$ in der wässrigen Phase und $0{,}884\,\text{mol/L}$ in der 1-Octanol-Phase. Berechnen Sie den Verteilungskoeffizienten.
+
+\pp 
+\textit{Hinweis:} Dieser spezifische Verteilungskoeffizient wird als Octanol-Wasser-Verteilungskoeffizient ($K_{ow}$) bezeichnet und dient als quantitatives Maß für die Lipophilie beziehungsweise Hydrophilie einer Substanz.
+
+\begin{figure}[H]
+\centering
+\resizebox{.4\columnwidth}{!}{
+\begin{tikzpicture}[scale=1.5, thick]
+
+  % 1. Definition des Trichter-Umrisses (für Clipping und Umrandung)
+  \def\funnelpath{
+    (-0.25, 2.5) -- (-0.25, 2.2) 
+    .. controls (-2.0, 2.2) and (-1.8, -0.5) .. (-0.1, -2.0) 
+    -- (-0.1, -3.5) arc(180:360:0.1) -- (0.1, -2.0) 
+    .. controls (1.8, -0.5) and (2.0, 2.2) .. (0.25, 2.2) 
+    -- (0.25, 2.5) -- cycle
+  }
+
+  % 2. Flüssigkeitsphasen zeichnen
+  \begin{scope}
+    % Beschränkt die folgenden Füllungen exakt auf das Innere des Trichters
+    \clip \funnelpath;
+    
+    % Wässrige Phase (H2O) - unten
+    \fill[miugray] (-2, -3) rectangle (2, 0.2);
+    
+    % Organische Phase (1-Octanol) - oben
+    \fill[miugray!50] (-2, 0.2) rectangle (2, 1.5);
+    
+    % Harte Phasengrenzlinien für bessere Sichtbarkeit
+    \draw[miugray, thick] (-2, 0.2) -- (2, 0.2);
+    \draw[miugray!50, thick] (-2, 1.5) -- (2, 1.5);
+  \end{scope}
+
+  % 3. Glasumriss zeichnen (mit leichter Deckkraft für den Glaseffekt über den Flüssigkeiten)
+  \draw[draw=gray!70, line width=1.5pt, fill=white, fill opacity=0.15] \funnelpath;
+
+  % 4. Details des Trichters (Lippe und Stopfen)
+  \draw[gray!70, line width=1.5pt] (-0.35, 2.5) -- (0.35, 2.5); % Trichterlippe
+  \draw[gray!60, line width=1pt, fill=gray!10] (-0.2, 2.5) -- (-0.25, 3.0) -- (0.25, 3.0) -- (0.2, 2.5) -- cycle; % Stopfen-Basis
+  \draw[gray!60, line width=1pt, fill=gray!10] (-0.3, 3.0) rectangle (0.3, 3.2); % Stopfen-Griff
+
+  % 5. Hahn-Apparatur (unten)
+  % Querliegendes Glasgehäuse
+  \draw[gray!70, line width=1.5pt, fill=white] (-0.8, -2.5) -- (-0.8, -2.9) -- (0.6, -2.9) -- (0.6, -2.5) -- cycle;
+  % Blaues Stellrad
+  \draw[uniblau!60, line width=1pt, fill=miugray, rounded corners=0.5pt] (-1.0, -2.55) rectangle (-0.8, -2.85);
+  \draw[uniblau!60, line width=1pt, fill=miugray] (-1.1, -2.6) rectangle (-1.0, -2.8);
+  % Bohrung/Loch in der Mitte des Hahns
+  \draw[gray!70, thick, fill=white] (0, -2.7) circle (0.07);
+
+  % 6. Beschriftung
+  \node[font=\sffamily\Large] at (0, 0.85) {1-Octanol};
+  \node[font=\sffamily\Large] at (0, -0.6) {H$_2$O};
+
+\end{tikzpicture}
+}
+\caption{Schematische Darstellung eines Schütteltrichters mit Oktanol und Wasser}
+
+\end{figure}
+
+\ifshowme
+\antwort{
+\begin{align*}
+\frac{0,884}{0,116} = 7,6
+\end{align*}
+}
+\else
+\fi
+
+
+
+\subsection*{Aufgabe 2}
+Es sollen 500 g einer 13 \%igen Lösung durch Eindampfen auf 40 \% konzentriert werden.
+Wie viel Wasser muss der Lösung entzogen werden? \par Nutzen Sie die Mischungsgleichung 
+oder das Mischungskreuz. 
+
+\ifshowme
+\antwort{
+\begin{align*}
+m_1 \cdot c_1 + m_2 \cdot c_2 &= m_3 \cdot c_3 \\
+m_1 \cdot c_1 + m_3 \cdot c_2 - m_1 \cdot c_2 &= m_3 \cdot c_3 \\
+m_1 \cdot c_1  - m_1 \cdot c_2 &= m_3 (c_3 - c_2)  \\
+\frac{m_1 \cdot c_1  - m_1 \cdot c_2}{c_3 - c_2} &= m_3
+\end{align*}
+Werte einsetzen:
+\begin{align*}
+m_3 &= \frac{500 \cdot 0,13  - 500 \cdot 0}{0,4 - 0} \\
+ &= \frac{65}{0,4} \\
+ &= 162,5
+\end{align*}
+Demnach müssen 337,5 g Wasser entzogen werden.
+}
+\else
+\fi 
+
+\subsection*{Aufgabe 3}
+Durch Lagerungsexperimente haben Sie für die Haltbarkeit eines Lebensmittels einen 
+Zeitraum von 5 Std bei einer Lagerung bei 27 °C bestimmt. Die haltbarkeitesbestimmende 
+Reaktion ist die Bildung eines Off-Flavors. Für die Bildung des Off-Flavors ist bekannt, dass 
+der Q10-Wert 3 beträgt und der z-Wert 27 °C. Wie lange ist das Lebensmittel bei folgenden 
+Temperaturen haltbar? 
+\begin{itemize}
+\item 17 °C
+\item 7 °C
+\item 0 °C
+\item -3 °C
+\end{itemize}
+
+\ifshowme
+\antwort{
+15, 45, 50, 135 Std.
+\begin{align}
+t_2 = t_1 \cdot Q_{10}^{\frac{T_2-T_1}{10}} \\
+t_2 = t_1 \cdot 10^{\frac{T_2-T_1}{z}}
+\end{align}
+}
+\else
+\fi
+
+\subsection*{Aufgabe 4}
+Für eine Lebensmittelanalyse möchten Sie aus einer Kaffeezubereitung das enthaltene Koffein isolieren um es später per HPLC zu quantifizieren. Sie haben eine Probe mit einem Volumen von 200 ml vor sich und fügen dieser 20 ml Lösungsmittel hinzu. Der Nernstsche Verteilungskoeffizient $K$ beträgt 8. \pp
+\begin{itemize}
+\item Wie viel Koffein war in der Probe enthalten? 
+\item Wie viel Koffein haben Sie mit dem Lösungsmittel extrahiert?
+\end{itemize}
+
+\end{multicols}
+\end{document}
