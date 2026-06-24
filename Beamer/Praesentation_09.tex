@@ -167,23 +167,21 @@ k_1 = k_2 \cdot Q_{10}^{\frac{T_2-T_1}{10}}
 \end{frame}
 
 
+\begin{frame}
 
 
 \begin{minipage}{.5\textwidth}
 
 
 {\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 1} \par \vspace*{2mm}
-Ein Erhitzungsprozess soll so durchgeführt werden, dass die Keimzahl um 99,9\%
-reduziert wird, für den Verderb wesentliche Enzyme inaktiviert werden, und kein
-Kochgeschmack auftritt. Aus Aufzeichnungen von Kollegen entnehmen Sie, dass die
-jeweiligen Prozesse bei folgenden Zeit-Temperatur-Kombinationen vollständig ablaufen:
-
+Ein Erhitzungsprozess soll so durchgeführt werden, dass die Keimzahl um 99,9\% reduziert wird, für den Verderb wesentliche Enzyme inaktiviert werden, und kein
+Kochgeschmack auftritt. 
 \begin{center}
 \resizebox{1\textwidth}{!}{
 \begin{tabular}{|l|l|l|l|}
 \rowcolor{miugray}
-\textbf{Eigenschaft}& \textbf{Temperatur} & \textbf{Erhitzungszeit} & \textbf{z-Wert}\\ \hline
-Reduktion der Keimzahl auf 99,9\% & 112°C & 5 min & 10 °C\\ \hline
+\textbf{Eigenschaft}& \textbf{Temperatur} & \textbf{Zeit} & \textbf{z-Wert}\\ \hline
+Keimreduktion 99,9\% & 112°C & 5 min & 10 °C\\ \hline
 Enzyminaktivierung & 90°C & 15 min & 25 °C \\ \hline
 Kochgeschmack & 100°C & 20 min & 32 °C \\ 
 \end{tabular}
@@ -202,59 +200,58 @@ soll, dass die Enzyme inaktiviert sind und die Keimzahl um 99,9\% reduziert ist?
 
 \antwort{
 
-Formel für die Aufgabe:
-
-\begin{align}
-D_1 = D_2 \cdot 10^{\frac{T_2 - T_1}{z}}
-\end{align}
-
 
 Reduktion der Keimzahl:
 \begin{align*}
-D_1 &= 5 ~\text{min} \cdot 10^{\frac{112 - 121}{10}} \\
- &= 0,629 ~\text{min}
+\uncover<2->{D_1 &= 5 ~\text{min} \cdot 10^{\frac{112 - 121}{10}} \\
+ &= 0,629 ~\text{min}}
 \end{align*}
 
 Enzyminaktivierung:
 \begin{align*}
-D_1 &= 15 ~\text{min} \cdot 10^{\frac{90 - 121}{25}} \\
- &= 0,86 ~\text{min}
+\uncover<3->{D_1 &= 15 ~\text{min} \cdot 10^{\frac{90 - 121}{25}} \\
+ &= 0,86 ~\text{min}}
 \end{align*}
 
 Kochgeschmack
 \begin{align*}
-D_1 &= 20 ~\text{min} \cdot 10^{\frac{100 - 121}{32}} \\
- &= 4,413 ~\text{min}
+\uncover<4->{D_1 &= 20 ~\text{min} \cdot 10^{\frac{100 - 121}{32}} \\
+ &= 4,413 ~\text{min}}
 \end{align*}
-
- Da 0,629 min + 0,012 min kürzer ist als 4,413 min, kann der Erhitzungsprozess bei dieser Temperatur
-durchgeführt werden, ohne dass ein Kochgeschmack auftritt.
+\pp
+\uncover<5->{
+Da 0,629 min + 0,012 min kürzer ist als 4,413 min, kann der Erhitzungsprozess bei dieser Temperatur
+durchgeführt werden, ohne dass ein Kochgeschmack auftritt.}
 }
 \end{minipage}%
 
+\end{frame}
 
 
 
 \begin{frame}
-\begin{minipage}{.4\textwidth}
+\begin{minipage}{.45\textwidth}
 
 
 {\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 2} \par \vspace*{2mm}
 In einem Lebensmittel kommen drei verschiedene Bakterienarten vor, die unerwünscht
 sind. Sie haben folgende Daten zur Hand:
 
+\pp 
 
-
-\begin{center}
-\begin{tabular}{|l|l|l|}
+\resizebox{\textwidth}{!}{
+%\begin{center}
+\begin{tabular}{lll}
 \rowcolor{miugray}
- & \textbf{D-Wert bei 100 °C} &\textbf{z-Wert} \\ \hline
-Keim A &5 Minuten &10°C \\ \hline 
-Keim B &10 Minuten &10°C \\ \hline 
-Keim C &15 Minuten &5°C \\ \hline 
+\hline
+ & \textbf{D-Wert bei 100 °C} &\textbf{z-Wert} \\ 
+Keim A &5 Minuten &10 °C \\ 
+Keim B &10 Minuten &10 °C \\ 
+Keim C &15 Minuten &5 °C \\ \hline 
 \end{tabular}
-\end{center}
-
+%\end{center}
+}
+\pp
 Berechnen Sie die D-Werte für eine Erhitzung bei 
 \begin{itemize}
 \item[\color{miugray}$\blacktriangleright$] 110 °C
@@ -266,19 +263,20 @@ Berechnen Sie die D-Werte für eine Erhitzung bei
 
 \end{minipage}%
 \hspace*{4mm}
-\begin{minipage}{.6\textwidth}
-\antwort{
+\begin{minipage}{.55\textwidth}
+%\antwort{
 \resizebox{\textwidth}{!}{
-\begin{tabular}{|l|r|r|r|}
+\begin{tabular}{lrrr}
 \rowcolor{miugray}
- & D-Wert bei 110°C &D-Wert bei 120°C &D-Wert bei 130°C \\ \hline 
- \textbf{Keim A} & 0,5 min & 0,05 min & 0,005 min \\ \hline
- \textbf{Keim B} & 1 min & 0,1 min & 0,01 min \\ \hline
- \textbf{Keim C} & 0,15 min & 0,0015 min & 0,000015 min \\ \hline
+\hline
+  \textbf{D-Wert} & \textbf{bei 110 °C} &\textbf{bei 120 °C} &\textbf{bei 130 °C} \\ 
+ Keim A & \uncover<2->{0,5 min} & \uncover<2->{0,05 min} & \uncover<2->{0,005 min} \\
+ Keim B & \uncover<3->{1 min} & \uncover<3->{0,1 min} & \uncover<3->{0,01 min} \\ 
+ Keim C & \uncover<4->{0,15 min} & \uncover<4->{0,0015 min} & \uncover<4->{0,000015 min} \\ \hline 
 \end{tabular}
 
 }
-}
+%}
 
 
 \end{minipage}%
@@ -307,9 +305,9 @@ Chloroform (CHCl$_3$) ist eine süßlich riechende, farblose Flüssigkeit, die u
 \begin{minipage}{.65\textwidth}
 \antwort{
 \begin{align*}
-\ln \frac{p_2}{p_1} &= - \frac{\Delta h_{vM}}{R} \cdot \left( \frac{1}{T_2} - \frac{1}{T_1} \right) \\[2ex]
-\Delta h_{vM} &= -\frac{R \ln \frac{p_2}{p_1}}{\left( \frac{1}{T_2} - \frac{1}{T_1} \right)} 
-\\ &= -\frac{8{,}314 ~\text{J/mol K} \cdot \ln \frac{101325 \, \mathrm{Pa}}{20900 \, \mathrm{Pa}}}{\left( \frac{1}{334{,}15 \, \mathrm{K}} - \frac{1}{293{,}15 \, \mathrm{K}} \right)} = 31{,}355 \, \mathrm{kJ\,mol^{-1}}
+\uncover<2->{\ln \frac{p_2}{p_1} &= - \frac{\Delta h_{vM}}{R} \cdot \left( \frac{1}{T_2} - \frac{1}{T_1} \right) \\[2ex]}
+\uncover<3->{\Delta h_{vM} &= -\frac{R \ln \frac{p_2}{p_1}}{\left( \frac{1}{T_2} - \frac{1}{T_1} \right)} }
+\uncover<4->{\\ &= -\frac{8{,}314 ~\text{J/mol K} \cdot \ln \frac{101325 \, \mathrm{Pa}}{20900 \, \mathrm{Pa}}}{\left( \frac{1}{334{,}15 \, \mathrm{K}} - \frac{1}{293{,}15 \, \mathrm{K}} \right)} = 31{,}355 \, \mathrm{kJ\,mol^{-1}}}
 \end{align*}
 
 }
@@ -345,16 +343,21 @@ mL Lösungsmittel extrahieren.
 \hspace*{4mm}
 \begin{minipage}{.5\textwidth}
 \antwort{
-\par 100 ml Orangensaft enthalten nach dem extrahieren 0,16 g Carotinoide. Das Lösungsmittel folglich (3*2,5 g - 0,5 g)/50 ml
+\uncover<2->{
+100 ml Orangensaft enthalten nach dem extrahieren 0,16 g Carotinoide. Das Lösungsmittel folglich (3*2,5 g - 0,5 g)/50 ml bzw. 14 g/ 100 ml}
+\uncover<3->{
 \begin{align*}
 \frac{14~\text{g / 100 ml}}{0,1\overline{6}~\text{g / 100 ml}} = 84
 \end{align*}
-
+}
+Alternativweg:
+\uncover<4->{
 \begin{align*}
 K &= \frac{(x - y) / 50~\text{ml}}{y / 300~\text{ml}}  \\
 K &= \frac{7~\text{g}/50~\text{ml}}{0,5~\text{g}/300~\text{ml}} \\
  &= 84
 \end{align*}
+}
 }
 \end{minipage}%
 
@@ -382,16 +385,22 @@ mL Lösungsmittel extrahieren.
 \antwort{
 
 \textbf{Erste Extraktion:}
+\uncover<2->{
 \begin{align*}
 84 &= \frac{(x-y)/25~\text{ml}}{y/300~\text{ml}} \\
-&= \frac{(7,5~\text{g}-y)/25~\text{ml}}{y/300~\text{ml}} \\
-&= \frac{7,5~\text{g}/25~\text{ml} - y/25~\text{ml}}{y/300~\text{ml}} \\
-84 \cdot \frac{y}{300~\text{ml}} &= \frac{7,5~\text{g}}{25~\text{ml}} - \frac{y}{25~\text{ml}} \\
-\frac{84 \cdot y \cdot 25~\text{ml}}{300~\text{ml}} &= 7,5~\text{g} - y \\
-\frac{2100y}{300} &= 7,5~\text{g} - y \\
-2100y &= 2250~\text{g} - 300y \\
+\end{align*}
+\par \vspace*{-2mm}
+$x$ = Die gesamte Masse an Carotinoiden; $y$ = Die Masse an Carotinoiden die im Orangsaft verbleibt.}
+\par \vspace*{-4mm}
+\begin{align*}
+\uncover<3->{84 &= \frac{(7,5~\text{g}-y)/25~\text{ml}}{y/300~\text{ml}} \\}
+\uncover<4->{84 &= \frac{7,5~\text{g}/25~\text{ml} - y/25~\text{ml}}{y/300~\text{ml}} \\}
+\uncover<5->{84 \cdot \frac{y}{300~\text{ml}} &= \frac{7,5~\text{g}}{25~\text{ml}} - \frac{y}{25~\text{ml}} \\}
+\uncover<6->{\frac{84 \cdot y \cdot 25~\text{ml}}{300~\text{ml}} &= 7,5~\text{g} - y \\}
+\uncover<7->{\frac{2100y}{300} &= 7,5~\text{g} - y \\}
+\uncover<8->{2100y &= 2250~\text{g} - 300y \\
 2400y &= 2250~\text{g} \\
-y &= 0,9375 ~\text{g}
+y &= 0,9375 ~\text{g}}
 \end{align*}
 
 
@@ -433,10 +442,10 @@ mL Lösungsmittel extrahieren.
 \textbf{Zweite Extraktion:}
 \begin{align*}
 &... \\
-\frac{2100y}{300} &= 0,9375 - y \\
-2100y &= 281,25~\text{g} - 300y \\
-2400y &= 281,25~\text{g}\\
-y &= 0,117 ~\text{g}
+\uncover<2->{\frac{2100y}{300} &= 0,9375~\text{g} - y \\}
+\uncover<3->{2100y &= 281,25~\text{g} - 300y \\}
+\uncover<4->{2400y &= 281,25~\text{g}\\
+y &= 0,117 ~\text{g}}
 \end{align*}
 
 
@@ -475,10 +484,10 @@ y &= 0,117 ~\text{g}
 \begin{frame}
 
 
-\begin{minipage}{.5\textwidth}
+\begin{minipage}{.4\textwidth}
 
 
-{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe } \par \vspace*{2mm}
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 5} \par \vspace*{2mm}
 Vor Ihnen stehen Gefäße mit jeweils 1 kg wässriger Flüssigkeit.
 \begin{itemize}
 \item In Gefäß A sind 13,125 g Kochsalz gelöst.
@@ -492,26 +501,34 @@ Geben Sie an, um wieviel Grad Celsius die Gefrierpunkte der Flüssigkeiten jewei
 \end{align}
 \end{minipage}%
 \hspace*{4mm}
-\begin{minipage}{.5\textwidth}
+\begin{minipage}{.6\textwidth}
 \antwort{
+\footnotesize
 \textbf{Gefäß A:}
+\uncover<2->{
 \begin{align*}
 \Delta T &= E_n \cdot b \cdot i \\
 		&= 1,86 ~\text{K kg/mol}^{-1} \cdot \frac{\frac{13,125~\text{g}}{58 ~\text{g/mol}}}{~\text{kg}} \cdot 2 \\
 		&= 0,842 ~\text{K}
 \end{align*}
 \ppbig
+}
+
 \textbf{Gefäß B:} \par 
+\uncover<3->{
 Da die Stärke nicht in Lösung geht sondern nur suspendiert ist, bleibt der Gefrierpunkt gleich.
-\ppbig
+\ppbig}
+
 \textbf{Gefäß C:} \par 
+\uncover<4->{
 %Rohrzucker ist ein Synonym für Saccharose (Molgewicht: $\sim$342 g/mol). Das Erdnussöl löst sich nicht in Wasser und trägt demnach nicht zur Gefrierpunktsenkung bei. Das Erdbeermark wird ausschließlich als 18 g Fructose (Molgewicht: $\sim$180 g/mol) berechnet. Bestandteile wie Pektin (Teilweise $10^6$ g/mol !) tragen nicht wesentlich zur Gefrierpunktserniedrigung bei. Ebenso tragen Mikronährstoffe wie Vitamin C, Folat oder Kalium aufgrund ihrer niedrigen Mengen nicht wesentlich zur Gefrierpunktserniedrigung bei. \pp 
-Daraus ergibt sich folgende Gesamtrechnung:
+Es ergibt sich folgende Gesamtrechnung:
 \begin{align*}
 \Delta T &= E_n \cdot b \cdot i \\
 		&= 1,86 ~\text{K kg/mol}^{-1} \cdot \left( \frac{34,2~\text{g}}{342~\text{g/mol}}   + \frac{18 ~\text{g}}{180 ~\text{g/mol}} \right) \cdot ~\text{kg}^{-1} \cdot 1 \\
 		&= 0,372 ~\text{K}
 \end{align*}
+}
 }
 \end{minipage}%
 

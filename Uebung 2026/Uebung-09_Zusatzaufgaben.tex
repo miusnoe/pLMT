@@ -47,6 +47,8 @@
 
 \color{miudiutex}
 
+
+\vspace*{4mm}
 \begin{multicols}{2}
 
 \subsection*{Aufgabe 1}
@@ -119,6 +121,7 @@ Eine wässrige Diethylether-Lösung (Ausgangskonzentration $c_0 = 1\,\text{mol/L
 \end{align*}
 }
 \else
+\vspace*{6mm}
 \fi
 
 
@@ -145,6 +148,7 @@ m_3 &= \frac{500 \cdot 0,13  - 500 \cdot 0}{0,4 - 0} \\
 Demnach müssen 337,5 g Wasser entzogen werden.
 }
 \else
+\columnbreak
 \fi 
 
 \subsection*{Aufgabe 3}
@@ -164,19 +168,42 @@ Temperaturen haltbar?
 \antwort{
 15, 45, 50, 135 Std.
 \begin{align}
-t_2 = t_1 \cdot Q_{10}^{\frac{T_2-T_1}{10}} \\
-t_2 = t_1 \cdot 10^{\frac{T_2-T_1}{z}}
+t_2 = t_1 \cdot Q_{10}^{\frac{T_1-T_2}{10}} \\
+t_2 = t_1 \cdot 10^{\frac{T_1-T_2}{z}}
 \end{align}
 }
+\pagebreak
 \else
+\vspace*{8mm}
 \fi
 
 \subsection*{Aufgabe 4}
-Für eine Lebensmittelanalyse möchten Sie aus einer Kaffeezubereitung das enthaltene Koffein isolieren um es später per HPLC zu quantifizieren. Sie haben eine Probe mit einem Volumen von 200 ml vor sich und fügen dieser 20 ml Lösungsmittel hinzu. Der Nernstsche Verteilungskoeffizient $K$ beträgt 8. \pp
+Für eine Lebensmittelanalyse möchten Sie aus einer Kaffeezubereitung das enthaltene Koffein isolieren um es später per HPLC zu quantifizieren. Sie haben eine Probe mit einem Volumen von 200 ml vor sich und fügen dieser 20 ml Lösungsmittel hinzu. Der Nernstsche Verteilungskoeffizient $K$ beträgt 8. Sie extrahieren mit den 20 ml Lösungsmittel 0,01 g Koffein. \pp
 \begin{itemize}
 \item Wie viel Koffein war in der Probe enthalten? 
-\item Wie viel Koffein haben Sie mit dem Lösungsmittel extrahiert?
+\item Wie viel mol/L Koffein (194 g/mol) sind in der Probe enthalten?
 \end{itemize}
+\ifshowme
+\antwort{
+\begin{align*}
+8 &= \frac{0,01~\text{g/20 ml}}{x ~\text{g/ 200 ml}} \\
+x ~\text{g} &= \frac{0,0005 ~\text{g/ml}}{8} \cdot 200 ~\text{ml} \\
+&= 0,0000625 ~\text{g/ml} \cdot 200~\text{ml} \\
+&= 0,0125 ~\text{g}
+\end{align*}
+Gesamtmenge
+\begin{align*}
+0,0125 ~\text{g} + 0,01 ~\text{g}
+\end{align*}
+Insgesamt waren also 0,0225 g Koffein enthalten.
+\pp
+Mol berechnen:
+\begin{align*}
+\frac{0,0225 ~\text{g} / 200 ~\text{ml}}{194~\text{g/mol}} \cdot 1.000 = 5,8 \cdot 10^{-4} ~\text{mol/L}
+\end{align*}
+}
+\else
+\fi
 
 \end{multicols}
 \end{document}
