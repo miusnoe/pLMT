@@ -1,0 +1,166 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{../misc/basic.tex}
+\input{../misc/colors.tex}
+\input{../misc/SI.tex}
+\input{../misc/plmtuebungpreamble.tex}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+\usepackage{pgfplots}
+    \pgfplotsset{
+        every axis post/.style={
+	yticklabel=\empty,
+	xticklabel=\empty,
+	y label style={at={(axis description cs:-0.2,1.1)}},
+	x label style={at={(axis description cs:1.05,0.2)}},
+	ticks=none,
+	width=6cm,
+	axis lines=middle,
+%	xlabel near ticks,
+        },
+    }
+\usetikzlibrary{positioning, arrows.meta, calc, patterns}
+
+\usepackage{relsize}
+\setlength{\abovedisplayskip}{8pt}
+\setlength{\belowdisplayskip}{8pt}
+\setlength{\abovedisplayshortskip}{8pt}
+\setlength{\belowdisplayshortskip}{8pt}
+
+\begin{document}
+\newgeometry{top=1cm,bottom=3cm,left=4cm,right=4cm}
+
+\AddToHookNext{shipout/background}{
+\begin{tikzpicture}[remember picture, overlay]
+ \draw[draw=none,fill=uniblau!70, shift={(current page.north west)}] (-3,0) rectangle (26,-2.75);
+% \draw[draw=none,fill=miugray, shift={(current page.north east)}] (-1,0) rectangle (3,-3.75);
+\end{tikzpicture}
+}
+\begin{center}
+\LARGE
+\color{white}
+\textbf{Theorie} \par \vspace*{2mm}
+\large \color{miugray} \textbf{Prozessbezogene Lebensmitteltechnologie}
+\end{center}
+\par 
+\vspace*{4mm}
+
+
+\color{miudiutex}
+
+\section*{Sinkgeschwindigkeit nach Stokes}
+\subsection*{Grundlagen}
+Für ein kugelförmiges Teilchen im Fluid gelten folgende geometrische Beziehungen für das Volumen $V_{\text{Kugel}}$ und die Fläche $A$:
+\begin{align*}
+    V_{\text{Kugel}} \qquad &= \frac{4}{3}\pi r^3 \qquad = \frac{1}{6}\pi d^3 \\
+    A \qquad &= \pi r^2 \qquad ~~  = \frac{1}{4}\pi d^2
+\end{align*}
+
+\subsection*{Wirksame Kräfte}
+
+    \textbf{Gewichtskraft ($F_G$):} Über die Masse des Teilchens $m_T$ und dessen Dichte $\rho_T$:
+    \begin{equation}
+        F_G = m_T \cdot g = \frac{\pi}{6} \cdot d^3 \cdot \rho_T \cdot g
+    \end{equation}
+    \textbf{Auftriebskraft ($F_A$):} Entspricht der Gewichtskraft des verdrängten Fluidvolumens (Fluiddichte $\rho_F$):
+    \begin{equation}
+        F_A = m_F \cdot g = \frac{\pi}{6} \cdot d^3 \cdot \rho_F \cdot g
+    \end{equation}
+   \textbf{Widerstandskraft ($F_W$):} Abhängig vom Strömungswiderstandsbeiwert $c_W$ und der Sinkgeschwindigkeit $v$:
+    \begin{equation}
+        F_W = c_W \cdot \frac{\rho_F}{2} \cdot v^2 \cdot A = c_W \cdot \frac{\rho_F}{2} \cdot v^2 \cdot \frac{\pi}{4} d^2
+    \end{equation}
+\textbf{Trägheitskraft ($F_P$):} Beschleunigungskraft inklusive der hydrodynamisch ''mitbewegten'' Fluidmasse:
+    \begin{equation}
+        F_P = \left(m_T + \frac{m_F}{2}\right) \cdot \frac{dv}{dt} = \frac{\pi}{6} \cdot d^3 \cdot \left(\rho_T + \frac{\rho_F}{2}\right) \cdot \frac{dv}{dt}
+    \end{equation}
+
+\pagebreak
+\newgeometry{top=3cm,bottom=3cm,left=4cm,right=4cm}
+
+
+\subsection*{Welche Kräfte wirken auf das Teilchen ein?}
+Im stationären Zustand (konstante Sinkgeschwindigkeit, $F_P = 0$) hält die Gewichtskraft den entgegengesetzten Kräften (Auftrieb und Widerstand) das Gleichgewicht:
+\begin{equation}
+    F_G = F_A + F_W
+\end{equation}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.6, >=stealth]
+    % Wellenlinien links und rechts (Fluid-Andeutung)
+%    \draw[domain=-1:1, smooth, variable=\y, shift={(-1.2,0)}] plot ({0.1*sin(\y*400)}, \y);
+%    \draw[domain=-1:1, smooth, variable=\y, shift={(1.2,0)}] plot ({0.1*sin(\y*400)}, \y);
+    \draw[fill=uniblau!10,draw=miugray!30] (-3,1.65) rectangle (3,-1.65);
+    % Kugel
+    \draw[fill=miugray!80, draw=black, thick] (0,0) circle (0.5cm);
+    \node[scale=0.5] at (0.1,-0.25) {$m_T, \rho_T$};
+    
+    % Kraftpfeile nach oben
+    \draw[->, thick] (0, 0.5) -- (0, 1.1) node[above] {$F_W$};
+    \draw[->, thick] (0.3, 0.4) -- (0.3, 0.8) node[above] {$F_A$};
+    \draw[->, thick] (-0.3, 0.4) -- (-0.3, 0.8) node[above] {$F_P$};
+    
+    % Kraftpfeil nach unten
+    \draw[->, thick] (0, -0.5) -- (0, -1.1) node[below] {$F_G$};
+    
+    % Sinkgeschwindigkeit Pfeil
+    \draw[->, dashed, black, thick] (0.3, -0.4) -- (0.3, -0.8) node[right] {$v_{\text{sinkgeschw.}}$};
+    
+	%Durchmesser Kugel Pfeil
+	 \draw[<->, dotted, black, thick,rotate=35]   (-0.5,0) -- (0.5,0) node[midway,yshift=2.5mm,xshift=-1mm,scale=0.8]{$d$};
+    
+    % Fluid Parameter
+    \node[left] at (-1.5, -1) {$\eta_F, \rho_F$};
+\end{tikzpicture}
+\caption{Schematische Darstellung eines kugelförmigen Teilchen in einem Fluid. \textit{Hinweis:} Bei kleinen Teilchen mit einem Durchmesser $d < 1\,\text{mm}$ kann die Trägheitskraft $F_P$ für den stationären Zustand vernachlässigt werden ($d v/dt \approx 0$).}
+\end{figure}
+
+
+
+%\section{Herleitung Sinkgeschwindigkeit}
+
+
+\subsection*{Wie groß ist also die Sinkgeschwindigkeit $v$?}
+Durch Einsetzen der Definitionen aus Sektion 1 in das Kräftegleichgewicht erhalten wir:
+\begin{align*}
+    F_G - F_A &= F_W \\
+    \frac{\pi}{6} d^3 \rho_T g - \frac{\pi}{6} d^3 \rho_F g &= c_W \cdot \frac{\rho_F}{2} \cdot v^2 \cdot \frac{\pi}{4} d^2 \\
+    \frac{\pi}{6} d^3 g (\rho_T - \rho_F) &= c_W \cdot \frac{\pi}{8} \rho_F d^2 v^2
+\end{align*}
+Kürzen von $\pi$ und $d^2$ sowie Multiplikation mit 8 isoliert $v^2$:
+\begin{align*}
+    \frac{8}{6} d g (\rho_T - \rho_F) &= c_W \rho_F v^2 \\
+    v^2 &= \frac{4 d g (\rho_T - \rho_F)}{3 \cdot c_W \cdot \rho_F}
+\end{align*}
+Daraus folgt die allgemeine Formel für die Sinkgeschwindigkeit:
+\antwort{
+\begin{equation}
+    v = \sqrt{\frac{4 \cdot d \cdot g \cdot (\rho_T - \rho_F)}{3 \cdot c_W \cdot \rho_F}}
+\end{equation}
+}
+\pagebreak
+\subsection*{Abhängigkeit des Widerstandsbeiwerts $c_W$ \& Laminarer Fall}
+Der Widerstandsbeiwert $c_W$ ist eine Funktion der Reynolds-Zahl ($\text{Re}$), welche das Verhältnis von Trägheits- zu Zähigkeitskräften beschreibt. Er hängt von der Körperform, -lage, Dichte, der dynamischen Viskosität $\eta_F$ und der Strömungsgeschwindigkeit ab:
+\begin{align*}
+    c_W &= \frac{24}{\text{Re}} \quad &&\text{für } \text{Re} < 0{,}5 \quad \text{(laminare Strömung / Stokes-Bereich)} \\
+    c_W &= \frac{18{,}5}{\text{Re}^{0{,}6}} \quad &&\text{für } 0{,}5 < \text{Re} < 500 \\
+    c_W &= 0{,}44 \quad &&\text{für } \text{Re} > 500 \quad \text{(turbulente Strömung / Newton-Bereich)}
+\end{align*}
+
+Die Reynolds-Zahl ist definiert als:
+\begin{equation}
+    \text{Re} = \frac{\rho_F \cdot d \cdot v}{\eta_F}
+\end{equation}
+
+\subsubsection*{Frage: Wenn die Strömung laminar ist, wie verändert sich $v$?}
+Für den laminaren Fall ($\text{Re} < 0{,}5$) setzen wir $c_W = \frac{24}{\text{Re}}$ in das Ergebnis aus Teil (b) ein:
+\begin{equation*}
+    v^2 = \frac{4 d g (\rho_T - \rho_F)}{3 \cdot \left(\dfrac{24 \cdot \eta_F}{\rho_F \cdot d \cdot v}\right) \cdot \rho_F} = \frac{4 d^2 g v (\rho_T - \rho_F)}{72 \cdot \eta_F}
+\end{equation*}
+Durch Teilen beider Seiten durch $v$ und Kürzen des Bruchs ($\frac{4}{72} = \frac{1}{18}$) ergibt sich das finale \textbf{Gesetz von Stokes}:
+\antwort{
+\begin{equation}
+    v = \frac{d^2 \cdot g \cdot (\rho_T - \rho_F)}{18 \eta_F}
+\end{equation}
+}
+\end{document}

@@ -1,0 +1,133 @@
+\documentclass[a4paper,11pt]{article}
+\input{../misc/basic.tex}
+\input{../misc/colors.tex}
+\input{../misc/SI.tex}
+\input{../misc/plmtuebungpreamble.tex}
+\usepackage[table]{xcolor}
+
+\usepackage{siunitx}
+\sisetup{
+    locale = DE,
+    per-mode = fraction,
+    inter-unit-product = \cdot,
+    separate-uncertainty = true
+}
+
+\usepackage{pgfplots}
+    \pgfplotsset{
+        every axis post/.style={
+	yticklabel=\empty,
+	xticklabel=\empty,
+	y label style={at={(axis description cs:-0.2,1.1)}},
+	x label style={at={(axis description cs:1.05,0.2)}},
+	ticks=none,
+	width=6cm,
+	axis lines=middle,
+%	xlabel near ticks,
+        },
+    }
+\usetikzlibrary{positioning, arrows.meta, calc}
+\usepackage{microtype}
+\usepackage{relsize}
+\usepackage{cancel}
+
+\setlength{\abovedisplayskip}{8pt}
+\setlength{\belowdisplayskip}{8pt}
+\setlength{\abovedisplayshortskip}{8pt}
+\setlength{\belowdisplayshortskip}{8pt}
+
+\newif\ifshowme
+%\showmetrue
+
+
+
+\begin{document}
+
+%\newgeometry{top=3cm,bottom=3cm,left=4.5cm,right=4.5cm}
+\newgeometry{top=2cm,bottom=2cm,left=4cm,right=4cm}
+
+
+\begin{center}
+\LARGE
+\color{uniblau}
+\textbf{Übung 10} \par \vspace*{2mm}
+\large \color{miugray!50!black} \textbf{Prozessbezogene Lebensmitteltechnologie}\par 
+\normalsize Zusatzaufgaben
+\end{center}
+\par 
+%\vspace*{6mm}
+
+
+\color{miudiutex}
+
+
+\subsection*{Aufgabe 1}
+
+In einer Zentrifuge sollen die Fetttröpfchen vom Rest der Milch getrennt werden. Diese sind im Durchmesser $d = \qty{4}{\micro\metre}$ groß und weisen eine Dichtedifferenz von $\Delta\rho = \qty{99,8}{\kilo\gram\per\metre\cubed}$ auf. 
+
+Die Zentrifuge hat eine Drehzahl von $n_1 = \qty{5000}{\per\minute}$ und die Trennung erfolgt bei einer wirkenden Zentrifugalkraft auf ein Tröpfchen von $F_{\text{Z}} = \qty{1,8336e-10}{\newton}$.
+
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item Welchen Radius $r_1$ hat die Zentrifuge?
+    \item Nun soll eine Zentrifuge genutzt werden, die im Radius um $\qty{5}{\centi\metre}$ größer ist, aber die gleiche Zentrifugalkraft nutzt. Welche Drehzahl $n_2$ muss diese Zentrifuge dafür aufweisen?
+\end{enumerate}
+
+\vspace{1cm}
+
+
+\antwort{
+\textbf{Gegebene Werte}
+\begin{align*}
+    d &= \qty{4}{\micro\metre} = \qty{4e-6}{\metre} \\
+    \Delta\rho &= \qty{99,8}{\kilo\gram\per\metre\cubed} \\
+    n_1 &= \qty{5000}{\per\minute} = \frac{5000}{\qty{60}{\second}} \approx \qty{83,33}{\radian\per\second} \\
+    F_{\text{Z}} &= \qty{1,8336e-10}{\newton}
+\end{align*}
+\pp
+
+\textbf{Berechnung des Zentrifugenradius $r_1$}
+\pp
+Masse eines Fetttröpfchens $m$:\\
+Die Tröpfchen werden als ideal kugelförmig angenommen. Das Volumen $V$ und die Masse $m$ (über die Dichtedifferenz $\Delta\rho$) berechnen sich zu:
+\begin{equation*}
+    V = \frac{\pi}{6} d^3 = \frac{\pi}{6} \cdot (\qty{4e-6}{\metre})^3 \approx \qty{3,351e-17}{\metre\cubed}
+\end{equation*}
+\begin{equation*}
+    m = \Delta\rho \cdot V = \qty{99,8}{\kilo\gram\per\metre\cubed} \cdot \qty{3,351e-17}{\metre\cubed} \approx \qty{3,344e-15}{\kilo\gram}
+\end{equation*}
+\ppbig
+Winkelgeschwindigkeit $\omega_1$:\\
+\begin{equation*}
+    \omega_1 = 2\pi \cdot n_1 = 2\pi \cdot \qty{83,33}{\radian\per\second} \approx \qty{523,60}{\radian\per\second}
+\end{equation*}
+
+Radius $r_1$:\\
+Aus der Formel für die Zentrifugalkraft $F_{\text{Z}} = m \cdot r \cdot \omega^2$ folgt durch Umstellen nach dem Radius:
+\begin{equation*}
+    r_1 = \frac{F_{\text{Z}}}{m \cdot \omega_1^2} = \frac{\qty{1,8336e-10}{\newton}}{\qty{3,344e-15}{\kilo\gram} \cdot (\qty{523,60}{\per\second})^2} \approx \qty{0,2000}{\metre} = \qty{20}{\centi\metre}
+\end{equation*}
+\textbf{Antwort:} Die Zentrifuge hat einen Radius von ca. $\qty{20}{\centi\metre}$.
+
+\vspace{0.5cm}
+
+\textbf{Berechnung der neuen Drehzahl $n_2$}
+
+Der neue Radius beträgt $r_2 = r_1 + \qty{5}{\centi\metre} = \qty{25}{\centi\metre} = \qty{0,25}{\metre}$. Da die Zentrifugalkraft $F_{\text{Z}}$ und die Tröpfchenmasse $m$ konstant bleiben, gilt die Proportionalität:
+\begin{align*}
+    F_{\text{Z}} &= m \cdot r_1 \cdot \omega_1^2 = m \cdot r_2 \cdot \omega_2^2 \\[0.5em]
+    \Rightarrow \quad r_1 \cdot \omega_1^2 &= r_2 \cdot \omega_2^2
+\end{align*}
+
+Umstellen nach der neuen Winkelgeschwindigkeit $\omega_2$:
+\begin{equation*}
+    \omega_2 = \omega_1 \cdot \sqrt{\frac{r_1}{r_2}} = \qty{523,60}{\per\second} \cdot \sqrt{\frac{\qty{0,20}{\metre}}{\qty{0,25}{\metre}}} \approx \qty{468,33}{\per\second}
+\end{equation*}
+
+Rückrechnung in die Drehzahl $n_2$:
+\begin{equation*}
+    n_2 = \frac{\omega_2}{2\pi} = \frac{\qty{468,33}{\per\second}}{2\pi} \approx \qty{74,54}{\per\second} \approx \qty{4472}{\per\minute}
+\end{equation*}
+\textbf{Antwort:} Die größere Zentrifuge muss mit einer Drehzahl von ca. $\qty{4472}{\per\minute}$ betrieben werden.
+}
+
+\end{document}
