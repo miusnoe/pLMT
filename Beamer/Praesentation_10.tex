@@ -458,7 +458,7 @@ Die Apfelringe würden verbrennen. Daher können wir über dieses Verfahren das 
 
 
 \begin{frame}
-\begin{minipage}{.5\textwidth}
+\begin{minipage}{.4\textwidth}
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[scale=1.6, >=stealth]
@@ -471,12 +471,12 @@ Die Apfelringe würden verbrennen. Daher können wir über dieses Verfahren das 
     \node[scale=0.5] at (0.1,-0.25) {$m_T, \rho_T$};
     
     % Kraftpfeile nach oben
-    \draw[->, thick] (0, 0.5) -- (0, 1.1) node[above] {$F_W$};
-    \draw[->, thick] (0.3, 0.4) -- (0.3, 0.8) node[above] {$F_A$};
-    \draw[->, thick] (-0.3, 0.4) -- (-0.3, 0.8) node[above] {$F_P$};
+   \uncover<4->{ \draw[->, thick] (0, 0.5) -- (0, 1.1) node[above] {$F_W$};}
+   \uncover<3->{\draw[->, thick] (0.3, 0.4) -- (0.3, 0.8) node[above] {$F_A$};}
+   \uncover<5->{\draw[->, thick] (-0.3, 0.4) -- (-0.3, 0.8) node[above] {$F_P$};}
     
     % Kraftpfeil nach unten
-    \draw[->, thick] (0, -0.5) -- (0, -1.1) node[below] {$F_G$};
+    \uncover<2->{\draw[->, thick] (0, -0.5) -- (0, -1.1) node[below] {$F_G$};}
     
     % Sinkgeschwindigkeit Pfeil
     \draw[->, dashed, black, thick] (0.3, -0.4) -- (0.3, -0.8) node[right] {$v_{\text{sinkgeschw.}}$};
@@ -491,25 +491,27 @@ Die Apfelringe würden verbrennen. Daher können wir über dieses Verfahren das 
 \end{figure}
 \end{minipage}%
 \hspace*{4mm}
-\begin{minipage}{.5\textwidth}
+\begin{minipage}{.6\textwidth}
 \antwort{
-    \textbf{Gewichtskraft ($F_G$):}
-    \begin{equation}
-        F_G = m_T \cdot g = \frac{\pi}{6} \cdot d^3 \cdot \rho_T \cdot g
-    \end{equation}
-    \textbf{Auftriebskraft ($F_A$):}
-    \begin{equation}
-        F_A = m_F \cdot g = \frac{\pi}{6} \cdot d^3 \cdot \rho_F \cdot g
-    \end{equation}
-   \textbf{Widerstandskraft ($F_W$):} 
-       \begin{equation*}
-        F_W = c_W \cdot \frac{\rho_F}{2} \cdot v^2 \cdot A = c_W \cdot \frac{\rho_F}{2} \cdot v^2 \cdot \frac{\pi}{4} d^2
-    \end{equation*}
-\textbf{Trägheitskraft ($F_P$):}
-
+    \uncover<2->{Gewichtskraft $F_G$:
     \begin{equation*}
-        F_P = \left(m_T + \frac{m_F}{2}\right) \cdot \frac{dv}{dt} = \frac{\pi}{6} \cdot d^3 \cdot \left(\rho_T + \frac{\rho_F}{2}\right) \cdot \frac{dv}{dt}
-    \end{equation*}
+       F_G = m_T \cdot g \qquad  {\color{miugray2}= \frac{\pi}{6} \cdot d^3 \cdot \rho_T \cdot g}
+    \end{equation*}}
+    \par \vspace*{3mm}
+    \uncover<3->{Auftriebskraft $F_A$:
+    \begin{equation*}
+        F_A = m_F \cdot g \qquad  {\color{miugray2}= \frac{\pi}{6} \cdot d^3 \cdot \rho_F \cdot g}
+    \end{equation*}}
+    \par \vspace*{3mm}
+   \uncover<4->{Widerstandskraft $F_W$:
+       \begin{equation*}
+        F_W = c_W \cdot \frac{\rho_F}{2} \cdot v^2 \cdot A \qquad  {\color{miugray2}= c_W \cdot \frac{\rho_F}{2} \cdot v^2 \cdot \frac{\pi}{4} d^2}
+    \end{equation*}}
+    \par \vspace*{3mm}
+	\uncover<5->{Trägheitskraft $F_P$:
+    \begin{equation*}
+        F_P = \left(m_T + \frac{m_F}{2}\right) \cdot \frac{dv}{dt} \qquad  {\color{miugray2}= \frac{\pi}{6} \cdot d^3 \cdot \left(\rho_T + \frac{\rho_F}{2}\right) \cdot \frac{dv}{dt}}
+    \end{equation*}}
 }
 \end{minipage}%
 \end{frame}
