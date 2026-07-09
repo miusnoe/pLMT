@@ -58,19 +58,19 @@ Für ein kugelförmiges Teilchen im Fluid gelten folgende geometrische Beziehung
 
 \subsection*{Wirksame Kräfte}
 
-    \textbf{Gewichtskraft ($F_G$):} Über die Masse des Teilchens $m_T$ und dessen Dichte $\rho_T$:
+    \textbf{Gewichtskraft $F_G$:} Über die Masse des Teilchens $m_T$ und dessen Dichte $\rho_T$:
     \begin{equation}
         F_G = m_T \cdot g = \frac{\pi}{6} \cdot d^3 \cdot \rho_T \cdot g
     \end{equation}
-    \textbf{Auftriebskraft ($F_A$):} Entspricht der Gewichtskraft des verdrängten Fluidvolumens (Fluiddichte $\rho_F$):
+    \textbf{Auftriebskraft $F_A$:} Entspricht der Gewichtskraft des verdrängten Fluidvolumens (Fluiddichte $\rho_F$):
     \begin{equation}
         F_A = m_F \cdot g = \frac{\pi}{6} \cdot d^3 \cdot \rho_F \cdot g
     \end{equation}
-   \textbf{Widerstandskraft ($F_W$):} Abhängig vom Strömungswiderstandsbeiwert $c_W$ und der Sinkgeschwindigkeit $v$:
+   \textbf{Widerstandskraft $F_W$:} Abhängig vom Strömungswiderstandsbeiwert $c_W$ und der Sinkgeschwindigkeit $v$:
     \begin{equation}
         F_W = c_W \cdot \frac{\rho_F}{2} \cdot v^2 \cdot A = c_W \cdot \frac{\rho_F}{2} \cdot v^2 \cdot \frac{\pi}{4} d^2
     \end{equation}
-\textbf{Trägheitskraft ($F_P$):} Beschleunigungskraft inklusive der hydrodynamisch ''mitbewegten'' Fluidmasse:
+\textbf{Trägheitskraft $F_P$:} Beschleunigungskraft inklusive der hydrodynamisch ''mitbewegten'' Fluidmasse:
     \begin{equation}
         F_P = \left(m_T + \frac{m_F}{2}\right) \cdot \frac{dv}{dt} = \frac{\pi}{6} \cdot d^3 \cdot \left(\rho_T + \frac{\rho_F}{2}\right) \cdot \frac{dv}{dt}
     \end{equation}
@@ -121,7 +121,7 @@ Im stationären Zustand (konstante Sinkgeschwindigkeit, $F_P = 0$) hält die Gew
 
 
 \subsection*{Wie groß ist also die Sinkgeschwindigkeit $v$?}
-Durch Einsetzen der Definitionen aus Sektion 1 in das Kräftegleichgewicht erhalten wir:
+Durch Einsetzen der Definitionen in das Kräftegleichgewicht erhalten wir:
 \begin{align*}
     F_G - F_A &= F_W \\
     \frac{\pi}{6} d^3 \rho_T g - \frac{\pi}{6} d^3 \rho_F g &= c_W \cdot \frac{\rho_F}{2} \cdot v^2 \cdot \frac{\pi}{4} d^2 \\
@@ -142,11 +142,11 @@ Daraus folgt die allgemeine Formel für die Sinkgeschwindigkeit:
 \subsection*{Abhängigkeit des Widerstandsbeiwerts $c_W$ \& Laminarer Fall}
 Der Widerstandsbeiwert $c_W$ ist eine Funktion der Reynolds-Zahl ($\text{Re}$), welche das Verhältnis von Trägheits- zu Zähigkeitskräften beschreibt. Er hängt von der Körperform, -lage, Dichte, der dynamischen Viskosität $\eta_F$ und der Strömungsgeschwindigkeit ab:
 \begin{align*}
-    c_W &= \frac{24}{\text{Re}} \quad &&\text{für } \text{Re} < 0{,}5 \quad \text{(laminare Strömung / Stokes-Bereich)} \\
+    c_W &= \frac{24}{\text{Re}} \quad &&\text{für } \text{Re} < 0{,}5 \quad \text{(laminare Strömung)} \\
     c_W &= \frac{18{,}5}{\text{Re}^{0{,}6}} \quad &&\text{für } 0{,}5 < \text{Re} < 500 \\
-    c_W &= 0{,}44 \quad &&\text{für } \text{Re} > 500 \quad \text{(turbulente Strömung / Newton-Bereich)}
+    c_W &= 0{,}44 \quad &&\text{für } \text{Re} > 500 \quad \text{(turbulente Strömung)}
 \end{align*}
-
+\ppbig
 Die Reynolds-Zahl ist definiert als:
 \begin{equation}
     \text{Re} = \frac{\rho_F \cdot d \cdot v}{\eta_F}
@@ -154,9 +154,11 @@ Die Reynolds-Zahl ist definiert als:
 
 \subsubsection*{Frage: Wenn die Strömung laminar ist, wie verändert sich $v$?}
 Für den laminaren Fall ($\text{Re} < 0{,}5$) setzen wir $c_W = \frac{24}{\text{Re}}$ in das Ergebnis aus Teil (b) ein:
-\begin{equation*}
-    v^2 = \frac{4 d g (\rho_T - \rho_F)}{3 \cdot \left(\dfrac{24 \cdot \eta_F}{\rho_F \cdot d \cdot v}\right) \cdot \rho_F} = \frac{4 d^2 g v (\rho_T - \rho_F)}{72 \cdot \eta_F}
-\end{equation*}
+\begin{align*}
+    v^2 &= \frac{4 d g (\rho_T - \rho_F)}{3 \cdot \left(\dfrac{24 \cdot \eta_F}{\rho_F \cdot d \cdot v}\right) \cdot \rho_F} \\
+    &= \frac{4 d^2 g v (\rho_T - \rho_F)}{72 \cdot \eta_F}
+\end{align*}
+\ppbig
 Durch Teilen beider Seiten durch $v$ und Kürzen des Bruchs ($\frac{4}{72} = \frac{1}{18}$) ergibt sich das finale \textbf{Gesetz von Stokes}:
 \antwort{
 \begin{equation}

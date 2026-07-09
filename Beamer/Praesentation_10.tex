@@ -222,10 +222,10 @@ welcher Zeit schaffen es die größten Fettkügelchen (d = 5 µm) an die Oberfl�
 \uncover<4->{s &= 4,86 \cdot 10^{-7} ~\text{m/s} \cdot 7500 \cdot 60s \\}
 \uncover<5->{ &= 0,2187 ~\text{m} \\}
 \end{align*}
-Geschwindigkeit größerer Fettkügelchen berechnen: 
+\uncover<6->{Geschwindigkeit größerer Fettkügelchen berechnen: }
 \begin{align*}
-\uncover<6->{v &= \frac{d^2 \cdot g \cdot (\rho_1 - \rho_2)}{18 \cdot \eta} \\}
-\uncover<7->{v &= \frac{(5 \cdot 10^{-6} ~\text{m})^2 \cdot 9,81 ~\text{m/s}^2 \cdot 99,8 ~\text{kg/m}^3}{18 \cdot 1,79 \cdot 10^{-3} ~\text{Pa s}} \\}
+\uncover<7->{v &= \frac{d^2 \cdot g \cdot (\rho_1 - \rho_2)}{18 \cdot \eta} \\}
+\uncover<8->{v &= \frac{(5 \cdot 10^{-6} ~\text{m})^2 \cdot 9,81 ~\text{m/s}^2 \cdot 99,8 ~\text{kg/m}^3}{18 \cdot 1,79 \cdot 10^{-3} ~\text{Pa s}} \\}
 \uncover<8->{&= 7,59 \cdot 10^{-7} ~\text{m/s}}
 \end{align*}
 \uncover<9->{
@@ -515,6 +515,216 @@ Die Apfelringe würden verbrennen. Daher können wir über dieses Verfahren das 
 }
 \end{minipage}%
 \end{frame}
+
+
+
+
+
+
+\begin{frame}
+\begin{minipage}{.4\textwidth}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.6, >=stealth]
+    % Wellenlinien links und rechts (Fluid-Andeutung)
+%    \draw[domain=-1:1, smooth, variable=\y, shift={(-1.2,0)}] plot ({0.1*sin(\y*400)}, \y);
+%    \draw[domain=-1:1, smooth, variable=\y, shift={(1.2,0)}] plot ({0.1*sin(\y*400)}, \y);
+    \draw[fill=uniblau!10,draw=miugray!30] (-1.5,1.65) rectangle (1.5,-1.65);
+    % Kugel
+    \draw[fill=miugray!80, draw=black, thick] (0,0) circle (0.5cm);
+    \node[scale=0.5] at (0.1,-0.25) {$m_T, \rho_T$};
+    
+    % Kraftpfeile nach oben
+   \draw[->, thick] (0, 0.5) -- (0, 1.1) node[above] {$F_W$};
+   \draw[->, thick] (0.3, 0.4) -- (0.3, 0.8) node[above] {$F_A$};
+   \draw[->, thick] (-0.3, 0.4) -- (-0.3, 0.8) node[above] {$F_P$};
+    
+    % Kraftpfeil nach unten
+   \draw[->, thick] (0, -0.5) -- (0, -1.1) node[below] {$F_G$};
+    
+    % Sinkgeschwindigkeit Pfeil
+    \draw[->, dashed, black, thick] (0.3, -0.4) -- (0.3, -0.8) node[right] {$v_{\text{sinkgeschw.}}$};
+    
+	%Durchmesser Kugel Pfeil
+	 \draw[<->, dotted, black, thick,rotate=35]   (-0.5,0) -- (0.5,0) node[midway,yshift=2.5mm,xshift=-1mm,scale=0.8]{$d$};
+    
+    % Fluid Parameter
+    \node[right] at (-1.3, -1) {$\eta_F, \rho_F$};
+\end{tikzpicture}
+%\caption{Schematische Darstellung eines kugelförmigen Teilchen in einem Fluid. \textit{Hinweis:} Bei kleinen Teilchen mit einem Durchmesser $d < 1\,\text{mm}$ kann die Trägheitskraft $F_P$ für den stationären Zustand vernachlässigt werden ($d v/dt \approx 0$).}
+\end{figure}
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.6\textwidth}
+\antwort{
+
+
+\begin{align*}
+\uncover<2->{    F_G \qquad &- \qquad  F_A &&= F_W \\}
+\uncover<3->{     \frac{\pi}{6} d^3 \rho_T g \qquad  &- \qquad  \frac{\pi}{6} d^3 \rho_F g &&= c_W \cdot \frac{\rho_F}{2} \cdot v^2 \cdot \frac{\pi}{4} d^2 \\}
+\uncover<4->{     \frac{\pi}{6} d^3 g &(\rho_T - \rho_F) &&= c_W \cdot \frac{\pi}{8} \rho_F d^2 v^2}
+\end{align*}
+\ppbig
+\uncover<5->{ Kürzen von $\pi$ und $d^2$ sowie Multiplikation mit 8}
+\begin{align*}
+ \uncover<6->{    \frac{8}{6} d g (\rho_T - \rho_F) &= c_W \rho_F v^2 \\
+    v^2 &= \frac{4 d g (\rho_T - \rho_F)}{3 \cdot c_W \cdot \rho_F}}
+\end{align*}
+\ppbig
+\uncover<7->{ Daraus folgt die allgemeine Formel für die Sinkgeschwindigkeit:}
+\uncover<8->{ 
+\begin{equation}
+    v = \sqrt{\frac{4 \cdot d \cdot g \cdot (\rho_T - \rho_F)}{3 \cdot c_W \cdot \rho_F}}
+\end{equation}
+}
+}
+\end{minipage}%
+\end{frame}
+
+
+
+
+\begin{frame}
+\begin{minipage}{.4\textwidth}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.8, >=stealth]
+    % Wellenlinien links und rechts (Fluid-Andeutung)
+%    \draw[domain=-1:1, smooth, variable=\y, shift={(-1.2,0)}] plot ({0.1*sin(\y*400)}, \y);
+%    \draw[domain=-1:1, smooth, variable=\y, shift={(1.2,0)}] plot ({0.1*sin(\y*400)}, \y);
+    \draw[fill=uniblau!10,draw=miugray!30] (-1.5,1.65) rectangle (1.5,-1.65);
+    % Kugel
+    \draw[fill=miugray!80, draw=black, thick] (0,0) circle (0.5cm);
+    \node[scale=0.5] at (0.1,-0.25) {$m_T, \rho_T$};
+    
+    % Kraftpfeile nach oben
+   \draw[->, thick] (0, 0.5) -- (0, 1.1) node[above] {$F_W$};
+   \draw[->, thick] (0.3, 0.4) -- (0.3, 0.8) node[above] {$F_A$};
+   \draw[->, thick] (-0.3, 0.4) -- (-0.3, 0.8) node[above] {$F_P$};
+    
+    % Kraftpfeil nach unten
+   \draw[->, thick] (0, -0.5) -- (0, -1.1) node[below] {$F_G$};
+    
+    % Sinkgeschwindigkeit Pfeil
+    \draw[->, dashed, black, thick] (0.3, -0.4) -- (0.3, -0.8) node[right] {$v_{\text{sinkgeschw.}}$};
+    
+	%Durchmesser Kugel Pfeil
+	 \draw[<->, dotted, black, thick,rotate=35]   (-0.5,0) -- (0.5,0) node[midway,yshift=2.5mm,xshift=-1mm,scale=0.8]{$d$};
+    
+    % Fluid Parameter
+    \node[right] at (-1.3, -1) {$\eta_F, \rho_F$};
+\end{tikzpicture}
+%\caption{Schematische Darstellung eines kugelförmigen Teilchen in einem Fluid. \textit{Hinweis:} Bei kleinen Teilchen mit einem Durchmesser $d < 1\,\text{mm}$ kann die Trägheitskraft $F_P$ für den stationären Zustand vernachlässigt werden ($d v/dt \approx 0$).}
+\end{figure}
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.6\textwidth}
+\antwort{
+
+Der Widerstandsbeiwert $c_W$ ist eine Funktion der Reynolds-Zahl ($\text{Re}$), welche das Verhältnis von Trägheits- zu Zähigkeitskräften beschreibt. Er hängt von der Körperform, -lage, Dichte, der dynamischen Viskosität $\eta_F$ und der Strömungsgeschwindigkeit ab:
+\begin{align*}
+    c_W &= \frac{24}{\text{Re}} \quad &&\text{für } \text{Re} < 0{,}5 \quad \text{(laminare Strömung)} \\
+    c_W &= \frac{18{,}5}{\text{Re}^{0{,}6}} \quad &&\text{für } 0{,}5 < \text{Re} < 500 \\
+    c_W &= 0{,}44 \quad &&\text{für } \text{Re} > 500 \quad \text{(turbulente Strömung)}
+\end{align*}
+
+\pp
+$c_W$ ist quasi eine Art Rohrreibungszahl nur halt eben für Kugeln und nicht für Fluide :)
+
+}
+\end{minipage}%
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+\begin{frame}
+\begin{minipage}{.4\textwidth}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.8, >=stealth]
+    % Wellenlinien links und rechts (Fluid-Andeutung)
+%    \draw[domain=-1:1, smooth, variable=\y, shift={(-1.2,0)}] plot ({0.1*sin(\y*400)}, \y);
+%    \draw[domain=-1:1, smooth, variable=\y, shift={(1.2,0)}] plot ({0.1*sin(\y*400)}, \y);
+    \draw[fill=uniblau!10,draw=miugray!30] (-1.5,1.65) rectangle (1.5,-1.65);
+    % Kugel
+    \draw[fill=miugray!80, draw=black, thick] (0,0) circle (0.5cm);
+    \node[scale=0.5] at (0.1,-0.25) {$m_T, \rho_T$};
+    
+    % Kraftpfeile nach oben
+   \draw[->, thick] (0, 0.5) -- (0, 1.1) node[above] {$F_W$};
+   \draw[->, thick] (0.3, 0.4) -- (0.3, 0.8) node[above] {$F_A$};
+   \draw[->, thick] (-0.3, 0.4) -- (-0.3, 0.8) node[above] {$F_P$};
+    
+    % Kraftpfeil nach unten
+   \draw[->, thick] (0, -0.5) -- (0, -1.1) node[below] {$F_G$};
+    
+    % Sinkgeschwindigkeit Pfeil
+    \draw[->, dashed, black, thick] (0.3, -0.4) -- (0.3, -0.8) node[right] {$v_{\text{sinkgeschw.}}$};
+    
+	%Durchmesser Kugel Pfeil
+	 \draw[<->, dotted, black, thick,rotate=35]   (-0.5,0) -- (0.5,0) node[midway,yshift=2.5mm,xshift=-1mm,scale=0.8]{$d$};
+    
+    % Fluid Parameter
+    \node[right] at (-1.3, -1) {$\eta_F, \rho_F$};
+\end{tikzpicture}
+%\caption{Schematische Darstellung eines kugelförmigen Teilchen in einem Fluid. \textit{Hinweis:} Bei kleinen Teilchen mit einem Durchmesser $d < 1\,\text{mm}$ kann die Trägheitskraft $F_P$ für den stationären Zustand vernachlässigt werden ($d v/dt \approx 0$).}
+\end{figure}
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.6\textwidth}
+\antwort{
+\uncover<2->{
+Die Reynolds-Zahl ist definiert als:
+\begin{equation}
+    \text{Re} = \frac{\rho_F \cdot d \cdot v}{\eta_F}
+\end{equation}
+}
+
+\uncover<3->{
+Für den laminaren Fall ($\text{Re} < 0{,}5$) setzen wir $c_W = \frac{24}{\text{Re}}$ in das Ergebnis aus Teil (b) ein:}
+
+\begin{equation*}
+\uncover<4->{    v^2 = \frac{4 d g (\rho_T - \rho_F)}{3 \cdot \left(\dfrac{24 \cdot \eta_F}{\rho_F \cdot d \cdot v}\right) \cdot \rho_F}}
+\uncover<5->{ = \frac{4 d^2 g v (\rho_T - \rho_F)}{72 \cdot \eta_F}}
+\end{equation*}
+
+\pp
+\uncover<6->{
+Durch Teilen beider Seiten durch $v$ und Kürzen des Bruchs ($\frac{4}{72} = \frac{1}{18}$) ergibt sich das finale \textbf{Gesetz von Stokes}:
+\begin{equation}
+    v = \frac{d^2 \cdot g \cdot (\rho_T - \rho_F)}{18 \eta_F}
+\end{equation}
+}
+}
+\end{minipage}%
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+
+\begin{center}
+\LARGE
+Vielen Dank fürs Zuhören!
+\end{center}
+
+\end{frame}
+
+
+
 
 
 
