@@ -348,9 +348,24 @@ Dadurch, dass wir aber eine Anzahl von 1.000.000 Poren haben, müssen wir den Vo
 {\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 4} \par \vspace*{2mm}
 Aus einer wässrigen Suspension sollen Sie mittels einer Dekanterzentrifuge (Durchmesser $d$ = 500 mm, Länge $l$ = 450 mm) den Feststoff zurückgewinnen. Die Zentrifuge wird mit 40 \% Füllung betrieben.  
 \begin{itemize}
-\item Berechnen Sie den mittleren Durchmesser des sich in der Zentrifuge einstellenden Flüssigkeitsringes.
-\item Was ist der Vorteil einer Dekanterzentrifuge gegenüber anderen Zentrifugentypen?
+\item[\color{miugray}$\blacktriangleright$] Berechnen Sie den mittleren Durchmesser des sich in der Zentrifuge einstellenden Flüssigkeitsringes.
+\item[\color{miugray}$\blacktriangleright$] Was ist der Vorteil einer Dekanterzentrifuge gegenüber anderen Zentrifugentypen?
 \end{itemize}
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=0.7]
+\draw[line width=0.01mm,fill=miugray] (0,0) circle (2cm);
+\uncover<9->{\draw[miugray2, dashed ,fill=miugray] (0,0) circle (1.65cm);}
+\draw[miugray2,fill=white] (0,0) circle (1.3cm);
+
+\uncover<2->{\draw[thick] (-1.65,0) to (-3,0) node [left] {$40\%$};}
+\draw (0,0) to (20:2cm) node [right] {$r_\mathsmaller{{a}}$};
+\uncover<9->{\draw[miugray2,dashed] (0,0) to (-20:1.65cm) node [right,xshift=4mm,yshift=0mm] {$r_\mathsmaller{{m}}$};}
+\draw[black] (0,0) to (-60:1.3cm) node [left,xshift=-1mm,yshift=2mm] {$r_\mathsmaller{{i}}$};
+\end{tikzpicture}
+
+
+\end{figure}
 \end{minipage}%
 \hspace*{4mm}
 \begin{minipage}{.5\textwidth}
@@ -358,7 +373,7 @@ Aus einer wässrigen Suspension sollen Sie mittels einer Dekanterzentrifuge (Dur
 \uncover<2->{
 40 \% des Gesamtvolumens entsprechen dem Flüssigkeitsring:}
 \begin{align*}
-\uncover<3->{\pi \cdot (r_a^2-r_i^2) \cdot h = 0,4 \cdot \pi \cdot r^2 \cdot h \\}
+\uncover<3->{\pi \cdot (r_a^2-r_i^2) \cdot h &= 0,4 \cdot \pi \cdot r^2 \cdot h \\}
 \uncover<4->{r_a^2-r_i^2 &= 0,4 r^2 \\ }
 \uncover<5->{ 0,6 \cdot r_a^2 &= r_i^2 \\ }
 \uncover<6->{ \sqrt{0,6} \cdot r_a &= r_i}
@@ -629,7 +644,7 @@ Der Widerstandsbeiwert $c_W$ ist eine Funktion der Reynolds-Zahl ($\text{Re}$), 
 \end{align*}
 
 \pp
-$c_W$ ist quasi eine Art Rohrreibungszahl nur halt eben für Kugeln und nicht für Fluide :)
+$c_W$ ist quasi eine Art Rohrreibungszahl nur halt eben für Kugeln und nicht für Rohre :)
 
 }
 \end{minipage}%

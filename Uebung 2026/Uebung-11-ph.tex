@@ -1,15 +1,15 @@
 \documentclass[a4paper,11pt]{article}
 
-\input{F://LaTex-Files/shiet/basic.tex}
-\input{F://LaTeX-Files/shiet/colors.tex}
-\input{F://LaTeX-Files/shiet/SI.tex}
-\input{F://LaTeX-Files/shiet/plmtuebungpreamble.tex}
+\input{../misc/basic.tex}
+\input{../misc/colors.tex}
+\input{../misc/SI.tex}
+\input{../misc/plmtuebungpreamble.tex}
 
 
 
 
 \newif\ifshowme
-\showmetrue
+%\showmetrue
 
 
 
@@ -36,40 +36,14 @@
 
 
 \subsection*{Aufgabe 1}
-Der pKS-Wert von Buttersäure beträgt 4,82. Berechnen Sie den Anteil an undissoziierter Säure
-bei den pH-Werten 1, 2, 3, 4, 5 und 6 und 7.
-
-\ifshowme
-\antwort{
-\footnotesize
-\begin{align*}
-K_S &= \frac{[H_3O^+] \cdot [A^-]}{[HA]}  \\
-pK_S &= -\log K_S \\
-pH &= -\log [H_3O^+]
-\end{align*}
-Henderson-Hasselbalch:
-\begin{align*}
-pK_S &= pH -\log(\frac{[A^-]}{HA}) \\
- &= -\log [H_3O^+] -\log(\frac{[A^-]}{HA})
-\end{align*}
-Umstellen:
-\begin{align*}
-pH - pK_S &= \log(\frac{[A^-]}{HA}) & | 10^x \\
-10^{pH - pK_S} &= \frac{[A^-]}{HA} \\
-	&~\hat{=}~ \frac{1 - [HA]}{HA} \\
-	&~\hat{=}~ \frac{1}{HA} - \frac{[HA]}{HA} \\
-	&~\hat{=}~ \frac{1}{HA} - 1 \\
-\\
-10^{pH - pK_S}	&~\hat{=}~ \frac{1}{HA} - 1 \\
-10^{pH - pK_S} +1 &= \frac{1}{HA} \\ \\
-HA &= \frac{1}{10^{pH - pK_S} + 1 }
-\end{align*}
-\pp
-Nachdem Einsetzen von pK$_S$ und pH-Wert erhält man folgende Ergebnisse: \pp
-pH 1 \RA 99,985\% \par pH 2 \RA 99,85\% \par pH 3 \RA 98,5\% \par pH 4 \RA 86,9\% \par pH 5 \RA 39,8\% \par pH 6 \RA 6,2\% \par pH 7 \RA 0,656\%
-}
-\else
-\fi
+\begin{enumerate}[label=\alph*)]
+\item Was versteht man unter dem pH-Wert? Wie ist er definiert
+\item Stellen Sie die Gleichung für die Gleichgewichtskonstante der Reaktion einer Bronstedt-Säure HA mit Wasser auf.
+\item Wie berechnet man den pH-Wert für eine wässrige Lösung einer starken Säure (pK$_s <$ 1)?
+\item Wie berechnet man den pH-Wert für eine wässrige Lösung einer schwachen Säure?
+\item Definieren Sie den Dissoziationsgrad einer Säure
+\item Wie viel Prozent der Moleküle einer in Wasser gelösten Säure liegen dissoziiert vor, wenn der pK$_s$-Wert dem pH-Wert entspricht?
+\end{enumerate}
 
 
 \subsection*{Aufgabe 2}
@@ -165,7 +139,50 @@ Bei gleicher Verfahrensweise erhält man für \textbf{Sorbinsäure} (Verteilungs
 
 
 \end{enumerate}
+
+
+
+
+
+
 \subsection*{Aufgabe 3}
+Der pKS-Wert von Buttersäure beträgt 4,82. Berechnen Sie den Anteil an undissoziierter Säure
+bei den pH-Werten 1, 2, 3, 4, 5 und 6 und 7.
+
+\ifshowme
+\antwort{
+\footnotesize
+\begin{align*}
+K_S &= \frac{[H_3O^+] \cdot [A^-]}{[HA]}  \\
+pK_S &= -\log K_S \\
+pH &= -\log [H_3O^+]
+\end{align*}
+Henderson-Hasselbalch:
+\begin{align*}
+pK_S &= pH -\log(\frac{[A^-]}{HA}) \\
+ &= -\log [H_3O^+] -\log(\frac{[A^-]}{HA})
+\end{align*}
+Umstellen:
+\begin{align*}
+pH - pK_S &= \log(\frac{[A^-]}{HA}) & | 10^x \\
+10^{pH - pK_S} &= \frac{[A^-]}{HA} \\
+	&~\hat{=}~ \frac{1 - [HA]}{HA} \\
+	&~\hat{=}~ \frac{1}{HA} - \frac{[HA]}{HA} \\
+	&~\hat{=}~ \frac{1}{HA} - 1 \\
+\\
+10^{pH - pK_S}	&~\hat{=}~ \frac{1}{HA} - 1 \\
+10^{pH - pK_S} +1 &= \frac{1}{HA} \\ \\
+HA &= \frac{1}{10^{pH - pK_S} + 1 }
+\end{align*}
+\pp
+Nachdem Einsetzen von pK$_S$ und pH-Wert erhält man folgende Ergebnisse: \pp
+pH 1 \RA 99,985\% \par pH 2 \RA 99,85\% \par pH 3 \RA 98,5\% \par pH 4 \RA 86,9\% \par pH 5 \RA 39,8\% \par pH 6 \RA 6,2\% \par pH 7 \RA 0,656\%
+}
+\else
+\fi
+
+
+\subsection*{Aufgabe 4}
 Propansäure hat einen pK$_S$-Wert von 4,88. Berechnen Sie den pH-Wert einer 0,1 molaren
 Propansäurelösung.
 
