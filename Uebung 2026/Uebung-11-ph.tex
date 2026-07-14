@@ -9,7 +9,7 @@
 
 
 \newif\ifshowme
-%\showmetrue
+\showmetrue
 
 
 
@@ -38,11 +38,134 @@
 \subsection*{Aufgabe 1}
 \begin{enumerate}[label=\alph*)]
 \item Was versteht man unter dem pH-Wert? Wie ist er definiert
+\ifshowme
+\antwort{
+Man formuliert die Dissoziation von Wasser meist als \textbf{Autoprotolyse} (Wasser reagiert mit sich selbst):
+
+\begin{align*}
+\mathrm{H_2O} + \mathrm{H_2O} \rightleftharpoons \mathrm{H_3O^+} + \mathrm{OH^-}
+\end{align*}
+
+Das Massenwirkungsgesetz ergibt für diese Reaktion:
+
+\[
+\frac{c(\mathrm{H_3O^+}) \cdot c(\mathrm{OH^-})}{c^2(\mathrm{H_2O})} = K
+\]
+
+\noindent oder \quad $c(\mathrm{H_3O^+}) \cdot c(\mathrm{OH^-}) = K \cdot c^2(\mathrm{H_2O}) = K_\mathrm{w}$
+\par \vspace*{4mm}
+\textbf{K} ist die \textbf{Protolysekonstante} des Wassers. Ihr Zahlenwert ist:
+\begin{align*}
+K_{(293\,\mathrm{K})} = 3{,}26 \cdot 10^{-18}
+\end{align*}
+
+Da die Eigendissoziation des Wassers außerordentlich gering ist, kann die Konzentration des undissoziierten Wassers $c(\mathrm{H_2O})$ als nahezu konstant angenommen und gleichgesetzt werden der Ausgangskonzentration $c(\mathrm{H_2O}) = 55{,}4\,\mathrm{mol \cdot L^{-1}}$ (bei $20\,\mathrm{^\circ C}$). ($1\,\text{Liter~}\mathrm{H_2O}$ wiegt bei $20\,\mathrm{^\circ C}$ $998{,}203\,\mathrm{g}$; dividiert man durch $18{,}01\,\mathrm{g \cdot mol^{-1}}$, ergeben sich für $c(\mathrm{H_2O}) = 55{,}4\,\mathrm{mol \cdot L^{-1}}$.)
+
+Mit diesem Zahlenwert für $c(\mathrm{H_2O})$ erhält man:
+
+\begin{align*}
+c(\mathrm{H_3O^+}) \cdot c(\mathrm{OH^-}) &= 3{,}26 \cdot 10^{-18} \cdot 55{,}4^2\,\mathrm{mol^2 \cdot L^{-2}} \\
+&= 1 \cdot 10^{-14}\,\mathrm{mol^2 \cdot L^{-2}} = K_\mathrm{w}
+\end{align*}
+
+Die Konstante $K_\mathrm{w}$ heißt das \textbf{Ionenprodukt des Wassers}.
+
+Für $c(\mathrm{H_3O^+})$ und $c(\mathrm{OH^-})$ gilt:
+
+\[
+c(\mathrm{H_3O^+}) = c(\mathrm{OH^-}) = \sqrt{10^{-14}\,\mathrm{mol^2 \cdot L^{-2}}} = 10^{-7}\,\mathrm{mol \cdot L^{-1}}
+\]
+\noindent \textbf{Reines Wasser reagiert neutral, d.\,h. weder sauer noch basisch.}
+
+\vspace{0.2cm}
+\noindent Man kann auch allgemein sagen:
+
+\vspace{0.2cm}
+\noindent \textbf{Eine wässrige Lösung reagiert dann \textit{neutral}, wenn in ihr die Wasserstoffionenkonzentration $c(\mathrm{H_3O^+})$ den Wert $10^{-7}\,\mathrm{mol \cdot L^{-1}}$ hat.}
+
+\vspace{0.2cm}
+\noindent Die Zahlen $10^{-14}$ oder $10^{-7}$ sind vom Typ $a \cdot 10^{-b}$. Bildet man hiervon den negativen dekadischen Logarithmus, erhält man:
+\[
+-\lg a \cdot 10^{-b} = b - \lg a
+\]
+
+\noindent Für den negativen dekadischen Logarithmus des Zahlenwertes der \textbf{Wasserstoffionenkonzentration} hat man aus praktischen Gründen das Symbol \textbf{pH} (von potentia hydrogenii) eingeführt. Den zugehörigen Zahlenwert bezeichnet man als den \textbf{pH-Wert} (1909 eingeführt vom Dänen \textit{Søren Sørensen}) einer Lösung:
+
+\[
+\mathbf{pH = -\lg c(\mathrm{H_3O^+})}
+\]
+
+\vspace{0.2cm}
+\noindent \textbf{Der pH-Wert ist der negative dekadische Logarithmus des Zahlenwertes der $\mathrm{H_3O^+}$-Konzentration (genauer: $\mathrm{H_3O^+}$-Aktivität).}
+}
+\else
+\fi
 \item Stellen Sie die Gleichung für die Gleichgewichtskonstante der Reaktion einer Bronstedt-Säure HA mit Wasser auf.
+\ifshowme
+\antwort{
+Die allgemeine Reaktionsgleichung (Protolyse) lautet:$$\mathrm{HA} + \mathrm{H_2O} \rightleftharpoons \mathrm{A^-} + \mathrm{H_3O^+}$$Das Massenwirkungsgesetz ergibt für dieses Gleichgewicht zunächst die Konstante $K$:$$K = \frac{c(\mathrm{H_3O^+}) \cdot c(\mathrm{A^-})}{c(\mathrm{HA}) \cdot c(\mathrm{H_2O})}$$
+}
+\else
+\fi
 \item Wie berechnet man den pH-Wert für eine wässrige Lösung einer starken Säure (pK$_s <$ 1)?
+\ifshowme
+\antwort{
+\textbf{Starke Säure:} Wir gehen davon aus, dass eine Starke Säure in wässriger Lösung vollständig dissoziiert.
+
+\[
+c(\mathrm{H_3O^+}) = 0{,}01 = 10^{-2}\,\mathrm{mol \cdot L^{-1}}; \quad \mathrm{pH} = 2
+\]
+}
+\else
+\fi
 \item Wie berechnet man den pH-Wert für eine wässrige Lösung einer schwachen Säure?
+\ifshowme
+\antwort{
+Eine schwache Säure reagiert in Wasser unter folgender Gleichung: 
+\begin{align*}
+HA + H_2O \leftrightharpoons H_3O^+ + A^-
+\end{align*}
+Daraus kann man über das Massenwirkungsgesetz folgende Beziehung für die Säurestärke aufstellen:
+\begin{align*}
+K_S &= \frac{c[H_3O^+] \cdot c[A^-]}{c[HA]} \\
+\end{align*}
+Vereinfacht:
+\begin{align*}
+K_S &= \frac{c[H_3O^+]^2}{c[HA]} \\
+\end{align*}
+Nun nimmt man an, dass bei schwachen Säuren die undissoziierte Säuremenge in etwa der Ausgangskonzentration entspricht. Es gilt $c[HA] \approx c_0[HA]$. Daraus kann man wie folgt ableiten:
+\begin{align*}
+c[H_3O^+]^2 &= K_S \cdot c_0[HA] \\
+c[H_3O^+] &= \left( K_S \cdot c_0[HA]\right) ^{\frac{1}{2}} \\
+\log(c[H_3O^+]) &= \frac{1}{2} \cdot \left( \log(K_S) + \log(c_0[HA]) \right) \\
+- pH &= \frac{1}{2} \cdot (-pK_S + \log(c_0[HA]) )\\
+pH &= \frac{1}{2} \cdot (pK_S - \log(c_0[HA]))
+\end{align*}
+}
+\pagebreak
+\else
+\fi 
+
 \item Definieren Sie den Dissoziationsgrad einer Säure
+\ifshowme
+\antwort{
+\begin{align*}
+\alpha = \frac{c[A^-]}{c_0[HA]}
+\end{align*}
+}
 \item Wie viel Prozent der Moleküle einer in Wasser gelösten Säure liegen dissoziiert vor, wenn der pK$_s$-Wert dem pH-Wert entspricht?
+\ifshowme
+\antwort{
+Bestimmung über Henderson-Hasselbalch:
+\begin{align*}
+K_S &= \frac{c[H_3O^+] \cdot c[A^-]}{c[HA]} \\
+K_S &= c[H_3O^+] \cdot \frac{c[A^-]}{c[HA]} \\
+\log_{10}(K_S) &= \log_{10} (c[H_3O^+]) + \log_{10} \left(\frac{c[A^-]}{c[HA]}\right) \\
+- \log_{10} (c[H_3O^+]) &= -\log_{10}(K_S) + \log_{10} \left(\frac{c[A^-]}{c[HA]}\right) \\
+pH &= pK_S + \log_{10} \left(\frac{c[A^-]}{c[HA]}\right)
+\end{align*}
+Damit der Logarithmusterm den Wert 0 annimmt, müssen die Säure und ihre korrespondierende Base in gleicher Konzentration (bzw. Stoffmenge) vorliegen.
+}
 \end{enumerate}
 
 
