@@ -1,0 +1,512 @@
+\documentclass[aspectratio=169,9pt]{beamer}
+\mode<presentation> 
+\usepackage[utf8]{inputenc}
+\usepackage{sansmathaccent} %Für equations
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage{relsize}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage[labelfont={bf},font={color=black!40,footnotesize},tablename={Tabelle},figurename={Abbildung}]{caption}
+\usetikzlibrary{positioning, arrows.meta, calc, matrix}
+\usefonttheme[onlymath]{serif}
+\usepackage{booktabs}
+%\makeatletter
+%\makeatother
+
+\usetikzlibrary{patterns, arrows.meta, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{intersections, pgfplots.fillbetween}\usetikzlibrary{intersections, pgfplots.fillbetween}
+\rowcolors{2}{miugray!30}{miugray!10}
+
+\usetheme{Madrid}  %% Themenwahl
+\useoutertheme{split} % Alternatively: miniframes, infolines, split
+%\useinnertheme{circles}
+
+
+\setbeamertemplate{itemize item}{\color{miugray}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{uniblau}$\bullet$}
+
+
+
+%\input{F://LaTeX-Files/shiet/SI.tex}
+
+
+\newcommand{\RA}{$\rightarrow$~}
+\newcommand{\pp}{\par \vspace*{2mm}}
+\newcommand{\ppbig}{\par \vspace*{4mm}}
+
+\definecolor{miudiutex}{HTML}{1d2926}
+\definecolor{miugray}{HTML}{b4cccf}
+\definecolor{miugray2}{HTML}{4d7365}
+\definecolor{white2}{HTML}{f5f7f8}
+\definecolor{red}{HTML}{cf1f5c}
+\definecolor{green}{HTML}{00A36C}
+\definecolor{delphinidin}{HTML}{315794}
+\definecolor{uniblau}{HTML}{004e9f}
+\definecolor{unigelb}{HTML}{fcba00}
+\definecolor{unigrau}{HTML}{909085}
+\definecolor{pelargonidin}{HTML}{b33807}
+\definecolor{cyanidin}{HTML}{ba0746}
+\definecolor{paeonidin}{HTML}{d15ca6}
+\definecolor{petunidin}{HTML}{b56fed}
+\definecolor{malvidin}{HTML}{8a2d8c}
+
+%\setbeamercolor{palette primary}{bg=pelargonidin!35,fg=white}
+%\setbeamercolor{palette secondary}{bg=delphinidin!45,fg=white}
+\setbeamercolor{palette primary}{bg=uniblau!70,fg=white}
+\setbeamercolor{palette secondary}{bg=uniblau!45,fg=white}
+\setbeamercolor{palette tertiary}{bg=unigelb!70,fg=unigrau}
+\setbeamercolor{palette quaternary}{bg=miugray,fg=white}
+\setbeamercolor{structure}{fg=black} % itemize, enumerate, etc
+\setbeamercolor{section in toc}{fg=red} % TOC sections
+
+\setbeamersize{text margin left=1cm,text margin right=1cm}
+
+
+\useinnertheme{tcolorbox} 
+\newcommand{\goodtk}[2]{
+\begin{tcolorbox}[
+	enhanced,
+	colframe=uniblau!75,
+	sharp corners,
+	boxsep=5pt,
+	title=\bfseries \sffamily #1,
+	colback=white,
+	coltitle=black,
+	attach boxed title to top text left={yshift=-\tcboxedtitleheight/2},
+	boxed title style={colback=white,colframe=white}
+]
+	#2
+	\end{tcolorbox}
+}
+	
+\newcommand{\antwort}[1]{
+\begin{tcolorbox}[
+	enhanced,
+	colframe=unigrau!65,
+	sharp corners,
+	boxsep=1pt,
+	colback=white,
+	coltitle=black,
+]
+	#1
+	\end{tcolorbox}
+}
+
+
+\title{11. Übung}
+\author{PD Dr. Helene Loos}
+\date{\today}
+
+\begin{document}
+%\maketitle
+\small
+
+
+
+\begin{frame}
+\begin{center}
+
+\LARGE Übung 11  \par \normalsize
+Prozessbezogene Lebensmitteltechnologie
+\end{center}
+\small
+\end{frame}
+
+
+
+\begin{frame}
+
+
+\begin{minipage}{.5\textwidth}
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe  1} \par \vspace*{2mm}
+
+\begin{enumerate}[label=\alph*)]
+\item<1-> Was versteht man unter dem pH-Wert? Wie ist er definiert
+\item<3-> Stellen Sie die Gleichung für die Gleichgewichtskonstante der Reaktion einer Bronstedt-Säure HA mit Wasser auf.
+\item<5-> Wie berechnet man den pH-Wert für eine wässrige Lösung einer starken Säure (pK$_s <$ 1)?
+\item<7-> Wie berechnet man den pH-Wert für eine wässrige Lösung einer schwachen Säure?
+\item<9-> Definieren Sie den Dissoziationsgrad einer Säure
+\item<11-> Wie viel Prozent der Moleküle einer in Wasser gelösten Säure liegen dissoziiert vor, wenn der pK$_S$-Wert dem pH-Wert entspricht?
+\end{enumerate}
+
+
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+\antwort{
+\begin{enumerate}[label=\alph*)]
+\item<2-> pH = $-\log(\text{H}^+)$ 
+\item<4-> HA + H$_2$O $\leftrightharpoons$ A$^-$ + H$_3$O$^+$
+\item<6-> Wir gehen davon aus, dass HA komplett dissoziert. Daher pH = $-\log(\text{H}^+)$
+\item<8-> pH = $\frac{1}{2} (pK_S - \log(c_0))$
+\item<10-> $\alpha = \frac{[A^-]}{[HA]}$
+\item<12-> Henderson-Hasselbalch: \pp pH = $pK_S + \log \left(\frac{A^-}{HA} \right)$ \RA Also 50 \%
+\end{enumerate}
+}
+
+\end{minipage}%
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+
+
+\begin{minipage}{.5\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe  2} \par \vspace*{2mm}
+
+Bei der Entwicklung einer Light Mayonnaise mit einem Fettgehalt von 35\% steht die Frage im Raum, ob Sorbinsäure oder Benzoesäure zugesetzt werden soll. Der pH-Wert der Mayonnaise liegt bei pH 4,4.
+\begin{enumerate}[label=\alph*)]
+\item[a)] Berechnen Sie, wie hoch jeweils der Anteil an dissoziierter Säure wäre. Der pKS-Wert
+von Benzoesäure liegt bei 4,18 und der pK$_S$-Wert von Sorbinsäure bei 4,76.
+\end{enumerate}
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+
+\antwort{
+
+\uncover<2->{Säurekonstante nach Dissoziationsgrad $\alpha$ umstellen:}
+\begin{align*}
+\uncover<2->{K &= \frac{[H^+] \cdot [A^-]}{[HA]} \\}
+\uncover<3->{K &= \frac{[H^+] \cdot \alpha}{1 - \alpha} \\}
+\uncover<4->{K \cdot (1-\alpha) & = [H^+] \cdot \alpha \\}
+\uncover<5->{K - \alpha \cdot K &= [H^+] \cdot \alpha \\}
+\uncover<6->{K &= [H^+] \cdot \alpha + \alpha \cdot K \\}
+\uncover<7->{K &= \alpha \cdot ([H^+] + K) \\}
+\uncover<8->{\alpha &= \frac{K}{[H^+] + K}}
+\end{align*}
+}
+
+
+\end{minipage}%
+
+
+
+
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+
+
+\begin{minipage}{.5\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe  2} \par \vspace*{2mm}
+
+Bei der Entwicklung einer Light Mayonnaise mit einem Fettgehalt von 35\% steht die Frage im Raum, ob Sorbinsäure oder Benzoesäure zugesetzt werden soll. Der pH-Wert der Mayonnaise liegt bei pH 4,4.
+\begin{enumerate}[label=\alph*)]
+\item[a)] Berechnen Sie, wie hoch jeweils der Anteil an dissoziierter Säure wäre. Der pKS-Wert
+von Benzoesäure liegt bei 4,18 und der pK$_S$-Wert von Sorbinsäure bei 4,76.
+\end{enumerate}
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+
+\antwort{
+
+\begin{align*}
+\alpha &= \frac{K}{[H^+] + K}
+\end{align*}
+
+Nun können wir einfach einsetzen mit $K= 10^{-pK_S}$ und $[H^+] = 10^{-pH}$ \pp
+\uncover<2->{
+\textbf{Benzoesäure:}
+\begin{align*}
+\alpha &= \frac{10^{-4,18}}{10^{-4,4} + 10^{-4,18}} \\
+&= 0,624
+\end{align*}
+Daher liegt der Anteil an undissoziierter Säure bei 1-0,624 = 0,3759 \RA 37,6 \%
+}
+\pp 
+\uncover<3->{
+\textbf{Sorbinsäure:}
+\begin{align*}
+\alpha &= \frac{10^{-4,76}}{10^{-4,4} + 10^{-4,76}} \\
+&= 0,303
+\end{align*}
+Daher liegt der Anteil an undissoziierter Säure bei 1-0,303 = 0,697 \RA 69,7 \%
+}
+}
+\end{minipage}%
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}
+
+\begin{minipage}{.5\textwidth}
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe  2} \par \vspace*{2mm}
+
+Bei der Entwicklung einer Light Mayonnaise mit einem Fettgehalt von 35\% steht die Frage im Raum, ob Sorbinsäure oder Benzoesäure zugesetzt werden soll. Der pH-Wert der Mayonnaise liegt bei pH 4,4.
+\begin{enumerate}[label=\alph*)]
+\item[b)] Welche Relevanz hat das Ergebnis für die Auswahl des Konservierungsstoffs? Welche
+weiteren Aspekte sind bei der Auswahl von Konservierungsstoffen zu beachten?
+\end{enumerate}
+
+
+
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+
+\antwort{
+\begin{itemize}
+\item[\color{miugray}$\blacktriangleright$]<2-> Für konservierende Wirkung ist der Anteil an undissozierter Säure ausschlaggebend. Für den vorliegenden pH-Wert wäre also die Sorbinsäure stärker konservierend wirksam.
+\item[\color{miugray}$\blacktriangleright$]<3-> Betrachtung der ADI-Werte / Höchstmengen
+\item[\color{miugray}$\blacktriangleright$]<4-> Wirkungsspektrum und ''Ziel-MO''
+\item[\color{miugray}$\blacktriangleright$]<5-> Möglichkeit des kombinierten Einsatzes
+\item[\color{miugray}$\blacktriangleright$]<6-> Sensorische Eigenschaften des Produktes
+\item[\color{miugray}$\blacktriangleright$]<7-> Verteilungskoeffizient Fett/Wasser
+\end{itemize}
+
+}
+
+\end{minipage}%
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+
+\begin{minipage}{.5\textwidth}
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe  2} \par \vspace*{2mm}
+\begin{enumerate}[label=\alph*)]
+\item[c)]  Nehmen Sie an, dass 200 mg/kg der Säure undissoziiert in der Mayonnaise vorliegen. Wie hoch ist der Anteil in der wässrigen Phase? Verwenden Sie zur Abschätzung den Verteilungskoeffizient K$_{OW}$ der beiden Säuren. Für Benzoesäure beträgt er in der
+Mayonnaise 4,5, für Sorbinsäure beträgt er 8,7.
+\end{enumerate}
+
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+
+\antwort{
+\begin{align*}
+\uncover<2->{K=4,5 &= \frac{\frac{200~\text{mg}-x}{350}}{\frac{x}{650~\text{g}}} \\}
+\uncover<3->{4,5 &= \frac{200~\text{mg}-x}{350~\text{g}} \cdot \frac{650~\text{g}}{x}  \\}
+\uncover<4->{4,5 &= \frac{650}{350} \cdot (\frac{200~\text{mg}}{x}-1) \\ }
+\uncover<5->{4,5 \cdot \frac{350}{650} &= \frac{200~\text{mg}}{x} -1 \\}
+\uncover<6->{(4,5 \cdot \frac{350}{650}+1) &= \frac{200~\text{mg}}{x} \\}
+\uncover<7->{\frac{1}{4,5 \cdot \frac{350}{650} + 1} \cdot 200 ~\text{mg} &= x  \\}
+\uncover<8->{x &= 58,43  ~\text{mg}}
+\end{align*}
+\uncover<9->{
+Bei gleicher Verfahrensweise erhält man für \textbf{Sorbinsäure} (Verteilungskoeffizient = 8,7) einen Anteil von 35 mg in der wässrigen Phase}
+}
+
+\end{minipage}%
+
+
+\end{frame}
+
+
+
+\begin{frame}
+
+\begin{minipage}{.5\textwidth}
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe  3} \par \vspace*{2mm}
+
+Der pK$_S$-Wert von Buttersäure beträgt 4,82. Berechnen Sie den Anteil an undissoziierter Säure
+bei den pH-Werten 1, 2, 3, 4, 5 und 6 und 7.
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+\antwort{
+\footnotesize
+\uncover<2->{
+Henderson-Hasselbalch:
+\begin{align*}
+pK_S &= pH -\log(\frac{[A^-]}{HA})
+\end{align*}
+}
+\uncover<3->{
+Umstellen:
+}
+\begin{align*}
+\uncover<4->{pH - pK_S &= \log(\frac{[A^-]}{HA}) \\}
+\uncover<5->{10^{pH - pK_S} &= \frac{[A^-]}{HA} \\}
+\uncover<6->{	&~=~ \frac{1 - [HA]}{HA} \\}
+\uncover<7->{	&~=~ \frac{1}{HA} - \frac{[HA]}{HA} \\}
+\uncover<8->{	&~=~ \frac{1}{HA} - 1 \\}
+\\
+\uncover<9->{10^{pH - pK_S}	&~=~ \frac{1}{HA} - 1 \\}
+\uncover<10->{10^{pH - pK_S} +1 &= \frac{1}{HA} \\ \\}
+\uncover<11->{HA &= \frac{1}{10^{pH - pK_S} + 1 }}
+\end{align*}
+}
+\end{minipage}%
+\end{frame}
+
+
+
+
+\begin{frame}
+
+\begin{minipage}{.5\textwidth}
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe  3} \par \vspace*{2mm}
+
+Der pK$_S$-Wert von Buttersäure beträgt 4,82. Berechnen Sie den Anteil an undissoziierter Säure
+bei den pH-Werten 1, 2, 3, 4, 5 und 6 und 7.
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+\antwort{
+\uncover<2->{
+\begin{align*}
+HA &= \frac{1}{10^{pH - pK_S} + 1 }
+\end{align*}
+\pp
+Nachdem Einsetzen von pK$_S$ und pH-Wert erhält man folgende Ergebnisse: \pp
+pH 1 \RA 99,985\% \par pH 2 \RA 99,85\% \par pH 3 \RA 98,5\% \par pH 4 \RA 86,9\% \par pH 5 \RA 39,8\% \par pH 6 \RA 6,2\% \par pH 7 \RA 0,656\%
+}
+}
+\end{minipage}%
+\end{frame}
+
+
+
+\begin{frame}
+
+\begin{minipage}{.5\textwidth}
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe  4} \par \vspace*{2mm}
+
+Propansäure hat einen pK$_S$-Wert von 4,88. Berechnen Sie den pH-Wert einer 0,1 molaren
+Propansäurelösung.
+
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+\antwort{
+Formel für schwache Säuren:
+\begin{align*}
+\uncover<2->{pH &= \frac{1}{2} \cdot (pK_S - \log(c)) \\}
+\uncover<3->{pH &= \frac{1}{2} \cdot (4,88 - \log(0,1)) = 2,9}
+\end{align*}
+
+
+}
+\end{minipage}%
+\end{frame}
+
+
+
+
+\begin{frame}
+\begin{center}
+\Large Herleitungen zu Henderson-Hasselbalch und schwache Säuren
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{minipage}{.45\textwidth}
+{\color{miugray}$\blacksquare ~$} \textbf{Titrationskurve } \par \vspace*{2mm}
+
+\includegraphics[width=6cm]{../misc/titration.pdf}
+
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.55\textwidth}
+\antwort{
+\footnotesize
+\begin{align*}
+K_S &= \frac{c[H_3O^+] \cdot c[A^-]}{c[HA]} \\
+K_S &= c[H_3O^+] \cdot \frac{c[A^-]}{c[HA]} \\
+\log_{10}(K_S) &= \log_{10} (c[H_3O^+]) + \log_{10} \left(\frac{c[A^-]}{c[HA]}\right) \\
+- \log_{10} (c[H_3O^+]) &= -\log_{10}(K_S) + \log_{10} \left(\frac{c[A^-]}{c[HA]}\right) \\
+pH &= pK_S + \log_{10} \left(\frac{c[A^-]}{c[HA]}\right)
+\end{align*}
+}
+\end{minipage}%
+
+
+
+\end{frame}
+
+
+
+\begin{frame}
+
+
+\begin{minipage}{.5\textwidth}
+{\color{miugray}$\blacksquare ~$} \textbf{Herleitung Formel Schwache Säuren  } \par \vspace*{2mm}
+
+\antwort{
+Eine schwache Säure reagiert in Wasser unter folgender Gleichung: 
+\begin{align*}
+HA + H_2O \leftrightharpoons H_3O^+ + A^-
+\end{align*}
+Daraus kann man über das Massenwirkungsgesetz folgende Beziehung für die Säurestärke aufstellen:
+\begin{align*}
+K_S &= \frac{c[H_3O^+] \cdot c[A^-]}{c[HA]} \\
+\end{align*}
+Vereinfacht:
+\begin{align*}
+K_S &= \frac{c[H_3O^+]^2}{c[HA]} \\
+\end{align*}
+}
+
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+\antwort{
+Nun nimmt man an, dass bei schwachen Säuren die undissoziierte Säuremenge in etwa der Ausgangskonzentration entspricht. Es gilt $c[HA] \approx c_0[HA]$. Daraus kann man wie folgt ableiten:
+\begin{align*}
+c[H_3O^+]^2 &= K_S \cdot c_0[HA] \\
+c[H_3O^+] &= \left( K_S \cdot c_0[HA]\right) ^{\frac{1}{2}} \\
+\log(c[H_3O^+]) &= \frac{1}{2} \cdot \left( \log(K_S) + \log(c_0[HA]) \right) \\
+- pH &= \frac{1}{2} \cdot (-pK_S + \log(c_0[HA]) )\\
+pH &= \frac{1}{2} \cdot (pK_S - \log(c_0[HA]))
+\end{align*}
+}
+\end{minipage}%
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+
+\begin{center}
+\LARGE
+Vielen Dank fürs Zuhören!
+\end{center}
+
+\end{frame}
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,129 @@
+\documentclass[a4paper,11pt]{article}
+\input{../misc/basic.tex}
+\input{../misc/colors.tex}
+\input{../misc/SI.tex}
+\input{../misc/plmtuebungpreamble.tex}
+\usepackage[table]{xcolor}
+\usepackage{chemfig}
+ \setchemfig{atom sep=20pt}   
+\usepackage{siunitx}
+\sisetup{
+    locale = DE,
+    per-mode = fraction,
+    inter-unit-product = \cdot,
+    separate-uncertainty = true
+}
+
+\usepackage{pgfplots}
+    \pgfplotsset{
+        every axis post/.style={
+	yticklabel=\empty,
+	xticklabel=\empty,
+	y label style={at={(axis description cs:-0.2,1.1)}},
+	x label style={at={(axis description cs:1.05,0.2)}},
+	ticks=none,
+	width=6cm,
+	axis lines=middle,
+%	xlabel near ticks,
+        },
+    }
+\usetikzlibrary{positioning, arrows.meta, calc}
+\usepackage{microtype}
+\usepackage{relsize}
+\usepackage{cancel}
+
+\setlength{\abovedisplayskip}{8pt}
+\setlength{\belowdisplayskip}{8pt}
+\setlength{\abovedisplayshortskip}{8pt}
+\setlength{\belowdisplayshortskip}{8pt}
+
+\newif\ifshowme
+%\showmetrue
+
+
+
+\begin{document}
+
+%\newgeometry{top=3cm,bottom=3cm,left=4.5cm,right=4.5cm}
+\newgeometry{top=2cm,bottom=2cm,left=4cm,right=4cm}
+
+
+\begin{center}
+\LARGE
+\color{uniblau}
+\textbf{Übung 11} \par \vspace*{2mm}
+\large \color{miugray!50!black} \textbf{Prozessbezogene Lebensmitteltechnologie}\par 
+\normalsize Zusatzaufgaben
+\end{center}
+\par 
+%\vspace*{6mm}
+
+
+\color{miudiutex}
+
+
+\subsection*{Aufgabe 1}
+Wie groß ist der pH-Wert einer Salzsäure ($\text{p}K_\text{S} = -6$) mit der Konzentration $c(\text{HCl}) = 0{,}5\,\text{mol/L}$ in wässriger Lösung?
+
+\ifshowme
+\antwort{
+\begin{equation*}
+    \text{pH} = -\lg(0{,}5) = 0{,}3
+\end{equation*}
+
+Der pH-Wert einer $0{,}5$ molaren Salzsäure liegt bei $0{,}3$.
+}
+\else
+\fi
+
+\vspace{1.5em}
+
+\subsection*{Aufgabe 2}
+    Wie groß ist der pH-Wert von Schwefelsäure mit einer Konzentration von $0{,}05\,\text{mol/L}$ in wässriger Lösung?
+    
+\ifshowme
+ \antwort{   
+    $\text{p}K_\text{S}$ der ersten Protonierung $-3$, bei der zweiten $1{,}9$ (irrelevant)
+ 
+    \begin{equation*}
+        \text{pH} = -\log(2 \cdot 0{,}05\,\text{mol/L}) = 1{,}0
+    \end{equation*}
+    }
+\else
+\fi
+    
+\pp
+
+\begin{center}
+ \chemname{   \chemfig{H-O-S(=[2]O)(=[6]O)-O-H}}{Schwefelsäure}
+
+\end{center}
+
+\subsection*{Aufgabe 3}
+Wie groß ist der pH-Wert 
+\begin{itemize}
+\item einer Essigsäure ($\text{p}K_\text{S} = 4{,}75$) mit der Konzentration $c = 0{,}5\,\text{mol/L}$?
+\item einer Ameisensäure ($\text{p}K_\text{S} = 3{,}77$) mit der Konzentration $c = 0{,}05\,\text{mol/L}$?
+\end{itemize}
+\ifshowme
+\antwort{
+\begin{equation*}
+    \text{pH} = 0{,}5 \cdot (4{,}75 - \lg(0{,}5)) = 2{,}53
+\end{equation*}
+
+Der pH-Wert einer $0{,}5$ molaren Essigsäure beträgt $2{,}53$.
+}
+\else
+\fi
+
+\subsection*{Aufgabe 4}
+Wie hoch ist der pH-Wert einer 0,2 molaren Natronlauge?
+
+
+
+\subsection*{Aufgabe 5}
+Berechnen Sie den Anteil an undissoziierter Buttersäure (pK$_S$ = 4,8) in einem Sauermilchgetränk mit pH 4,5. Bewerten Sie den Aromabeitrag von Buttersäure (50 mg/kg Aromaschwelle).
+
+\subsection*{Aufgabe 6}
+Berechnen Sie pK$_S$-Wert und Säurekonstante für Capronsäure (c = 0,2 mol/L), welche bei einem pH von 4,5 zu 0,8\% dissoziiert ist.
+\end{document}
