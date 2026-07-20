@@ -1,0 +1,384 @@
+\documentclass[aspectratio=169,9pt]{beamer}
+\mode<presentation> 
+\usepackage[utf8]{inputenc}
+\usepackage{sansmathaccent} %Für equations
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage{relsize}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage[labelfont={bf},font={color=black!40,footnotesize},tablename={Tabelle},figurename={Abbildung}]{caption}
+\usetikzlibrary{positioning, arrows.meta, calc, matrix}
+\usefonttheme[onlymath]{serif}
+\usepackage{booktabs}
+%\makeatletter
+%\makeatother
+
+\usetikzlibrary{patterns, arrows.meta, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{intersections, pgfplots.fillbetween}\usetikzlibrary{intersections, pgfplots.fillbetween}
+\rowcolors{2}{miugray!30}{miugray!10}
+
+\usetheme{Madrid}  %% Themenwahl
+\useoutertheme{split} % Alternatively: miniframes, infolines, split
+%\useinnertheme{circles}
+
+
+\setbeamertemplate{itemize item}{\color{miugray}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{uniblau}$\bullet$}
+
+
+
+%\input{F://LaTeX-Files/shiet/SI.tex}
+
+
+\newcommand{\RA}{$\rightarrow$~}
+\newcommand{\pp}{\par \vspace*{2mm}}
+\newcommand{\ppbig}{\par \vspace*{4mm}}
+
+\definecolor{miudiutex}{HTML}{1d2926}
+\definecolor{miugray}{HTML}{b4cccf}
+\definecolor{miugray2}{HTML}{4d7365}
+\definecolor{white2}{HTML}{f5f7f8}
+\definecolor{red}{HTML}{cf1f5c}
+\definecolor{green}{HTML}{00A36C}
+\definecolor{delphinidin}{HTML}{315794}
+\definecolor{uniblau}{HTML}{004e9f}
+\definecolor{unigelb}{HTML}{fcba00}
+\definecolor{unigrau}{HTML}{909085}
+\definecolor{pelargonidin}{HTML}{b33807}
+\definecolor{cyanidin}{HTML}{ba0746}
+\definecolor{paeonidin}{HTML}{d15ca6}
+\definecolor{petunidin}{HTML}{b56fed}
+\definecolor{malvidin}{HTML}{8a2d8c}
+
+%\setbeamercolor{palette primary}{bg=pelargonidin!35,fg=white}
+%\setbeamercolor{palette secondary}{bg=delphinidin!45,fg=white}
+\setbeamercolor{palette primary}{bg=uniblau!70,fg=white}
+\setbeamercolor{palette secondary}{bg=uniblau!45,fg=white}
+\setbeamercolor{palette tertiary}{bg=unigelb!70,fg=unigrau}
+\setbeamercolor{palette quaternary}{bg=miugray,fg=white}
+\setbeamercolor{structure}{fg=black} % itemize, enumerate, etc
+\setbeamercolor{section in toc}{fg=red} % TOC sections
+
+\setbeamersize{text margin left=1cm,text margin right=1cm}
+
+
+\useinnertheme{tcolorbox} 
+\newcommand{\goodtk}[2]{
+\begin{tcolorbox}[
+	enhanced,
+	colframe=uniblau!75,
+	sharp corners,
+	boxsep=5pt,
+	title=\bfseries \sffamily #1,
+	colback=white,
+	coltitle=black,
+	attach boxed title to top text left={yshift=-\tcboxedtitleheight/2},
+	boxed title style={colback=white,colframe=white}
+]
+	#2
+	\end{tcolorbox}
+}
+	
+\newcommand{\antwort}[1]{
+\begin{tcolorbox}[
+	enhanced,
+	colframe=unigrau!65,
+	sharp corners,
+	boxsep=1pt,
+	colback=white,
+	coltitle=black,
+]
+	#1
+	\end{tcolorbox}
+}
+
+
+\title{12. Übung}
+\author{PD Dr. Helene Loos}
+\date{\today}
+
+\begin{document}
+%\maketitle
+\small
+
+
+
+\begin{frame}
+\begin{center}
+
+\LARGE Übung 12  \par \normalsize
+Prozessbezogene Lebensmitteltechnologie
+\end{center}
+\small
+\end{frame}
+
+
+
+\begin{frame}
+
+
+\begin{minipage}{.5\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 1} \par \vspace*{2mm}
+Aus einem Orangensaftkonzentrat mit 30 °Brix soll ein Orangensaft mit 11,5 °Brix hergestellt
+werden. Wieviel kg Saft kann hergestellt werden, wenn Sie 5 kg Orangensaftkonzentrat zur
+Verfügung haben?
+
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+\antwort{
+\uncover<2->{$ m_1 = 5~\text{kg};~m_2 = m_1 + m_3 ;~m_3 = ~?~;	\\ $ } 
+\uncover<3->{$~x_1=30~\text{°};~x_2=11,5~\text{°};~x_3=0~\text{°}$}
+
+\begin{align*}
+\uncover<4->{m_1 \cdot x_1 + m_3 \cdot x_3 &= m_2 \cdot x_2 \\}
+\uncover<5->{m_1 \cdot x_1 + m_3 \cdot x_3 &= m_1 \cdot x_2 + m_3 \cdot x_2 \\}
+\uncover<6->{m_1 \cdot x_1 + m_3 \cdot x_3 - m_1 \cdot x_2 &= m_3 \cdot x_2 \\}
+\uncover<7->{m_1 \cdot x_1 - m_1 \cdot x_2 &= m_3 \cdot x_2 - m_3 \cdot x_3\\}
+\uncover<8->{m_1 \cdot x_1 - m_1 \cdot x_2 &= m_3 \cdot (x_2 - x_3)\\}
+\uncover<9->{\frac{m_1 \cdot x_1 - m_1 \cdot x_2}{x_2 - x_3} &= m_3 = 8,04}
+\end{align*}
+
+\uncover<10->{Wir können also zu unseren vorhandenen 5 kg Orangensaftkonzentrat weitere 8,04 kg Wasser hinzugeben um einen °Brix von 11,5 zu erreichen. Dementsprechend erhalten wir 13,04 kg Orangensaft.}
+
+}
+\end{minipage}%
+
+
+\end{frame}
+
+
+\begin{frame}
+\begin{minipage}{.4\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 2} \par \vspace*{2mm}
+\footnotesize
+Ein Lebensmittel ist in Stickstoff-Schutzgasatmosphäre verpackt. Aufgrund eines Fehlers in
+der Siegelnaht kommt es zur Diffusion von Sauerstoff und Wasserdampf aus der
+Umgebungsluft in die Verpackung durch eine Pore (Porenradius: 12,5 µm, Porenlänge: 40
+µm). Berechnen Sie den Stoffstrom für Sauerstoff und den Stoffstrom für Wasserdampf unter
+der Annahme, dass die Konzentrationsdifferenzen von Sauerstoff und Wasserdampf 0,191 cm$^3$ (STP)/cm$^3$ und 12,91 µg/cm$^3$ betragen. Nehmen Sie für beide Gase einen Diffusionskoeffizienten von 0,243 cm$^2$/s an. 
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.6\textwidth}
+\antwort{
+\footnotesize
+\textbf{Sauerstoff:}
+\begin{align*}
+\uncover<2->{\dot{n} &= D \cdot A \cdot \frac{\Delta c}{l} \\}
+		\uncover<3->{&= 0,243 ~\text{cm}^2/\text{s} \cdot (\pi \cdot (1,25 \cdot 10^{-3}~\text{cm})^2) \cdot \frac{0,191 ~\text{cm}^3 \text{/cm$^3$}}{4 \cdot 10^{-3}~\text{cm} } \\}
+		\uncover<4->{&= 5,69 \cdot 10^{-5} ~\text{cm$^3$/s}}
+\end{align*}
+
+
+
+\textbf{Wasser:}
+\begin{align*}
+\uncover<5->{\dot{n} &= D \cdot A \cdot \frac{\Delta c}{l} \\}
+		\uncover<6->{&= 0,243 ~\text{cm}^2/\text{s} \cdot (\pi \cdot (1,25 \cdot 10^{-3}~\text{cm})^2) \cdot \frac{1,291 \cdot 10^{-5} ~\text{g}\text{/cm$^3$}}{4 \cdot 10^{-3}~\text{cm} } \\}
+		\uncover<7->{&= 3,85 \cdot 10^{-9} ~\text{g/s}}
+\end{align*}
+}
+\end{minipage}%
+
+
+\end{frame}
+
+
+
+\begin{frame}
+\begin{minipage}{.4\textwidth}
+%\normalsize
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 3} \par \vspace*{2mm}
+Ein Lebensmittel ist mit einem sauerstoff- und wasserdampfundurchlässigen Packstoff
+verpackt, in dem jedoch eine Pore (Radius: 12,5 µm) ist. Die Pore ist durch eine
+Kunststoffschicht mit der Dicke 40 µm abgedeckt. Berechnen Sie den Stoffstrom für
+Sauerstoff und Wasserdampf, wenn der Partialdruckunterschied p$_{O2}$ 0,21 bar und der
+Partialdruckunterschied p$_{H2O}$ 14,07 mbar beträgt. Der Permeationskoeffizient für Sauerstoff ist mit 628 (cm$^3$ (STP) $\cdot$ 100 µm)/(m$^2$ $\cdot$ d $\cdot$ bar) gegeben. Der Permeationskoeffizient für Wasserdampf beträgt (16,72 g $\cdot$ 100 µm)/(m$^2$ $\cdot$ d $\cdot$ bar).
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.6\textwidth}
+\antwort{
+\footnotesize
+\uncover<2->{\begin{align*}
+J &= P \cdot A \cdot \frac{\Delta p}{l}
+\end{align*}}
+
+\pp 
+\textbf{Sauerstoff:}
+\begin{align*}
+\uncover<3->{J &= P \cdot A \cdot \frac{\Delta p}{l} \\}
+ \uncover<4->{&= \frac{628 \cdot 10^{-6}~\text{m}^3 \cdot 10^{-4} ~\text{m}}{~\text{m}^2 \cdot ~\text{d} \cdot ~\text{bar}} \cdot \pi  \left( 1,25 \cdot 10^{-5}~\text{m} \right)^2  \cdot \frac{0,21 ~\text{bar}}{4 \cdot 10^{-5} ~\text{m}} \\}
+  \uncover<5->{&= 1,62 \cdot 10^{-13} ~\text{m}^3 / ~\text{d}}
+\end{align*}
+\pp 
+\textbf{Wasser:}
+\begin{align*}
+\uncover<6->{J &= P \cdot A \cdot \frac{\Delta p}{l} \\}
+ \uncover<7->{&= \frac{16,72 ~\text{g}  \cdot 10^{-4} ~\text{m}}{~\text{m}^2 \cdot ~\text{d} \cdot ~\text{bar}} \cdot \pi  \left( 1,25 \cdot 10^{-5}~\text{m} \right)^2  \cdot \frac{14,07 \cdot 10^{-3} ~\text{bar}}{4 \cdot 10^{-5} ~\text{m}} \\}
+  \uncover<8->{&= 2,88 \cdot 10^{-10} ~\text{g} / ~\text{d}}
+\end{align*}
+
+}
+\end{minipage}%
+\end{frame}
+
+
+
+\begin{frame}
+
+\begin{minipage}{.5\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 4} \par \vspace*{2mm}
+
+Durch Mischen von Orangensaft (Extraktgehalt: 12 °Brix, Dichte: 1,0465 kg/L, Gesamtsäure: 9
+g/L, berechnet als Weinsäure WS), einer Saccharoselösung (c = 65\% w/w) und Wasser soll ein
+Orangennektar mit einem Extraktgehalt von 8 °Brix (Dichte: 1,0299 kg/L) und einem
+Gesamtsäuregehalt von 5 g/L (berechnet als WS) hergestellt werden. Ein Zusatz von
+Säuerungsmitteln ist bei der Herstellung von Fruchtnektaren nicht üblich.
+
+\begin{itemize}
+
+
+\item Berechnen Sie, wieviel L Orangennektar aus 1 L Saft hergestellt werden können.
+
+
+
+\end{itemize}
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+
+\antwort{
+\begin{align*}
+\uncover<2->{\frac{9~\text{g}}{\text{L}} \cdot 1 \text{L} &= \frac{5~\text{g}}{\text{L}} \cdot x  \\}
+\uncover<3->{x &= \frac{9~\text{g}}{\text{L}} \cdot \frac{\text{L}}{5~\text{g}} \\}
+\uncover<4->{x &= \frac{9}{5} = 1,8~\text{L}}
+\end{align*}
+
+}
+
+
+
+
+
+
+
+\end{minipage}%
+
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{minipage}{.5\textwidth}
+
+
+{\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 4} \par \vspace*{2mm}
+
+Durch Mischen von Orangensaft (Extraktgehalt: 12 °Brix, Dichte: 1,0465 kg/L, Gesamtsäure: 9
+g/L, berechnet als Weinsäure WS), einer Saccharoselösung (c = 65\% w/w) und Wasser soll ein
+Orangennektar mit einem Extraktgehalt von 8 °Brix (Dichte: 1,0299 kg/L) und einem
+Gesamtsäuregehalt von 5 g/L (berechnet als WS) hergestellt werden. Ein Zusatz von
+Säuerungsmitteln ist bei der Herstellung von Fruchtnektaren nicht üblich.
+
+\begin{itemize}
+
+
+
+\item Berechnen Sie, welche Mengen an Saccharoselösung und Wasser entsprechend zu dem
+Saft zugegeben werden müssen, um 1 kg des Getränkes herzustellen. Tipp: Berechnen Sie
+dazu zunächst den Massenanteil an Fruchtsaft im Orangennektar.
+
+
+
+\end{itemize}
+\end{minipage}%
+\hspace*{4mm}
+\begin{minipage}{.5\textwidth}
+
+\antwort{
+
+\begin{align*}
+\uncover<2->{m_1 &=}\uncover<3->{ 1,8 ~\text{L} \cdot 1,0299 ~\text{kg/L} = 1,854 ~\text{kg} \\}
+\uncover<2->{m_2 &=}\uncover<3->{ 1 ~\text{L} \cdot 1,0465 ~\text{kg/L} = 1,0465 ~\text{kg} \\ }
+\uncover<4->{&\rightarrow \frac{1,0465 ~\text{kg}}{1,854 ~\text{kg}} =  0,5644 ~\text{kg}}
+\end{align*}
+\uncover<5->{Um 1 Kg Nektar herstellen zu können benötigen wir 0,5644 kg Saft. \par }
+\uncover<6->{Menge Zucker aus Saft berechnen:}
+\uncover<7->{\begin{align*}
+0,5644 ~\text{kg} \cdot 0,12 = 0,068 ~\text{kg}
+\end{align*}}
+\uncover<8->{Da wir 1 kg $\cdot $ 8° Brix = 0,08 kg Zucker in unserem Nektar benötigen, fehlen noch:
+\begin{align*}
+0,08~\text{kg} - 0,068~\text{kg} = 0,012 ~\text{kg}
+\end{align*}}
+\uncover<9->{Dafür benötigen wir folgende Menge 65\% Saccharose-Lösung:
+\begin{align*}
+\frac{0,012~\text{kg}}{0,65} = 0,0185 ~\text{kg}
+\end{align*}}
+\uncover<10->{Und der Rest ist Wasser:
+\begin{align*}
+(1-0,5644-0,0185)~\text{kg} = 0,4171 ~\text{kg}
+\end{align*}}
+
+}
+
+
+
+
+
+
+
+\end{minipage}%
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}
+
+\begin{center}
+\LARGE
+Vielen Dank fürs Zuhören!
+\end{center}
+
+\end{frame}
+
+
+
+
+
+
+
+\end{document}
