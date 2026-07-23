@@ -1,12 +1,14 @@
 \documentclass[a4paper,10pt]{article}
 %\input{F://LaTeX-Files/shiet/kemie2.tex}
-\usepackage[fleqn]{amsmath}
+\input{F://LaTeX-Files/shiet/basic.tex}
+\input{F://LaTeX-Files/shiet/plmtuebungpreamble.tex}
+%\usepackage[fleqn]{amsmath}
 \usepackage{witharrows}
 \usepackage{awesomebox}
 \usepackage{amssymb}
 \usepackage{siunitx}
 \usepackage{setspace}
-\usepackage[top=1.2cm,bottom=1.2cm,left=2cm,right=2cm]{geometry}
+%\usepackage[top=1.2cm,bottom=1.2cm,left=2cm,right=2cm]{geometry}
 \renewcommand{\textbf}[1]{\textsf{{\bfseries {#1}}}}
 \setlength{\parindent}{0pt}
 \setlength{\mathindent}{0cm}
@@ -25,9 +27,34 @@
 
 \definecolor{miugray}{HTML}{b4cccf}
 \definecolor{uniblau}{HTML}{004e9f}
-\newcommand{\plmtsquare}{{\color{miugray} $\blacksquare~$}}
+\renewcommand{\plmtsquare}{{\color{miugray} $\blacksquare~$}}
 \begin{document}
 
+%\pagebreak
+\newgeometry{top=3cm,bottom=3cm,left=3cm,right=3cm}
+\vspace*{\fill}
+\Huge \sffamily Hinweis: \normalsize
+\antwort{
+Was vorausgesetzt wird und deshalb nicht Bestandteil dieser Formelsammlung ist:
+\begin{itemize}
+
+\item den Umgebungsdruck kennen
+\item die Einheit bar in die Einheit Pascal umrechnen können
+\item Mischungsgleichung und Mischungskreuz kennen und anwenden können
+\item Massenwirkungsgesetz aufstellen können und Definition der Säurekonstante
+\item pH-Formel für schwache Säuren
+\item die Definition des Octanol-Wasser-Koeffizienten kennen
+\item Massenbilanzen aufstellen können
+\item einfache Berechnungen durchführen können, z.B. Fläche eines Kreises, Volumen eines Zylinders, etc.
+\end{itemize}
+
+}
+\vspace*{\fill}
+\pagebreak
+
+
+
+\newgeometry{top=1.2cm,bottom=1.2cm,left=2cm,right=2cm}
 \AddToHookNext{shipout/background}{
 \begin{tikzpicture}[remember picture, overlay]
    \draw[draw=uniblau!70,fill=uniblau!70, shift={(current page.north west)}] (-3,0) rectangle (23,-2.75);
@@ -137,6 +164,7 @@
 &\text{Watt [W]} ~ = \frac{\kg \cdot \m^2}{\s^3} = \frac{J}{s}\\ \\ \\
 &\text{Kritische Reynoldszahl:} \quad \text{Re}_{\text{krit}} = \frac{\rho d v}{\eta} = 2.300 \\[-4pt] 
 &\text{Stefan-Boltzmann Konst.:} ~\sigma = 5,67 \cdot 10^{-8}~ \text{W}/ \text{m}^{2}\text{K}^{4}\\[1pt]
+&\text{Allgemeine Gaskonstante:} ~R = 8,314 ~~\text{J/mol K} \\
 &\text{Strahlungszahl schw. Körper:} ~C_S = 5,67~ \text{W}/ \text{m}^{2}\text{K}^{4}\\
 &\text{Erdbeschleunigung:} \quad g = 9,81 ~\text{m/s}^2 \\[-1pt]
 &\text{Dichte von Wasser:} \quad 1.000 ~\text{kg/m}^3 \\
@@ -264,6 +292,24 @@
 \vfill
 \end{minipage}	
 
+%\pagebreak
+%\newgeometry{top=3cm,bottom=3cm,left=3cm,right=3cm}
+%
+%\antwort{
+%Was vorausgesetzt wird und deshalb nicht Bestandteil dieser Formelsammlung ist:
+%\begin{itemize}
+%
+%\item den Umgebungsdruck kennen
+%\item die Einheit bar in die Einheit Pascal umrechnen können
+%\item Mischungsgleichung und Mischungskreuz kennen und anwenden können
+%\item Massenwirkungsgesetz aufstellen können und Definition der Säurekonstante
+%\item pH-Formel für schwache Säuren
+%\item die Definition des Octanol-Wasser-Koeffizienten kennen
+%\item Massenbilanzen aufstellen können
+%\item einfache Berechnungen durchführen können, z.B. Fläche eines Kreises, Volumen eines Zylinders, etc.
+%\end{itemize}
+%
+%}
 
-	
+
 \end{document}

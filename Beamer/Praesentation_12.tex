@@ -33,7 +33,7 @@
 \setbeamertemplate{itemize item}{\color{miugray}$\blacksquare$}
 \setbeamertemplate{itemize subitem}{\color{uniblau}$\bullet$}
 
-
+\newcommand{\ey}{\color{miugray}$\blacktriangleright$}
 
 %\input{F://LaTeX-Files/shiet/SI.tex}
 
@@ -244,10 +244,9 @@ J &= P \cdot A \cdot \frac{\Delta p}{l}
 
 {\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 4} \par \vspace*{2mm}
 
-Durch Mischen von Orangensaft (Extraktgehalt: 12 °Brix, Dichte: 1,0465 kg/L, Gesamtsäure: 9
-g/L, berechnet als Weinsäure WS), einer Saccharoselösung (c = 65\% w/w) und Wasser soll ein
-Orangennektar mit einem Extraktgehalt von 8 °Brix (Dichte: 1,0299 kg/L) und einem
-Gesamtsäuregehalt von 5 g/L (berechnet als WS) hergestellt werden. Ein Zusatz von
+Durch Mischen von Orangensaft\only<1>{(Extraktgehalt: 12 °Brix, Dichte: 1,0465 kg/L, Gesamtsäure: 9 g/L, berechnet als Weinsäure WS)}, einer Saccharoselösung \only<1>{(c = 65\% w/w)} und Wasser soll ein
+Orangennektar mit einem Extraktgehalt von 8 °Brix \only<1>{(Dichte: 1,0299 kg/L)} und einem
+Gesamtsäuregehalt von 5 g/L \only<1>{(berechnet als WS)} hergestellt werden. Ein Zusatz von
 Säuerungsmitteln ist bei der Herstellung von Fruchtnektaren nicht üblich.
 
 \begin{itemize}
@@ -258,6 +257,45 @@ Säuerungsmitteln ist bei der Herstellung von Fruchtnektaren nicht üblich.
 
 
 \end{itemize}
+
+\begin{tikzpicture}[scale=0.95,
+    beaker/.style={thick, line cap=round, line join=round},
+    liquid level/.style={thick},
+    content text/.style={align=center, font=\small}
+]
+
+    % Schleife über die drei Becher
+    % Parameter: x-Position / Grad-Wert / Säuregehalt
+    \foreach \x/\grad/\saeure/\what/\dichte in {
+        0   / $12^\circ$ Brix / 9\,{g/L} / Orangensaft / \scriptsize $\rho=1{,}0465 $\,{kg/L} ,
+        2.5 / $65^\circ$ Brix / 0\,{g/L} / Saccharose-Lsg / - ,
+        5   / $8^\circ$ Brix  / 5\,{g/L} / Nektar / \scriptsize $\rho=1{,}0299$\,{kg/L}%
+    } {
+        \begin{scope}[shift={(\x,0)}]
+            % Optionale Füllung für die Flüssigkeit (bei Bedarf einkommentieren):
+             \fill[unigelb!15] (0, 0) -- (2.2, 0) -- (2.2, 2.2) -- (0, 2.2) -- cycle;
+
+            % Becher-Kontur (links, Boden, rechts)
+            \draw[beaker] (0, 2.5) -- (0, 0) -- (2.2, 0) -- (2.2, 2.5);
+            
+            % Flüssigkeitsspiegel
+            \draw[liquid level] (0, 2.2) -- (2.2, 2.2);
+            
+            % Beschriftung mittig im Becher
+            \node[content text] at (1.1, 1.1) {
+                \grad \\[1.2ex]
+                Säure \\
+                \saeure
+               	\\[1.2ex]
+               	\dichte
+            };
+            \node at(1,-0.25){\what};
+        \end{scope}
+    }
+
+\end{tikzpicture}
+
+
 \end{minipage}%
 \hspace*{4mm}
 \begin{minipage}{.5\textwidth}
@@ -283,6 +321,13 @@ Säuerungsmitteln ist bei der Herstellung von Fruchtnektaren nicht üblich.
 \end{frame}
 
 
+
+
+
+
+
+
+
 \begin{frame}
 
 \begin{minipage}{.5\textwidth}
@@ -290,11 +335,9 @@ Säuerungsmitteln ist bei der Herstellung von Fruchtnektaren nicht üblich.
 
 {\color{miugray}$\blacksquare ~$} \textbf{Aufgabe 4} \par \vspace*{2mm}
 
-Durch Mischen von Orangensaft (Extraktgehalt: 12 °Brix, Dichte: 1,0465 kg/L, Gesamtsäure: 9
-g/L, berechnet als Weinsäure WS), einer Saccharoselösung (c = 65\% w/w) und Wasser soll ein
-Orangennektar mit einem Extraktgehalt von 8 °Brix (Dichte: 1,0299 kg/L) und einem
-Gesamtsäuregehalt von 5 g/L (berechnet als WS) hergestellt werden. Ein Zusatz von
-Säuerungsmitteln ist bei der Herstellung von Fruchtnektaren nicht üblich.
+Durch Mischen von Orangensaft, einer Saccharoselösung und Wasser soll ein
+Orangennektar mit einem Extraktgehalt von 8 °Brix und einem
+Gesamtsäuregehalt von 5 g/L hergestellt werden.
 
 \begin{itemize}
 
@@ -307,6 +350,44 @@ dazu zunächst den Massenanteil an Fruchtsaft im Orangennektar.
 
 
 \end{itemize}
+\begin{tikzpicture}[scale=0.95,
+    beaker/.style={thick, line cap=round, line join=round},
+    liquid level/.style={thick},
+    content text/.style={align=center, font=\small}
+]
+
+    % Schleife über die drei Becher
+    % Parameter: x-Position / Grad-Wert / Säuregehalt
+    \foreach \x/\grad/\saeure/\what/\dichte in {
+        0   / $12^\circ$ Brix / 9\,{g/L} / 1 L Orangensaft / \scriptsize $\rho=1{,}0465 $\,{kg/L} ,
+        2.5 / $65^\circ$ Brix / 0\,{g/L} / Saccharose-Lsg / - ,
+        5   / $8^\circ$ Brix  / 5\,{g/L} / 1{,}8 L Nektar / \scriptsize $\rho=1{,}0299$\,{kg/L}%
+    } {
+        \begin{scope}[shift={(\x,0)}]
+            % Optionale Füllung für die Flüssigkeit (bei Bedarf einkommentieren):
+             \fill[unigelb!15] (0, 0) -- (2.2, 0) -- (2.2, 2.2) -- (0, 2.2) -- cycle;
+
+            % Becher-Kontur (links, Boden, rechts)
+            \draw[beaker] (0, 2.5) -- (0, 0) -- (2.2, 0) -- (2.2, 2.5);
+            
+            % Flüssigkeitsspiegel
+            \draw[liquid level] (0, 2.2) -- (2.2, 2.2);
+            
+            % Beschriftung mittig im Becher
+            \node[content text] at (1.1, 1.1) {
+                \grad \\[1.2ex]
+                Säure \\
+                \saeure
+               	\\[1.2ex]
+               	\dichte
+            };
+            \node at(1,-0.25){\what};
+        \end{scope}
+    }
+
+\end{tikzpicture}
+
+
 \end{minipage}%
 \hspace*{4mm}
 \begin{minipage}{.5\textwidth}
@@ -366,15 +447,61 @@ dazu zunächst den Massenanteil an Fruchtsaft im Orangennektar.
 
 
 
+%\begin{frame}
+%
+%\begin{center}
+%\LARGE
+%Vielen Dank fürs Zuhören!
+%\end{center}
+%
+%\end{frame}
+
+
+
+
+
+
 \begin{frame}
+\hspace*{\fill}
+\begin{minipage}{.7\textwidth}
 
-\begin{center}
-\LARGE
-Vielen Dank fürs Zuhören!
-\end{center}
 
+{\color{miugray}$\blacksquare ~$} \textbf{Fragen zur Klausur} \par \vspace*{2mm}
+\antwort{
+Formelsammlung hat sich wie folgt geändert:
+\begin{itemize}
+\item[\ey] Gaskonstante R wurde hinzugefügt
+\end{itemize}
+Welches Wissen vorausgesetzt wird:
+\begin{itemize}
+\item[\ey] Umgebungsdruck kennen (1 bar = 100.000 Pa)
+\item[\ey] Bar in Pascal umrechnen können
+\item[\ey] Mischungsgleichung oder Mischungskreuz anwenden können (oder wie auch immer Mischungen berechnen können)
+\item[\ey] MWG aufstellen können
+\item[\ey] Definition der Säurekonstante 
+\item[\ey] pH-Formel für schwache Säuren
+\item[\ey] Definition des Octanol-Wasser-Koeffizienten kennen
+\item[\ey] Massenbilanzen aufstellen können
+\item[\ey] Einfache Berechnungen (Kreisfläche, Volumen eines Zylinders, etc.)
+\end{itemize}
+}
+
+\end{minipage}%
+%\hspace*{4mm}
+%\begin{minipage}{.5\textwidth}
+%
+%\end{minipage}%
+\hspace*{\fill}
 \end{frame}
 
+
+
+
+\begin{frame}
+\begin{center}
+\LARGE Viel Erfolg bei der Klausur! :)
+\end{center}
+\end{frame}
 
 
 
